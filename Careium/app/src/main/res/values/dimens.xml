@@ -10,7 +10,7 @@
     <dimen name="large_spacing">32dp</dimen>
     <dimen name="x_large_spacing">40dp</dimen>
 
-    <dimen name="toolbar_height">80dp</dimen>
+    <dimen name="toolbar_height">84dp</dimen>
     <dimen name="profile_image_dims">80dp</dimen>
     <dimen name="icons_dims">32dp</dimen>
 </resources>
