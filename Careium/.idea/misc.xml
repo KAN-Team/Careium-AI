@@ -4,6 +4,21 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Projects/AndroidStudio/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium/Careium/app/src/main/res/drawable-v24/button_style.xml" value="0.2203125" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium/Careium/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1125" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium/Careium/app/src/main/res/drawable-v24/text_border.xml" value="0.2203125" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium/Careium/app/src/main/res/drawable-v24/text_highlight.xml" value="0.2203125" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium/Careium/app/src/main/res/drawable-v24/transparent_background.xml" value="0.2203125" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium/Careium/app/src/main/res/drawable-v24/view_border.xml" value="0.2203125" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium/Careium/app/src/main/res/drawable/ic_baseline_diary_24.xml" value="0.2203125" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium/Careium/app/src/main/res/drawable/ic_baseline_recipes_24.xml" value="0.2203125" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium/Careium/app/src/main/res/drawable/ic_outline_notifications_24.xml" value="0.2203125" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium/Careium/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium/Careium/app/src/main/res/layout/layout_navigation_header.xml" value="0.25" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium/Careium/app/src/main/res/layout/toolbar.xml" value="0.25" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium/Careium/app/src/main/res/menu/navigation_menu.xml" value="0.25" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium/Careium/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2203125" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium/Careium/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1125" />
       </map>
     </option>
   </component>

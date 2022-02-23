@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/custom_action_bar"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/toolbar_height"
+    android:background="@color/amber_700"
+    android:elevation="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/large_spacing"
+        android:layout_marginEnd="@dimen/small_spacing">
+
+        <ImageButton
+            android:id="@+id/image_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_round_menu_24"
+            android:foreground="?android:attr/selectableItemBackground"
+            tools:ignore="ContentDescription" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            tools:ignore="RelativeOverlap,UselessParent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/text_highlight"
+                android:fontFamily="@font/lato_black"
+                android:padding="2dp"
+                android:text="@string/app_name_first_part"
+                android:textColor="@color/amber_700"
+                android:textSize="@dimen/title_text_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_black"
+                android:paddingStart="2dp"
+                android:paddingEnd="2dp"
+                android:text="@string/app_name_second_part"
+                android:textColor="@color/amber_900"
+                android:textSize="@dimen/title_text_size" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/image_notifications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_outline_notifications_24"
+            android:foreground="?android:attr/selectableItemBackground"
+            tools:ignore="ContentDescription" />
+    </RelativeLayout>
+
+</androidx.appcompat.widget.Toolbar>

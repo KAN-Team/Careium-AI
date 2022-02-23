@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_item_home"
+        android:icon="@drawable/ic_round_home_24"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/menu_item_diary"
+        android:icon="@drawable/ic_round_diary_24"
+        android:title="@string/diary" />
+    <item
+        android:id="@+id/menu_item_recipes"
+        android:icon="@drawable/ic_round_recipes_24"
+        android:title="@string/recipes" />
+    <item
+        android:id="@+id/menu_item_diet_calender"
+        android:icon="@drawable/ic_round_diet_calendar_24"
+        android:title="@string/diet_calender" />
+    <item
+        android:id="@+id/menu_item_reminder"
+        android:icon="@drawable/ic_round_reminder_24"
+        android:title="@string/reminder" />
+    <item
+        android:id="@+id/menu_item_photo_album"
+        android:icon="@drawable/ic_round_photo_album_24"
+        android:title="@string/photo_album" />
+
+    <item android:title="@string/others">
+        <menu>
+            <item
+                android:id="@+id/menu_item_settings"
+                android:icon="@drawable/ic_round_settings_24"
+                android:title="@string/settings" />
+            <item
+                android:id="@+id/menu_item_help"
+                android:icon="@drawable/ic_round_help_24"
+                android:title="@string/help" />
+            <item
+                android:id="@+id/menu_item_sync"
+                android:icon="@drawable/ic_round_sync_24"
+                android:title="@string/sync" />
+        </menu>
+    </item>
+</menu>

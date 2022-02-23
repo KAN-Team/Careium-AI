@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/amber_900"
+    android:paddingStart="@dimen/medium_spacing"
+    android:paddingTop="@dimen/x_large_spacing"
+    android:paddingEnd="@dimen/medium_spacing"
+    android:paddingBottom="@dimen/small_spacing">
+
+    <LinearLayout
+        android:id="@+id/layout_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_spacing"
+        android:layout_marginBottom="@dimen/small_spacing"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/icons_dims"
+            android:layout_height="@dimen/icons_dims"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/ic_care_24"
+            android:backgroundTint="@color/amber_700"
+            android:scaleType="centerCrop"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/text_navigation_header_app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/small_spacing"
+            android:elegantTextHeight="true"
+            android:elevation="8dp"
+            android:fontFamily="sans-serif"
+            android:letterSpacing="0.2"
+            android:text="@string/app_name"
+            android:textColor="@color/amber_700"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/profile_image_dims"
+        android:layout_below="@id/layout_icon">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/image_user_profile"
+            android:layout_width="@dimen/profile_image_dims"
+            android:layout_height="@dimen/profile_image_dims"
+            android:scaleType="centerCrop"
+            android:src="@drawable/avatar"
+            app:riv_oval="true" />
+
+        <TextView
+            android:id="@+id/text_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_spacing"
+            android:layout_marginTop="@dimen/medium_spacing"
+            android:layout_toEndOf="@id/image_user_profile"
+            android:text="@string/username"
+            android:textColor="@color/white"
+            android:textSize="@dimen/medium_text_size" />
+
+        <TextView
+            android:id="@+id/text_verification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_user_name"
+            android:layout_marginStart="@dimen/small_spacing"
+            android:layout_toEndOf="@id/image_user_profile"
+            android:text="@string/verified"
+            android:textColor="@color/amber_700"
+            android:textSize="@dimen/small_text_size" />
+
+        <Button
+            android:id="@+id/button_language_picker"
+            android:layout_width="85dp"
+            android:layout_height="38dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/theme_button"
+            android:drawableEnd="@drawable/ic_round_language_24"
+            tools:text="EG" />
+    </RelativeLayout>
+
+</RelativeLayout>
