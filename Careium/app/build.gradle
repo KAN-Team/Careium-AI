@@ -15,7 +15,9 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    buildFeatures {
+        viewBinding true
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -44,10 +46,10 @@ dependencies {
     // Rounded Image View
     implementation 'com.makeramen:roundedimageview:2.3.0'
 
-    // Navigation Component
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.0-alpha02'
-
     // Bottom Navigation Bar
     implementation 'com.etebarian:meow-bottom-navigation-java:1.2.0'
+
+    // Circular Floating Action Menu
+    implementation 'com.oguzdev:CircularFloatingActionMenu:1.0.2'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 }

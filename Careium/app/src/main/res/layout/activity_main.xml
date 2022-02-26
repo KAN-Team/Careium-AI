@@ -14,21 +14,22 @@
         android:orientation="vertical"
         android:weightSum="1">
 
-        <include layout="@layout/layout_toolbar" />
+        <include
+            android:id="@+id/layout_toolbar"
+            layout="@layout/layout_toolbar" />
 
         <FrameLayout
             android:id="@+id/main_frame_layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@color/amber_700">
-
-        </FrameLayout>
+            android:background="@color/amber_700" />
 
         <com.etebarian.meowbottomnavigation.MeowBottomNavigation
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:fabCradleMargin="20dp"
             app:mbn_backgroundBottomColor="@color/amber_700"
             app:mbn_circleColor="@color/white"
             app:mbn_countBackgroundColor="@color/amber_900"

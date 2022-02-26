@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/custom_action_bar"
     android:layout_width="match_parent"
@@ -22,35 +23,48 @@
             android:foreground="?android:attr/selectableItemBackground"
             tools:ignore="ContentDescription" />
 
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="@dimen/small_spacing"
-            android:orientation="horizontal"
-            tools:ignore="RelativeOverlap,UselessParent">
+            android:layout_margin="4dp"
+            app:background="@color/amber_700"
+            app:cardBackgroundColor="@color/amber_700"
+            app:cardCornerRadius="40dp"
+            app:cardElevation="20dp"
+            app:contentPaddingRight="4dp"
+            tools:ignore="RelativeOverlap">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/text_highlight"
-                android:fontFamily="@font/lato_black"
-                android:paddingLeft="6dp"
-                android:paddingRight="6dp"
-                android:text="@string/app_name_first_part"
-                android:textColor="@color/amber_700"
-                android:textSize="@dimen/title_text_size" />
+                android:orientation="horizontal"
+                tools:ignore="RelativeOverlap,UselessParent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/lato_black"
-                android:paddingStart="2dp"
-                android:paddingEnd="2dp"
-                android:text="@string/app_name_second_part"
-                android:textColor="@color/amber_900"
-                android:textSize="@dimen/title_text_size" />
-        </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/theme_highlight"
+                    android:fontFamily="@font/lato_black"
+                    android:paddingStart="6dp"
+                    android:paddingEnd="6dp"
+                    android:text="@string/app_name_first_part"
+                    android:textColor="@color/amber_700"
+                    android:textSize="@dimen/title_text_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_black"
+                    android:paddingStart="2dp"
+                    android:paddingEnd="2dp"
+                    android:text="@string/app_name_second_part"
+                    android:textColor="@color/amber_900"
+                    android:textSize="@dimen/title_text_size" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
 
         <ImageButton
             android:id="@+id/image_notifications"

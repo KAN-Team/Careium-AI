@@ -5,6 +5,7 @@
     <dimen name="medium_text_size">18sp</dimen>
     <dimen name="large_text_size">32sp</dimen>
 
+    <dimen name="tiny_spacing">4dp</dimen>
     <dimen name="small_spacing">8dp</dimen>
     <dimen name="medium_spacing">16dp</dimen>
     <dimen name="large_spacing">32dp</dimen>

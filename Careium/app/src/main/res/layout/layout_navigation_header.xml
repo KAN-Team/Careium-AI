@@ -18,14 +18,13 @@
         android:layout_marginBottom="@dimen/small_spacing"
         android:orientation="horizontal">
 
-        <ImageView
+        <com.makeramen.roundedimageview.RoundedImageView
             android:layout_width="@dimen/icons_dims"
             android:layout_height="@dimen/icons_dims"
             android:layout_gravity="center_vertical"
-            android:background="@drawable/ic_care_24"
-            android:backgroundTint="@color/amber_700"
-            android:scaleType="centerCrop"
-            tools:ignore="ContentDescription" />
+            android:elevation="8dp"
+            android:src="@mipmap/ic_launcher"
+            app:riv_oval="true" />
 
         <TextView
             android:id="@+id/text_navigation_header_app_name"
@@ -36,11 +35,12 @@
             android:elegantTextHeight="true"
             android:elevation="8dp"
             android:fontFamily="sans-serif"
-            android:letterSpacing="0.2"
-            android:text="@string/app_name"
+            android:letterSpacing="0.0"
+            android:text="@string/app_full_name"
             android:textColor="@color/amber_700"
             android:textSize="22sp"
             android:textStyle="bold" />
+
     </LinearLayout>
 
     <RelativeLayout
@@ -53,7 +53,7 @@
             android:layout_width="@dimen/profile_image_dims"
             android:layout_height="@dimen/profile_image_dims"
             android:scaleType="centerCrop"
-            android:src="@drawable/avatar"
+            android:src="@drawable/avatar_man"
             app:riv_oval="true" />
 
         <TextView

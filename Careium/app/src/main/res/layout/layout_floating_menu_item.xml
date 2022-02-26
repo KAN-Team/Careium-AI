@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:background="@color/amber_700">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/amber_900"
+        app:fabSize="mini"
+        app:tint="@null"
+        app:maxImageSize="28dp"
+        tools:ignore="ContentDescription"
+        tools:src="@drawable/ic_menu_breakfast_64" />
+
+    <TextView
+        android:id="@+id/text_fab_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tiny_spacing"
+        android:textColor="@color/white"
+        android:textSize="@dimen/small_text_size"
+        tools:text="Food Image" />
+
+</LinearLayout>
