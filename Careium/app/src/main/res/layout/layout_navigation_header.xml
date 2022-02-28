@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="@dimen/nav_drawer_header_height"
     android:background="@color/amber_900"
-    android:paddingStart="@dimen/medium_spacing"
-    android:paddingTop="@dimen/x_large_spacing"
-    android:paddingEnd="@dimen/medium_spacing"
-    android:paddingBottom="@dimen/small_spacing">
+    android:orientation="vertical"
+    android:padding="@dimen/medium_spacing">
 
     <LinearLayout
-        android:id="@+id/layout_icon"
+        android:id="@+id/layout_app_signature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/small_spacing"
+        android:layout_marginTop="@dimen/medium_spacing"
         android:layout_marginBottom="@dimen/small_spacing"
         android:orientation="horizontal">
 
@@ -22,7 +19,7 @@
             android:layout_width="@dimen/icons_dims"
             android:layout_height="@dimen/icons_dims"
             android:layout_gravity="center_vertical"
-            android:elevation="8dp"
+            android:elevation="@dimen/elevation_scale"
             android:src="@mipmap/ic_launcher"
             app:riv_oval="true" />
 
@@ -33,7 +30,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginStart="@dimen/small_spacing"
             android:elegantTextHeight="true"
-            android:elevation="8dp"
+            android:elevation="@dimen/elevation_scale"
             android:fontFamily="sans-serif"
             android:letterSpacing="0.0"
             android:text="@string/app_full_name"
@@ -45,14 +42,14 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/profile_image_dims"
-        android:layout_below="@id/layout_icon">
+        android:layout_height="wrap_content">
 
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/image_user_profile"
-            android:layout_width="@dimen/profile_image_dims"
+            android:layout_width="wrap_content"
             android:layout_height="@dimen/profile_image_dims"
-            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
             android:src="@drawable/avatar_man"
             app:riv_oval="true" />
 
@@ -61,9 +58,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/small_spacing"
-            android:layout_marginTop="@dimen/medium_spacing"
+            android:layout_marginTop="@dimen/small_spacing"
             android:layout_toEndOf="@id/image_user_profile"
-            android:text="@string/username"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Mohamed Abdelhamed"
             android:textColor="@color/white"
             android:textSize="@dimen/medium_text_size" />
 
@@ -78,15 +77,20 @@
             android:textColor="@color/amber_700"
             android:textSize="@dimen/small_text_size" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_language_picker"
-            android:layout_width="85dp"
-            android:layout_height="38dp"
+            style="@style/Widget.AppCompat.Button.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:background="@drawable/theme_button"
             android:drawableEnd="@drawable/ic_round_language_24"
-            tools:text="EG" />
+            android:drawableTint="@color/amber_700"
+            android:text="@string/local_eg"
+            android:textColor="@color/amber_700"
+            android:textSize="@dimen/small_text_size"
+            app:backgroundTint="@android:color/transparent" />
+
     </RelativeLayout>
 
-</RelativeLayout>
+</LinearLayout>

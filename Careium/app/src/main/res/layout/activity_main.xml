@@ -19,11 +19,27 @@
             layout="@layout/layout_toolbar" />
 
         <FrameLayout
-            android:id="@+id/main_frame_layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@color/amber_700" />
+            android:animateLayoutChanges="true"
+            android:background="@color/amber_700">
+
+            <FrameLayout
+                android:id="@+id/layout_main_frame"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/amber_700" />
+
+            <FrameLayout
+                android:id="@+id/layout_main_frame_overlay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/transparent_background"
+                android:visibility="gone" />
+
+        </FrameLayout>
+
 
         <com.etebarian.meowbottomnavigation.MeowBottomNavigation
             android:id="@+id/bottom_navigation"
@@ -41,7 +57,7 @@
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/nav_drawer_width"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/layout_navigation_header"

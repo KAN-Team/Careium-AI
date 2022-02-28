@@ -4,10 +4,8 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.provider.MediaStore
-import android.view.MenuItem
-import android.view.MotionEvent
-import android.view.View
-import android.view.ViewGroup
+import android.util.DisplayMetrics
+import android.view.*
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.Toast
@@ -15,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.careium.R
 import com.example.careium.databinding.ActivityMainBinding
@@ -29,6 +28,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var swipeListener: SwipeListener
+    private lateinit var actionMenu: FloatingActionMenu
 
     companion object {
         const val REQUEST_IMAGE_CAPTURE = 1
@@ -119,7 +119,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.main_frame_layout, fragment).commit()
+            .replace(R.id.layout_main_frame, fragment)
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+            .commit()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -163,10 +165,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun dispatchTouchEvent(event: MotionEvent?): Boolean {
-        if (swipeListener.isSwipedUp(event)) {
-            //Toast.makeText(this, "Swiped UP !", Toast.LENGTH_SHORT).show()
+        // Handle Swipe Up action
+        if (swipeListener.isSwipedUp(event))
             capturePlate()
+
+        // Collapse FAB Menu and clear the overlay
+        if (actionMenu.isOpen) {
+            binding.layoutMainFrameOverlay.visibility = View.GONE
+            actionMenu.close(true)
         }
+
         return super.dispatchTouchEvent(event)
     }
 
@@ -201,9 +209,15 @@ class MainActivity : AppCompatActivity() {
         // Item 6
         val item6 = inflateFABMenuItem(FABItem.TRACKER, R.drawable.ic_menu_camera_48, "Tracker")
 
+        // Getting runtime screen width
+        val displayMetrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        val width: Float = displayMetrics.widthPixels.toFloat()
+        val radius: Int = (width * 0.60f).toInt() // radius = 60% of the screen width
+
         // Attaching the menu to the primary button
-        FloatingActionMenu.Builder(this)
-            .setRadius(700)
+        actionMenu = FloatingActionMenu.Builder(this)
+            .setRadius(radius)
             .addSubActionView(item1)
             .addSubActionView(item2)
             .addSubActionView(item3)
@@ -212,6 +226,13 @@ class MainActivity : AppCompatActivity() {
             .addSubActionView(item6)
             .attachTo(actionButton)
             .build()
+
+        actionButton.setOnClickListener {
+            actionMenu.toggle(true)
+            // add an overlay on opening
+            if (actionMenu.isOpen)
+                binding.layoutMainFrameOverlay.visibility = View.VISIBLE
+        }
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -226,7 +247,7 @@ class MainActivity : AppCompatActivity() {
         itemBinding.fabItem.setOnClickListener {
             when (id) {
                 FABItem.TRACKER ->
-                    Toast.makeText(this, "Tracker Button Clicked !!", Toast.LENGTH_SHORT).show()
+                    capturePlate()
                 FABItem.BREAKFAST ->
                     Toast.makeText(this, "Breakfast Button Clicked !!", Toast.LENGTH_SHORT).show()
                 FABItem.LUNCH ->

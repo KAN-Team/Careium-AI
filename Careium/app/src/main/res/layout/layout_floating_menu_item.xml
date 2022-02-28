@@ -12,10 +12,10 @@
         android:id="@+id/fab_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:backgroundTint="@color/amber_900"
+        app:backgroundTint="@color/white"
         app:fabSize="mini"
-        app:tint="@null"
         app:maxImageSize="28dp"
+        app:tint="@null"
         tools:ignore="ContentDescription"
         tools:src="@drawable/ic_menu_breakfast_64" />
 

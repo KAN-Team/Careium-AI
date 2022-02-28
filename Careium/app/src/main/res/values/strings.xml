@@ -15,4 +15,7 @@
     <string name="sync">Sync</string>
     <string name="verified">Verified</string>
     <string name="username">Alfred Nobel</string>
+
+    <!-- Locals -->
+    <string name="local_eg">EG</string>
 </resources>
