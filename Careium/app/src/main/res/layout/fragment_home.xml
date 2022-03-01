@@ -1,16 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:background="@color/amber_700"
     tools:context=".ui.fragments.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="HOME"
-        android:textSize="@dimen/large_text_size"
-        android:gravity="center"/>
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:cardBackgroundColor="#3949AB"
+        app:cardCornerRadius="@dimen/large_card_radius"
+        app:cardElevation="@dimen/elevation_card">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/medium_spacing"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/layout_progress_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/transparent_background">
+
+                <ProgressBar
+                    android:id="@+id/progress_home_circular"
+                    android:layout_width="@dimen/progress_circular_dimen"
+                    android:layout_height="@dimen/progress_circular_dimen"
+                    android:layout_centerInParent="true"
+                    android:indeterminateOnly="false"
+                    android:progressDrawable="@drawable/dw_determinate_circular_progress"
+                    tools:progress="70" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="@dimen/small_spacing">
+
+                    <TextView
+                        android:id="@+id/texT_progress_home"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:elevation="@dimen/elevation_scale"
+                        android:fontFamily="sans-serif-condensed"
+                        android:padding="@dimen/tiny_spacing"
+                        android:scaleX="1.0"
+                        android:scaleY="1.5"
+                        android:textColor="@color/amber_900"
+                        android:textSize="54sp"
+                        android:textStyle="bold"
+                        tools:text="2820" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/tiny_spacing"
+                        android:scaleX="0.8"
+                        android:text="@string/calories_remaining"
+                        android:textColor="#ded"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <GridLayout
+                android:id="@+id/layout_components_grid"
+                android:layout_width="@dimen/progress_circular_dimen"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_spacing"
+                android:columnCount="3"
+                android:rowCount="2">
+
+                <include
+                    android:id="@+id/layout_budget_item"
+                    style="@style/style_components_item"
+                    layout="@layout/layout_components_item" />
+
+                <include
+                    android:id="@+id/layout_consumed_item"
+                    style="@style/style_components_item"
+                    layout="@layout/layout_components_item" />
+
+                <include
+                    android:id="@+id/layout_temp_item"
+                    style="@style/style_components_item"
+                    layout="@layout/layout_components_item" />
+
+                <include
+                    android:id="@+id/layout_carbs_item"
+                    style="@style/style_components_item"
+                    layout="@layout/layout_components_item" />
+
+                <include
+                    android:id="@+id/layout_fats_item"
+                    style="@style/style_components_item"
+                    layout="@layout/layout_components_item" />
+
+                <include
+                    android:id="@+id/layout_proteins_item"
+                    style="@style/style_components_item"
+                    layout="@layout/layout_components_item" />
+
+            </GridLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </FrameLayout>

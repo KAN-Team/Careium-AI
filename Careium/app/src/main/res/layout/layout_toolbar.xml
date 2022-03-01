@@ -30,8 +30,8 @@
             android:layout_margin="@dimen/tiny_spacing"
             app:background="@color/amber_700"
             app:cardBackgroundColor="@color/amber_700"
-            app:cardCornerRadius="@dimen/title_name_card_radius"
-            app:cardElevation="@dimen/elevation_card"
+            app:cardCornerRadius="@dimen/large_card_radius"
+            app:cardElevation="@dimen/elevation_app_title_card"
             app:contentPaddingRight="@dimen/tiny_spacing"
             tools:ignore="RelativeOverlap">
 

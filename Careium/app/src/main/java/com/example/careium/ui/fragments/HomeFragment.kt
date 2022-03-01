@@ -2,59 +2,83 @@ package com.example.careium.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.example.careium.R
+import com.example.careium.databinding.FragmentHomeBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class HomeFragment : Fragment(R.layout.fragment_home) {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class HomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var binding: FragmentHomeBinding
+    // Main Components
+    private var progressVal: Int = 3000
+    private var budgetVal: Int = 3000
+    private var consumedVal: Int = 0
+    private var tempVal: Float = 123f
+    private var carbsVal: Float = 50f
+    private var fatsVal: Float = 100f
+    private var proteinsVal: Float = 180f
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    companion object {
+        @JvmStatic
+        fun newInstance() =
+            HomeFragment().apply {}
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = FragmentHomeBinding.bind(view)
+
+        // Initializing components values
+        hookComponents()
+
+        // Setting CALORIES progress max value
+        binding.progressHomeCircular.max = 3000
+        updateProgress()
+
+        binding.progressHomeCircular.setOnClickListener {
+            if (progressVal > 0) {
+                progressVal -= 100
+                consumedVal += 100
+                budgetVal -= 100
+                updateProgress()
+            } else {
+                progressVal = 3000
+                consumedVal = 0
+                budgetVal = 3000
+                updateProgress()
+            }
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+    private fun updateProgress() {
+        binding.progressHomeCircular.progress = progressVal
+        binding.texTProgressHome.text = "$progressVal"
+        updateComponents()
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(/*param1: String, param2: String*/) =
-            HomeFragment().apply {
-                /*arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }*/
-            }
+    private fun hookComponents() {
+        // Hooking BUDGET
+        binding.layoutBudgetItem.textComponentLabel.text = getString(R.string.budget)
+        // Hooking CONSUMED
+        binding.layoutConsumedItem.textComponentLabel.text = getString(R.string.consumed)
+        // Hooking TEMP
+        binding.layoutTempItem.textComponentLabel.text = getString(R.string.temp)
+        // Hooking CARBS
+        binding.layoutCarbsItem.textComponentLabel.text = getString(R.string.carbs)
+        // Hooking FATS
+        binding.layoutFatsItem.textComponentLabel.text = getString(R.string.fats)
+        // Hooking PROTEINS
+        binding.layoutProteinsItem.textComponentLabel.text = getString(R.string.proteins)
+
+        updateComponents()
+    }
+
+    private fun updateComponents(){
+        binding.layoutBudgetItem.textComponentValue.text = "$budgetVal cal"     // BUDGET
+        binding.layoutConsumedItem.textComponentValue.text = "$consumedVal cal" // CONSUMED
+        binding.layoutTempItem.textComponentValue.text = "$tempVal g"           // TEMP
+        binding.layoutCarbsItem.textComponentValue.text = "$carbsVal g"         // CARBS
+        binding.layoutFatsItem.textComponentValue.text = "$fatsVal g"           // FATS
+        binding.layoutProteinsItem.textComponentValue.text = "$proteinsVal g"   // PROTEINS
     }
 }

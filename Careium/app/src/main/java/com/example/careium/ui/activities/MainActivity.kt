@@ -86,7 +86,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Initialize home fragment as the default
-        bottomNavigation.show(1, true)
+        bottomNavigation.show(1, false)
         // Set notification count
         bottomNavigation.setCount(2, "5")
 
@@ -120,7 +120,8 @@ class MainActivity : AppCompatActivity() {
     private fun loadFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.layout_main_frame, fragment)
-            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+            // TODO: Uncomment below line after finishing the design for all fragments
+            //.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             .commit()
     }
 

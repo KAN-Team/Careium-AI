@@ -16,6 +16,15 @@
     <string name="verified">Verified</string>
     <string name="username">Alfred Nobel</string>
 
+    <!-- Home Fragment -->
+    <string name="calories_remaining">Calories Remaining</string>
+    <string name="budget">Budget</string>
+    <string name="consumed">Consumed</string>
+    <string name="temp">temp</string>
+    <string name="carbs">Carbs</string>
+    <string name="fats">Fats</string>
+    <string name="proteins">Proteins</string>
+
     <!-- Locals -->
     <string name="local_eg">EG</string>
 </resources>

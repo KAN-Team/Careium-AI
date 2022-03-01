@@ -15,14 +15,24 @@
 
     <!-- Elevations -->
     <dimen name="elevation_toolbar">4dp</dimen>
+    <dimen name="elevation_app_title_card">20dp</dimen>
     <dimen name="elevation_card">8dp</dimen>
     <dimen name="elevation_scale">8dp</dimen> <!-- for each view uses an elevation -->
 
-    <!-- Certain Views -->
+    <!-- Toolbar and DrawerLayout -->
     <dimen name="toolbar_height">84dp</dimen>
-    <dimen name="title_name_card_radius">40dp</dimen>
     <dimen name="nav_drawer_width">304dp</dimen>
     <dimen name="nav_drawer_header_height">170dp</dimen> <!-- header height = WIDTH * 9/16 -->
+
+    <!-- Card Views radius -->
+    <dimen name="small_card_radius">20dp</dimen>
+    <dimen name="large_card_radius">40dp</dimen>
+
+    <!-- Images and Icons -->
     <dimen name="profile_image_dims">80dp</dimen>
     <dimen name="icons_dims">24dp</dimen> <!-- for each icon in the app --> <!-- was 32dp -->
+
+    <!-- Progress -->
+    <dimen name="progress_circular_dimen">300dp</dimen>
+
 </resources>

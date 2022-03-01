@@ -50,7 +50,7 @@
             android:layout_height="@dimen/profile_image_dims"
             android:adjustViewBounds="true"
             android:scaleType="fitXY"
-            android:src="@drawable/avatar_man"
+            android:src="@drawable/ph_avatar_man"
             app:riv_oval="true" />
 
         <TextView
