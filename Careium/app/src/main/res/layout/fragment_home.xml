@@ -1,153 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:background="@color/amber_700"
+    android:orientation="vertical"
+    android:padding="@dimen/small_spacing"
+    tools:background="?attr/colorPrimaryVariant"
     tools:context=".ui.fragments.HomeFragment">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        app:cardBackgroundColor="#3949AB"
+        android:layout_marginBottom="@dimen/small_spacing"
+        app:cardBackgroundColor="?attr/colorPrimaryVariant"
         app:cardCornerRadius="@dimen/large_card_radius"
-        app:cardElevation="@dimen/elevation_card">
+        app:cardElevation="@dimen/elevation_card"
+        app:contentPadding="@dimen/small_spacing">
 
-        <LinearLayout
-            android:id="@+id/layout_card_body"
+        <RelativeLayout
+            android:id="@+id/layout_date_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/medium_spacing">
+            android:layout_gravity="center">
 
-            <RelativeLayout
-                android:id="@+id/layout_date_container"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/small_spacing">
-
-                <ImageButton
-                    android:id="@+id/image_button_prev_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:background="@drawable/ic_round_back_24"
-                    android:padding="@dimen/medium_spacing"
-                    tools:ignore="ContentDescription" />
-
-                <TextView
-                    android:id="@+id/text_calendar_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:textColor="@color/white"
-                    tools:text="Friday Mar 04, 2022" />
-
-                <ImageButton
-                    android:id="@+id/image_button_next_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:background="@drawable/ic_round_back_24"
-                    android:padding="@dimen/medium_spacing"
-                    android:rotation="180"
-                    android:visibility="invisible"
-                    tools:ignore="ContentDescription" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/layout_progress_container"
+            <ImageButton
+                android:id="@+id/image_button_prev_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/small_spacing"
-                android:background="@drawable/transparent_back_oval">
+                android:layout_alignParentStart="true"
+                android:background="@drawable/ic_round_back_24"
+                android:padding="@dimen/medium_spacing"
+                tools:ignore="ContentDescription" />
 
-                <ProgressBar
-                    android:id="@+id/progress_home_circular"
-                    android:layout_width="@dimen/progress_circular_dimen"
-                    android:layout_height="@dimen/progress_circular_dimen"
-                    android:layout_centerInParent="true"
-                    android:indeterminateOnly="false"
-                    android:progressDrawable="@drawable/dw_determinate_circular_progress"
-                    tools:progress="70" />
+            <TextView
+                android:id="@+id/text_calendar_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                tools:text="Friday Mar 04, 2022" />
 
-                <LinearLayout
+            <ImageButton
+                android:id="@+id/image_button_next_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/ic_round_back_24"
+                android:padding="@dimen/medium_spacing"
+                android:rotation="180"
+                android:visibility="invisible"
+                tools:ignore="ContentDescription" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/small_spacing"
+        app:cardBackgroundColor="?attr/colorPrimaryVariant"
+        app:cardCornerRadius="@dimen/large_card_radius"
+        app:cardElevation="@dimen/elevation_card"
+        app:contentPadding="@dimen/small_spacing">
+
+        <RelativeLayout
+            android:id="@+id/layout_progress_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/transparent_back_oval">
+
+            <ProgressBar
+                android:id="@+id/progress_home_circular"
+                android:layout_width="@dimen/progress_circular_dimen"
+                android:layout_height="@dimen/progress_circular_dimen"
+                android:layout_centerInParent="true"
+                android:indeterminateOnly="false"
+                android:progressDrawable="@drawable/dw_determinate_circular_progress"
+                tools:progress="70" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/small_spacing">
+
+                <TextView
+                    android:id="@+id/texT_progress_home"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="@dimen/small_spacing">
+                    android:elevation="@dimen/elevation_scale"
+                    android:fontFamily="sans-serif-condensed"
+                    android:padding="@dimen/tiny_spacing"
+                    android:scaleX="1.0"
+                    android:scaleY="1.5"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="54sp"
+                    android:textStyle="bold"
+                    tools:text="2820" />
 
-                    <TextView
-                        android:id="@+id/texT_progress_home"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:elevation="@dimen/elevation_scale"
-                        android:fontFamily="sans-serif-condensed"
-                        android:padding="@dimen/tiny_spacing"
-                        android:scaleX="1.0"
-                        android:scaleY="1.5"
-                        android:textColor="@color/amber_900"
-                        android:textSize="54sp"
-                        android:textStyle="bold"
-                        tools:text="2820" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/tiny_spacing"
+                    android:scaleX="0.8"
+                    android:text="@string/calories_remaining"
+                    android:textSize="@dimen/small_text_size" />
+            </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="@dimen/tiny_spacing"
-                        android:scaleX="0.8"
-                        android:text="@string/calories_remaining"
-                        android:textColor="#ded"
-                        android:textSize="12sp" />
-                </LinearLayout>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
 
-            </RelativeLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/small_spacing"
+        app:cardBackgroundColor="?attr/colorPrimaryVariant"
+        app:cardCornerRadius="@dimen/large_card_radius"
+        app:cardElevation="@dimen/elevation_card"
+        app:contentPadding="@dimen/small_spacing">
 
-            <GridLayout
-                android:id="@+id/layout_components_grid_container"
-                android:layout_width="@dimen/progress_circular_dimen"
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/layout_components_container"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:columnCount="3"
-                android:rowCount="2">
+                android:orientation="vertical"
+                android:padding="@dimen/small_spacing">
 
                 <include
-                    android:id="@+id/layout_budget_item"
-                    style="@style/style_components_item"
-                    layout="@layout/layout_components_item" />
-
-                <include
-                    android:id="@+id/layout_consumed_item"
-                    style="@style/style_components_item"
-                    layout="@layout/layout_components_item" />
-
-                <include
-                    android:id="@+id/layout_temp_item"
-                    style="@style/style_components_item"
+                    android:id="@+id/layout_cals_item"
                     layout="@layout/layout_components_item" />
 
                 <include
                     android:id="@+id/layout_carbs_item"
-                    style="@style/style_components_item"
                     layout="@layout/layout_components_item" />
 
                 <include
                     android:id="@+id/layout_fats_item"
-                    style="@style/style_components_item"
                     layout="@layout/layout_components_item" />
 
                 <include
                     android:id="@+id/layout_proteins_item"
-                    style="@style/style_components_item"
                     layout="@layout/layout_components_item" />
 
-            </GridLayout>
-        </LinearLayout>
-
+            </LinearLayout>
+        </ScrollView>
     </androidx.cardview.widget.CardView>
 
-</FrameLayout>
+</LinearLayout>

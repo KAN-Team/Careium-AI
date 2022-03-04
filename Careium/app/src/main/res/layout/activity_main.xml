@@ -22,21 +22,20 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:animateLayoutChanges="true"
-            android:background="@color/amber_700">
+            android:background="?attr/colorPrimaryVariant"
+            android:animateLayoutChanges="true">
 
             <FrameLayout
                 android:id="@+id/layout_main_frame"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/amber_700" />
+                android:layout_height="match_parent" />
 
             <FrameLayout
                 android:id="@+id/layout_main_frame_overlay"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/transparent_back_normal"
-                android:visibility="gone" />
+                android:visibility="invisible" />
 
         </FrameLayout>
 
@@ -46,12 +45,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:fabCradleMargin="20dp"
-            app:mbn_backgroundBottomColor="@color/amber_700"
+            app:mbn_backgroundBottomColor="?attr/colorPrimary"
             app:mbn_circleColor="@color/white"
-            app:mbn_countBackgroundColor="@color/amber_900"
-            app:mbn_countTextColor="@color/white"
+            app:mbn_countBackgroundColor="?attr/colorSecondary"
+            app:mbn_countTextColor="?attr/colorOnSecondary"
             app:mbn_defaultIconColor="@color/white"
-            app:mbn_selectedIconColor="@color/amber_700" />
+            app:mbn_selectedIconColor="?attr/colorPrimary" />
 
     </LinearLayout>
 

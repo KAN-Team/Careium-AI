@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:background="@color/amber_700">
+    tools:background="?attr/colorPrimary">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_item"
@@ -24,7 +24,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/tiny_spacing"
-        android:textColor="@color/white"
         android:textSize="@dimen/small_text_size"
         tools:text="Food Image" />
 

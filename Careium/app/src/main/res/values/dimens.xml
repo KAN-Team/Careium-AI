@@ -34,5 +34,7 @@
 
     <!-- Progress -->
     <dimen name="progress_circular_dimen">300dp</dimen>
+    <dimen name="track_corner_radius">20dp</dimen>
+    <dimen name="track_thickness">20dp</dimen>
 
 </resources>

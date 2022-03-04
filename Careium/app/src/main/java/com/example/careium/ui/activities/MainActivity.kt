@@ -5,15 +5,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.DisplayMetrics
+import android.util.TypedValue
 import android.view.*
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.careium.R
 import com.example.careium.databinding.ActivityMainBinding
@@ -154,13 +153,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun dispatchTouchEvent(event: MotionEvent?): Boolean {
+        // TODO: Uncheck this comment for swiping action
         // Handle Swipe Up action
-        if (swipeListener.isSwipedUp(event))
+        /*if (swipeListener.isSwipedUp(event))
             capturePlate()
+        */
 
         // Collapse FAB Menu and clear the overlay
         if (actionMenu.isOpen) {
-            binding.layoutMainFrameOverlay.visibility = View.GONE
+            binding.layoutMainFrameOverlay.visibility = View.INVISIBLE
             actionMenu.close(true)
         }
 
@@ -178,7 +179,11 @@ class MainActivity : AppCompatActivity() {
         val primaryBtnIcon = ImageView(this)
         primaryBtnIcon.setImageDrawable(getDrawable(R.drawable.ic_round_add_24))
         val actionButton = FloatingActionButton.Builder(this).setContentView(primaryBtnIcon).build()
-        actionButton.background.setTint(getColor(R.color.amber_900))
+        var typedValue: TypedValue = TypedValue()
+        theme.resolveAttribute(R.attr.colorSecondary, typedValue, true)
+        val colorSecondary: Int = typedValue.data
+        actionButton.background.setTint(colorSecondary)
+
         val param = actionButton.layoutParams as ViewGroup.MarginLayoutParams
         param.setMargins(10, 10, 10, 240)
         actionButton.layoutParams = param

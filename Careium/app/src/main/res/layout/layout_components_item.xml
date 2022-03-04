@@ -1,46 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/medium_spacing"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?selectableItemBackground"
-    app:cardBackgroundColor="@color/amber_700"
-    app:cardCornerRadius="@dimen/small_card_radius"
-    app:cardElevation="@dimen/elevation_card"
-    app:contentPadding="@dimen/tiny_spacing">
+    tools:background="?attr/colorPrimaryVariant">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/text_cmpnt_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:padding="@dimen/tiny_spacing"
+        android:scaleX="0.9"
+        android:textAllCaps="true"
+        android:textColor="?attr/colorSecondary"
+        android:textSize="@dimen/small_text_size"
+        tools:text="@string/calories" />
+
+    <TextView
+        android:id="@+id/text_cmpnt_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@id/text_cmpnt_target"
+        android:fontFamily="sans-serif-condensed"
+        android:padding="@dimen/tiny_spacing"
+        android:scaleX="1.2"
+        android:scaleY="1.6"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        tools:ignore="RelativeOverlap"
+        tools:text="500" />
+
+    <TextView
+        android:id="@+id/text_cmpnt_target"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:fontFamily="sans-serif-condensed"
+        android:padding="@dimen/tiny_spacing"
+        android:scaleX="1.2"
+        android:scaleY="1.6"
+        android:textSize="12sp"
+        android:textColor="?attr/colorSecondary"
+        android:textStyle="bold"
+        tools:text="/ 3000 g" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progress_cmpnt"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_cmpnt_label"
+        app:trackCornerRadius="@dimen/track_corner_radius"
+        app:trackThickness="@dimen/track_thickness"
+        tools:indicatorColor="@color/orange_700"
+        tools:max="3000"
+        tools:progress="500" />
 
-        <TextView
-            android:id="@+id/text_cmpnt_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:padding="@dimen/tiny_spacing"
-            android:scaleX="1.2"
-            android:scaleY="1.6"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            tools:text="3000" />
-
-        <TextView
-            android:id="@+id/text_cmpnt_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/tiny_spacing"
-            android:scaleX="0.9"
-            android:textAllCaps="true"
-            android:textColor="@color/amber_900"
-            android:textSize="@dimen/small_text_size"
-            tools:text="@string/budget" />
-    </LinearLayout>
-
-</androidx.cardview.widget.CardView>
+</RelativeLayout>
