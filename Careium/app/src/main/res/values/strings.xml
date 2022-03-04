@@ -1,4 +1,5 @@
 <resources>
+    <!-- Navigation Labels -->
     <string name="app_name">Careium</string>
     <string name="app_full_name">Careium AI</string>
     <string name="app_name_first_part">Care</string>
@@ -24,6 +25,8 @@
     <string name="carbs">Carbs</string>
     <string name="fats">Fats</string>
     <string name="proteins">Proteins</string>
+    <string name="cal_val">%1$d cal</string>
+    <string name="gram_val">%1$f g</string>
 
     <!-- Locals -->
     <string name="local_eg">EG</string>

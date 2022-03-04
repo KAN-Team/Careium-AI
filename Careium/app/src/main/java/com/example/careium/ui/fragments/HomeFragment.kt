@@ -5,10 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import com.example.careium.R
 import com.example.careium.databinding.FragmentHomeBinding
+import java.text.SimpleDateFormat
+import java.util.*
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private lateinit var binding: FragmentHomeBinding
+
+    // Date View Day
+    private var daysFrom: Int = 0
+
     // Main Components
     private var progressVal: Int = 3000
     private var budgetVal: Int = 3000
@@ -28,9 +34,45 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHomeBinding.bind(view)
 
-        // Initializing components values
-        hookComponents()
+        // initializing date section
+        hookDateSection()
 
+        // initializing components values
+        hookComponentsSection()
+
+        // initializing progress section
+        hookProgressSection()
+    }
+
+    private fun hookDateSection() {
+        binding.textCalendarDate.text = getDate(0) // display the date of the current day
+
+        binding.imageButtonPrevDate.setOnClickListener {
+            daysFrom++
+            binding.textCalendarDate.text = getDate(daysFrom)
+
+            if (binding.imageButtonNextDate.visibility == View.INVISIBLE)
+                binding.imageButtonNextDate.visibility = View.VISIBLE
+        }
+
+        binding.imageButtonNextDate.setOnClickListener {
+            if (daysFrom > 0)
+                daysFrom--
+            binding.textCalendarDate.text = getDate(daysFrom)
+
+            if (daysFrom == 0 && binding.imageButtonNextDate.visibility == View.VISIBLE)
+                binding.imageButtonNextDate.visibility = View.INVISIBLE
+        }
+    }
+
+    private fun getDate(from: Int): String {
+        val cal: Calendar = Calendar.getInstance()
+        cal.add(Calendar.DATE, -from)
+        val sdf = SimpleDateFormat("EEEE MMM dd, yyyy", Locale.UK) // e.g. (Friday Mar 04, 2022)
+        return sdf.format(cal.time)
+    }
+
+    private fun hookProgressSection() {
         // Setting CALORIES progress max value
         binding.progressHomeCircular.max = 3000
         updateProgress()
@@ -53,32 +95,32 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private fun updateProgress() {
         binding.progressHomeCircular.progress = progressVal
         binding.texTProgressHome.text = "$progressVal"
-        updateComponents()
+        updateComponentsSection()
     }
 
-    private fun hookComponents() {
+    private fun hookComponentsSection() {
         // Hooking BUDGET
-        binding.layoutBudgetItem.textComponentLabel.text = getString(R.string.budget)
+        binding.layoutBudgetItem.textCmpntLabel.text = getString(R.string.budget)
         // Hooking CONSUMED
-        binding.layoutConsumedItem.textComponentLabel.text = getString(R.string.consumed)
+        binding.layoutConsumedItem.textCmpntLabel.text = getString(R.string.consumed)
         // Hooking TEMP
-        binding.layoutTempItem.textComponentLabel.text = getString(R.string.temp)
+        binding.layoutTempItem.textCmpntLabel.text = getString(R.string.temp)
         // Hooking CARBS
-        binding.layoutCarbsItem.textComponentLabel.text = getString(R.string.carbs)
+        binding.layoutCarbsItem.textCmpntLabel.text = getString(R.string.carbs)
         // Hooking FATS
-        binding.layoutFatsItem.textComponentLabel.text = getString(R.string.fats)
+        binding.layoutFatsItem.textCmpntLabel.text = getString(R.string.fats)
         // Hooking PROTEINS
-        binding.layoutProteinsItem.textComponentLabel.text = getString(R.string.proteins)
+        binding.layoutProteinsItem.textCmpntLabel.text = getString(R.string.proteins)
 
-        updateComponents()
+        updateComponentsSection()
     }
 
-    private fun updateComponents(){
-        binding.layoutBudgetItem.textComponentValue.text = "$budgetVal cal"     // BUDGET
-        binding.layoutConsumedItem.textComponentValue.text = "$consumedVal cal" // CONSUMED
-        binding.layoutTempItem.textComponentValue.text = "$tempVal g"           // TEMP
-        binding.layoutCarbsItem.textComponentValue.text = "$carbsVal g"         // CARBS
-        binding.layoutFatsItem.textComponentValue.text = "$fatsVal g"           // FATS
-        binding.layoutProteinsItem.textComponentValue.text = "$proteinsVal g"   // PROTEINS
+    private fun updateComponentsSection() {
+        binding.layoutBudgetItem.textCmpntValue.text = getString(R.string.cal_val, budgetVal)
+        binding.layoutConsumedItem.textCmpntValue.text = getString(R.string.cal_val, consumedVal)
+        binding.layoutTempItem.textCmpntValue.text = getString(R.string.gram_val, tempVal)
+        binding.layoutCarbsItem.textCmpntValue.text = getString(R.string.gram_val, carbsVal)
+        binding.layoutFatsItem.textCmpntValue.text = getString(R.string.gram_val, fatsVal)
+        binding.layoutProteinsItem.textCmpntValue.text = getString(R.string.gram_val, proteinsVal)
     }
 }

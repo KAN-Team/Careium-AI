@@ -7,7 +7,7 @@
     android:clickable="true"
     android:focusable="true"
     android:foreground="?selectableItemBackground"
-    app:cardBackgroundColor="@color/amber_900"
+    app:cardBackgroundColor="@color/amber_700"
     app:cardCornerRadius="@dimen/small_card_radius"
     app:cardElevation="@dimen/elevation_card"
     app:contentPadding="@dimen/tiny_spacing">
@@ -19,7 +19,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/text_component_value"
+            android:id="@+id/text_cmpnt_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed"
@@ -32,13 +32,13 @@
             tools:text="3000" />
 
         <TextView
-            android:id="@+id/text_component_label"
+            android:id="@+id/text_cmpnt_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/tiny_spacing"
             android:scaleX="0.9"
             android:textAllCaps="true"
-            android:textColor="@color/amber_700"
+            android:textColor="@color/amber_900"
             android:textSize="@dimen/small_text_size"
             tools:text="@string/budget" />
     </LinearLayout>

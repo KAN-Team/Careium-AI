@@ -55,9 +55,8 @@ class MainActivity : AppCompatActivity() {
         swipeListener = SwipeListener(this)
 
         // Drawer menu icon click action
-        val drawerLayout: DrawerLayout = binding.drawerLayout
         binding.layoutToolbar.imageMenu.setOnClickListener {
-            drawerLayout.openDrawer(GravityCompat.START)
+            binding.drawerLayout.openDrawer(GravityCompat.START)
         }
     }
 
@@ -105,11 +104,13 @@ class MainActivity : AppCompatActivity() {
                 R.id.menu_item_home -> {
                     loadFragment(HomeFragment.newInstance())
                     binding.drawerLayout.closeDrawers()
+                    binding.bottomNavigation.show(1, false)
                     true
                 }
                 R.id.menu_item_diet_calender -> {
                     loadFragment(CalenderFragment.newInstance())
                     binding.drawerLayout.closeDrawers()
+                    binding.bottomNavigation.show(-1, false)
                     true
                 }
                 else -> false
@@ -123,19 +124,6 @@ class MainActivity : AppCompatActivity() {
             // TODO: Uncomment below line after finishing the design for all fragments
             //.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             .commit()
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val fragment: Fragment? = when (item.itemId) {
-            R.id.menu_item_home -> HomeFragment.newInstance()
-            R.id.menu_item_diet_calender -> CalenderFragment.newInstance()
-            else -> null
-        }
-        if (fragment != null) {
-            loadFragment(fragment)
-            return true
-        }
-        return super.onOptionsItemSelected(item)
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
@@ -230,9 +218,13 @@ class MainActivity : AppCompatActivity() {
 
         actionButton.setOnClickListener {
             actionMenu.toggle(true)
-            // add an overlay on opening
-            if (actionMenu.isOpen)
+            if (actionMenu.isOpen) {
+                // add an overlay on opening
                 binding.layoutMainFrameOverlay.visibility = View.VISIBLE
+                // Close NavigationDrawer if opened
+                if (binding.drawerLayout.isDrawerOpen(GravityCompat.START))
+                    binding.drawerLayout.closeDrawers()
+            }
         }
     }
 
