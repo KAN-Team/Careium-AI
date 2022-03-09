@@ -1,4 +1,5 @@
 <resources>
+    <!-- Navigation Labels -->
     <string name="app_name">Careium</string>
     <string name="app_full_name">Careium AI</string>
     <string name="app_name_first_part">Care</string>
@@ -14,5 +15,17 @@
     <string name="help">Help</string>
     <string name="sync">Sync</string>
     <string name="verified">Verified</string>
-    <string name="username">Alfred Nobel</string>
+    <string name="username">Mark Elliot Zuckerberg</string>
+
+    <!-- Home Fragment -->
+    <string name="calories_remaining">Calories Remaining</string>
+    <string name="calories">Calories</string>
+    <string name="carbs">Carbs</string>
+    <string name="fats">Fats</string>
+    <string name="proteins">Proteins</string>
+    <string name="cal_val">/%1$d cal</string>
+    <string name="gram_val">/%1$.2f g</string>
+
+    <!-- Locals -->
+    <string name="local_eg">EG</string>
 </resources>

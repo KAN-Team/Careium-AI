@@ -4,16 +4,14 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.provider.MediaStore
-import android.view.MenuItem
-import android.view.MotionEvent
-import android.view.View
-import android.view.ViewGroup
+import android.util.DisplayMetrics
+import android.util.TypedValue
+import android.view.*
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.careium.R
@@ -29,6 +27,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var swipeListener: SwipeListener
+    private lateinit var actionMenu: FloatingActionMenu
 
     companion object {
         const val REQUEST_IMAGE_CAPTURE = 1
@@ -55,9 +54,8 @@ class MainActivity : AppCompatActivity() {
         swipeListener = SwipeListener(this)
 
         // Drawer menu icon click action
-        val drawerLayout: DrawerLayout = binding.drawerLayout
         binding.layoutToolbar.imageMenu.setOnClickListener {
-            drawerLayout.openDrawer(GravityCompat.START)
+            binding.drawerLayout.openDrawer(GravityCompat.START)
         }
     }
 
@@ -86,7 +84,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Initialize home fragment as the default
-        bottomNavigation.show(1, true)
+        bottomNavigation.show(1, false)
         // Set notification count
         bottomNavigation.setCount(2, "5")
 
@@ -105,11 +103,13 @@ class MainActivity : AppCompatActivity() {
                 R.id.menu_item_home -> {
                     loadFragment(HomeFragment.newInstance())
                     binding.drawerLayout.closeDrawers()
+                    binding.bottomNavigation.show(1, false)
                     true
                 }
                 R.id.menu_item_diet_calender -> {
                     loadFragment(CalenderFragment.newInstance())
                     binding.drawerLayout.closeDrawers()
+                    binding.bottomNavigation.show(-1, false)
                     true
                 }
                 else -> false
@@ -119,20 +119,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.main_frame_layout, fragment).commit()
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val fragment: Fragment? = when (item.itemId) {
-            R.id.menu_item_home -> HomeFragment.newInstance()
-            R.id.menu_item_diet_calender -> CalenderFragment.newInstance()
-            else -> null
-        }
-        if (fragment != null) {
-            loadFragment(fragment)
-            return true
-        }
-        return super.onOptionsItemSelected(item)
+            .replace(R.id.layout_main_frame, fragment)
+            // TODO: Uncomment below line after finishing the design for all fragments
+            //.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+            .commit()
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
@@ -163,10 +153,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun dispatchTouchEvent(event: MotionEvent?): Boolean {
-        if (swipeListener.isSwipedUp(event)) {
-            //Toast.makeText(this, "Swiped UP !", Toast.LENGTH_SHORT).show()
+        // TODO: Uncheck this comment for swiping action
+        // Handle Swipe Up action
+        /*if (swipeListener.isSwipedUp(event))
             capturePlate()
+        */
+
+        // Collapse FAB Menu and clear the overlay
+        if (actionMenu.isOpen) {
+            binding.layoutMainFrameOverlay.visibility = View.INVISIBLE
+            actionMenu.close(true)
         }
+
         return super.dispatchTouchEvent(event)
     }
 
@@ -181,7 +179,11 @@ class MainActivity : AppCompatActivity() {
         val primaryBtnIcon = ImageView(this)
         primaryBtnIcon.setImageDrawable(getDrawable(R.drawable.ic_round_add_24))
         val actionButton = FloatingActionButton.Builder(this).setContentView(primaryBtnIcon).build()
-        actionButton.background.setTint(getColor(R.color.amber_900))
+        var typedValue: TypedValue = TypedValue()
+        theme.resolveAttribute(R.attr.colorSecondary, typedValue, true)
+        val colorSecondary: Int = typedValue.data
+        actionButton.background.setTint(colorSecondary)
+
         val param = actionButton.layoutParams as ViewGroup.MarginLayoutParams
         param.setMargins(10, 10, 10, 240)
         actionButton.layoutParams = param
@@ -201,9 +203,15 @@ class MainActivity : AppCompatActivity() {
         // Item 6
         val item6 = inflateFABMenuItem(FABItem.TRACKER, R.drawable.ic_menu_camera_48, "Tracker")
 
+        // Getting runtime screen width
+        val displayMetrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        val width: Float = displayMetrics.widthPixels.toFloat()
+        val radius: Int = (width * 0.60f).toInt() // radius = 60% of the screen width
+
         // Attaching the menu to the primary button
-        FloatingActionMenu.Builder(this)
-            .setRadius(700)
+        actionMenu = FloatingActionMenu.Builder(this)
+            .setRadius(radius)
             .addSubActionView(item1)
             .addSubActionView(item2)
             .addSubActionView(item3)
@@ -212,6 +220,17 @@ class MainActivity : AppCompatActivity() {
             .addSubActionView(item6)
             .attachTo(actionButton)
             .build()
+
+        actionButton.setOnClickListener {
+            actionMenu.toggle(true)
+            if (actionMenu.isOpen) {
+                // add an overlay on opening
+                binding.layoutMainFrameOverlay.visibility = View.VISIBLE
+                // Close NavigationDrawer if opened
+                if (binding.drawerLayout.isDrawerOpen(GravityCompat.START))
+                    binding.drawerLayout.closeDrawers()
+            }
+        }
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -226,7 +245,7 @@ class MainActivity : AppCompatActivity() {
         itemBinding.fabItem.setOnClickListener {
             when (id) {
                 FABItem.TRACKER ->
-                    Toast.makeText(this, "Tracker Button Clicked !!", Toast.LENGTH_SHORT).show()
+                    capturePlate()
                 FABItem.BREAKFAST ->
                     Toast.makeText(this, "Breakfast Button Clicked !!", Toast.LENGTH_SHORT).show()
                 FABItem.LUNCH ->
