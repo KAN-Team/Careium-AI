@@ -1,10 +1,13 @@
 package com.example.careium.ui.activities
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.DisplayMetrics
+import android.util.Log
 import android.util.TypedValue
 import android.view.*
 import android.widget.FrameLayout
@@ -19,19 +22,29 @@ import com.example.careium.databinding.ActivityMainBinding
 import com.example.careium.databinding.LayoutFloatingMenuItemBinding
 import com.example.careium.factory.FABItem
 import com.example.careium.factory.SwipeListener
+import com.example.careium.ml.NutritionModel
 import com.example.careium.ui.fragments.*
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu
+import org.tensorflow.lite.DataType
+import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
+import java.nio.ByteBuffer
+import java.nio.ByteOrder
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var swipeListener: SwipeListener
     private lateinit var actionMenu: FloatingActionMenu
+    private lateinit var dishImage :Bitmap
+    private val dishImageWidth  = 480
+    private val dishImageHeight = 640
+
 
     companion object {
         const val REQUEST_IMAGE_CAPTURE = 1
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -171,6 +184,76 @@ class MainActivity : AppCompatActivity() {
     private fun capturePlate() {
         val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_IMAGE_CAPTURE && data != null)
+            dishImage = data.extras?.get("data") as Bitmap
+
+        try {
+            var inputFeature = loadImageBuffer(dishImage)
+            predictNutritionModel(inputFeature)
+        }
+        catch (e: Exception){
+            Log.d("NutritionModel", "Exception Occurred in Nutrition Model")
+        }
+
+    }
+
+    private fun loadImageBuffer(dish_image:Bitmap): TensorBuffer{
+        val inputFeature =
+            TensorBuffer.createFixedSize(intArrayOf(1, dishImageWidth, dishImageHeight, 3)
+                , DataType.FLOAT32)
+
+        var byteBuffer: ByteBuffer = ByteBuffer.allocate(4 * dishImageWidth * dishImageHeight * 3)
+        byteBuffer.order(ByteOrder.nativeOrder());
+
+
+        // make an dish image in 1D array
+        val intValues = IntArray(dishImageWidth * dishImageHeight)
+        dish_image.getPixels(intValues, 0, dish_image.width,
+            0, 0, dish_image.width, dish_image.height)
+
+
+        // iterate over pixels and extract R, G, and B values. Add to bytebuffer.
+        var pixel = 0
+        for (i in 0 until dishImageWidth) {
+            for (j in 0 until dishImageHeight) {
+                val value = intValues[pixel++] // RGB
+                byteBuffer.putFloat((value shr 16 and 0xFF) * (1f / 255f))
+                byteBuffer.putFloat((value shr 8 and 0xFF) * (1f / 255f))
+                byteBuffer.putFloat((value and 0xFF) * (1f / 255f))
+            }
+        }
+        inputFeature.loadBuffer(byteBuffer)
+        return inputFeature
+
+    }
+
+    private fun predictNutritionModel(inputFeature: TensorBuffer){
+        val model = NutritionModel.newInstance(this)
+
+        // Runs model inference and gets result.
+        val outputs = model.process(inputFeature)
+        val outputFeature0 = outputs.outputFeature0AsTensorBuffer.floatArray[0]
+        val outputFeature1 = outputs.outputFeature1AsTensorBuffer.floatArray[0]
+        val outputFeature2 = outputs.outputFeature2AsTensorBuffer.floatArray[0]
+        val outputFeature3 = outputs.outputFeature3AsTensorBuffer.floatArray[0]
+        val outputFeature4 = outputs.outputFeature4AsTensorBuffer.floatArray[0]
+
+        //un normalized
+        var calories = (outputFeature0 * (3943.325195 - 0)) + 0
+        var mass = (outputFeature1 * (3051 - 5)) + 5
+        var fats = (outputFeature2 * (106.343002 - 0)) + 0
+        var carbs = (outputFeature3 * (844.568604 - 0)) + 0
+        var proteins = (outputFeature4 * (147.491821 - 0)) + 0
+
+        //display nutritions
+        Toast.makeText(this, "Calories: $calories\n Mass: $mass\n" +
+                "Fats: $fats\n Carbs: $carbs\n Proteins: $proteins", Toast.LENGTH_LONG).show()
+
+        model.close()
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
