@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="amber_900">#FF6F00</color>
-    <color name="amber_700">#035538</color>
-    <color name="rose_500">#D50000</color>
-    <color name="gray_300">#7E8086</color>
+    <color name="green_500">#1B5E20</color> <!-- Primary Color -->
+    <color name="green_light">#4C8C4A</color> <!-- Primary Light -->
+    <color name="green_dark">#003300</color> <!-- Primary Dark -->
+    <color name="orange_700">#F57C00</color> <!-- Secondary Color -->
+    <color name="orange_light">#FFAD42</color> <!-- Secondary Light -->
+    <color name="orange_dark">#BB4D00</color> <!-- Secondary Dark -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

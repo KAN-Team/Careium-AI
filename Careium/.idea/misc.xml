@@ -4,6 +4,25 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Projects/AndroidStudio/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable-v24/theme_button.xml" value="0.22" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable-v24/theme_highlight.xml" value="0.2203125" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable-v24/transparent_back_normal.xml" value="0.2203125" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable-v24/transparent_back_oval.xml" value="0.2203125" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable-v24/transparent_background.xml" value="0.2203125" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable/dw_determinate_circular_progress.xml" value="0.2203125" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable/ic_menu_breakfast_64.xml" value="0.2203125" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable/ic_outline_notifications_24.xml" value="0.2203125" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable/ic_round_language_24.xml" value="0.2203125" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/fragment_calender.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/fragment_profile.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/fragment_recipes.xml" value="0.25" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/layout_components_item.xml" value="0.33" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/layout_floating_menu_item.xml" value="0.5" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/layout_navigation_header.xml" value="0.33" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/layout_toolbar.xml" value="0.25" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/menu/navigation_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium/Careium/app/src/main/res/drawable-v24/button_style.xml" value="0.2203125" />
         <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium/Careium/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1125" />
         <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium/Careium/app/src/main/res/drawable-v24/text_border.xml" value="0.2203125" />
