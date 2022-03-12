@@ -1,13 +1,12 @@
 package com.example.careium.ui.activities
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.provider.MediaStore
-import android.view.MenuItem
-import android.view.MotionEvent
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.BaseAdapter
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.Toast
@@ -24,12 +23,13 @@ import com.example.careium.factory.SwipeListener
 import com.example.careium.ui.fragments.*
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
+
     private lateinit var binding: ActivityMainBinding
     private lateinit var swipeListener: SwipeListener
-
     companion object {
         const val REQUEST_IMAGE_CAPTURE = 1
     }
@@ -60,7 +60,6 @@ class MainActivity : AppCompatActivity() {
             drawerLayout.openDrawer(GravityCompat.START)
         }
     }
-
     private fun initializeBottomNavigation() {
         // Adding menu items
         val bottomNavigation: MeowBottomNavigation = binding.bottomNavigation

@@ -5,12 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragments.CalenderFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
+        android:id="@+id/Lv_DietCalender"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="DIET CALENDER"
-        android:textSize="@dimen/large_text_size"
-        android:gravity="center"/>
-
+        android:layout_marginTop="50dp" />
 </FrameLayout>
