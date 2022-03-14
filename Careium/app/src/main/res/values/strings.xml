@@ -26,6 +26,22 @@
     <string name="cal_val">/%1$d cal</string>
     <string name="gram_val">/%1$.2f g</string>
 
+    <!--  Profile Fragment  -->
+    <string name="age">Age</string>
+    <string name="height">Height</string>
+    <string name="weight">Weight</string>
+    <string name="email">Email</string>
+    <string name="Type">Type</string>
+    <string name="name">Name</string>
+    <string name="gender">Gender</string>
+    <string name="desired_weight">Desired Weight</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="cm">Cm</string>
+    <string name="kg">Kg</string>
+    <string name="user_type">fitness tracker</string>
+    <string name="user_desired_weight">70</string>
+    <string name="user_gender">male</string>
+
     <!-- Locals -->
     <string name="local_eg">EG</string>
 </resources>

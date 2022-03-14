@@ -37,4 +37,10 @@
     <dimen name="track_corner_radius">20dp</dimen>
     <dimen name="track_thickness">20dp</dimen>
 
+    <!--  Vertical and Horizontal lines  -->
+    <dimen name="small_line_width">1dp</dimen>
+    <dimen name="X_large_line_width">300dp</dimen>
+    <dimen name="small_line_height">1dp</dimen>
+    <dimen name="medium_line_height">50dp</dimen>
+
 </resources>
