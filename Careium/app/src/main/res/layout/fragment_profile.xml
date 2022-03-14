@@ -1,17 +1,290 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profile_view_main_relative_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:background="@color/green_dark"
     tools:context=".ui.fragments.ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/profile_view_image"
+        android:layout_width="@dimen/profile_image_dims"
+        android:layout_height="@dimen/profile_image_dims"
+        android:layout_marginRight="@dimen/large_spacing"
+        android:layout_marginLeft="@dimen/large_spacing"
+        android:layout_marginTop="@dimen/large_spacing"
+        android:contentDescription="@string/username"
+        android:src="@drawable/ph_avatar_man" />
 
+    <EditText
+        android:id="@+id/profile_view_user_name_edittext"
+        android:hint="@string/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_spacing"
+        android:layout_marginTop="@dimen/x_large_spacing"
+        android:layout_marginBottom="@dimen/small_spacing"
+        android:layout_toEndOf="@+id/profile_view_image"
+        android:text="@string/username"
+        android:textColor="@color/white"
+        android:textSize="@dimen/medium_text_size"
+        android:enabled="false"
+        android:background="@null"
+        android:inputType="text"
+        android:autofillHints="username" />
+
+    <!--TODO: activate edit profile text click -->
     <TextView
+        android:id="@+id/profile_edit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_view_user_name_edittext"
+        android:layout_toEndOf="@id/profile_view_user_name_edittext"
+        android:layout_marginTop="@dimen/medium_spacing"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/edit_profile"
+        android:textColor="@color/white"
+        android:textSize="@dimen/small_text_size" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/profile_view_nested_scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="PROFILE"
-        android:textSize="@dimen/large_text_size" />
+        android:layout_marginTop="@dimen/medium_spacing"
+        android:layout_below="@+id/profile_edit_button"
+        android:layout_marginStart="@dimen/medium_spacing"
+        android:layout_marginEnd="@dimen/medium_spacing"
+        android:background="@drawable/theme_rounded_white_background">
 
-</FrameLayout>
+        <RelativeLayout
+            android:id="@+id/profile_view_nested_relative_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/profile_view_user_Age_edittext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/x_large_spacing"
+                android:layout_marginTop="@dimen/small_spacing"
+                android:text="@string/user_age"
+                android:textColor="@color/green_light"
+                android:textSize="@dimen/medium_text_size"
+                android:enabled="false"
+                android:background="@null"
+                android:inputType="number"
+                android:autofillHints="age"/>
+
+            <TextView
+                android:id="@+id/profile_view_age_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profile_view_user_Age_edittext"
+                android:layout_marginStart="@dimen/x_large_spacing"
+                android:paddingTop="@dimen/small_spacing"
+                android:text="@string/age"
+                android:textColor="@color/green_light"
+                android:textSize="@dimen/small_text_size" />
+
+            <View
+                android:id="@+id/profile_view_ver_line_age_height"
+                android:layout_width="1dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="@dimen/x_large_spacing"
+                android:layout_marginTop="@dimen/small_spacing"
+                android:layout_toEndOf="@+id/profile_view_age_textview"
+                android:background="@color/green_500" />
+
+            <EditText
+                android:id="@+id/profile_view_user_height_edittext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/x_large_spacing"
+                android:layout_marginTop="@dimen/small_spacing"
+                android:layout_toEndOf="@id/profile_view_ver_line_age_height"
+                android:text="@string/user_height"
+                android:textSize="@dimen/medium_text_size"
+                android:textColor="@color/green_light"
+                android:enabled="false"
+                android:background="@null"
+                android:inputType="number"
+                android:autofillHints="userHeight"/>
+
+            <TextView
+                android:id="@+id/profile_view_cm_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_spacing"
+                android:layout_toEndOf="@id/profile_view_user_height_edittext"
+                android:text="@string/cm"
+                android:textColor="@color/green_light"
+                android:textSize="@dimen/small_text_size" />
+
+            <TextView
+                android:id="@+id/profile_view_height_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profile_view_user_height_edittext"
+                android:layout_marginStart="@dimen/x_large_spacing"
+                android:layout_toEndOf="@id/profile_view_ver_line_age_height"
+                android:paddingTop="@dimen/small_spacing"
+                android:text="@string/height"
+                android:textColor="@color/green_light"
+                android:textSize="@dimen/small_text_size" />
+
+            <View
+                android:id="@+id/profile_view_ver_line_height_weight"
+                android:layout_width="1dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="@dimen/x_large_spacing"
+                android:layout_marginTop="@dimen/small_spacing"
+                android:layout_toEndOf="@+id/profile_view_cm_textview"
+                android:background="@color/green_500" />
+
+            <EditText
+                android:id="@+id/profile_view_user_weight_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/x_large_spacing"
+                android:layout_marginTop="@dimen/small_spacing"
+                android:layout_toEndOf="@+id/profile_view_ver_line_height_weight"
+                android:text="@string/user_weight"
+                android:textSize="@dimen/medium_text_size"
+                android:textColor="@color/green_light"
+                android:enabled="false"
+                android:background="@null"
+                android:inputType="number"
+                android:autofillHints="userWeight"/>
+
+            <TextView
+                android:id="@+id/profile_view_kg_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_spacing"
+                android:layout_toEndOf="@+id/profile_view_user_weight_textview"
+                android:text="@string/kg"
+                android:textColor="@color/green_light"
+                android:textSize="@dimen/small_text_size" />
+
+            <TextView
+                android:id="@+id/profile_view_weight_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profile_view_user_weight_textview"
+                android:layout_marginStart="@dimen/x_large_spacing"
+                android:layout_toEndOf="@+id/profile_view_ver_line_height_weight"
+                android:paddingTop="@dimen/small_spacing"
+                android:text="@string/weight"
+                android:textColor="@color/green_light"
+                android:textSize="@dimen/small_text_size" />
+
+            <TextView
+                android:id="@+id/profile_view_word_gender_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profile_view_age_textview"
+                android:layout_marginStart="@dimen/small_spacing"
+                android:layout_marginTop="@dimen/medium_spacing"
+                android:layout_marginBottom="@dimen/small_spacing"
+                android:text="@string/gender"
+                android:textColor="@color/green_light"
+                android:textSize="@dimen/small_text_size" />
+
+            <!--TODO:change Gender edittext to combo box -->
+            <EditText
+                android:id="@+id/profile_view_user_gender_edittext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profile_view_word_gender_textview"
+                android:layout_marginStart="@dimen/large_spacing"
+                android:text="@string/user_gender"
+                android:textColor="@color/green_dark"
+                android:textSize="@dimen/medium_text_size"
+                android:enabled="false"
+                android:background="@null"
+                android:inputType="text"
+                android:autofillHints="userGender"/>
+
+            <!-- horizontal line between Gender and type-->
+            <View
+                android:id="@+id/profile_view_hor_line_gender_type"
+                android:layout_width="300dp"
+                android:layout_height="1dp"
+                android:layout_below="@+id/profile_view_user_gender_edittext"
+                android:layout_marginLeft="@dimen/large_spacing"
+                android:layout_marginTop="@dimen/small_spacing"
+                android:layout_marginRight="@dimen/large_spacing"
+                android:layout_marginBottom="@dimen/small_spacing"
+                android:background="@color/green_500" />
+
+            <!--TODO:change Type edittext to combo box -->
+            <EditText
+                android:id="@+id/profile_view_word_type_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_spacing"
+                android:layout_marginBottom="@dimen/small_spacing"
+                android:text="@string/Type"
+                android:layout_below="@+id/profile_view_hor_line_gender_type"
+                android:textColor="@color/green_light"
+                android:textSize="@dimen/small_text_size"
+                android:enabled="false"
+                android:background="@null"
+                android:inputType="text"
+                android:autofillHints="userType"/>
+
+            <TextView
+                android:id="@+id/profile_view_user_type_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large_spacing"
+                android:layout_below="@+id/profile_view_word_type_textview"
+                android:text="@string/user_type"
+                android:textColor="@color/green_dark"
+                android:textSize="@dimen/medium_text_size" />
+
+            <!-- horizontal line between type and desired weight-->
+            <View
+                android:id="@+id/profile_view_hor_line_type_desired_weight"
+                android:layout_width="300dp"
+                android:layout_height="1dp"
+                android:layout_below="@+id/profile_view_user_type_textview"
+                android:layout_marginLeft="@dimen/large_spacing"
+                android:layout_marginTop="@dimen/small_spacing"
+                android:layout_marginRight="@dimen/large_spacing"
+                android:layout_marginBottom="@dimen/small_spacing"
+                android:background="@color/green_500" />
+
+            <TextView
+                android:id="@+id/profile_view_word_desired_weight_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_spacing"
+                android:layout_marginBottom="@dimen/small_spacing"
+                android:text="@string/desired_weight"
+                android:textColor="@color/green_light"
+                android:layout_below="@+id/profile_view_hor_line_type_desired_weight"
+                android:textSize="@dimen/small_text_size" />
+
+            <EditText
+                android:id="@+id/profile_view_user_desired_weight_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large_spacing"
+                android:text="@string/user_desired_weight"
+                android:textColor="@color/green_dark"
+                android:layout_below="@+id/profile_view_word_desired_weight_textview"
+                android:textSize="@dimen/medium_text_size"
+                android:enabled="false"
+                android:background="@null"
+                android:inputType="number"
+                android:autofillHints="userDesiredWeight"
+                />
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>
