@@ -1,4 +1,4 @@
-package com.example.careium.ui.fragments
+package com.example.careium.frontend.home.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

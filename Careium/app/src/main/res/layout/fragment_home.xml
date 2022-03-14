@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:padding="@dimen/small_spacing"
     tools:background="?attr/colorPrimaryVariant"
-    tools:context=".ui.fragments.HomeFragment">
+    tools:context=".frontend.home.fragments.HomeFragment">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package com.example.careium.ui.activities
+package com.example.careium.frontend.home.activities
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -20,10 +20,10 @@ import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.careium.R
 import com.example.careium.databinding.ActivityMainBinding
 import com.example.careium.databinding.LayoutFloatingMenuItemBinding
-import com.example.careium.factory.FABItem
-import com.example.careium.factory.SwipeListener
+import com.example.careium.core.factory.FABItem
+import com.example.careium.core.factory.SwipeListener
 import com.example.careium.ml.NutritionModel
-import com.example.careium.ui.fragments.*
+import com.example.careium.frontend.home.fragments.*
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu
 import org.tensorflow.lite.DataType
@@ -36,8 +36,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var swipeListener: SwipeListener
     private lateinit var actionMenu: FloatingActionMenu
-    private lateinit var dishImage :Bitmap
-    private val dishImageWidth  = 480
+    private lateinit var dishImage: Bitmap
+    private val dishImageWidth = 480
     private val dishImageHeight = 640
 
 
@@ -194,17 +194,17 @@ class MainActivity : AppCompatActivity() {
         try {
             var inputFeature = loadImageBuffer(dishImage)
             predictNutritionModel(inputFeature)
-        }
-        catch (e: Exception){
+        } catch (e: Exception) {
             Log.d("NutritionModel", "Exception Occurred in Nutrition Model")
         }
 
     }
 
-    private fun loadImageBuffer(dish_image:Bitmap): TensorBuffer{
+    private fun loadImageBuffer(dish_image: Bitmap): TensorBuffer {
         val inputFeature =
-            TensorBuffer.createFixedSize(intArrayOf(1, dishImageWidth, dishImageHeight, 3)
-                , DataType.FLOAT32)
+            TensorBuffer.createFixedSize(
+                intArrayOf(1, dishImageWidth, dishImageHeight, 3), DataType.FLOAT32
+            )
 
         var byteBuffer: ByteBuffer = ByteBuffer.allocate(4 * dishImageWidth * dishImageHeight * 3)
         byteBuffer.order(ByteOrder.nativeOrder());
@@ -212,8 +212,10 @@ class MainActivity : AppCompatActivity() {
 
         // make an dish image in 1D array
         val intValues = IntArray(dishImageWidth * dishImageHeight)
-        dish_image.getPixels(intValues, 0, dish_image.width,
-            0, 0, dish_image.width, dish_image.height)
+        dish_image.getPixels(
+            intValues, 0, dish_image.width,
+            0, 0, dish_image.width, dish_image.height
+        )
 
 
         // iterate over pixels and extract R, G, and B values. Add to bytebuffer.
@@ -231,7 +233,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun predictNutritionModel(inputFeature: TensorBuffer){
+    private fun predictNutritionModel(inputFeature: TensorBuffer) {
         val model = NutritionModel.newInstance(this)
 
         // Runs model inference and gets result.
@@ -250,8 +252,10 @@ class MainActivity : AppCompatActivity() {
         var proteins = (outputFeature4 * (147.491821 - 0)) + 0
 
         //display nutritions
-        Toast.makeText(this, "Calories: $calories\n Mass: $mass\n" +
-                "Fats: $fats\n Carbs: $carbs\n Proteins: $proteins", Toast.LENGTH_LONG).show()
+        Toast.makeText(
+            this, "Calories: $calories\n Mass: $mass\n" +
+                    "Fats: $fats\n Carbs: $carbs\n Proteins: $proteins", Toast.LENGTH_LONG
+        ).show()
 
         model.close()
     }

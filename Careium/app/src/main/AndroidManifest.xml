@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Careium">
         <activity
-            android:name=".ui.activities.MainActivity"
+            android:name="com.example.careium.frontend.home.activities.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">

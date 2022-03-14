@@ -1,4 +1,4 @@
-package com.example.careium.factory
+package com.example.careium.core.factory
 
 import android.content.Context
 import android.view.GestureDetector
