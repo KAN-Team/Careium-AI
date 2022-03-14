@@ -38,14 +38,10 @@
     <string name="edit_profile">Edit Profile</string>
     <string name="cm">Cm</string>
     <string name="kg">Kg</string>
-
-<!--  TODO: change to dynamic strings (connected to database)   -->
-    <string name="user_age">20</string>
-    <string name="user_height">160</string>
-    <string name="user_weight">65</string>
     <string name="user_type">fitness tracker</string>
     <string name="user_desired_weight">70</string>
     <string name="user_gender">male</string>
+
     <!-- Locals -->
     <string name="local_eg">EG</string>
 </resources>
