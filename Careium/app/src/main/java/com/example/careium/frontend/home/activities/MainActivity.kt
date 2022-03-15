@@ -20,8 +20,8 @@ import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.careium.R
 import com.example.careium.databinding.ActivityMainBinding
 import com.example.careium.databinding.LayoutFloatingMenuItemBinding
-import com.example.careium.core.factory.FABItem
-import com.example.careium.core.factory.SwipeListener
+import com.example.careium.frontend.factory.FABItem
+import com.example.careium.frontend.factory.SwipeListener
 import com.example.careium.ml.NutritionModel
 import com.example.careium.frontend.home.fragments.*
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton

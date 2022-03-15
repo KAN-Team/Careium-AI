@@ -3,9 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/drawable/ic_round_back_24.xml" value="0.179" />
+        <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/activity_authentication.xml" value="0.17074275362318841" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/activity_starting.xml" value="0.17074275362318841" />
+        <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/auth_toolbar.xml" value="0.2" />
+        <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/fragment_home.xml" value="0.21" />
+        <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/fragment_login.xml" value="0.17074275362318841" />
+        <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/fragment_register.xml" value="0.17074275362318841" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/fragment_reports.xml" value="0.14130434782608695" />
-        <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/layout_components_item.xml" value="0.14130434782608695" />
+        <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/layout_components_item.xml" value="0.17" />
+        <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/layout_floating_menu_item.xml" value="0.14130434782608695" />
+        <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/layout_navigation_header.xml" value="0.14130434782608695" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/layout_toolbar.xml" value="0.14130434782608695" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/menu/navigation_menu.xml" value="0.19739583333333333" />
         <entry key="..\:/Projects/AndroidStudio/app/src/main/res/layout/activity_main.xml" value="0.25" />
