@@ -26,8 +26,7 @@
     <string name="cal_val">/%1$d cal</string>
     <string name="gram_val">/%1$.2f g</string>
 
-    
-     <!--  Profile Fragment  -->
+    <!--  Profile Fragment  -->
     <string name="age">Age</string>
     <string name="height">Height</string>
     <string name="weight">Weight</string>
@@ -42,8 +41,8 @@
     <string name="user_type">fitness tracker</string>
     <string name="user_desired_weight">70</string>
     <string name="user_gender">male</string>
-    
-    
+
+
     <!-- Authentication Fragments -->
     <string name="auth_toolbar_title">%1$s</string>
     <string name="login">Login</string>
