@@ -17,6 +17,7 @@ android {
     }
     buildFeatures {
         viewBinding true
+        mlModelBinding true
     }
     buildTypes {
         release {
@@ -52,4 +53,13 @@ dependencies {
     // Circular Floating Action Menu
     implementation 'com.oguzdev:CircularFloatingActionMenu:1.0.2'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    //tensorflow
+    implementation('org.tensorflow:tensorflow-lite:0.0.0-nightly') { changing = true }
+    implementation('org.tensorflow:tensorflow-lite-support:0.0.0-nightly') { changing = true }
+    implementation 'org.tensorflow:tensorflow-lite-metadata:0.1.0'
+
+    //view model
+    def lifecycle_version = "2.1.0"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
 }
