@@ -42,12 +42,10 @@
     <string name="user_desired_weight">70</string>
     <string name="user_gender">male</string>
 
-
     <!-- Authentication Fragments -->
     <string name="auth_toolbar_title">%1$s</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
-
 
     <!-- Locals -->
     <string name="local_eg">EG</string>
