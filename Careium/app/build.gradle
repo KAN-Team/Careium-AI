@@ -55,8 +55,8 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     //tensorflow
-    implementation('org.tensorflow:tensorflow-lite:0.0.0-nightly') { changing = true }
-    implementation('org.tensorflow:tensorflow-lite-support:0.0.0-nightly') { changing = true }
+    implementation('org.tensorflow:tensorflow-lite:0.1.0') { changing = true }
+    implementation('org.tensorflow:tensorflow-lite-support:0.1.0') { changing = true }
     implementation 'org.tensorflow:tensorflow-lite-metadata:0.1.0'
 
     //view model
