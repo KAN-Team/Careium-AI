@@ -3,14 +3,14 @@ package com.example.careium.frontend.authentication.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.careium.databinding.ActivityStartingBinding
+import com.example.careium.databinding.ActivitySplashBinding
 
-class StartingActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityStartingBinding
+class SplashActivity : AppCompatActivity() {
+    private lateinit var binding: ActivitySplashBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityStartingBinding.inflate(layoutInflater)
+        binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 

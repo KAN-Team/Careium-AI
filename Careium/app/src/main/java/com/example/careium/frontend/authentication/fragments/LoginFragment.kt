@@ -24,15 +24,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         arguments?.let {
             fragmentName = it.getString(ARG_PARAM1)
         }
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         binding = FragmentLoginBinding.bind(view)
         viewModel.mutableAuthTitleLD.value = fragmentName.toString()
         //your logic here

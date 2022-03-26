@@ -192,7 +192,7 @@ class MainActivity : AppCompatActivity() {
             dishImage = data.extras?.get("data") as Bitmap
 
         try {
-            var inputFeature = loadImageBuffer(dishImage)
+            val inputFeature = loadImageBuffer(dishImage)
             predictNutritionModel(inputFeature)
         } catch (e: Exception) {
             Log.d("NutritionModel", "Exception Occurred in Nutrition Model")
@@ -206,7 +206,7 @@ class MainActivity : AppCompatActivity() {
                 intArrayOf(1, dishImageWidth, dishImageHeight, 3), DataType.FLOAT32
             )
 
-        var byteBuffer: ByteBuffer = ByteBuffer.allocate(4 * dishImageWidth * dishImageHeight * 3)
+        val byteBuffer: ByteBuffer = ByteBuffer.allocate(4 * dishImageWidth * dishImageHeight * 3)
         byteBuffer.order(ByteOrder.nativeOrder());
 
 
@@ -223,9 +223,9 @@ class MainActivity : AppCompatActivity() {
         for (i in 0 until dishImageWidth) {
             for (j in 0 until dishImageHeight) {
                 val value = intValues[pixel++] // RGB
-                byteBuffer.putFloat((value shr 16 and 0xFF) * (1f / 255f))
-                byteBuffer.putFloat((value shr 8 and 0xFF) * (1f / 255f))
-                byteBuffer.putFloat((value and 0xFF) * (1f / 255f))
+                byteBuffer.putFloat((value shr 16 and 0xFF).toFloat())
+                byteBuffer.putFloat((value shr 8 and 0xFF).toFloat())
+                byteBuffer.putFloat((value and 0xFF).toFloat())
             }
         }
         inputFeature.loadBuffer(byteBuffer)
@@ -238,18 +238,11 @@ class MainActivity : AppCompatActivity() {
 
         // Runs model inference and gets result.
         val outputs = model.process(inputFeature)
-        val outputFeature0 = outputs.outputFeature0AsTensorBuffer.floatArray[0]
-        val outputFeature1 = outputs.outputFeature1AsTensorBuffer.floatArray[0]
-        val outputFeature2 = outputs.outputFeature2AsTensorBuffer.floatArray[0]
-        val outputFeature3 = outputs.outputFeature3AsTensorBuffer.floatArray[0]
-        val outputFeature4 = outputs.outputFeature4AsTensorBuffer.floatArray[0]
-
-        //un normalized
-        var calories = (outputFeature0 * (3943.325195 - 0)) + 0
-        var mass = (outputFeature1 * (3051 - 5)) + 5
-        var fats = (outputFeature2 * (106.343002 - 0)) + 0
-        var carbs = (outputFeature3 * (844.568604 - 0)) + 0
-        var proteins = (outputFeature4 * (147.491821 - 0)) + 0
+        val calories = outputs.outputFeature0AsTensorBuffer.floatArray[0]
+        val mass = outputs.outputFeature1AsTensorBuffer.floatArray[0]
+        val fats = outputs.outputFeature2AsTensorBuffer.floatArray[0]
+        val carbs = outputs.outputFeature3AsTensorBuffer.floatArray[0]
+        val proteins = outputs.outputFeature4AsTensorBuffer.floatArray[0]
 
         //display nutritions
         Toast.makeText(
@@ -266,7 +259,7 @@ class MainActivity : AppCompatActivity() {
         val primaryBtnIcon = ImageView(this)
         primaryBtnIcon.setImageDrawable(getDrawable(R.drawable.ic_round_add_24))
         val actionButton = FloatingActionButton.Builder(this).setContentView(primaryBtnIcon).build()
-        var typedValue: TypedValue = TypedValue()
+        val typedValue: TypedValue = TypedValue()
         theme.resolveAttribute(R.attr.colorSecondary, typedValue, true)
         val colorSecondary: Int = typedValue.data
         actionButton.background.setTint(colorSecondary)
