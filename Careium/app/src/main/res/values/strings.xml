@@ -1,4 +1,7 @@
 <resources>
+    <!-- Splash Screen -->
+    <string name="welcome_msg">Welcome to</string>
+
     <!-- Navigation Labels -->
     <string name="app_name">Careium</string>
     <string name="app_full_name">Careium AI</string>
