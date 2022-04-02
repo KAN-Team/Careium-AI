@@ -1,6 +1,12 @@
 <resources>
-    <!-- Splash Screen -->
+
+    <!-- Authentication Screens -->
     <string name="welcome_msg">Welcome to</string>
+    <string name="fill_data">Fill your Data</string>
+    <string name="password">Password</string>
+    <string name="login_now">Login Now</string>
+    <string name="or_label">OR</string>
+    <string name="forget_password">Forget your password?</string>
 
     <!-- Navigation Labels -->
     <string name="app_name">Careium</string>

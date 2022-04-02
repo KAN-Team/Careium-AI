@@ -3,16 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/drawable-v24/theme_button.xml" value="0.179" />
+        <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/drawable-v24/theme_button.xml" value="0.15" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/drawable-v24/theme_highlight.xml" value="0.179" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/drawable-v24/transparent_back_normal.xml" value="0.179" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/drawable-v24/transparent_back_oval.xml" value="0.179" />
+        <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/drawable/auth_button.xml" value="0.1385" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/drawable/dw_determinate_circular_progress.xml" value="0.179" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/drawable/ic_profile.xml" value="0.179" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/drawable/ic_round_back_24.xml" value="0.179" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/drawable/ic_round_diary_24.xml" value="0.179" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/drawable/ic_round_language_24.xml" value="0.179" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/drawable/ic_round_sync_24.xml" value="0.179" />
+        <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/drawable/items_container.xml" value="0.15" />
+        <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/drawable/solid_button.xml" value="0.1385" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/drawable/theme_rounded_white_background.xml" value="0.179" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/activity_authentication.xml" value="0.17074275362318841" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/activity_main.xml" value="0.22" />
@@ -21,7 +24,7 @@
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/auth_toolbar.xml" value="0.2" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/fragment_calender.xml" value="0.19739583333333333" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/fragment_home.xml" value="0.21" />
-        <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/fragment_login.xml" value="0.17074275362318841" />
+        <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/fragment_profile.xml" value="0.2" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/fragment_register.xml" value="0.17074275362318841" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/fragment_reports.xml" value="0.14130434782608695" />

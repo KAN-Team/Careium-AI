@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash_back"
+    android:background="@drawable/auth_back"
+    android:theme="@style/Theme.auth"
     tools:context=".frontend.authentication.activities.SplashActivity">
 
     <RelativeLayout
@@ -47,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/register_btn"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/theme_button"
+        android:background="@drawable/auth_button"
         android:text="@string/login"
         android:textColor="@color/white"
         android:textSize="@dimen/medium_text_size" />
@@ -60,7 +61,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/action_button_margin"
         android:layout_marginBottom="@dimen/xx_large_spacing"
-        android:background="@drawable/theme_button"
+        android:background="@drawable/auth_button"
         android:text="@string/register"
         android:textColor="@color/white"
         android:textSize="@dimen/medium_text_size" />

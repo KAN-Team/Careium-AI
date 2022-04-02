@@ -22,20 +22,22 @@ class AuthenticationActivity : AppCompatActivity() {
         setContentView(binding.root)
         option = intent.getStringExtra("AuthOption").toString()
 
+
         //observe ant change in Fragment Title
         observeAuthTitleChange()
+        handleBackButton()
 
 
         if (option == "login")
-            loadFragment(LoginFragment.newInstance(getString(R.string.login)))
+            loadFragment(LoginFragment.newInstance(getString(R.string.login)), "Auth")
         else if (option == "register")
-            loadFragment(RegisterFragment.newInstance(getString(R.string.register)))
+            loadFragment(RegisterFragment.newInstance(getString(R.string.register)), "Auth")
 
     }
 
-    private fun loadFragment(fragment: Fragment) {
+    private fun loadFragment(fragment: Fragment, fragmentTAG: String) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.auth_frame, fragment)
+            .replace(R.id.auth_frame, fragment, fragmentTAG)
             //.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             .commit()
     }
@@ -47,4 +49,15 @@ class AuthenticationActivity : AppCompatActivity() {
                 getString(R.string.auth_toolbar_title, fragmentTitle)
         }
     }
+
+
+    private fun handleBackButton() {
+        binding.authToolbar.backImgButton.setOnClickListener {
+            val myFragment = supportFragmentManager.findFragmentByTag("Auth")
+            if (myFragment != null && myFragment.isVisible) {
+                finish()
+            }
+        }
+    }
+
 }
