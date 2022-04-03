@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/auth_back"
+    android:background="@drawable/auth_background"
     android:theme="@style/Theme.auth"
     tools:context=".frontend.authentication.activities.AuthenticationActivity">
 

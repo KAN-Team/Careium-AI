@@ -1,21 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".frontend.authentication.fragments.RegisterFragment">
 
     <RelativeLayout
+        android:id="@+id/fragment_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/large_spacing"
+        android:layout_marginTop="@dimen/xx_large_spacing"
+        android:layout_marginBottom="@dimen/x_large_spacing"
+        android:background="@drawable/items_container"
+        tools:ignore="UselessParent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Register"
-        android:layout_centerInParent="true"
-        android:textColor="@color/black" />
+        <ProgressBar
+            android:id="@+id/phase1_progress_bar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_plus_spacing"
+            android:max="90"
+            android:progress="30" />
 
+        <TextView
+            android:id="@+id/user_info_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/phase1_progress_bar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/medium_spacing"
+            android:text="@string/user_info"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="italic" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/info_name_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/user_info_label"
+            android:layout_marginHorizontal="@dimen/medium_plus_spacing"
+            android:layout_marginTop="@dimen/medium_plus_spacing"
+            android:background="@drawable/theme_button">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/info_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:hint="@string/name"
+                android:inputType="textEmailAddress"
+                android:paddingStart="@dimen/medium_spacing"
+                android:paddingEnd="@dimen/small_spacing"
+                android:paddingBottom="@dimen/tiny_spacing"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/medium_text_size" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/info_email_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/info_name_layout"
+            android:layout_marginHorizontal="@dimen/medium_plus_spacing"
+            android:layout_marginTop="@dimen/medium_plus_spacing"
+            android:background="@drawable/theme_button">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/info_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:paddingStart="@dimen/medium_spacing"
+                android:paddingEnd="@dimen/small_spacing"
+                android:paddingBottom="@dimen/tiny_spacing"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/medium_text_size" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/info_password_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/info_email_layout"
+            android:layout_marginHorizontal="@dimen/medium_plus_spacing"
+            android:layout_marginTop="@dimen/medium_plus_spacing"
+            android:background="@drawable/theme_button"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/info_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:paddingStart="@dimen/medium_spacing"
+                android:paddingEnd="@dimen/small_spacing"
+                android:paddingBottom="@dimen/tiny_spacing"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/medium_text_size" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/info_con_password_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/info_password_layout"
+            android:layout_marginHorizontal="@dimen/medium_plus_spacing"
+            android:layout_marginTop="@dimen/medium_plus_spacing"
+            android:background="@drawable/theme_button"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/info_con_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:hint="@string/confirm_password"
+                android:inputType="textPassword"
+                android:paddingStart="@dimen/medium_spacing"
+                android:paddingEnd="@dimen/small_spacing"
+                android:paddingBottom="@dimen/tiny_spacing"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/medium_text_size" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/transition_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginHorizontal="@dimen/medium_spacing"
+            android:layout_marginBottom="@dimen/medium_plus_spacing">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/info_back_icon"
+                android:layout_width="@dimen/semi_medium_size"
+                android:layout_height="@dimen/semi_medium_size"
+                android:layout_marginStart="@dimen/medium_spacing"
+                android:elevation="@dimen/tiny_spacing"
+                android:rotationY="180"
+                android:src="@drawable/back_icon"
+                tools:ignore="ContentDescription" />
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/next_info_icon"
+                android:layout_width="@dimen/semi_medium_size"
+                android:layout_height="@dimen/semi_medium_size"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/medium_spacing"
+                android:elevation="@dimen/tiny_spacing"
+                android:src="@drawable/back_icon"
+                tools:ignore="ContentDescription" />
+
+        </RelativeLayout>
+
+        <include
+            android:id="@+id/info_error_view"
+            layout="@layout/error_custom_view"/>
 
     </RelativeLayout>
 

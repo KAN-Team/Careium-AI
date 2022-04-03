@@ -41,11 +41,15 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private fun handleClickButtons() {
         binding.loginBtn.setOnClickListener {
-            val email = binding.loginEmail.text
-            val password = binding.loginPassword.text
+            val email = binding.loginEmail.text?.trim().toString()
+            val password = binding.loginPassword.text.toString()
 
-            // TODO: Check on Database for the user
-            openMainActivity()
+            if (email.isEmpty() || password.isEmpty())
+                alert("Error", "Please Fill The empty cell")
+            else {
+                // TODO: Check on Database for the user
+                openMainActivity()
+            }
         }
 
         binding.gmailIcon.setOnClickListener {
@@ -66,6 +70,18 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         startActivity(Intent(activity, MainActivity::class.java))
         SplashActivity._this.finish()
         activity?.finish()
+    }
+
+
+    private fun alert(title: String, message: String) {
+        binding.loginErrorView.layoutOverlay.visibility = View.VISIBLE
+        binding.loginErrorView.errorContainer.visibility = View.VISIBLE
+        binding.loginErrorView.errorInfoTitle.text = title
+        binding.loginErrorView.errorInfoMessage.text = message
+        binding.loginErrorView.errorInfoBtn.setOnClickListener {
+            binding.loginErrorView.errorContainer.visibility = View.GONE
+            binding.loginErrorView.layoutOverlay.visibility = View.GONE
+        }
     }
 
 }

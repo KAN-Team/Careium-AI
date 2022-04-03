@@ -7,6 +7,11 @@
     <string name="login_now">Login Now</string>
     <string name="or_label">OR</string>
     <string name="forget_password">Forget your password?</string>
+    <string name="user_info">User Info</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="ok">OK</string>
+
+
 
     <!-- Navigation Labels -->
     <string name="app_name">Careium</string>

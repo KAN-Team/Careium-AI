@@ -28,4 +28,10 @@
         <item name="android:fontFamily">@font/comicz</item>
     </style>
 
+    <style name="Theme.white" parent="Theme.AppCompat.NoActionBar">
+        <!-- App Theme Colors -->
+        <item name="colorPrimary">@color/white</item>
+        <item name="android:fontFamily">@font/comicz</item>
+    </style>
+
 </resources>

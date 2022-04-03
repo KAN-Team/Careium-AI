@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/layout_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/transparent_back_normal"
+        android:visibility="gone"
+        tools:ignore="UselessParent" />
+
+    <RelativeLayout
+        android:id="@+id/error_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x_large_size"
+        android:layout_centerVertical="true"
+        android:layout_marginHorizontal="@dimen/medium_plus_spacing"
+        android:background="@drawable/error_container"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/error_info_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/medium_spacing"
+            android:layout_marginTop="@dimen/medium_plus_spacing"
+            android:gravity="center"
+            android:textColor="@color/red"
+            android:textSize="@dimen/medium_text_size" />
+
+        <TextView
+            android:id="@+id/error_info_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/error_info_title"
+            android:layout_marginHorizontal="@dimen/medium_spacing"
+            android:layout_marginTop="@dimen/x_large_spacing"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textColor="@color/white"
+            android:textSize="@dimen/medium_text_size" />
+
+        <Button
+            android:id="@+id/error_info_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/medium_spacing"
+            android:background="@drawable/items_container"
+            android:text="@string/ok"
+            android:textColor="@color/black"
+            android:theme="@style/Theme.white" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

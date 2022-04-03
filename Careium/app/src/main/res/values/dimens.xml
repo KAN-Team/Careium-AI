@@ -3,6 +3,7 @@
 
     <!-- Width and Height-->
     <dimen name="small_size">50dp</dimen>
+    <dimen name="semi_medium_size">63dp</dimen>
     <dimen name="medium_size">180dp</dimen>
     <dimen name="large_size">250dp</dimen>
     <dimen name="x_large_size">300dp</dimen>
