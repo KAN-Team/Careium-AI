@@ -3,9 +3,12 @@ package com.example.careium.frontend.authentication.fragments
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.example.careium.R
+import com.example.careium.databinding.ErrorCustomViewBinding
 import com.example.careium.databinding.FragmentRegisterBinding
 import com.example.careium.frontend.authentication.activities.viewModel
+import com.example.careium.frontend.factory.ErrorAlertDialog
 
 private const val ARG_PARAM1 = ""
 
@@ -32,47 +35,46 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         binding = FragmentRegisterBinding.bind(view)
         viewModel.mutableAuthTitleLD.value = fragmentName.toString()
 
-
         handleClickButtons()
     }
 
 
     private fun handleClickButtons() {
+        binding.dataTransition.nextIcon.setOnClickListener {
+            val name = binding.dataName.text.toString()
+            val email = binding.dataEmail.text?.trim().toString()
+            val password = binding.dataPassword.text.toString()
+            val conf_pass = binding.dataConPassword.text.toString()
 
-        binding.nextInfoIcon.setOnClickListener {
-            val name = binding.infoName.text.toString()
-            val email = binding.infoEmail.text?.trim().toString()
-            val password = binding.infoPassword.text.toString()
-            val conf_pass = binding.infoConPassword.text.toString()
 
             if (name.isEmpty() || email.isEmpty() || password.isEmpty() || conf_pass.isEmpty())
-                alert("Error", "Please Fill The empty cell")
+                alert(getString(R.string.error_title), getString(R.string.error_message))
             else {
                 if (password == conf_pass) {
-                    alert("Success", "Congratulations")
+                    // TODO: store the user data in the object
+                    openInfoScreen()
                 } else
-                    alert("Error", "Confirmation Password must be same as password")
+                    alert(getString(R.string.error_title), getString(R.string.error_confirm_message))
             }
 
         }
 
-
-        binding.infoBackIcon.setOnClickListener {
+        binding.dataTransition.backIcon.setOnClickListener {
             activity?.finish()
         }
 
     }
 
-
     private fun alert(title: String, message: String) {
-        binding.infoErrorView.layoutOverlay.visibility = View.VISIBLE
-        binding.infoErrorView.errorContainer.visibility = View.VISIBLE
-        binding.infoErrorView.errorInfoTitle.text = title
-        binding.infoErrorView.errorInfoMessage.text = message
-        binding.infoErrorView.errorInfoBtn.setOnClickListener {
-            binding.infoErrorView.errorContainer.visibility = View.GONE
-            binding.infoErrorView.layoutOverlay.visibility = View.GONE
-        }
+        val view: ErrorCustomViewBinding = binding.dataErrorView
+        ErrorAlertDialog.alert(view, title, message)
+    }
+
+    private fun openInfoScreen() {
+        activity?.supportFragmentManager?.beginTransaction()
+            ?.replace(R.id.user_data_frame, UserInfoFragment.newInstance())
+            ?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+            ?.commit()
     }
 
 }

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/user_goal_frame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".frontend.authentication.fragments.UserGoalFragment">
+
+    <RelativeLayout
+        android:id="@+id/fragment_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/large_spacing"
+        android:layout_marginTop="@dimen/xx_large_spacing"
+        android:layout_marginBottom="@dimen/x_large_spacing"
+        android:background="@drawable/items_container"
+        tools:ignore="UselessParent">
+
+        <ProgressBar
+            android:id="@+id/phase3_progress_bar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_plus_spacing"
+            android:max="90"
+            android:progress="90"
+            android:theme="@style/Theme.white" />
+
+        <TextView
+            android:id="@+id/user_goal_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/phase3_progress_bar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/medium_spacing"
+            android:text="@string/user_goal"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="italic" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/goal_desired_weight_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/user_goal_label"
+            android:layout_marginHorizontal="@dimen/medium_plus_spacing"
+            android:layout_marginTop="@dimen/medium_plus_spacing"
+            android:background="@drawable/theme_button">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/goal_desired_weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:hint="@string/desired_weight_km"
+                android:inputType="numberDecimal"
+                android:paddingStart="@dimen/medium_spacing"
+                android:paddingEnd="@dimen/small_spacing"
+                android:paddingBottom="@dimen/tiny_spacing"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/medium_text_size" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/future_goal_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/goal_desired_weight_layout"
+            android:layout_marginHorizontal="@dimen/medium_plus_spacing"
+            android:layout_marginTop="@dimen/medium_plus_spacing"
+            android:text="@string/future_goal"
+            android:textColor="@color/black"
+            android:textSize="@dimen/small_plus_text_size" />
+
+        <RadioGroup
+            android:id="@+id/goal_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/future_goal_label"
+            android:layout_marginHorizontal="@dimen/medium_plus_spacing"
+            android:background="@drawable/items_container"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/goal_lose_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lose_weight"
+                android:textColor="@color/light_black" />
+
+            <RadioButton
+                android:id="@+id/goal_gain_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gain_weight"
+                android:textColor="@color/light_black" />
+
+            <RadioButton
+                android:id="@+id/goal_fitness_tracker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fitness_tracker"
+                android:textColor="@color/light_black" />
+
+
+            <RadioButton
+                android:id="@+id/goal_patient_treatment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/patient_treatment"
+                android:textColor="@color/light_black" />
+
+        </RadioGroup>
+
+
+        <RelativeLayout
+            android:id="@+id/transition_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginHorizontal="@dimen/medium_spacing"
+            android:layout_marginBottom="@dimen/medium_plus_spacing">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/back_icon"
+                android:layout_width="@dimen/semi_medium_size"
+                android:layout_height="@dimen/semi_medium_size"
+                android:layout_marginStart="@dimen/medium_spacing"
+                android:elevation="@dimen/tiny_spacing"
+                android:rotationY="180"
+                android:src="@drawable/next_icon"
+                tools:ignore="ContentDescription" />
+
+            <Button
+                android:id="@+id/final_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/medium_spacing"
+                android:background="@drawable/error_container"
+                android:elevation="@dimen/tiny_spacing"
+                android:text="@string/register"
+                android:textSize="@dimen/small_plus_text_size"
+                android:theme="@style/Theme.aa"
+                tools:ignore="ContentDescription,RelativeOverlap" />
+
+        </RelativeLayout>
+
+        <include
+            android:id="@+id/goal_error_view"
+            layout="@layout/error_custom_view" />
+
+    </RelativeLayout>
+
+</FrameLayout>

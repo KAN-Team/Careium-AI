@@ -5,9 +5,11 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import com.example.careium.R
+import com.example.careium.databinding.ErrorCustomViewBinding
 import com.example.careium.databinding.FragmentLoginBinding
 import com.example.careium.frontend.authentication.activities.SplashActivity
 import com.example.careium.frontend.authentication.activities.viewModel
+import com.example.careium.frontend.factory.ErrorAlertDialog
 import com.example.careium.frontend.home.activities.MainActivity
 
 private const val ARG_PARAM1 = ""
@@ -45,7 +47,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             val password = binding.loginPassword.text.toString()
 
             if (email.isEmpty() || password.isEmpty())
-                alert("Error", "Please Fill The empty cell")
+                alert(getString(R.string.error_title), getString(R.string.error_message))
             else {
                 // TODO: Check on Database for the user
                 openMainActivity()
@@ -74,14 +76,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
 
     private fun alert(title: String, message: String) {
-        binding.loginErrorView.layoutOverlay.visibility = View.VISIBLE
-        binding.loginErrorView.errorContainer.visibility = View.VISIBLE
-        binding.loginErrorView.errorInfoTitle.text = title
-        binding.loginErrorView.errorInfoMessage.text = message
-        binding.loginErrorView.errorInfoBtn.setOnClickListener {
-            binding.loginErrorView.errorContainer.visibility = View.GONE
-            binding.loginErrorView.layoutOverlay.visibility = View.GONE
-        }
+        val view: ErrorCustomViewBinding = binding.loginErrorView
+        ErrorAlertDialog.alert(view, title, message)
     }
 
 }
