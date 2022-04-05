@@ -9,24 +9,24 @@ import com.example.careium.R
 import com.example.careium.databinding.ErrorCustomViewBinding
 import com.example.careium.databinding.FragmentUserGoalBinding
 import com.example.careium.frontend.authentication.activities.SplashActivity
+import com.example.careium.frontend.authentication.activities.user
 import com.example.careium.frontend.factory.ErrorAlertDialog
+import com.example.careium.frontend.factory.FutureGoal
 import com.example.careium.frontend.home.activities.MainActivity
 
 class UserGoalFragment : Fragment(R.layout.fragment_user_goal) {
     lateinit var binding:FragmentUserGoalBinding
-    val LOSEWEIGHT = 0
-    val GAINWEIGHT = 1
-    val FITNESSTRACKER = 2
-    val PATIENTTREATMENT = 3
 
     companion object {
         fun newInstance() = UserGoalFragment().apply {}
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentUserGoalBinding.bind(view)
 
+        updateUserDataUI()
         handleClickButtons()
     }
 
@@ -34,32 +34,39 @@ class UserGoalFragment : Fragment(R.layout.fragment_user_goal) {
     private fun handleClickButtons() {
         binding.finalRegister.setOnClickListener {
             val desiredWeight = binding.goalDesiredWeight.text.toString()
-            var futureGoal = -1
+            var futureGoal: FutureGoal? = null
             when {
-                binding.goalLoseWeight.isChecked -> futureGoal = LOSEWEIGHT
-                binding.goalGainWeight.isChecked -> futureGoal = GAINWEIGHT
-                binding.goalFitnessTracker.isChecked -> futureGoal = FITNESSTRACKER
-                binding.goalPatientTreatment.isChecked -> futureGoal = PATIENTTREATMENT
+                binding.goalLoseWeight.isChecked -> futureGoal = FutureGoal.LoseWeight
+                binding.goalGainWeight.isChecked -> futureGoal = FutureGoal.GainWeight
+                binding.goalFitnessTracker.isChecked -> futureGoal = FutureGoal.FitnessTracker
+                binding.goalPatientTreatment.isChecked -> futureGoal = FutureGoal.PatientTreatment
             }
+
 
             when {
                 desiredWeight.isEmpty() -> alert(getString(R.string.error_title), getString(R.string.error_weight_message))
-                futureGoal == -1 -> alert(getString(R.string.error_title), getString(R.string.error_future_goal_message))
+                futureGoal == null -> alert(getString(R.string.error_title), getString(R.string.error_future_goal_message))
                 else -> {
-                    // TODO: store the user data in the object
+                    saveUserData(desiredWeight.toFloat(), futureGoal)
+                    saveDataOnDatabase()
                     openMainActivity()
                 }
             }
 
         }
 
+
         binding.backIcon.setOnClickListener {
             activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.user_goal_frame, UserInfoFragment.newInstance())
+                ?.replace(R.id.auth_frame, UserInfoFragment.newInstance())
                 ?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 ?.commit()
         }
 
+    }
+
+    private fun saveDataOnDatabase() {
+        // TODO Save User Object on Database
     }
 
 
@@ -74,6 +81,21 @@ class UserGoalFragment : Fragment(R.layout.fragment_user_goal) {
         activity?.finish()
     }
 
+    private fun saveUserData(desiredWeight:Float,futureGoal: FutureGoal){
+        user.desiredWeight = desiredWeight
+        user.futureGoal = futureGoal
+    }
 
+    private fun updateUserDataUI() {
+        if (user.desiredWeight!=0f && user.futureGoal != null){
+            binding.goalDesiredWeight.setText(user.desiredWeight.toString())
+            when (user.futureGoal) {
+                FutureGoal.LoseWeight -> binding.goalLoseWeight.isChecked = true
+                FutureGoal.GainWeight -> binding.goalGainWeight.isChecked = true
+                FutureGoal.FitnessTracker -> binding.goalFitnessTracker.isChecked = true
+                FutureGoal.PatientTreatment -> binding.goalPatientTreatment.isChecked = true
+            }
+        }
+    }
 
 }

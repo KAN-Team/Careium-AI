@@ -15,7 +15,6 @@ import com.example.careium.frontend.home.activities.MainActivity
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashBinding
-    private val condition: Int = 0
 
     companion object {
         @SuppressLint("StaticFieldLeak")
@@ -31,8 +30,8 @@ class SplashActivity : AppCompatActivity() {
         buildAnimation()
         handleClickButtons()
 
-        // TODO: Handle Here Authentication Condition to start main activity
-        if (condition == 1) {
+
+        if (hasAccount()) {
             binding.loginBtn.visibility = View.GONE
             binding.registerBtn.visibility = View.GONE
             Handler().postDelayed({
@@ -43,6 +42,10 @@ class SplashActivity : AppCompatActivity() {
 
     }
 
+    private fun hasAccount():Boolean{
+        // TODO: Handle Here Authentication Condition to start main activity
+        return false
+    }
 
     private fun handleClickButtons() {
         binding.loginBtn.setOnClickListener {

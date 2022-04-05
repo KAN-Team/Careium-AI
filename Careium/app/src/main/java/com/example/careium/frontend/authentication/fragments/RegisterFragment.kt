@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction
 import com.example.careium.R
 import com.example.careium.databinding.ErrorCustomViewBinding
 import com.example.careium.databinding.FragmentRegisterBinding
+import com.example.careium.frontend.authentication.activities.user
 import com.example.careium.frontend.authentication.activities.viewModel
 import com.example.careium.frontend.factory.ErrorAlertDialog
 
@@ -35,6 +36,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         binding = FragmentRegisterBinding.bind(view)
         viewModel.mutableAuthTitleLD.value = fragmentName.toString()
 
+        updateUserDataUI()
         handleClickButtons()
     }
 
@@ -50,11 +52,12 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
             if (name.isEmpty() || email.isEmpty() || password.isEmpty() || conf_pass.isEmpty())
                 alert(getString(R.string.error_title), getString(R.string.error_message))
             else {
-                if (password == conf_pass) {
-                    // TODO: store the user data in the object
-                    openInfoScreen()
-                } else
+                if (password != conf_pass)
                     alert(getString(R.string.error_title), getString(R.string.error_confirm_message))
+                 else{
+                    saveUserData(name, email, password)
+                    openInfoScreen()
+                 }
             }
 
         }
@@ -72,9 +75,24 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 
     private fun openInfoScreen() {
         activity?.supportFragmentManager?.beginTransaction()
-            ?.replace(R.id.user_data_frame, UserInfoFragment.newInstance())
+            ?.replace(R.id.auth_frame, UserInfoFragment.newInstance())
             ?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             ?.commit()
+    }
+
+    private fun saveUserData(name:String, email:String, password:String){
+        user.name = name
+        user.email = email
+        user.password = password
+    }
+
+    private fun updateUserDataUI() {
+        if (user.name.isNotEmpty() && user.email.isNotEmpty() && user.password.isNotEmpty()){
+            binding.dataName.setText(user.name)
+            binding.dataEmail.setText(user.email)
+            binding.dataPassword.setText(user.password)
+            binding.dataConPassword.setText(user.password)
+        }
     }
 
 }

@@ -7,12 +7,12 @@ import androidx.fragment.app.FragmentTransaction
 import com.example.careium.R
 import com.example.careium.databinding.ErrorCustomViewBinding
 import com.example.careium.databinding.FragmentUserInfoBinding
+import com.example.careium.frontend.authentication.activities.user
 import com.example.careium.frontend.factory.ErrorAlertDialog
+import com.example.careium.frontend.factory.Gender
 
 class UserInfoFragment : Fragment(R.layout.fragment_user_info) {
     private lateinit var binding: FragmentUserInfoBinding
-    private val MALE = 0
-    private val FEMALE = 1
 
     companion object {
         fun newInstance() = UserInfoFragment().apply {}
@@ -22,6 +22,7 @@ class UserInfoFragment : Fragment(R.layout.fragment_user_info) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentUserInfoBinding.bind(view)
 
+        updateUserDataUI()
         handleClickButtons()
     }
 
@@ -30,19 +31,19 @@ class UserInfoFragment : Fragment(R.layout.fragment_user_info) {
             val height = binding.infoHeight.text.toString()
             val weight = binding.infoWeight.text.toString()
             val age = binding.infoAge.text.toString()
-            var gender = -1
+            var gender: Gender? = null
             when {
-                binding.infoMale.isChecked -> gender = MALE
-                binding.infoFemale.isChecked -> gender = FEMALE
+                binding.infoMale.isChecked -> gender = Gender.Male
+                binding.infoFemale.isChecked -> gender = Gender.Female
             }
 
 
             if (height.isEmpty() || weight.isEmpty() || age.isEmpty())
                 alert(getString(R.string.error_title), getString(R.string.error_message))
-            else if (gender == -1)
+            else if (gender == null)
                 alert(getString(R.string.error_title), getString(R.string.error_gender_message))
              else {
-                // TODO: store the user data in the object
+                saveUserData(height.toFloat(), weight.toFloat(), age.toInt(), gender)
                 openGoalScreen()
             }
 
@@ -50,7 +51,7 @@ class UserInfoFragment : Fragment(R.layout.fragment_user_info) {
 
         binding.infoTransition.backIcon.setOnClickListener {
             activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.user_info_frame, RegisterFragment.newInstance(getString(R.string.register)))
+                ?.replace(R.id.auth_frame, RegisterFragment.newInstance(getString(R.string.register)))
                 ?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 ?.commit()
         }
@@ -65,9 +66,28 @@ class UserInfoFragment : Fragment(R.layout.fragment_user_info) {
 
     private fun openGoalScreen() {
         activity?.supportFragmentManager?.beginTransaction()
-            ?.replace(R.id.user_info_frame, UserGoalFragment.newInstance())
+            ?.replace(R.id.auth_frame, UserGoalFragment.newInstance())
             ?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             ?.commit()
+    }
+
+    private fun saveUserData(height:Float, weight:Float, age:Int, gender:Gender){
+        user.height = height
+        user.weight = weight
+        user.age = age
+        user.gender = gender
+    }
+
+    private fun updateUserDataUI() {
+        if (user.height!=0f && user.weight!=0f && user.age !=0 && user.gender != null){
+            binding.infoHeight.setText(user.height.toString())
+            binding.infoWeight.setText(user.weight.toString())
+            binding.infoAge.setText(user.age.toString())
+            when (user.gender) {
+                Gender.Male -> binding.infoMale.isChecked = true
+                Gender.Female -> binding.infoFemale.isChecked = true
+            }
+        }
     }
 
 }

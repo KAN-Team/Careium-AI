@@ -130,7 +130,6 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/info_gender_label"
             android:layout_marginHorizontal="@dimen/medium_plus_spacing"
-            android:background="@drawable/items_container"
             android:orientation="horizontal">
 
             <RadioButton
@@ -162,5 +161,6 @@
             layout="@layout/error_custom_view" />
 
     </RelativeLayout>
+
 
 </FrameLayout>

@@ -49,8 +49,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             if (email.isEmpty() || password.isEmpty())
                 alert(getString(R.string.error_title), getString(R.string.error_message))
             else {
-                // TODO: Check on Database for the user
-                openMainActivity()
+                if(isLoggedIn())
+                    openMainActivity()
             }
         }
 
@@ -66,6 +66,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             // TODO: Go to Forget Password Fragment
         }
 
+    }
+
+    private fun isLoggedIn():Boolean{
+        // TODO: Check on Database for the user
+        return true
     }
 
     private fun openMainActivity() {

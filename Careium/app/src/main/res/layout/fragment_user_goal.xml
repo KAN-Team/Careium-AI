@@ -80,26 +80,25 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/future_goal_label"
             android:layout_marginHorizontal="@dimen/medium_plus_spacing"
-            android:background="@drawable/items_container"
             android:orientation="vertical">
 
             <RadioButton
                 android:id="@+id/goal_lose_weight"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/lose_weight"
                 android:textColor="@color/light_black" />
 
             <RadioButton
                 android:id="@+id/goal_gain_weight"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/gain_weight"
                 android:textColor="@color/light_black" />
 
             <RadioButton
                 android:id="@+id/goal_fitness_tracker"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/fitness_tracker"
                 android:textColor="@color/light_black" />
@@ -107,7 +106,7 @@
 
             <RadioButton
                 android:id="@+id/goal_patient_treatment"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/patient_treatment"
                 android:textColor="@color/light_black" />
@@ -144,7 +143,7 @@
                 android:elevation="@dimen/tiny_spacing"
                 android:text="@string/register"
                 android:textSize="@dimen/small_plus_text_size"
-                android:theme="@style/Theme.aa"
+                android:theme="@style/Theme.custom_button"
                 tools:ignore="ContentDescription,RelativeOverlap" />
 
         </RelativeLayout>

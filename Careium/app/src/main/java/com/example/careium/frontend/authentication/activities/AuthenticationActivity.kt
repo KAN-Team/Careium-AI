@@ -1,16 +1,19 @@
 package com.example.careium.frontend.authentication.activities
 
 import android.os.Bundle
+import android.view.ActionMode
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
 import com.example.careium.R
+import com.example.careium.core.models.User
 import com.example.careium.databinding.ActivityAuthenticationBinding
 import com.example.careium.frontend.authentication.fragments.LoginFragment
 import com.example.careium.frontend.authentication.fragments.RegisterFragment
 import com.example.careium.frontend.factory.AuthViewModel
 
 lateinit var viewModel: AuthViewModel
+val user = User.getInstance()
 
 class AuthenticationActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAuthenticationBinding
@@ -22,7 +25,6 @@ class AuthenticationActivity : AppCompatActivity() {
         setContentView(binding.root)
         option = intent.getStringExtra("AuthOption").toString()
 
-
         //observe ant change in Fragment Title
         observeAuthTitleChange()
         handleBackButton()
@@ -33,6 +35,11 @@ class AuthenticationActivity : AppCompatActivity() {
         else if (option == "register")
             loadFragment(RegisterFragment.newInstance(getString(R.string.register)), "Auth")
 
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        user.reset()
     }
 
     private fun loadFragment(fragment: Fragment, fragmentTAG: String) {

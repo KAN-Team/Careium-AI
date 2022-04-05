@@ -35,9 +35,9 @@
         <item name="android:fontFamily">@font/comicz</item>
     </style>
 
-    <style name="Theme.aa" parent="Theme.AppCompat.NoActionBar">
+    <style name="Theme.custom_button" parent="Theme.AppCompat.NoActionBar">
         <!-- App Theme Colors -->
-        <item name="colorPrimary">#2A3c58</item>
+        <item name="colorPrimary">@color/white_blue</item>
         <item name="colorSecondary">@color/green_500</item>
         <item name="android:fontFamily">@font/comicz</item>
     </style>
