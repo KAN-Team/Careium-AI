@@ -21,18 +21,18 @@ class User {
             if (instance == null) return User()
             return instance as User
         }
-    }
 
-    fun reset(){
-        instance?.name = ""
-        instance?.email = ""
-        instance?.password = ""
-        instance?.height = 0f
-        instance?.weight = 0f
-        instance?.age = 0
-        instance?.gender = null
-        instance?.desiredWeight = 0f
-        instance?.futureGoal = null
+        fun reset(_instance: User) {
+            _instance.name = ""
+            _instance.email = ""
+            _instance.password = ""
+            _instance.height = 0f
+            _instance.weight = 0f
+            _instance.age = 0
+            _instance.gender = null
+            _instance.desiredWeight = 0f
+            _instance.futureGoal = null
+        }
     }
 
 }

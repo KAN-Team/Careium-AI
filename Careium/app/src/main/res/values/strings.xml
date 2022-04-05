@@ -1,4 +1,5 @@
 <resources>
+
     <!-- Authentication Screens -->
     <string name="welcome_msg">Welcome to</string>
     <string name="fill_data">Fill your Data</string>
@@ -27,7 +28,12 @@
     <string name="error_gender_message">Please Select your Gender</string>
     <string name="error_weight_message">Please Enter Your Desired Weight</string>
     <string name="error_future_goal_message">Please Select your Future Goal</string>
-
+    <string name="reset_password">Reset Password</string>
+    <string name="reset_message">We Will Send email to you to reset your password</string>
+    <string name="send">Send</string>
+    <string name="confirmation_reset_msg">Email Sent Successfully</string>
+    <string name="confirmation_logged_msg">You Logged In Successfully</string>
+    <string name="confirmation_register_msg">You Registered Successfully</string>
 
     <!-- Navigation Labels -->
     <string name="app_name">Careium</string>
@@ -79,4 +85,5 @@
 
     <!-- Locals -->
     <string name="local_eg">EG</string>
+
 </resources>

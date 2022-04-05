@@ -5,36 +5,24 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.example.careium.R
+import com.example.careium.core.models.User
 import com.example.careium.databinding.ErrorCustomViewBinding
 import com.example.careium.databinding.FragmentRegisterBinding
 import com.example.careium.frontend.authentication.activities.user
 import com.example.careium.frontend.authentication.activities.viewModel
 import com.example.careium.frontend.factory.ErrorAlertDialog
 
-private const val ARG_PARAM1 = ""
-
 class RegisterFragment : Fragment(R.layout.fragment_register) {
     private lateinit var binding: FragmentRegisterBinding
-    private var fragmentName: String? = null
 
     companion object {
-        @JvmStatic
-        fun newInstance(_fragmentName: String) =
-            RegisterFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, _fragmentName)
-                }
-            }
+        fun newInstance() = RegisterFragment().apply {}
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        arguments?.let {
-            fragmentName = it.getString(ARG_PARAM1)
-        }
         binding = FragmentRegisterBinding.bind(view)
-        viewModel.mutableAuthTitleLD.value = fragmentName.toString()
+        viewModel.mutableAuthTitleLD.value = getString(R.string.register)
 
         updateUserDataUI()
         handleClickButtons()
@@ -63,6 +51,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         }
 
         binding.dataTransition.backIcon.setOnClickListener {
+            User.reset(user)
             activity?.finish()
         }
 

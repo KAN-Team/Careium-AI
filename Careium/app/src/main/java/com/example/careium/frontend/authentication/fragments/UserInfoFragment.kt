@@ -51,7 +51,7 @@ class UserInfoFragment : Fragment(R.layout.fragment_user_info) {
 
         binding.infoTransition.backIcon.setOnClickListener {
             activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.auth_frame, RegisterFragment.newInstance(getString(R.string.register)))
+                ?.replace(R.id.auth_frame, RegisterFragment.newInstance())
                 ?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 ?.commit()
         }

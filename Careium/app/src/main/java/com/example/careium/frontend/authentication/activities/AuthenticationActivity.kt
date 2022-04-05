@@ -1,7 +1,6 @@
 package com.example.careium.frontend.authentication.activities
 
 import android.os.Bundle
-import android.view.ActionMode
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
@@ -24,27 +23,23 @@ class AuthenticationActivity : AppCompatActivity() {
         binding = ActivityAuthenticationBinding.inflate(layoutInflater)
         setContentView(binding.root)
         option = intent.getStringExtra("AuthOption").toString()
+        User.reset(user)
 
-        //observe ant change in Fragment Title
         observeAuthTitleChange()
         handleBackButton()
 
 
         if (option == "login")
-            loadFragment(LoginFragment.newInstance(getString(R.string.login)), "Auth")
+            loadFragment(LoginFragment.newInstance())
         else if (option == "register")
-            loadFragment(RegisterFragment.newInstance(getString(R.string.register)), "Auth")
+            loadFragment(RegisterFragment.newInstance())
 
     }
 
-    override fun onRestart() {
-        super.onRestart()
-        user.reset()
-    }
 
-    private fun loadFragment(fragment: Fragment, fragmentTAG: String) {
+    private fun loadFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.auth_frame, fragment, fragmentTAG)
+            .replace(R.id.auth_frame, fragment)
             //.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             .commit()
     }
@@ -60,10 +55,7 @@ class AuthenticationActivity : AppCompatActivity() {
 
     private fun handleBackButton() {
         binding.authToolbar.backImgButton.setOnClickListener {
-            val myFragment = supportFragmentManager.findFragmentByTag("Auth")
-            if (myFragment != null && myFragment.isVisible) {
-                finish()
-            }
+            finish()
         }
     }
 

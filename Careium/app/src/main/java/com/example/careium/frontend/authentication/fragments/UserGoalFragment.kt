@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.FragmentTransaction
 import com.example.careium.R
 import com.example.careium.databinding.ErrorCustomViewBinding
@@ -49,6 +50,7 @@ class UserGoalFragment : Fragment(R.layout.fragment_user_goal) {
                 else -> {
                     saveUserData(desiredWeight.toFloat(), futureGoal)
                     saveDataOnDatabase()
+                    Toast.makeText(activity, getString(R.string.confirmation_register_msg), Toast.LENGTH_SHORT).show()
                     openMainActivity()
                 }
             }

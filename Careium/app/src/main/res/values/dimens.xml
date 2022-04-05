@@ -7,6 +7,7 @@
     <dimen name="medium_size">180dp</dimen>
     <dimen name="large_size">250dp</dimen>
     <dimen name="x_large_size">300dp</dimen>
+    <dimen name="xx_large_size">350dp</dimen>
 
     <!-- Text Size -->
     <dimen name="title_text_size">36sp</dimen>
