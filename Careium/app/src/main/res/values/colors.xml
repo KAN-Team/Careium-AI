@@ -7,5 +7,8 @@
     <color name="orange_light">#FFAD42</color> <!-- Secondary Light -->
     <color name="orange_dark">#BB4D00</color> <!-- Secondary Dark -->
     <color name="black">#FF000000</color>
+    <color name="light_black">#CD000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="red">#FF0000</color>
+    <color name="white_blue">#2A3c58</color>
 </resources>

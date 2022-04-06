@@ -22,8 +22,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="?attr/colorPrimaryVariant"
-            android:animateLayoutChanges="true">
+            android:animateLayoutChanges="true"
+            android:background="?attr/colorPrimaryVariant">
 
             <FrameLayout
                 android:id="@+id/layout_main_frame"

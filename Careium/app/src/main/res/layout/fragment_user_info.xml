@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/user_data_frame"
+    android:id="@+id/user_info_frame"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".frontend.authentication.fragments.RegisterFragment">
+    tools:context=".frontend.authentication.fragments.UserInfoFragment">
+
 
     <RelativeLayout
         android:id="@+id/fragment_view"
@@ -18,43 +18,43 @@
         tools:ignore="UselessParent">
 
         <ProgressBar
-            android:id="@+id/phase1_progress_bar"
+            android:id="@+id/phase2_progress_bar"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/medium_plus_spacing"
             android:max="90"
-            android:progress="30" />
+            android:progress="60" />
 
         <TextView
-            android:id="@+id/user_data_label"
+            android:id="@+id/user_info_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/phase1_progress_bar"
+            android:layout_below="@+id/phase2_progress_bar"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/medium_spacing"
-            android:text="@string/user_data"
+            android:text="@string/user_info"
             android:textColor="@color/light_black"
             android:textSize="@dimen/medium_text_size"
             android:textStyle="italic" />
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/data_name_layout"
+            android:id="@+id/info_height_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/user_data_label"
+            android:layout_below="@id/user_info_label"
             android:layout_marginHorizontal="@dimen/medium_plus_spacing"
             android:layout_marginTop="@dimen/medium_plus_spacing"
             android:background="@drawable/theme_button">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/data_name"
+                android:id="@+id/info_height"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:hint="@string/name"
-                android:inputType="textEmailAddress"
+                android:hint="@string/height_cm"
+                android:inputType="numberDecimal"
                 android:paddingStart="@dimen/medium_spacing"
                 android:paddingEnd="@dimen/small_spacing"
                 android:paddingBottom="@dimen/tiny_spacing"
@@ -64,21 +64,21 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/data_email_layout"
+            android:id="@+id/info_weight_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/data_name_layout"
+            android:layout_below="@id/info_height_layout"
             android:layout_marginHorizontal="@dimen/medium_plus_spacing"
             android:layout_marginTop="@dimen/medium_plus_spacing"
             android:background="@drawable/theme_button">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/data_email"
+                android:id="@+id/info_weight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:hint="@string/email"
-                android:inputType="textEmailAddress"
+                android:hint="@string/weight_km"
+                android:inputType="numberDecimal"
                 android:paddingStart="@dimen/medium_spacing"
                 android:paddingEnd="@dimen/small_spacing"
                 android:paddingBottom="@dimen/tiny_spacing"
@@ -89,22 +89,21 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/data_password_layout"
+            android:id="@+id/info_age_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/data_email_layout"
+            android:layout_below="@id/info_weight_layout"
             android:layout_marginHorizontal="@dimen/medium_plus_spacing"
             android:layout_marginTop="@dimen/medium_plus_spacing"
-            android:background="@drawable/theme_button"
-            app:passwordToggleEnabled="true">
+            android:background="@drawable/theme_button">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/data_password"
+                android:id="@+id/info_age"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:hint="@string/password"
-                android:inputType="textPassword"
+                android:hint="@string/age"
+                android:inputType="number"
                 android:paddingStart="@dimen/medium_spacing"
                 android:paddingEnd="@dimen/small_spacing"
                 android:paddingBottom="@dimen/tiny_spacing"
@@ -114,39 +113,54 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/info_con_password_layout"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/info_gender_label"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/data_password_layout"
+            android:layout_below="@id/info_age_layout"
             android:layout_marginHorizontal="@dimen/medium_plus_spacing"
             android:layout_marginTop="@dimen/medium_plus_spacing"
-            android:background="@drawable/theme_button"
-            app:passwordToggleEnabled="true">
+            android:text="@string/gender"
+            android:textColor="@color/black"
+            android:textSize="@dimen/small_plus_text_size" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/data_con_password"
-                android:layout_width="match_parent"
+        <RadioGroup
+            android:id="@+id/info_gender_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/info_gender_label"
+            android:layout_marginHorizontal="@dimen/medium_plus_spacing"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/info_male"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:hint="@string/confirm_password"
-                android:inputType="textPassword"
-                android:paddingStart="@dimen/medium_spacing"
-                android:paddingEnd="@dimen/small_spacing"
-                android:paddingBottom="@dimen/tiny_spacing"
-                android:textColor="@color/light_black"
-                android:textSize="@dimen/medium_text_size" />
+                android:layout_weight="1"
+                android:text="@string/male"
+                android:textColor="@color/light_black" />
 
-        </com.google.android.material.textfield.TextInputLayout>
+
+            <RadioButton
+                android:id="@+id/info_female"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/female"
+                android:textColor="@color/light_black" />
+
+        </RadioGroup>
+
 
         <include
-            android:id="@+id/data_transition"
+            android:id="@+id/info_transition"
             layout="@layout/transition_custom_buttons" />
 
         <include
-            android:id="@+id/data_error_view"
+            android:id="@+id/info_error_view"
             layout="@layout/error_custom_view" />
 
     </RelativeLayout>
+
 
 </FrameLayout>

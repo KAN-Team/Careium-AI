@@ -1,4 +1,40 @@
 <resources>
+
+    <!-- Authentication Screens -->
+    <string name="welcome_msg">Welcome to</string>
+    <string name="fill_data">Fill your Data</string>
+    <string name="password">Password</string>
+    <string name="login_now">Login Now</string>
+    <string name="or_label">OR</string>
+    <string name="forget_password">Forget your password?</string>
+    <string name="user_data">User Data</string>
+    <string name="user_info">User Info</string>
+    <string name="user_goal">User Goal</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="ok">OK</string>
+    <string name="height_cm">Height/cm</string>
+    <string name="weight_km">Weight/km</string>
+    <string name="desired_weight_km">Desired Weight/km</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="lose_weight">Lose Weight</string>
+    <string name="gain_weight">Gain Weight</string>
+    <string name="fitness_tracker">Fitness Tracker</string>
+    <string name="patient_treatment">Patient Treatment</string>
+    <string name="future_goal">Future Goal</string>
+    <string name="error_title">Error</string>
+    <string name="error_message">Please Fill The empty cell</string>
+    <string name="error_confirm_message">Confirmation Password must be same as password</string>
+    <string name="error_gender_message">Please Select your Gender</string>
+    <string name="error_weight_message">Please Enter Your Desired Weight</string>
+    <string name="error_future_goal_message">Please Select your Future Goal</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="reset_message">We Will Send email to you to reset your password</string>
+    <string name="send">Send</string>
+    <string name="confirmation_reset_msg">Email Sent Successfully</string>
+    <string name="confirmation_logged_msg">You Logged In Successfully</string>
+    <string name="confirmation_register_msg">You Registered Successfully</string>
+
     <!-- Navigation Labels -->
     <string name="app_name">Careium</string>
     <string name="app_full_name">Careium AI</string>
@@ -49,4 +85,5 @@
 
     <!-- Locals -->
     <string name="local_eg">EG</string>
+
 </resources>

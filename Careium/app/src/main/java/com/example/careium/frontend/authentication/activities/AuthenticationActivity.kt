@@ -5,12 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
 import com.example.careium.R
+import com.example.careium.core.models.User
 import com.example.careium.databinding.ActivityAuthenticationBinding
 import com.example.careium.frontend.authentication.fragments.LoginFragment
 import com.example.careium.frontend.authentication.fragments.RegisterFragment
 import com.example.careium.frontend.factory.AuthViewModel
 
 lateinit var viewModel: AuthViewModel
+val user = User.getInstance()
 
 class AuthenticationActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAuthenticationBinding
@@ -21,17 +23,19 @@ class AuthenticationActivity : AppCompatActivity() {
         binding = ActivityAuthenticationBinding.inflate(layoutInflater)
         setContentView(binding.root)
         option = intent.getStringExtra("AuthOption").toString()
+        User.reset(user)
 
-        //observe ant change in Fragment Title
         observeAuthTitleChange()
+        handleBackButton()
 
 
         if (option == "login")
-            loadFragment(LoginFragment.newInstance(getString(R.string.login)))
+            loadFragment(LoginFragment.newInstance())
         else if (option == "register")
-            loadFragment(RegisterFragment.newInstance(getString(R.string.register)))
+            loadFragment(RegisterFragment.newInstance())
 
     }
+
 
     private fun loadFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
@@ -47,4 +51,12 @@ class AuthenticationActivity : AppCompatActivity() {
                 getString(R.string.auth_toolbar_title, fragmentTitle)
         }
     }
+
+
+    private fun handleBackButton() {
+        binding.authToolbar.backImgButton.setOnClickListener {
+            finish()
+        }
+    }
+
 }

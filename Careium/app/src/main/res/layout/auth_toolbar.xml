@@ -4,7 +4,7 @@
     android:id="@+id/custom_auth_toolbar"
     android:layout_width="match_parent"
     android:layout_height="@dimen/toolbar_height"
-    android:background="?attr/colorPrimary"
+    android:background="@android:color/transparent"
     android:elevation="@dimen/elevation_toolbar">
 
     <LinearLayout
@@ -16,15 +16,16 @@
             android:id="@+id/back_img_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/action_button_content_margin"
-            android:background="@drawable/ic_round_back_24"
+            android:layout_marginStart="@dimen/small_spacing"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_round_back_24"
             tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/toolbar_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/action_button_content_margin"
+            android:layout_marginStart="@dimen/medium_spacing"
             android:ellipsize="end"
             android:fontFamily="@font/lato_bold"
             android:maxLines="1"
