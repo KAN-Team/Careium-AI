@@ -22,7 +22,7 @@ open class DeepLearning {
         val intValues = IntArray(dishImageWidth * dishImageHeight)
         dish_image.getPixels(
             intValues, 0, dish_image.width,
-            0, 0, dish_image.width, dish_image.height
+            0, 0, dish_image.width , dish_image.height
         )
 
 
@@ -31,9 +31,9 @@ open class DeepLearning {
         for (i in 0 until dishImageWidth) {
             for (j in 0 until dishImageHeight) {
                 val value = intValues[pixel++] // RGB
-                byteBuffer.putFloat((value shr 16 and 0xFF).toFloat())
-                byteBuffer.putFloat((value shr 8 and 0xFF).toFloat())
-                byteBuffer.putFloat((value and 0xFF).toFloat())
+                byteBuffer.putFloat((value shr 16 and 0xFF) / 255f)
+                byteBuffer.putFloat((value shr 8 and 0xFF) / 255f)
+                byteBuffer.putFloat((value and 0xFF) / 255f)
             }
         }
         inputFeature.loadBuffer(byteBuffer)
