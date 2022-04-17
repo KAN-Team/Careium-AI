@@ -4,8 +4,13 @@ import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.lifecycle.ViewModelProviders
 import com.example.careium.R
 import com.example.careium.databinding.FragmentHomeBinding
+import com.example.careium.frontend.factory.DishNameViewModel
+import com.example.careium.frontend.factory.NutritionViewModel
+import com.example.careium.frontend.home.activities.dishNameViewModel
+import com.example.careium.frontend.home.activities.nutritionViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -17,15 +22,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private var daysFrom: Int = 0
 
     // Main Components
-    private var progressVal: Int = 3000
+    private var progressVal: Int = 0
     private var caloriesTarget: Int = 3000
     private var caloriesVal: Int = 0
-    private var carbsTarget: Float = 800f
-    private var carbsVal: Float = 120f      // Suppose to be Zero but it's kept for visualization
+    private var carbsTarget: Float = 100f
+    private var carbsVal: Float = 0f      // Suppose to be Zero but it's kept for visualization
     private var fatsTarget: Float = 100f
-    private var fatsVal: Float = 40f        // Suppose to be Zero but it's kept for visualization
-    private var proteinsTrgt: Float = 500f
-    private var proteinsVal: Float = 90f    // Suppose to be Zero but it's kept for visualization
+    private var fatsVal: Float = 0f        // Suppose to be Zero but it's kept for visualization
+    private var proteinsTrgt: Float = 100f
+    private var proteinsVal: Float = 0f    // Suppose to be Zero but it's kept for visualization
 
     companion object {
         @JvmStatic
@@ -36,6 +41,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHomeBinding.bind(view)
+        // Observe The Nutrition Values and Class Name
+        observeNutrition()
+        observeClassification()
 
         // setting target values for each component
         hookTargets()
@@ -72,7 +80,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun hookDateSection() {
-        binding.textCalendarDate.text = getDate(0) // display the date of the current day
+        //binding.textCalendarDate.text = getDate(0) // display the date of the current day
 
         binding.imageButtonPrevDate.setOnClickListener {
             daysFrom++
@@ -103,14 +111,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         updateProgress()
 
         binding.progressHomeCircular.setOnClickListener {
-            if (progressVal > 0) {
+            if (progressVal > 100) {
                 progressVal -= 100
                 caloriesVal += 100
                 caloriesTarget -= 100
                 updateProgress()
             } else {
-                progressVal = 3000
-                caloriesVal = 0
+                progressVal = 0
+                //caloriesVal = 0
                 caloriesTarget = 3000
                 updateProgress()
             }
@@ -150,4 +158,26 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.layoutProteinsItem.textCmpntValue.text = "$proteinsVal"
         binding.layoutProteinsItem.progressCmpnt.progress = proteinsVal.toInt()
     }
+
+    private fun observeNutrition() {
+        nutritionViewModel = ViewModelProviders.of(this).get(NutritionViewModel::class.java)
+        nutritionViewModel.mutableNutrition.observe(viewLifecycleOwner) { nutritionList ->
+            progressVal = nutritionList[0].toInt()
+            caloriesVal = nutritionList[0].toInt()
+            carbsVal = nutritionList[3]
+            fatsVal = nutritionList[2]
+            proteinsVal = nutritionList[4]
+            updateProgress()
+        }
+    }
+
+    private fun observeClassification() {
+        dishNameViewModel = ViewModelProviders.of(this).get(DishNameViewModel::class.java)
+        dishNameViewModel.mutableDishName.observe(viewLifecycleOwner) { className ->
+            binding.textCalendarDate.text = className
+        // will be changed later to class name text view not textCalendarDate
+
+        }
+    }
+
 }

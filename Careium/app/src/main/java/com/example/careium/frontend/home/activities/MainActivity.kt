@@ -24,11 +24,13 @@ import com.example.careium.core.models.DishClassification
 import com.example.careium.core.models.DishNutritionRegression
 import com.example.careium.databinding.ActivityMainBinding
 import com.example.careium.databinding.LayoutFloatingMenuItemBinding
-import com.example.careium.frontend.factory.FABItem
-import com.example.careium.frontend.factory.SwipeListener
+import com.example.careium.frontend.factory.*
 import com.example.careium.frontend.home.fragments.*
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu
+
+lateinit var nutritionViewModel: NutritionViewModel
+lateinit var dishNameViewModel: DishNameViewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -190,32 +192,22 @@ class MainActivity : AppCompatActivity() {
 
         try {
             val nutrition = DishNutritionRegression(this)
-            val tensorBuffer1 = nutrition.loadImageBuffer(dishImage, 480, 640)
+            val tensorBuffer1 = nutrition.loadImageBuffer(dishImage, 224, 224)
             val nutritionList = nutrition.predictNutritionModel(tensorBuffer1)
 
             val classifier = DishClassification(this)
             val tensorBuffer2 = classifier.loadImageBuffer(dishImage, 250, 250)
             val className = classifier.classifyDish(tensorBuffer2)
 
-            //display nutrition
-            Toast.makeText(
-                this, "Calories: ${nutritionList[0]}\n Mass: ${nutritionList[1]}\n" +
-                        "Fats: ${nutritionList[2]}\n Carbs: ${nutritionList[3]}" +
-                        "\n Proteins: ${nutritionList[4]}", Toast.LENGTH_LONG
-            ).show()
-
-            //display Dish Name
-            Toast.makeText(
-                this, "" + className, Toast.LENGTH_LONG
-            ).show()
-
+            // Update MutableLiveData to display the output
+            nutritionViewModel.mutableNutrition.value = nutritionList
+            dishNameViewModel.mutableDishName.value = className
 
         } catch (e: Exception) {
             Log.d("DLModels", "Exception Occurred in DL Models")
         }
 
     }
-
 
     @SuppressLint("UseCompatLoadingForDrawables")
     private fun buildFloatingActionMenu() {
