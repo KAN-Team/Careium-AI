@@ -6,7 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.ViewModelProviders
 import com.example.careium.R
+import com.example.careium.core.database.authentication.AuthViewModel
+import com.example.careium.core.database.authentication.Register
 import com.example.careium.databinding.ErrorCustomViewBinding
 import com.example.careium.databinding.FragmentUserGoalBinding
 import com.example.careium.frontend.authentication.activities.SplashActivity
@@ -16,7 +19,8 @@ import com.example.careium.frontend.factory.FutureGoal
 import com.example.careium.frontend.home.activities.MainActivity
 
 class UserGoalFragment : Fragment(R.layout.fragment_user_goal) {
-    lateinit var binding:FragmentUserGoalBinding
+    private lateinit var binding:FragmentUserGoalBinding
+    private lateinit var authViewModel: AuthViewModel
 
     companion object {
         fun newInstance() = UserGoalFragment().apply {}
@@ -26,6 +30,8 @@ class UserGoalFragment : Fragment(R.layout.fragment_user_goal) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentUserGoalBinding.bind(view)
+        authViewModel = ViewModelProviders.of(this).get(AuthViewModel::class.java)
+        observeAuthCallBackChange()
 
         updateUserDataUI()
         handleClickButtons()
@@ -49,10 +55,9 @@ class UserGoalFragment : Fragment(R.layout.fragment_user_goal) {
                 futureGoal == null -> alert(getString(R.string.error_title), getString(R.string.error_future_goal_message))
                 else -> {
                     saveUserData(desiredWeight.toFloat(), futureGoal)
-                    saveDataOnDatabase()
-                    Toast.makeText(activity, getString(R.string.confirmation_register_msg), Toast.LENGTH_SHORT).show()
-                    openMainActivity()
+                    createNewAccount()
                 }
+
             }
 
         }
@@ -67,10 +72,29 @@ class UserGoalFragment : Fragment(R.layout.fragment_user_goal) {
 
     }
 
-    private fun saveDataOnDatabase() {
-        // TODO Save User Object on Database
+    private fun createNewAccount(){
+        val register = Register(user.email, user.password)
+        register.createNewAccount(authViewModel)
     }
 
+    private fun observeAuthCallBackChange(){
+        authViewModel.mutableIsAuthComplete.observe(viewLifecycleOwner){ isLogged ->
+            if(isLogged) {
+                if(saveDataOnDatabase()){ // check here that user data saved on database
+                    Toast.makeText(activity, getString(R.string.confirmation_register_msg), Toast.LENGTH_SHORT).show()
+                    openMainActivity()
+                }
+            }
+            else
+                Toast.makeText(activity, getString(R.string.already_has_account), Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun saveDataOnDatabase(): Boolean {
+        // TODO Save here User Object on Realtime Database
+
+        return true
+    }
 
     private fun alert(title: String, message: String) {
         val view: ErrorCustomViewBinding = binding.goalErrorView

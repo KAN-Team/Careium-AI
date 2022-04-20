@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "683504139460",
+    "project_id": "careium-ai",
+    "storage_bucket": "careium-ai.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:683504139460:android:9a4b27f54207e5860b5d91",
+        "android_client_info": {
+          "package_name": "com.example.careium"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "683504139460-adutusu23ll35e2s48lakch1paq04j7q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTvkIMawVMX56z6TtyjWCbu0dxObI4BCY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "683504139460-adutusu23ll35e2s48lakch1paq04j7q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

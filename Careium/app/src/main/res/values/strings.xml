@@ -34,6 +34,8 @@
     <string name="confirmation_reset_msg">Email Sent Successfully</string>
     <string name="confirmation_logged_msg">You Logged In Successfully</string>
     <string name="confirmation_register_msg">You Registered Successfully</string>
+    <string name="already_has_account">Already Has Account, Please Login</string>
+    <string name="failed_to_login">Wrong User Name or Password</string>
 
     <!-- Navigation Labels -->
     <string name="app_name">Careium</string>
