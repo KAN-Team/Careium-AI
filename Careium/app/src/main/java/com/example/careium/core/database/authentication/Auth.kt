@@ -4,7 +4,7 @@ import com.google.firebase.auth.FirebaseAuth
 
 abstract class Auth : Thread() {
     protected var authInstance: FirebaseAuth = FirebaseAuth.getInstance()
-    lateinit var authViewModel: AuthViewModel
+    protected lateinit var authViewModel: AuthViewModel
 
     abstract override fun run()
 

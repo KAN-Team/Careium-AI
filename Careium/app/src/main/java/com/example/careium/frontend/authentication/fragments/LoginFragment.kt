@@ -62,7 +62,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(R.id.auth_frame, ResetPasswordFragment.newInstance())
                 ?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                ?.addToBackStack(null)
+                //?.addToBackStack(null)
                 ?.commit()
         }
 
