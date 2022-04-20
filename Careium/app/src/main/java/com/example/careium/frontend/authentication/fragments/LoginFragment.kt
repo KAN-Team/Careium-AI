@@ -2,12 +2,13 @@ package com.example.careium.frontend.authentication.fragments
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProviders
 import com.example.careium.R
+import com.example.careium.core.database.authentication.SharedPreferences
 import com.example.careium.core.database.authentication.AuthViewModel
 import com.example.careium.core.database.authentication.Login
 import com.example.careium.databinding.ErrorCustomViewBinding
@@ -77,11 +78,17 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         authViewModel.mutableIsAuthComplete.observe(viewLifecycleOwner){ isLogged ->
             if(isLogged) {
                 Toast.makeText(activity, getString(R.string.confirmation_logged_msg), Toast.LENGTH_SHORT).show()
+                commitEmailOnSharedPreference()
                 openMainActivity()
             }
             else
                 Toast.makeText(activity, getString(R.string.failed_to_login), Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun commitEmailOnSharedPreference() {
+        val preference = this.context?.let { SharedPreferences(it) }
+        preference?.write(email)
     }
 
     private fun alert(title: String, message: String) {

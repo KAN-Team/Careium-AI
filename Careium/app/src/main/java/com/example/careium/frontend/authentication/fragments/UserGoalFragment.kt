@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.careium.R
 import com.example.careium.core.database.authentication.AuthViewModel
 import com.example.careium.core.database.authentication.Register
+import com.example.careium.core.database.authentication.SharedPreferences
 import com.example.careium.databinding.ErrorCustomViewBinding
 import com.example.careium.databinding.FragmentUserGoalBinding
 import com.example.careium.frontend.authentication.activities.SplashActivity
@@ -49,7 +50,6 @@ class UserGoalFragment : Fragment(R.layout.fragment_user_goal) {
                 binding.goalPatientTreatment.isChecked -> futureGoal = FutureGoal.PatientTreatment
             }
 
-
             when {
                 desiredWeight.isEmpty() -> alert(getString(R.string.error_title), getString(R.string.error_weight_message))
                 futureGoal == null -> alert(getString(R.string.error_title), getString(R.string.error_future_goal_message))
@@ -61,7 +61,6 @@ class UserGoalFragment : Fragment(R.layout.fragment_user_goal) {
             }
 
         }
-
 
         binding.backIcon.setOnClickListener {
             activity?.supportFragmentManager?.beginTransaction()
@@ -82,6 +81,7 @@ class UserGoalFragment : Fragment(R.layout.fragment_user_goal) {
             if(isLogged) {
                 if(saveDataOnDatabase()){ // check here that user data saved on database
                     Toast.makeText(activity, getString(R.string.confirmation_register_msg), Toast.LENGTH_SHORT).show()
+                    commitEmailOnSharedPreference()
                     openMainActivity()
                 }
             }
@@ -94,6 +94,11 @@ class UserGoalFragment : Fragment(R.layout.fragment_user_goal) {
         // TODO Save here User Object on Realtime Database
 
         return true
+    }
+
+    private fun commitEmailOnSharedPreference() {
+        val preference = this.context?.let { SharedPreferences(it) }
+        preference?.write(user.email)
     }
 
     private fun alert(title: String, message: String) {
