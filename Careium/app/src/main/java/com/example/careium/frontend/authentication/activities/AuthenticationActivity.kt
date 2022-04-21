@@ -9,9 +9,9 @@ import com.example.careium.core.models.User
 import com.example.careium.databinding.ActivityAuthenticationBinding
 import com.example.careium.frontend.authentication.fragments.LoginFragment
 import com.example.careium.frontend.authentication.fragments.RegisterFragment
-import com.example.careium.frontend.factory.AuthViewModel
+import com.example.careium.frontend.factory.AuthTitleViewModel
 
-lateinit var viewModel: AuthViewModel
+lateinit var titleViewModel: AuthTitleViewModel
 val user = User.getInstance()
 
 class AuthenticationActivity : AppCompatActivity() {
@@ -45,8 +45,8 @@ class AuthenticationActivity : AppCompatActivity() {
     }
 
     private fun observeAuthTitleChange() {
-        viewModel = ViewModelProviders.of(this).get(AuthViewModel::class.java)
-        viewModel.mutableAuthTitleLD.observe(this) { fragmentTitle ->
+        titleViewModel = ViewModelProviders.of(this).get(AuthTitleViewModel::class.java)
+        titleViewModel.mutableAuthTitleLD.observe(this) { fragmentTitle ->
             binding.authToolbar.toolbarTitle.text =
                 getString(R.string.auth_toolbar_title, fragmentTitle)
         }

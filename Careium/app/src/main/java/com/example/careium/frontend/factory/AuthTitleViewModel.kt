@@ -3,7 +3,7 @@ package com.example.careium.frontend.factory
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class AuthViewModel: ViewModel() {
+class AuthTitleViewModel: ViewModel() {
     val mutableAuthTitleLD = MutableLiveData<String>()
 
 }

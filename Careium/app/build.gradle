@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -65,4 +66,9 @@ dependencies {
 
     //YOYO animation
     implementation 'com.daimajia.androidanimations:library:2.4@aar'
+
+    // Firebase
+    implementation 'com.google.firebase:firebase-auth-ktx:21.0.3'
+    implementation 'com.google.firebase:firebase-database:20.0.4'
+
 }

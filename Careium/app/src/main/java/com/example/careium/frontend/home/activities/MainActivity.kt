@@ -20,10 +20,12 @@ import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.careium.R
+import com.example.careium.core.database.authentication.SharedPreferences
 import com.example.careium.core.models.DishClassification
 import com.example.careium.core.models.DishNutritionRegression
 import com.example.careium.databinding.ActivityMainBinding
 import com.example.careium.databinding.LayoutFloatingMenuItemBinding
+import com.example.careium.frontend.authentication.activities.SplashActivity
 import com.example.careium.frontend.factory.*
 import com.example.careium.frontend.home.fragments.*
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton
@@ -122,6 +124,12 @@ class MainActivity : AppCompatActivity() {
                     loadFragment(CalenderFragment.newInstance())
                     binding.drawerLayout.closeDrawers()
                     binding.bottomNavigation.show(-1, false)
+                    true
+                }
+                R.id.menu_item_logout -> {
+                    deleteEmailFromSharedPreference()
+                    startActivity(Intent(this, SplashActivity::class.java))
+                    finish()
                     true
                 }
                 else -> false
@@ -296,4 +304,10 @@ class MainActivity : AppCompatActivity() {
         }
         return itemBinding.root
     }
+
+    private fun deleteEmailFromSharedPreference() {
+        val preference = SharedPreferences(this)
+        preference.delete()
+    }
+
 }

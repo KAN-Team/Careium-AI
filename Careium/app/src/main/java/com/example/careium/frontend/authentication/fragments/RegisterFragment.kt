@@ -9,7 +9,7 @@ import com.example.careium.core.models.User
 import com.example.careium.databinding.ErrorCustomViewBinding
 import com.example.careium.databinding.FragmentRegisterBinding
 import com.example.careium.frontend.authentication.activities.user
-import com.example.careium.frontend.authentication.activities.viewModel
+import com.example.careium.frontend.authentication.activities.titleViewModel
 import com.example.careium.frontend.factory.ErrorAlertDialog
 
 class RegisterFragment : Fragment(R.layout.fragment_register) {
@@ -22,7 +22,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentRegisterBinding.bind(view)
-        viewModel.mutableAuthTitleLD.value = getString(R.string.register)
+        titleViewModel.mutableAuthTitleLD.value = getString(R.string.register)
 
         updateUserDataUI()
         handleClickButtons()

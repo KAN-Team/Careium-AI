@@ -9,6 +9,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
+import com.example.careium.core.database.authentication.SharedPreferences
 import com.example.careium.databinding.ActivitySplashBinding
 import com.example.careium.frontend.home.activities.MainActivity
 
@@ -43,8 +44,8 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun hasAccount():Boolean{
-        // TODO: Handle Here Authentication Condition to start main activity
-        return false
+        val preference = SharedPreferences(this)
+        return preference.isSPHasValue()
     }
 
     private fun handleClickButtons() {
