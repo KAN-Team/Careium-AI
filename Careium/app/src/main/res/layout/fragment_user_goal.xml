@@ -113,6 +113,13 @@
 
         </RadioGroup>
 
+        <ProgressBar
+            android:id="@+id/goal_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/goal_container"
+            android:visibility="gone" />
 
         <RelativeLayout
             android:id="@+id/transition_container"

@@ -51,13 +51,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             }
         }
 
-        binding.gmailIcon.setOnClickListener {
-            // TODO: Handle Login With Gmail Account
-        }
-
-        binding.facebookIcon.setOnClickListener {
-            // TODO: Handle Login With Facebook Account
-        }
 
         binding.forgetPassword.setOnClickListener {
             activity?.supportFragmentManager?.beginTransaction()
@@ -77,7 +70,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private fun observeAuthCallBackChange(){
         authViewModel.mutableIsAuthComplete.observe(viewLifecycleOwner){ isLogged ->
             if(isLogged) {
-                Toast.makeText(activity, getString(R.string.confirmation_logged_msg), Toast.LENGTH_SHORT).show()
+                showProgress()
                 commitEmailOnSharedPreference()
                 openMainActivity()
             }
@@ -96,7 +89,12 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         ErrorAlertDialog.alert(view, title, message)
     }
 
+    private fun showProgress(){
+        binding.loginProgress.visibility = View.VISIBLE
+    }
+
     private fun openMainActivity() {
+        Toast.makeText(activity, getString(R.string.confirmation_logged_msg), Toast.LENGTH_SHORT).show()
         startActivity(Intent(activity, MainActivity::class.java))
         SplashActivity._this.finish()
         activity?.finish()

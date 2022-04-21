@@ -11,6 +11,7 @@ import com.example.careium.R
 import com.example.careium.core.database.authentication.AuthViewModel
 import com.example.careium.core.database.authentication.Register
 import com.example.careium.core.database.authentication.SharedPreferences
+import com.example.careium.core.database.realtime.UserData
 import com.example.careium.databinding.ErrorCustomViewBinding
 import com.example.careium.databinding.FragmentUserGoalBinding
 import com.example.careium.frontend.authentication.activities.SplashActivity
@@ -79,21 +80,19 @@ class UserGoalFragment : Fragment(R.layout.fragment_user_goal) {
     private fun observeAuthCallBackChange(){
         authViewModel.mutableIsAuthComplete.observe(viewLifecycleOwner){ isLogged ->
             if(isLogged) {
-                if(saveDataOnDatabase()){ // check here that user data saved on database
-                    Toast.makeText(activity, getString(R.string.confirmation_register_msg), Toast.LENGTH_SHORT).show()
-                    commitEmailOnSharedPreference()
-                    openMainActivity()
-                }
+                showProgress()
+                saveDataOnDatabase()
+                commitEmailOnSharedPreference()
+                openMainActivity()
             }
             else
                 Toast.makeText(activity, getString(R.string.already_has_account), Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun saveDataOnDatabase(): Boolean {
-        // TODO Save here User Object on Realtime Database
-
-        return true
+    private fun saveDataOnDatabase() {
+        val userData = UserData(user)
+        userData.saveUserData()
     }
 
     private fun commitEmailOnSharedPreference() {
@@ -106,7 +105,12 @@ class UserGoalFragment : Fragment(R.layout.fragment_user_goal) {
         ErrorAlertDialog.alert(view, title, message)
     }
 
+    private fun showProgress(){
+        binding.goalProgress.visibility = View.VISIBLE
+    }
+
     private fun openMainActivity() {
+        Toast.makeText(activity, getString(R.string.confirmation_register_msg), Toast.LENGTH_SHORT).show()
         startActivity(Intent(activity, MainActivity::class.java))
         SplashActivity._this.finish()
         activity?.finish()

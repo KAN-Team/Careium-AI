@@ -104,46 +104,14 @@
             android:textColor="@color/white"
             android:textSize="@dimen/small_plus_text_size" />
 
-        <TextView
-            android:id="@+id/or_label"
+        <ProgressBar
+            android:id="@+id/login_progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/login_btn"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/medium_spacing"
-            android:fontFamily="@font/lato_black"
-            android:text="@string/or_label"
-            android:textColor="@color/light_black"
-            android:textSize="@dimen/small_text_size"
-            android:textStyle="italic" />
-
-        <RelativeLayout
-            android:id="@+id/social_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/or_label"
+            android:layout_below="@id/forget_password"
             android:layout_margin="@dimen/medium_spacing"
-            android:gravity="center">
-
-            <com.makeramen.roundedimageview.RoundedImageView
-                android:id="@+id/gmail_icon"
-                android:layout_width="@dimen/small_size"
-                android:layout_height="@dimen/small_size"
-                android:elevation="@dimen/tiny_spacing"
-                android:src="@drawable/gmail_icon"
-                tools:ignore="ContentDescription" />
-
-            <com.makeramen.roundedimageview.RoundedImageView
-                android:id="@+id/facebook_icon"
-                android:layout_width="@dimen/small_size"
-                android:layout_height="@dimen/small_size"
-                android:layout_marginStart="@dimen/medium_spacing"
-                android:layout_toEndOf="@id/gmail_icon"
-                android:elevation="@dimen/tiny_spacing"
-                android:src="@drawable/facebook_icon"
-                tools:ignore="ContentDescription" />
-
-        </RelativeLayout>
+            android:visibility="gone" />
 
     </RelativeLayout>
 
