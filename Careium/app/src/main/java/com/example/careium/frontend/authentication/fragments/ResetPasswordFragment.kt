@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProviders
 import com.example.careium.R
 import com.example.careium.core.database.authentication.AuthViewModel
+import com.example.careium.core.database.authentication.InternetConnection
 import com.example.careium.core.database.authentication.ResetPassword
 import com.example.careium.databinding.ErrorCustomViewBinding
 import com.example.careium.databinding.FragmentResetPasswordBinding
@@ -53,8 +54,12 @@ class ResetPasswordFragment : Fragment(R.layout.fragment_reset_password) {
     }
 
     private fun sendResendEmail(){
-        val reset = ResetPassword(email)
-        reset.resetPassword(authViewModel)
+        if(InternetConnection.isConnected(this.requireContext())) {
+            val reset = ResetPassword(email)
+            reset.resetPassword(authViewModel)
+        }
+        else
+            Toast.makeText(activity, getString(R.string.no_internet_connection), Toast.LENGTH_SHORT).show()
     }
 
     private fun observeResetResultChange(){

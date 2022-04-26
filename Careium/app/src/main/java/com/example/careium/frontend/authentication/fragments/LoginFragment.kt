@@ -8,9 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProviders
 import com.example.careium.R
-import com.example.careium.core.database.authentication.SharedPreferences
 import com.example.careium.core.database.authentication.AuthViewModel
+import com.example.careium.core.database.authentication.InternetConnection
 import com.example.careium.core.database.authentication.Login
+import com.example.careium.core.database.authentication.SharedPreferences
 import com.example.careium.databinding.ErrorCustomViewBinding
 import com.example.careium.databinding.FragmentLoginBinding
 import com.example.careium.frontend.authentication.activities.SplashActivity
@@ -63,8 +64,12 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun hasAccount(){
-        val login = Login(email, password)
-        login.isUserLoggedIn(authViewModel)
+        if(InternetConnection.isConnected(this.requireContext())) {
+            val login = Login(email, password)
+            login.isUserLoggedIn(authViewModel)
+        }
+        else
+            Toast.makeText(activity, getString(R.string.no_internet_connection), Toast.LENGTH_SHORT).show()
     }
 
     private fun observeAuthCallBackChange(){
