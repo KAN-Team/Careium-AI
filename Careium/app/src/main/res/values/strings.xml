@@ -37,6 +37,7 @@
     <string name="already_has_account">Already Has Account, Please Login</string>
     <string name="failed_to_login">Wrong User Name or Password</string>
     <string name="failed_reset_msg">Wrong Email!</string>
+    <string name="no_internet_connection">No Internet Connection</string>
 
     <!-- Navigation Labels -->
     <string name="app_name">Careium</string>

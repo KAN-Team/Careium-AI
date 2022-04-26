@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProviders
 import com.example.careium.R
 import com.example.careium.core.database.authentication.AuthViewModel
+import com.example.careium.core.database.authentication.InternetConnection
 import com.example.careium.core.database.authentication.Register
 import com.example.careium.core.database.authentication.SharedPreferences
 import com.example.careium.core.database.realtime.UserData
@@ -73,8 +74,12 @@ class UserGoalFragment : Fragment(R.layout.fragment_user_goal) {
     }
 
     private fun createNewAccount(){
-        val register = Register(user.email, user.password)
-        register.createNewAccount(authViewModel)
+        if(InternetConnection.isConnected(this.requireContext())) {
+            val register = Register(user.email, user.password)
+            register.createNewAccount(authViewModel)
+        }
+        else
+            Toast.makeText(activity, getString(R.string.no_internet_connection), Toast.LENGTH_SHORT).show()
     }
 
     private fun observeAuthCallBackChange(){

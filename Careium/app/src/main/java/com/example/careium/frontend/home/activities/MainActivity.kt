@@ -20,6 +20,8 @@ import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.careium.R
+import com.example.careium.core.database.authentication.InternetConnection
+import com.example.careium.core.database.authentication.Logout
 import com.example.careium.core.database.authentication.SharedPreferences
 import com.example.careium.core.models.DishClassification
 import com.example.careium.core.models.DishNutritionRegression
@@ -127,9 +129,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.menu_item_logout -> {
-                    deleteEmailFromSharedPreference()
-                    startActivity(Intent(this, SplashActivity::class.java))
-                    finish()
+                    logout()
                     true
                 }
                 else -> false
@@ -310,4 +310,19 @@ class MainActivity : AppCompatActivity() {
         preference.delete()
     }
 
+    private fun logout() {
+        if(InternetConnection.isConnected(this)) {
+            deleteEmailFromSharedPreference()
+            signOut()
+            startActivity(Intent(this, SplashActivity::class.java))
+            finish()
+        }
+        else
+            Toast.makeText(this, getString(R.string.no_internet_connection), Toast.LENGTH_SHORT).show()
+    }
+
+    private fun signOut(){
+        val logout = Logout()
+        logout.signOut()
+    }
 }
