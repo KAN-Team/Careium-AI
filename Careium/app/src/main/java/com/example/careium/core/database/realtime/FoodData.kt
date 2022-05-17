@@ -37,8 +37,8 @@ class FoodData(private val foodName: String, private val nutritionList: ArrayLis
         var timeCode = "AM"
         val cal: Calendar = Calendar.getInstance()
         if (cal.get(Calendar.AM_PM) == Calendar.PM) timeCode = "PM"
-        val sdf = SimpleDateFormat("EEEE MMM dd yyyy, hh:mm:ss", Locale.UK)
-        // e.g. (Sunday May 15, 2022, 01:51:37 AM)
+        val sdf = SimpleDateFormat("dd MMM yyyy, hh:mm:ss", Locale.UK)
+        // e.g. (15 May 2022, 01:51:37 AM)
         return sdf.format(cal.time).toString() + " " + timeCode
     }
 

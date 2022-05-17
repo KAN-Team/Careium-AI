@@ -1,60 +1,139 @@
 package com.example.careium.frontend.home.fragments
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.example.careium.R
+import com.example.careium.databinding.FragmentReportsBinding
+import java.text.SimpleDateFormat
+import java.util.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class ReportsFragment : Fragment(R.layout.fragment_reports) {
+    private lateinit var binding: FragmentReportsBinding
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ReportsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class ReportsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var today: Int = 0
+    private var monthCounter: Int = 0
+    private var caloriesTarget: Int = 3000
+    private var caloriesVal: Int = 100
+    private var carbsTarget: Float = 100f
+    private var carbsVal: Float = 50f      // Suppose to be Zero but it's kept for visualization
+    private var fatsTarget: Float = 100f
+    private var fatsVal: Float = 30f        // Suppose to be Zero but it's kept for visualization
+    private var proteinsTrgt: Float = 100f
+    private var proteinsVal: Float = 40f
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_reports, container, false)
-    }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ReportsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(/*param1: String, param2: String*/) =
-            ReportsFragment().apply {
-                /*arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }*/
-            }
+        fun newInstance() = ReportsFragment().apply {}
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = FragmentReportsBinding.bind(view)
+
+        today = getCurrentDay()
+        hookComponentsSection()
+        updateComponentsSection()
+        hookTargets()
+        updateDate()
+        listenDate()
+
+    }
+
+    private fun hookComponentsSection() {
+        // Hooking CALORIES
+        binding.layoutCalsItem.textCmpntLabel.text = getString(R.string.calories)
+        // Hooking CARBS
+        binding.layoutCarbsItem.textCmpntLabel.text = getString(R.string.carbs)
+        // Hooking FATS
+        binding.layoutFatsItem.textCmpntLabel.text = getString(R.string.fats)
+        // Hooking PROTEINS
+        binding.layoutProteinsItem.textCmpntLabel.text = getString(R.string.proteins)
+    }
+
+    private fun updateComponentsSection() {
+        // CALORIES
+        binding.layoutCalsItem.textCmpntValue.text = "$caloriesVal"
+        binding.layoutCalsItem.progressCmpnt.progress = caloriesVal
+        // CARBS
+        binding.layoutCarbsItem.textCmpntValue.text = "$carbsVal"
+        binding.layoutCarbsItem.progressCmpnt.progress = carbsVal.toInt()
+        // FATS
+        binding.layoutFatsItem.textCmpntValue.text = "$fatsVal"
+        binding.layoutFatsItem.progressCmpnt.progress = fatsVal.toInt()
+        // PROTEINS
+        binding.layoutProteinsItem.textCmpntValue.text = "$proteinsVal"
+        binding.layoutProteinsItem.progressCmpnt.progress = proteinsVal.toInt()
+    }
+
+    private fun hookTargets() {
+        // Setting COMPONENTS progress max value
+        binding.layoutCalsItem.progressCmpnt.max = caloriesTarget
+        binding.layoutCarbsItem.progressCmpnt.max = carbsTarget.toInt()
+        binding.layoutFatsItem.progressCmpnt.max = fatsTarget.toInt()
+        binding.layoutProteinsItem.progressCmpnt.max = proteinsTrgt.toInt()
+
+        // Setting COMPONENTS target values to the views
+        binding.layoutCalsItem.textCmpntTarget.text = getString(R.string.cal_val, caloriesTarget)
+        binding.layoutCarbsItem.textCmpntTarget.text = getString(R.string.gram_val, carbsTarget)
+        binding.layoutFatsItem.textCmpntTarget.text = getString(R.string.gram_val, fatsTarget)
+        binding.layoutProteinsItem.textCmpntTarget.text = getString(R.string.gram_val, proteinsTrgt)
+
+        // Setting COMPONENTS progress bar colors
+        binding.layoutCalsItem.progressCmpnt.setIndicatorColor(Color.parseColor("#F29C2B"))     // gold
+        binding.layoutCarbsItem.progressCmpnt.setIndicatorColor(Color.parseColor("#1F640A"))    // green
+        binding.layoutFatsItem.progressCmpnt.setIndicatorColor(Color.parseColor("#E8222D"))     // crimson
+        binding.layoutProteinsItem.progressCmpnt.setIndicatorColor(Color.parseColor("#2E94B9")) // Indigo
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun updateDate() {
+        var lastWeekDay = 1
+        if (today - 7 > 1) lastWeekDay = today - 7
+
+        binding.textCalendarDate.text =
+            lastWeekDay.toString() + "-" + today.toString() + " " + getCurrentDate(monthCounter * 30)
+    }
+
+    private fun getCurrentDate(from: Int): String {
+        val cal: Calendar = Calendar.getInstance()
+        cal.add(Calendar.DATE, -from)
+        val sdf = SimpleDateFormat("MMM yyyy", Locale.UK)
+        // e.g. (May 2022)
+        return sdf.format(cal.time).toString()
+    }
+
+    private fun getCurrentDay(): Int {
+        val cal: Calendar = Calendar.getInstance()
+        val sdf = SimpleDateFormat("dd", Locale.UK)
+        // e.g. (15)
+        return sdf.format(cal.time).toInt()
+    }
+
+    private fun listenDate() {
+        binding.imageButtonPrevDate.setOnClickListener {
+            binding.imageButtonNextDate.visibility = View.VISIBLE
+            if (today - 8 <= 1) {
+                monthCounter++
+                today = 30
+            } else today -= 8
+
+            updateDate()
+        }
+
+        binding.imageButtonNextDate.setOnClickListener {
+            if (today + 8 >= 30) {
+                monthCounter--
+                today = 8
+            } else today += 8
+            if (today >= getCurrentDay() && monthCounter == 0)
+                binding.imageButtonNextDate.visibility = View.INVISIBLE
+
+            updateDate()
+        }
+
+    }
+
 }
