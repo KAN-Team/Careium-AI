@@ -3,26 +3,35 @@ package com.example.careium.frontend.home.fragments
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.View
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import com.example.careium.R
+import com.example.careium.core.database.realtime.FoodNutrition
 import com.example.careium.databinding.FragmentReportsBinding
+import com.example.careium.frontend.factory.FoodDatesViewModel
+import com.example.careium.frontend.factory.FoodTotalNutritionViewModel
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
+
 
 class ReportsFragment : Fragment(R.layout.fragment_reports) {
     private lateinit var binding: FragmentReportsBinding
+    private lateinit var foodDatesViewModel: FoodDatesViewModel
+    private lateinit var foodTotalNutritionViewModel: FoodTotalNutritionViewModel
 
     private var today: Int = 0
     private var monthCounter: Int = 0
-    private var caloriesTarget: Int = 3000
-    private var caloriesVal: Int = 100
-    private var carbsTarget: Float = 100f
-    private var carbsVal: Float = 50f      // Suppose to be Zero but it's kept for visualization
-    private var fatsTarget: Float = 100f
-    private var fatsVal: Float = 30f        // Suppose to be Zero but it's kept for visualization
-    private var proteinsTrgt: Float = 100f
-    private var proteinsVal: Float = 40f
+    private var caloriesTarget: Int = 5000
+    private var caloriesVal: Float = 0f
+    private var carbsTarget: Float = 700f
+    private var carbsVal: Float = 00f
+    private var fatsTarget: Float = 700f
+    private var fatsVal: Float = 0f
+    private var proteinsTrgt: Float = 700f
+    private var proteinsVal: Float = 0f
 
 
     companion object {
@@ -33,12 +42,20 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentReportsBinding.bind(view)
 
+        // Database callback listeners
+        foodDatesViewModel = ViewModelProviders.of(this).get(FoodDatesViewModel::class.java)
+        observeFoodDatesCallBackChange()
+        foodTotalNutritionViewModel = ViewModelProviders.of(this).get(FoodTotalNutritionViewModel::class.java)
+        observeFoodNutritionCallBackChange()
+
+        // set ui components
         today = getCurrentDay()
         hookComponentsSection()
         updateComponentsSection()
         hookTargets()
         updateDate()
-        listenDate()
+        listenDateChange()
+        getFoodDateNodesFromDatabase()
 
     }
 
@@ -56,7 +73,7 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
     private fun updateComponentsSection() {
         // CALORIES
         binding.layoutCalsItem.textCmpntValue.text = "$caloriesVal"
-        binding.layoutCalsItem.progressCmpnt.progress = caloriesVal
+        binding.layoutCalsItem.progressCmpnt.progress = caloriesVal.toInt()
         // CARBS
         binding.layoutCarbsItem.textCmpntValue.text = "$carbsVal"
         binding.layoutCarbsItem.progressCmpnt.progress = carbsVal.toInt()
@@ -112,7 +129,7 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
         return sdf.format(cal.time).toInt()
     }
 
-    private fun listenDate() {
+    private fun listenDateChange() {
         binding.imageButtonPrevDate.setOnClickListener {
             binding.imageButtonNextDate.visibility = View.VISIBLE
             if (today - 8 <= 1) {
@@ -128,12 +145,65 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
                 monthCounter--
                 today = 8
             } else today += 8
-            if (today >= getCurrentDay() && monthCounter == 0)
+            if (today >= getCurrentDay() && monthCounter == 0) {
                 binding.imageButtonNextDate.visibility = View.INVISIBLE
-
+                today = getCurrentDay()
+            }
             updateDate()
         }
 
+    }
+
+    private fun getFoodDateNodesFromDatabase() {
+        val foodDate = FoodNutrition()
+        foodDate.getFoodDateNodes(foodDatesViewModel)
+    }
+
+    private fun observeFoodDatesCallBackChange() {
+        foodDatesViewModel.mutableFoodDates.observe(viewLifecycleOwner) { foodDates ->
+            if (foodDates.count() != 0)
+                parseFoodDateString(foodDates)
+             else
+                Toast.makeText(activity, getString(R.string.no_meals_in_database), Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun parseFoodDateString(datesStrArr: ArrayList<String>) {
+        val existenceFoodDates: ArrayList<String> = ArrayList()
+
+        for (date: String in datesStrArr) {
+            val dateStr = date.split(",")[0]
+            val day: Int = dateStr.split(" ")[0].toInt()
+            val month: String = dateStr.split(" ")[1]
+            val year: String = dateStr.split(" ")[2]
+            val monthYear = "$month $year"
+            if (day >= today - 7 && day <= today && getCurrentDate(monthCounter) == monthYear)
+                existenceFoodDates.add(date)
+        }
+
+        if (existenceFoodDates.count() != 0)
+            getTotalWeekNutritionFromDB(existenceFoodDates)
+        else
+            Toast.makeText(activity, getString(R.string.no_meals_in_database_week), Toast.LENGTH_SHORT).show()
+    }
+
+    private fun getTotalWeekNutritionFromDB(validDates: ArrayList<String>) {
+        val foodNutrition = FoodNutrition()
+        foodNutrition.getTotalWeekNutrition(validDates, foodTotalNutritionViewModel)
+    }
+
+    private fun observeFoodNutritionCallBackChange() {
+        foodTotalNutritionViewModel.mutableFoodTotalNutrition .observe(viewLifecycleOwner)
+        { foodTotalNutrition ->
+            if (foodTotalNutrition.count() != 0) {
+                caloriesVal = foodTotalNutrition[0] //[1] -> mass
+                fatsVal = foodTotalNutrition[2]
+                carbsVal = foodTotalNutrition[3]
+                proteinsVal = foodTotalNutrition[4]
+                updateComponentsSection()
+            } else
+                Toast.makeText(activity, getString(R.string.no_meals_in_database), Toast.LENGTH_SHORT).show()
+        }
     }
 
 }

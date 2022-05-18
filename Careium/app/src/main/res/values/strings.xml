@@ -96,6 +96,8 @@
     <string name="report_negative_lose_weight">This week you lost weight and this is the opposite to your target</string>
     <string name="report_careful_message">BE CAREFUL, with your meals in the coming weeks</string>
     <string name="report_keep_message">WELL DONE, keep going with the same range in following your diet</string>
+    <string name="no_meals_in_database">You does not have any food meal till now</string>
+    <string name="no_meals_in_database_week">You does not have any food meal this week</string>
 
     <!-- Locals -->
     <string name="local_eg">EG</string>
