@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.careium.R
+import com.example.careium.core.database.authentication.InternetConnection
 import com.example.careium.core.database.realtime.FoodNutrition
 import com.example.careium.databinding.FragmentReportsBinding
 import com.example.careium.frontend.factory.FoodDatesViewModel
@@ -30,7 +31,7 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
     private var carbsVal: Float = 00f
     private var fatsTarget: Float = 700f
     private var fatsVal: Float = 0f
-    private var proteinsTrgt: Float = 700f
+    private var proteinsTarget: Float = 700f
     private var proteinsVal: Float = 0f
 
 
@@ -51,6 +52,7 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
 
         // set ui components
         today = getCurrentDay()
+        binding.waitContainer.visibility = View.VISIBLE
         hookComponentsSection()
         updateComponentsSection()
         hookTargets()
@@ -91,13 +93,13 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
         binding.layoutCalsItem.progressCmpnt.max = caloriesTarget
         binding.layoutCarbsItem.progressCmpnt.max = carbsTarget.toInt()
         binding.layoutFatsItem.progressCmpnt.max = fatsTarget.toInt()
-        binding.layoutProteinsItem.progressCmpnt.max = proteinsTrgt.toInt()
+        binding.layoutProteinsItem.progressCmpnt.max = proteinsTarget.toInt()
 
         // Setting COMPONENTS target values to the views
         binding.layoutCalsItem.textCmpntTarget.text = getString(R.string.cal_val, caloriesTarget)
         binding.layoutCarbsItem.textCmpntTarget.text = getString(R.string.gram_val, carbsTarget)
         binding.layoutFatsItem.textCmpntTarget.text = getString(R.string.gram_val, fatsTarget)
-        binding.layoutProteinsItem.textCmpntTarget.text = getString(R.string.gram_val, proteinsTrgt)
+        binding.layoutProteinsItem.textCmpntTarget.text = getString(R.string.gram_val, proteinsTarget)
 
         // Setting COMPONENTS progress bar colors
         binding.layoutCalsItem.progressCmpnt.setIndicatorColor(Color.parseColor("#F29C2B"))     // gold
@@ -132,6 +134,7 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
 
     private fun listenDateChange() {
         binding.imageButtonPrevDate.setOnClickListener {
+            binding.waitContainer.visibility = View.VISIBLE
             binding.imageButtonNextDate.visibility = View.VISIBLE
             if (today - 8 <= 1) {
                 monthCounter++
@@ -143,6 +146,7 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
         }
 
         binding.imageButtonNextDate.setOnClickListener {
+            binding.waitContainer.visibility = View.VISIBLE
             if (today + 8 >= 30) {
                 monthCounter--
                 today = 8
@@ -158,17 +162,24 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
     }
 
     private fun getFoodDateNodesFromDatabase() {
-        val foodDate = FoodNutrition()
-        foodDate.getFoodDateNodes(foodDatesViewModel)
+        if(InternetConnection.isConnected(this.requireContext())) {
+            val foodDate = FoodNutrition()
+            foodDate.getFoodDateNodes(foodDatesViewModel)
+        }
+        else{
+            hasReport = false
+            Toast.makeText(activity, getString(R.string.no_internet_connection), Toast.LENGTH_SHORT).show()
+            createReport(floatArrayOf().toCollection(ArrayList()))
+        }
     }
 
     private fun observeFoodDatesCallBackChange() {
         foodDatesViewModel.mutableFoodDates.observe(viewLifecycleOwner) { foodDates ->
             if (foodDates.count() != 0)
                 hasReport = true
-             else {
-                 hasReport = false
-                Toast.makeText(activity, getString(R.string.no_meals_in_database), Toast.LENGTH_SHORT).show()
+            else {
+                hasReport = false
+                Toast.makeText(activity, getString(R.string.no_meals_in_database), Toast.LENGTH_LONG).show()
             }
             parseFoodDateString(foodDates)
         }
@@ -190,8 +201,9 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
         if (existenceFoodDates.count() != 0)
             hasReport = true
         else {
+            if(hasReport){
             hasReport = false
-            Toast.makeText(activity, getString(R.string.no_meals_in_database_week), Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, getString(R.string.no_meals_in_database_week), Toast.LENGTH_LONG).show()}
         }
         getTotalWeekNutritionFromDB(existenceFoodDates)
     }
@@ -207,6 +219,7 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
     }
 
     private fun createReport(foodTotalNutrition: ArrayList<Float>) {
+       binding.waitContainer.visibility = View.GONE
        if(hasReport) {
            binding.reportCardContainer.visibility = View.VISIBLE
            caloriesVal = foodTotalNutrition[0] //[1] -> mass
@@ -225,10 +238,3 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
     }
 
 }
-
-
-/*
-custom progress calling visible in onCreate function and listenDateChange Left and right
-
-custom progress calling in-visible in create report
-*/

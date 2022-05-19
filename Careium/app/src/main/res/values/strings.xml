@@ -98,6 +98,7 @@
     <string name="report_keep_message">WELL DONE, keep going with the same range in following your diet</string>
     <string name="no_meals_in_database">You does not have any food meal till now</string>
     <string name="no_meals_in_database_week">You does not have any food meal this week</string>
+    <string name="wait">Please Wait…</string>
 
     <!-- Locals -->
     <string name="local_eg">EG</string>

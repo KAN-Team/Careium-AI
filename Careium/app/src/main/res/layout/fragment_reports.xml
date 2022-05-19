@@ -9,6 +9,29 @@
     tools:background="?attr/colorPrimaryVariant"
     tools:context=".frontend.home.fragments.ReportsFragment">
 
+    <RelativeLayout
+        android:id="@+id/wait_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/transparent_back_normal"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/wait_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/wait_progress"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/tiny_spacing"
+            android:text="@string/wait"
+            android:textSize="@dimen/small_text_size" />
+    </RelativeLayout>
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
