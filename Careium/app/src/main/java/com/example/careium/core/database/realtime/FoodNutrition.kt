@@ -45,7 +45,6 @@ class FoodNutrition {
                 floatArrayOf(0f, 0f, 0f, 0f, 0f).toCollection(ArrayList())
             var size = validDates.count()
 
-
             for (validDate: String in validDates) { //iterate foreach meal (date string in DB)
 
                 val node = this.root.child("users").child(this.userID!!).child("food_data")
@@ -80,10 +79,13 @@ class FoodNutrition {
                 node.addListenerForSingleValueEvent(valueEventListener)
 
             }
+            if(validDates.count() == 0)
+                foodNutritionViewModel.mutableFoodTotalNutrition.value = totalNutrition
         }
         catch (e:Exception){
             Log.d("database", "There are exception in food nutrition DB")
         }
+
     }
 
 }

@@ -36,6 +36,7 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
 
     companion object {
         fun newInstance() = ReportsFragment().apply {}
+        var hasReport :Boolean = true
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -138,6 +139,7 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
             } else today -= 8
 
             updateDate()
+            getFoodDateNodesFromDatabase()
         }
 
         binding.imageButtonNextDate.setOnClickListener {
@@ -150,6 +152,7 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
                 today = getCurrentDay()
             }
             updateDate()
+            getFoodDateNodesFromDatabase()
         }
 
     }
@@ -162,9 +165,12 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
     private fun observeFoodDatesCallBackChange() {
         foodDatesViewModel.mutableFoodDates.observe(viewLifecycleOwner) { foodDates ->
             if (foodDates.count() != 0)
-                parseFoodDateString(foodDates)
-             else
+                hasReport = true
+             else {
+                 hasReport = false
                 Toast.makeText(activity, getString(R.string.no_meals_in_database), Toast.LENGTH_SHORT).show()
+            }
+            parseFoodDateString(foodDates)
         }
     }
 
@@ -177,14 +183,17 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
             val month: String = dateStr.split(" ")[1]
             val year: String = dateStr.split(" ")[2]
             val monthYear = "$month $year"
-            if (day >= today - 7 && day <= today && getCurrentDate(monthCounter) == monthYear)
+            if (day >= today - 7 && day <= today && getCurrentDate(monthCounter*30) == monthYear)
                 existenceFoodDates.add(date)
         }
 
         if (existenceFoodDates.count() != 0)
-            getTotalWeekNutritionFromDB(existenceFoodDates)
-        else
+            hasReport = true
+        else {
+            hasReport = false
             Toast.makeText(activity, getString(R.string.no_meals_in_database_week), Toast.LENGTH_SHORT).show()
+        }
+        getTotalWeekNutritionFromDB(existenceFoodDates)
     }
 
     private fun getTotalWeekNutritionFromDB(validDates: ArrayList<String>) {
@@ -194,16 +203,32 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
 
     private fun observeFoodNutritionCallBackChange() {
         foodTotalNutritionViewModel.mutableFoodTotalNutrition .observe(viewLifecycleOwner)
-        { foodTotalNutrition ->
-            if (foodTotalNutrition.count() != 0) {
-                caloriesVal = foodTotalNutrition[0] //[1] -> mass
-                fatsVal = foodTotalNutrition[2]
-                carbsVal = foodTotalNutrition[3]
-                proteinsVal = foodTotalNutrition[4]
-                updateComponentsSection()
-            } else
-                Toast.makeText(activity, getString(R.string.no_meals_in_database), Toast.LENGTH_SHORT).show()
+        { foodTotalNutrition -> createReport(foodTotalNutrition) }
+    }
+
+    private fun createReport(foodTotalNutrition: ArrayList<Float>) {
+       if(hasReport) {
+           binding.reportCardContainer.visibility = View.VISIBLE
+           caloriesVal = foodTotalNutrition[0] //[1] -> mass
+           fatsVal = foodTotalNutrition[2]
+           carbsVal = foodTotalNutrition[3]
+           proteinsVal = foodTotalNutrition[4]
+           // TODO your report info calculated here
+
+       }
+        else{
+            caloriesVal = 0f; fatsVal =0f; carbsVal =0f; proteinsVal = 0f
+            binding.reportCardContainer.visibility = View.INVISIBLE
         }
+        updateComponentsSection()
+
     }
 
 }
+
+
+/*
+custom progress calling visible in onCreate function and listenDateChange Left and right
+
+custom progress calling in-visible in create report
+*/
