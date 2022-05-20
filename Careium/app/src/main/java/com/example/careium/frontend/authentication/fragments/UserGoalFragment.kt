@@ -96,8 +96,8 @@ class UserGoalFragment : Fragment(R.layout.fragment_user_goal) {
     }
 
     private fun saveDataOnDatabase() {
-        val userData = UserData(user)
-        userData.saveUserData()
+        val userData = UserData()
+        userData.saveUserData(user)
     }
 
     private fun commitEmailOnSharedPreference() {

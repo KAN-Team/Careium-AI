@@ -1,6 +1,9 @@
 <resources>
 
     <!-- Authentication Screens -->
+    <string name="auth_toolbar_title">%1$s</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
     <string name="welcome_msg">Welcome to</string>
     <string name="fill_data">Fill your Data</string>
     <string name="password">Password</string>
@@ -83,10 +86,21 @@
     <string name="user_desired_weight">70</string>
     <string name="user_gender">male</string>
 
-    <!-- Authentication Fragments -->
-    <string name="auth_toolbar_title">%1$s</string>
-    <string name="login">Login</string>
-    <string name="register">Register</string>
+    <!-- Reports Fragment -->
+    <string name="total_nutrition_title">Total Nutrition per gram during this week</string>
+    <string name="report_title">Week Report info</string>
+    <string name="report_gain_weight_title">- The Gain Weight Quantity:</string>
+    <string name="report_lose_weight_title">- The Lost Weight Quantity:</string>
+
+    <string name="report_positive_gained_weight">- This week you gained weight and this is very great to your target</string>
+    <string name="report_negative_gained_weight">- This week you gained weight and this is the opposite to your target</string>
+    <string name="report_positive_lose_weight">- This week you lost weight and this is very great to your target</string>
+    <string name="report_negative_lose_weight">- This week you lost weight and this is the opposite to your target</string>
+    <string name="report_careful_message">- BE CAREFUL, with your meals in the coming weeks</string>
+    <string name="report_keep_message">- WELL DONE, keep going with the same range in following your diet</string>
+    <string name="no_meals_in_database">You does not have any food meal till now</string>
+    <string name="no_meals_in_database_week">You does not have any food meal this week</string>
+    <string name="wait">Please Wait…</string>
 
     <!-- Locals -->
     <string name="local_eg">EG</string>

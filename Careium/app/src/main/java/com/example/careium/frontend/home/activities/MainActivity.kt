@@ -23,6 +23,7 @@ import com.example.careium.R
 import com.example.careium.core.database.authentication.InternetConnection
 import com.example.careium.core.database.authentication.Logout
 import com.example.careium.core.database.authentication.SharedPreferences
+import com.example.careium.core.database.realtime.FoodData
 import com.example.careium.core.models.DishClassification
 import com.example.careium.core.models.DishNutritionRegression
 import com.example.careium.databinding.ActivityMainBinding
@@ -211,10 +212,18 @@ class MainActivity : AppCompatActivity() {
             nutritionViewModel.mutableNutrition.value = nutritionList
             dishNameViewModel.mutableDishName.value = className
 
+            // store the food data in the firebase
+            saveFoodDataInDatabase(className, nutritionList)
+
         } catch (e: Exception) {
             Log.d("DLModels", "Exception Occurred in DL Models")
         }
 
+    }
+
+    private fun saveFoodDataInDatabase(foodName: String, nutritionList: ArrayList<Float>) {
+        val foodData = FoodData(foodName, nutritionList)
+        foodData.saveFoodData()
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
