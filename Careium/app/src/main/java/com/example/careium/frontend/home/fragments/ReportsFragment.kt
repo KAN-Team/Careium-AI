@@ -10,18 +10,20 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.careium.R
 import com.example.careium.core.database.authentication.InternetConnection
 import com.example.careium.core.database.realtime.FoodNutrition
+import com.example.careium.core.database.realtime.UserData
 import com.example.careium.databinding.FragmentReportsBinding
-import com.example.careium.frontend.factory.FoodDatesViewModel
-import com.example.careium.frontend.factory.FoodTotalNutritionViewModel
+import com.example.careium.frontend.factory.*
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.math.abs
 
 
 class ReportsFragment : Fragment(R.layout.fragment_reports) {
     private lateinit var binding: FragmentReportsBinding
     private lateinit var foodDatesViewModel: FoodDatesViewModel
     private lateinit var foodTotalNutritionViewModel: FoodTotalNutritionViewModel
+    private lateinit var userDataViewModel: UserDataViewModel
 
     private var today: Int = 0
     private var monthCounter: Int = 0
@@ -37,7 +39,8 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
 
     companion object {
         fun newInstance() = ReportsFragment().apply {}
-        var hasReport :Boolean = true
+        var hasReport: Boolean = true
+        var numberOfExistenceMeals = 0
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -47,8 +50,11 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
         // Database callback listeners
         foodDatesViewModel = ViewModelProviders.of(this).get(FoodDatesViewModel::class.java)
         observeFoodDatesCallBackChange()
-        foodTotalNutritionViewModel = ViewModelProviders.of(this).get(FoodTotalNutritionViewModel::class.java)
+        foodTotalNutritionViewModel =
+            ViewModelProviders.of(this).get(FoodTotalNutritionViewModel::class.java)
         observeFoodNutritionCallBackChange()
+        userDataViewModel = ViewModelProviders.of(this).get(UserDataViewModel::class.java)
+        observeUserDataCallBackChange()
 
         // set ui components
         today = getCurrentDay()
@@ -59,7 +65,6 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
         updateDate()
         listenDateChange()
         getFoodDateNodesFromDatabase()
-
     }
 
     private fun hookComponentsSection() {
@@ -162,11 +167,10 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
     }
 
     private fun getFoodDateNodesFromDatabase() {
-        if(InternetConnection.isConnected(this.requireContext())) {
+        if (InternetConnection.isConnected(this.requireContext())) {
             val foodDate = FoodNutrition()
             foodDate.getFoodDateNodes(foodDatesViewModel)
-        }
-        else{
+        } else {
             hasReport = false
             Toast.makeText(activity, getString(R.string.no_internet_connection), Toast.LENGTH_SHORT).show()
             createReport(floatArrayOf().toCollection(ArrayList()))
@@ -179,7 +183,11 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
                 hasReport = true
             else {
                 hasReport = false
-                Toast.makeText(activity, getString(R.string.no_meals_in_database), Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    activity,
+                    getString(R.string.no_meals_in_database),
+                    Toast.LENGTH_LONG
+                ).show()
             }
             parseFoodDateString(foodDates)
         }
@@ -194,16 +202,18 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
             val month: String = dateStr.split(" ")[1]
             val year: String = dateStr.split(" ")[2]
             val monthYear = "$month $year"
-            if (day >= today - 7 && day <= today && getCurrentDate(monthCounter*30) == monthYear)
+            if (day >= today - 7 && day <= today && getCurrentDate(monthCounter * 30) == monthYear)
                 existenceFoodDates.add(date)
         }
 
+        numberOfExistenceMeals = existenceFoodDates.count()
         if (existenceFoodDates.count() != 0)
             hasReport = true
         else {
-            if(hasReport){
-            hasReport = false
-            Toast.makeText(activity, getString(R.string.no_meals_in_database_week), Toast.LENGTH_LONG).show()}
+            if (hasReport) {
+                hasReport = false
+                Toast.makeText(activity, getString(R.string.no_meals_in_database_week), Toast.LENGTH_LONG).show()
+            }
         }
         getTotalWeekNutritionFromDB(existenceFoodDates)
     }
@@ -214,27 +224,72 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
     }
 
     private fun observeFoodNutritionCallBackChange() {
-        foodTotalNutritionViewModel.mutableFoodTotalNutrition .observe(viewLifecycleOwner)
+        foodTotalNutritionViewModel.mutableFoodTotalNutrition.observe(viewLifecycleOwner)
         { foodTotalNutrition -> createReport(foodTotalNutrition) }
     }
 
     private fun createReport(foodTotalNutrition: ArrayList<Float>) {
-       binding.waitContainer.visibility = View.GONE
-       if(hasReport) {
-           binding.reportCardContainer.visibility = View.VISIBLE
-           caloriesVal = foodTotalNutrition[0] //[1] -> mass
-           fatsVal = foodTotalNutrition[2]
-           carbsVal = foodTotalNutrition[3]
-           proteinsVal = foodTotalNutrition[4]
-           // TODO your report info calculated here
+        if (hasReport) {
+            binding.reportCardContainer.visibility = View.VISIBLE
+            caloriesVal = foodTotalNutrition[0] //[1] -> mass
+            fatsVal = foodTotalNutrition[2]
+            carbsVal = foodTotalNutrition[3]
+            proteinsVal = foodTotalNutrition[4]
 
-       }
-        else{
-            caloriesVal = 0f; fatsVal =0f; carbsVal =0f; proteinsVal = 0f
+            val userData = UserData()
+            userData.getUserData(userDataViewModel)
+        } else {
+            caloriesVal = 0f; fatsVal = 0f; carbsVal = 0f; proteinsVal = 0f
+            binding.waitContainer.visibility = View.GONE
             binding.reportCardContainer.visibility = View.INVISIBLE
         }
         updateComponentsSection()
 
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun observeUserDataCallBackChange() {
+        userDataViewModel.mutableUserData.observe(viewLifecycleOwner) { user ->
+            if (user != null) {
+                binding.waitContainer.visibility = View.GONE
+                // calculate basal metabolic rate (BMR)
+                var BMR = (10 * user.weight) + (6.25 * user.height) - (5 * user.age)
+                if (user.gender == Gender.Male) BMR += 5
+                else BMR -= 161
+
+                binding.layoutCalsItem.progressCmpnt.max = (BMR * 7).toInt()
+                binding.layoutCalsItem.textCmpntTarget.text = getString(R.string.cal_val, (BMR * 7).toInt())
+
+                BMR *= numberOfExistenceMeals // to calc the required calories in all days in week
+
+                // set report messages
+                if (caloriesVal < BMR) { // lose weight
+                    if (user.futureGoal == FutureGoal.GainWeight) {
+                        binding.reportMessage.text = getString(R.string.report_negative_lose_weight)
+                        binding.reportNextDaysMessage.text = getString((R.string.report_careful_message))
+                    } else {
+                        binding.reportMessage.text = getString(R.string.report_positive_lose_weight)
+                        binding.reportNextDaysMessage.text = getString((R.string.report_keep_message))
+                    }
+                    binding.reportWeightTitle.text = getString(R.string.report_lose_weight_title)
+
+                } else { // Gain weight
+                    if (user.futureGoal == FutureGoal.GainWeight) {
+                        binding.reportMessage.text = getString(R.string.report_positive_lose_weight)
+                        binding.reportNextDaysMessage.text = getString((R.string.report_keep_message))
+                    } else {
+                        binding.reportMessage.text = getString(R.string.report_negative_gained_weight)
+                        binding.reportNextDaysMessage.text = getString((R.string.report_careful_message))
+                    }
+                    binding.reportWeightTitle.text = getString(R.string.report_gain_weight_title)
+                }
+
+                val remainingCalories = abs(caloriesVal - BMR)
+                val rounded = String.format("%.1f", remainingCalories / 2500)// 2500 calories for every KG
+                binding.reportWeight.text = "$rounded KG"
+            }
+
+        }
     }
 
 }

@@ -152,7 +152,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/report_title"
-                    android:textSize="@dimen/semi_large_text_size" />
+                    android:textSize="@dimen/medium_text_size" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -163,16 +163,16 @@
                         android:id="@+id/report_weight_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginVertical="10dp"
+                        android:layout_marginVertical="@dimen/small_spacing"
                         android:layout_marginEnd="@dimen/tiny_spacing"
-                        android:text="@string/report_new_weight_title"
+                        android:text="@string/report_gain_weight_title"
                         android:textSize="@dimen/medium_text_size" />
 
                     <TextView
                         android:id="@+id/report_weight"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginVertical="10dp"
+                        android:layout_marginVertical="@dimen/small_spacing"
                         android:textSize="@dimen/medium_text_size" />
 
                 </LinearLayout>
@@ -181,7 +181,7 @@
                     android:id="@+id/report_message"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="10dp"
+                    android:layout_marginVertical="@dimen/small_spacing"
                     android:layout_marginEnd="@dimen/small_spacing"
                     android:text="@string/report_positive_gained_weight"
                     android:textSize="@dimen/medium_text_size" />
@@ -190,10 +190,10 @@
                     android:id="@+id/report_next_days_message"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="10dp"
+                    android:layout_marginVertical="@dimen/small_spacing"
                     android:layout_marginEnd="@dimen/small_spacing"
                     android:text="@string/report_keep_message"
-                    android:textColor="#FF0000"
+                    android:textColor="@color/dark_red"
                     android:textSize="@dimen/medium_text_size" />
 
 
