@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".frontend.home.fragments.AlbumFragment">
+
+    <RelativeLayout
+        android:id="@+id/wait_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/transparent_back_normal"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/wait_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/wait_progress"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/tiny_spacing"
+            android:text="@string/wait"
+            android:textSize="@dimen/small_text_size" />
+    </RelativeLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/small_spacing"
+        app:cardBackgroundColor="?attr/colorPrimaryVariant"
+        app:cardCornerRadius="@dimen/large_card_radius"
+        app:cardElevation="@dimen/elevation_card"
+        app:contentPadding="@dimen/small_spacing">
+
+        <RelativeLayout
+            android:id="@+id/layout_date_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <ImageButton
+                android:id="@+id/image_button_prev_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/ic_round_back_24"
+                android:padding="@dimen/medium_spacing"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/text_calendar_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                tools:text="Friday Mar 04, 2022" />
+
+            <ImageButton
+                android:id="@+id/image_button_next_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/ic_round_back_24"
+                android:padding="@dimen/medium_spacing"
+                android:rotation="180"
+                android:visibility="invisible"
+                tools:ignore="ContentDescription" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <GridView
+        android:layout_below="@+id/cardview"
+        android:id="@+id/gridview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="3"
+        android:layout_marginEnd="@dimen/tiny_spacing"/>
+
+
+</RelativeLayout>
