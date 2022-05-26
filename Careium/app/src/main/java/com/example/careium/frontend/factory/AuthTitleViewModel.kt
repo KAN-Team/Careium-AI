@@ -5,5 +5,4 @@ import androidx.lifecycle.ViewModel
 
 class AuthTitleViewModel: ViewModel() {
     val mutableAuthTitleLD = MutableLiveData<String>()
-
 }

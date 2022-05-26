@@ -5,5 +5,4 @@ import androidx.lifecycle.ViewModel
 
 class NutritionViewModel: ViewModel() {
     val mutableNutrition = MutableLiveData<ArrayList<Float>>()
-
 }

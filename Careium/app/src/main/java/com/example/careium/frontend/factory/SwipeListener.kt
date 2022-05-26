@@ -97,5 +97,4 @@ class SwipeListener(context: Context) : GestureDetector.OnGestureListener {
     ): Boolean {
         return false
     }
-
 }
