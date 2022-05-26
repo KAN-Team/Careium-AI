@@ -13,4 +13,6 @@
     <color name="red">#FF0000</color>
     <color name="dark_red">#C10A0A</color>
     <color name="white_blue">#2A3c58</color>
+    <color name="grey">#808080</color>
+    <color name="grey_dark">#5d5d5d</color>
 </resources>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".frontend.home.fragments.Calender_item">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/rowCalender_Card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="?attr/colorPrimaryVariant"
+        app:cardCornerRadius="@dimen/small_card_radius"
+        app:cardElevation="@dimen/elevation_card"
+        app:contentPadding="@dimen/small_spacing">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/days_card"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_spacing"
+                android:layout_marginTop="@dimen/small_spacing"
+                android:layout_marginEnd="@dimen/small_spacing"
+                android:layout_marginBottom="@dimen/small_spacing"
+                app:cardCornerRadius="@dimen/small_card_radius"
+                app:cardElevation="@dimen/elevation_card"
+                app:contentPadding="@dimen/small_spacing">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/day_num"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorSecondary"
+                        android:textSize="@dimen/medium_text_size"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/day"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorSecondary"
+                        android:textSize="@dimen/medium_text_size"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/meals_card"
+                android:layout_width="135dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_spacing"
+                android:layout_marginTop="@dimen/small_spacing"
+                android:layout_marginEnd="@dimen/small_spacing"
+                android:layout_marginBottom="@dimen/small_spacing"
+                app:cardCornerRadius="@dimen/small_card_radius"
+                app:cardElevation="@dimen/elevation_card"
+                app:contentPadding="@dimen/small_spacing">
+
+                <ImageButton
+                    android:id="@+id/MealsBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:contentDescription="@string/app_name"
+                    app:srcCompat="@drawable/meallogo" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/activities_card"
+                android:layout_width="135dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_spacing"
+                android:layout_marginTop="@dimen/small_spacing"
+                android:layout_marginEnd="@dimen/small_spacing"
+                android:layout_marginBottom="@dimen/small_spacing"
+                app:cardCornerRadius="@dimen/small_card_radius"
+                app:cardElevation="@dimen/elevation_card"
+                app:contentPadding="@dimen/small_spacing">
+
+                <ImageButton
+                    android:id="@+id/ActivityBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:contentDescription="@string/age"
+                    app:srcCompat="@drawable/activitylogo" />
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

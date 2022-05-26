@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".frontend.home.fragments.DiaryFragment">
+
+    <TextView
+        android:id="@+id/Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/title_Diary"
+        android:textAlignment="center"
+        android:textColor="#EF6C00"
+        android:textSize="@dimen/large_text_size"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleviewNotes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/AddNoteBtn"
+        android:layout_below="@id/Title"
+        android:background="@color/green_dark" />
+
+    <Button
+        android:id="@+id/AddNoteBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:text="@string/add_new_note"
+        android:textColor="#EF6C00"
+
+        />
+
+</RelativeLayout>

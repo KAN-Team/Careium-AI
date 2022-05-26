@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:layout_marginBottom="10dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/TitleOutput"
+    android:textSize="@dimen/large_text_size"
+    android:textColor="@color/black"
+    tools:text="Title"
+    />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/DescriptionOutput"
+        android:textSize="@dimen/medium_text_size"
+        android:textColor="@color/grey_dark"
+        tools:text="my long description"
+        android:layout_below="@id/TitleOutput"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/TimeOutput"
+        android:textSize="@dimen/small_text_size"
+        android:textColor="@color/grey"
+        tools:text="May 15  5 2022"
+        android:layout_below="@id/DescriptionOutput"
+        android:gravity="end"
+        />
+</RelativeLayout>

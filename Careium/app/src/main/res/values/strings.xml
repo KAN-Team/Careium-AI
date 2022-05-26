@@ -112,4 +112,11 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="dish_image">Dish Image</string>
 
+    <!-- Notes -->
+    <string name="add_new_note">Add New Note</string>
+    <string name="title_text">Title</string>
+    <string name="description_text">Description</string>
+    <string name="save_note">Save Note</string>
+    <string name="title_Diary">Diary</string>
+
 </resources>
