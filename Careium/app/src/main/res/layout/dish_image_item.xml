@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:paddingStart="@dimen/tiny_spacing"
+        android:paddingTop="@dimen/tiny_spacing"
+        android:contentDescription="@string/dish_image" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textview"
+        android:textColor="@color/green_dark"
+        android:textSize="@dimen/medium_text_size"
+        tools:text="date"
+        android:textAlignment="center"
+        android:layout_below="@+id/imageView"/>
+</RelativeLayout>
