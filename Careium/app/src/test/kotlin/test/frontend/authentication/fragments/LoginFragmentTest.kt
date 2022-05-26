@@ -1,7 +1,7 @@
 package test.frontend.authentication.fragments
 
 import com.example.careium.frontend.authentication.fragments.LoginFragment
-import org.junit.Assert
+import org.junit.Assert.*
 import org.junit.Before
 
 import org.junit.Test
@@ -21,7 +21,7 @@ class LoginFragmentTest {
             email = "",
             password = "123"
         );
-        Assert.assertFalse(result)
+        assertFalse(result)
     }
 
     @Test
@@ -30,7 +30,7 @@ class LoginFragmentTest {
             email = "",
             password = ""
         );
-        Assert.assertFalse(result)
+        assertFalse(result)
     }
 
     @Test
@@ -39,6 +39,6 @@ class LoginFragmentTest {
             email = "",
             password = "12"
         );
-        Assert.assertFalse(result)
+        assertFalse(result)
     }
 }
