@@ -45,13 +45,12 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             email = binding.loginEmail.text?.trim().toString()
             password = binding.loginPassword.text.toString()
 
-            if (email.isEmpty() || password.isEmpty())
-                alert(getString(R.string.error_title), getString(R.string.error_message))
-            else {
+            if(isValidLoginInput(email, password)) {
                 hasAccount()
+            } else {
+                alert(getString(R.string.error_title), getString(R.string.error_message))
             }
         }
-
 
         binding.forgetPassword.setOnClickListener {
             activity?.supportFragmentManager?.beginTransaction()
@@ -61,6 +60,15 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 ?.commit()
         }
 
+    }
+
+    fun isValidLoginInput(
+        email: String,
+        password: String
+    ): Boolean {
+        if(email.isEmpty() || password.isEmpty())
+            return false;
+        return true;
     }
 
     private fun hasAccount(){
@@ -104,5 +112,4 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         SplashActivity._this.finish()
         activity?.finish()
     }
-
 }

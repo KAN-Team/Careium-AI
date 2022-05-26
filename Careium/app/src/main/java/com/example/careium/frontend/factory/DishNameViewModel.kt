@@ -5,5 +5,4 @@ import androidx.lifecycle.ViewModel
 
 class DishNameViewModel: ViewModel() {
     val mutableDishName = MutableLiveData<String>()
-
 }

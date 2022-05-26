@@ -37,7 +37,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
             val conf_pass = binding.dataConPassword.text.toString()
 
 
-            if (name.isEmpty() || email.isEmpty() || password.isEmpty() || conf_pass.isEmpty())
+            if (!isValidRegisterInput(name, email, password, conf_pass))
                 alert(getString(R.string.error_title), getString(R.string.error_message))
             else {
                 if (password != conf_pass)
@@ -47,7 +47,6 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                     openInfoScreen()
                  }
             }
-
         }
 
         binding.dataTransition.backIcon.setOnClickListener {
@@ -55,6 +54,17 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
             activity?.finish()
         }
 
+    }
+
+    fun isValidRegisterInput(
+        name: String,
+        email: String,
+        password: String,
+        conf_pass: String
+    ): Boolean {
+        if (name.isEmpty() || email.isEmpty() || password.isEmpty() || conf_pass.isEmpty())
+            return false;
+        return true;
     }
 
     private fun alert(title: String, message: String) {

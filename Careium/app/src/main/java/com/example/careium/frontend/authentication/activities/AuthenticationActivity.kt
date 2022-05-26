@@ -33,7 +33,6 @@ class AuthenticationActivity : AppCompatActivity() {
             loadFragment(LoginFragment.newInstance())
         else if (option == "register")
             loadFragment(RegisterFragment.newInstance())
-
     }
 
 
