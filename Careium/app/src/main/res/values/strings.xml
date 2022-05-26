@@ -71,20 +71,24 @@
     <string name="gram_val">/%1$.2f g</string>
 
     <!--  Profile Fragment  -->
-    <string name="age">Age</string>
-    <string name="height">Height</string>
-    <string name="weight">Weight</string>
-    <string name="email">Email</string>
-    <string name="Type">Type</string>
     <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="user_name_profile">%1$s</string>
+    <string name="age">Age</string>
+    <string name="age_val">%1$d</string>
+    <string name="height">Height</string>
+    <string name="height_val">%1$.1f Cm</string>
+    <string name="weight">Weight</string>
+    <string name="weight_val">%1$.1f Kg</string>
+    <string name="type">Type</string>
+    <string name="type_val">%1$s</string>
     <string name="gender">Gender</string>
+    <string name="gender_val">%1$s</string>
     <string name="desired_weight">Desired Weight</string>
+    <string name="desired_weight_val">%1$.1f Kg</string>
     <string name="edit_profile">Edit Profile</string>
-    <string name="cm">Cm</string>
-    <string name="kg">Kg</string>
-    <string name="user_type">fitness tracker</string>
-    <string name="user_desired_weight">70</string>
-    <string name="user_gender">male</string>
+    <string name="date">%1$s</string>
+
 
     <!-- Reports Fragment -->
     <string name="total_nutrition_title">Total Nutrition per gram during this week</string>
@@ -104,5 +108,8 @@
 
     <!-- Locals -->
     <string name="local_eg">EG</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dish_image">Dish Image</string>
 
 </resources>
