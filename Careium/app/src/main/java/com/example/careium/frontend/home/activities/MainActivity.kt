@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.DisplayMetrics
@@ -15,6 +16,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
@@ -23,6 +25,7 @@ import com.example.careium.R
 import com.example.careium.core.database.authentication.InternetConnection
 import com.example.careium.core.database.authentication.Logout
 import com.example.careium.core.database.authentication.SharedPreferences
+import com.example.careium.core.database.realtime.DishImage
 import com.example.careium.core.database.realtime.FoodData
 import com.example.careium.core.models.DishClassification
 import com.example.careium.core.models.DishNutritionRegression
@@ -43,7 +46,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var swipeListener: SwipeListener
     private lateinit var actionMenu: FloatingActionMenu
     private lateinit var dishImage: Bitmap
-
+    private val permission = Permissions(this, this)
 
     companion object {
         const val REQUEST_IMAGE_CAPTURE = 1
@@ -129,6 +132,12 @@ class MainActivity : AppCompatActivity() {
                     binding.bottomNavigation.show(-1, false)
                     true
                 }
+                R.id.menu_item_photo_album -> {
+                    loadFragment(AlbumFragment.newInstance())
+                    binding.drawerLayout.closeDrawers()
+                    binding.bottomNavigation.show(-1, false)
+                    true
+                }
                 R.id.menu_item_logout -> {
                     logout()
                     true
@@ -190,14 +199,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun capturePlate() {
+        permission.checkPermissions(android.Manifest.permission.READ_EXTERNAL_STORAGE,2)
         val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_IMAGE_CAPTURE && data != null)
+        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_IMAGE_CAPTURE && data != null) {
             dishImage = data.extras?.get("data") as Bitmap
+             val dish_image_uri = data.data
+                if (dish_image_uri != null) {
+                    DishImage.uploadImage(dishImage, dish_image_uri)
+                }
+        }
 
         try {
             val nutrition = DishNutritionRegression(this)
