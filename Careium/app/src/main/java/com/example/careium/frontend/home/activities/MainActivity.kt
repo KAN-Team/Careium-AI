@@ -126,6 +126,12 @@ class MainActivity : AppCompatActivity() {
                     binding.bottomNavigation.show(1, false)
                     true
                 }
+                R.id.menu_item_diary -> {
+                    loadFragment(DiaryFragment.newInstance())
+                    binding.drawerLayout.closeDrawers()
+                    binding.bottomNavigation.show(-1, false)
+                    true
+                }
                 R.id.menu_item_diet_calender -> {
                     loadFragment(CalenderFragment.newInstance())
                     binding.drawerLayout.closeDrawers()
