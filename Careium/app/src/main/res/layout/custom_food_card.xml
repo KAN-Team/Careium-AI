@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/medium_spacing"
+    app:cardBackgroundColor="@color/green_light"
+    app:cardCornerRadius="@dimen/large_card_radius"
+    app:cardElevation="@dimen/elevation_card"
+    app:contentPadding="@dimen/small_spacing">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/food_name_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_spacing"
+            android:layout_marginTop="@dimen/small_spacing"
+            android:text="@string/food_name"
+            android:textColor="@color/orange_light"
+            android:textSize="@dimen/small_plus_text_size"/>
+
+        <TextView
+            android:id="@+id/food_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_spacing"
+            android:layout_marginTop="@dimen/small_spacing"
+            android:layout_toEndOf="@id/food_name_title"
+            android:maxLines="1"
+            android:paddingEnd="@dimen/small_spacing"
+            android:textColor="@color/white"
+            android:textSize="@dimen/small_plus_text_size"
+            tools:ignore="RtlSymmetry" />
+
+
+        <TextView
+            android:id="@+id/food_calories_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/food_name"
+            android:layout_marginStart="@dimen/medium_spacing"
+            android:layout_marginTop="@dimen/small_spacing"
+            android:text="@string/food_calories"
+            android:textColor="@color/orange_light"
+            android:textSize="@dimen/small_plus_text_size" />
+
+        <TextView
+            android:id="@+id/food_calories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/food_name"
+            android:layout_marginStart="@dimen/small_spacing"
+            android:layout_marginTop="@dimen/small_spacing"
+            android:layout_toEndOf="@id/food_calories_title"
+            android:maxLines="1"
+            android:paddingEnd="@dimen/small_spacing"
+            android:textColor="@color/white"
+            android:textSize="@dimen/small_plus_text_size"
+            tools:ignore="RtlSymmetry" />
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

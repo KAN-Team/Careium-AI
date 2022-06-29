@@ -1,0 +1,334 @@
+﻿Cows' milk,660
+Milk skim,360
+Buttermilk,127
+Evaporated undiluted,345
+Fortified milk,373
+Powdered milk,515
+skim instant,290
+skim non-instant,290
+Goats' milk,165
+1/2 cup ice cream,690
+Cocoa,235
+skim milk,128
+cornstarch,275
+Custard,285
+Ice cream,300
+Ice milk,275
+Cream or half-and-half,170
+whipping,430
+Cheese,240
+uncreamed,195
+Cheddar,70
+Cheddar grated cup,226
+Cream cheese,105
+Processed cheese,105
+Roquefort type,105
+Swiss,105
+Eggs raw,150
+Eggs Scrambled or fried,220
+Yolks,120
+Butter,100
+Butter,113
+Butter,113
+Hydrogenated cooking fat,665
+Lard,992
+Margarine,806
+Margarine 2 pat or,100
+Mayonnaise,110
+Corn oil,125
+Olive oil,125
+Safflower seed oil,125
+French dressing,60
+Thousand Island sauce,75
+Salt pork,470
+Bacon,95
+Beef,245
+Hamburger,245
+Ground lean,185
+Roast beef,390
+Steak,330
+Steak lean as round,220
+Corned beef,185
+Corned beef hash canned,120
+Corned beef hash Dried,115
+Pot-pie,480
+Corned beef hash Stew,185
+chicken,185
+Fried breast or leg and thigh chicken,245
+Roasted chicken,290
+Chicken livers fried,140
+Duck domestic,370
+Lamb chop broiled,480
+Leg roasted,314
+Shoulder braised,285
+Pork chop 1 thick,260
+Ham pan-broiled,290
+Ham as ,170
+Ham canned spiced,165
+Pork roast,310
+Pork sausage,475
+Turkey,265
+Veal,185
+Roast,305
+Clams,87
+Cod,170
+Crab meat,90
+Fish sticks fried,200
+Flounder,200
+Haddock,135
+Halibut,182
+Herring,211
+Lobster,92
+Mackerel,155
+Oysters,231
+Oyster stew,125
+Salmon,120
+Sardines,180
+Scallops,104
+Shad,170
+Shrimp,110
+Swordfish,180
+Tuna,170
+Artichoke,44
+Asparagus,18
+Beans,25
+Lima,140
+Lima dry cooked,260
+Navy baked with pork,250
+Red kidney,230
+Bean sprouts,17
+Beet greens,27
+Beetroots,1
+Broccoli,45
+Brussels sprouts,60
+Sauerkraut,32
+Steamed cabbage,40
+Carrots,45
+Raw grated,45
+Strips from raw,20
+Cauliflower,30
+Celery,20
+Stalk raw,5
+Chard steamed,30
+Collards,51
+Corn,92
+cooked or canned,170
+Cucumbers,6
+Dandelion greens,80
+Eggplant,30
+Endive,10
+Kale,45
+Kohlrabi,40
+Lambs quarters steamed,48
+Lentils,212
+Lettuce,14
+Iceberg,13
+Mushrooms canned,12
+Mustard greens,30
+Okra,32
+Onions,80
+Raw green,22
+Parsley,2
+Parsnips,95
+Peas,66
+Fresh steamed peas,70
+Split cooked peas,115
+heated peas,53
+Peppers canned,10
+Peppers Raw green sweet,25
+Peppers with beef and crumbs,255
+Potatoes baked,100
+French-fried,155
+Potatoes Mashed with milk and butter,230
+Potatoes pan-tried,268
+Scalloped with cheese potatoes,145
+Steamed potatoes before peeling,80
+Potato chips,110
+Radishes,10
+Rutabagas,32
+Soybeans,260
+Spinach,26
+Squash,35
+Winter mashed,95
+Sweet potatoes,155
+Candied,235
+Tomatoes,50
+Raw 2 by 2 1/2,30
+Tomato juice,50
+Tomato catsup,15
+Turnip greens,45
+Turnips steamed,40
+Watercress stems raw,9
+Apple juice canned,125
+Apple vinegar,14
+Apples raw,70
+Stewed or canned,100
+Apricots,220
+Dried uncooked,220
+Fresh,55
+Nectar or juice,140
+Avocado,185
+Banana,85
+Blackberries,85
+Blueberries,245
+Cantaloupe,40
+Cherries,100
+Fresh raw,65
+Cranberry sauce sweetened,530
+Dates,505
+Figs,120
+Fresh raw figs,90
+figs Canned with syrup,130
+Fruit cocktail canned,195
+Grapefruit sections,170
+Grapefruit fresh 5 diameter,50
+Grapefruit juice,100
+Grapes,70
+European as Muscat Tokay,100
+Grape juice,160
+Lemon juice,30
+Lemonade concentrate frozen,430
+Limeade concentrate frozen,405
+Olives large,72
+OlivesRipe,105
+Oranges 3 diameter,60
+Orange juice,112
+Frozen,330
+Papaya,75
+Peaches,200
+Fresh raw,35
+Pears,195
+Raw 3 by 2V,100
+Persimmons,75
+Pineapple,95
+Pineapple Crushed,205
+Raw, diced,75
+Pineapple juice,120
+Plums,185
+Raw 2 diameter,30
+Prunes,300
+Prune juice,170
+Raisins,230
+Raspberries,100
+Raw red,57
+Rhubarb sweetened,385
+Strawberries,242
+Raw,54
+Tangerines,40
+Watermelon,120
+Biscuits,130
+Bran flakes,117
+Bread cracked wheat,60
+Rye,55
+White 20 slices,225
+Whole-wheat,100
+Whole-wheat,55
+Corn bread ground meal,100
+Cornflakes,110
+Corn grits cooked,120
+Corn meal,360
+Crackers,55
+Soda 2 1/2 square,45
+Farina,105
+Flour,460
+Wheat (all purpose),400
+Wheat (whole),390
+Macaroni,155
+Baked with cheese,475
+Muffins,135
+Noodles,200
+Oatmeal,150
+Pancakes 4 diam,250
+Wheat pancakes 4 diam,250
+Pizza 14 diam,180
+Popcorn salted,152
+Puffed rice,55
+Puffed wheat presweetened,105
+Rice,748
+Converted,677
+White,692
+Rice flakes,115
+Rice polish,132
+Rolls,411
+refined flour,115
+whole-wheat,102
+Spaghetti with meat sauce,285
+with tomatoes and cheese,210
+Spanish rice,217
+Shredded wheat biscuit,100
+Waffles,240
+Wheat germ,245
+Wheat-germ cereal toasted,260
+Wheat meal cereal unrefined,103
+Wheat cooked,275
+Bean soups,190
+Beef soup,100
+Bouillon,24
+chicken soup,75
+Clam chowder,85
+Cream soups,200
+Noodle,115
+Split-pea soup,147
+Tomato soup,175
+Vegetable,80
+Apple betty,150
+Bread pudding,374
+Cakes,110
+Chocolate fudge,420
+Cupcake,160
+Fruit cake,105
+Gingerbread,180
+Plain with no icing,180
+Sponge cake,115
+Candy,104
+Chocolate creams,130
+Fudge,370
+Hard candies,90
+Marshmallows,98
+Milk chocolate,290
+Chocolate syrup,80
+Doughnuts,135
+Gelatin made with water,155
+Honey,120
+Ice cream,250
+Ices,117
+preserves,55
+Jellies,50
+Molasses,45
+Cane Syrup,50
+9 diam pie,330
+Cherry Pie,340
+Custard,265
+Lemon meringue,300
+Mince,340
+Pumpkin Pie,265
+Puddings Sugar,770
+3 teaspoons sugar,50
+Brown firm-packed dark sugar,815
+Syrup,100
+table blends sugar,110
+Tapioca cream pudding,335
+Almonds,425
+roasted and salted,439
+Brazil nuts,457
+Cashews,392
+coconut sweetened,274
+Peanut butter,300
+Peanut butter natural,284
+Peanuts,290
+Pecans,343
+Sesame seeds,280
+Sunflower seeds,280
+Walnuts,325
+Beer,228
+Gin,70
+Wines,164
+Table (12.2% alcohol),100
+Carbonated drinks Artificially sweetened,0
+Club soda,0
+Cola drinks,137
+Fruit-flavored soda,161
+Ginger ale,105
+Root beer,140
+Coffee,3
+Tea,4
