@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
         bottomNavigation.setOnShowListener {
             val fragment: Fragment? = when (it.id) {
                 1 -> HomeFragment.newInstance()
-                2 -> RecipesFragment.newInstance()
+                2 -> RecipeFragment.newInstance()
                 3 -> ReportsFragment.newInstance()
                 4 -> ProfileFragment.newInstance()
                 else -> null
@@ -140,6 +140,12 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.menu_item_photo_album -> {
                     loadFragment(AlbumFragment.newInstance())
+                    binding.drawerLayout.closeDrawers()
+                    binding.bottomNavigation.show(-1, false)
+                    true
+                }
+                R.id.menu_item_reminder -> {
+                    loadFragment(ReminderFragment.newInstance())
                     binding.drawerLayout.closeDrawers()
                     binding.bottomNavigation.show(-1, false)
                     true

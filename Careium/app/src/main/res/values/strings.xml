@@ -124,4 +124,13 @@
     <string name="Chocolate_cake">Chocolate Cake</string>
     <string name="whiteSaucePasta">white sauce pasta</string>
 
+    <!--Reminder fragment -->
+    <string name="set">Set</string>
+    <string name="cancel">Cancel</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="time">00:00</string>
+    <string name="lunch">Lunch</string>
+    <string name="dinner">Dinner</string>
+    <string name="snack">Snack</string>
+
 </resources>

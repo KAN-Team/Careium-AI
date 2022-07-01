@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green_light"
+    android:orientation="vertical"
+    tools:context=".frontend.home.fragments.ReminderFragment">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/xx_large_spacing"
+        android:layout_marginBottom="@dimen/small_spacing"
+        android:background="@color/green_dark"
+        app:cardBackgroundColor="@color/green_dark">
+
+        <RelativeLayout
+            android:id="@+id/breakfast_relative"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/breakfast_image"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/large_spacing"
+                android:src="@drawable/ic_menu_breakfast_64"
+                android:contentDescription="breakfast image" />
+
+            <TextView
+                android:id="@+id/breakfast_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/medium_spacing"
+                android:layout_marginTop="@dimen/medium_spacing"
+                android:layout_toEndOf="@+id/breakfast_image"
+                android:textSize="@dimen/medium_text_size"
+                android:text="@string/breakfast" />
+
+            <TextView
+                android:id="@+id/breakfast_Time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/medium_spacing"
+                android:layout_marginEnd="@dimen/xx_large_spacing"
+                android:textSize="@dimen/medium_text_size"
+                android:text="@string/time" />
+
+            <Button
+                android:id="@+id/breakfast_set_button"
+                android:layout_width="90sp"
+                android:layout_height="45sp"
+                android:layout_below="@+id/breakfast_Time"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/x_large_spacing"
+                android:text="@string/set"
+                android:textSize="@dimen/small_text_size" />
+
+            <Button
+                android:id="@+id/breakfast_cancel_button"
+                android:layout_width="90sp"
+                android:layout_height="45sp"
+                android:layout_below="@+id/breakfast_Time"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/x_large_spacing"
+                android:text="@string/cancel"
+                android:visibility="gone"
+                android:textSize="@dimen/small_text_size" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/large_spacing"
+        android:layout_marginBottom="@dimen/small_spacing"
+        android:background="@color/green_dark"
+        app:cardBackgroundColor="@color/green_dark">
+
+        <RelativeLayout
+            android:id="@+id/lunch_relative"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/lunch_image"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/large_spacing"
+                android:src="@drawable/ic_menu_lunch_64"
+                android:contentDescription="lunch image" />
+
+            <TextView
+                android:id="@+id/lunch_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/medium_spacing"
+                android:layout_marginTop="@dimen/medium_spacing"
+                android:layout_toEndOf="@+id/lunch_image"
+                android:textSize="@dimen/medium_text_size"
+                android:text="@string/lunch" />
+
+            <TextView
+                android:id="@+id/lunch_Time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/medium_spacing"
+                android:layout_marginEnd="@dimen/xx_large_spacing"
+                android:textSize="@dimen/medium_text_size"
+                android:text="@string/time" />
+
+            <Button
+                android:id="@+id/lunch_set_button"
+                android:layout_width="90sp"
+                android:layout_height="45sp"
+                android:layout_below="@+id/lunch_Time"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/x_large_spacing"
+                android:text="@string/set"
+                android:textSize="@dimen/small_text_size" />
+
+            <Button
+                android:id="@+id/lunch_cancel_button"
+                android:layout_width="90sp"
+                android:layout_height="45sp"
+                android:layout_below="@+id/lunch_Time"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/x_large_spacing"
+                android:text="@string/cancel"
+                android:visibility="gone"
+                android:textSize="@dimen/small_text_size" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/large_spacing"
+        android:layout_marginBottom="@dimen/small_spacing"
+        android:background="@color/green_dark"
+        app:cardBackgroundColor="@color/green_dark">
+
+        <RelativeLayout
+            android:id="@+id/dinner_relative"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/dinner_image"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/large_spacing"
+                android:src="@drawable/ic_menu_dinner_64"
+                android:contentDescription="dinner image" />
+
+            <TextView
+                android:id="@+id/dinner_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/medium_spacing"
+                android:layout_marginTop="@dimen/medium_spacing"
+                android:layout_toEndOf="@+id/dinner_image"
+                android:textSize="@dimen/medium_text_size"
+                android:text="@string/dinner" />
+
+            <TextView
+                android:id="@+id/dinner_Time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/medium_spacing"
+                android:layout_marginEnd="@dimen/xx_large_spacing"
+                android:textSize="@dimen/medium_text_size"
+                android:text="@string/time" />
+
+            <Button
+                android:id="@+id/dinner_set_button"
+                android:layout_width="90sp"
+                android:layout_height="45sp"
+                android:layout_below="@+id/dinner_Time"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/x_large_spacing"
+                android:text="@string/set"
+                android:textSize="@dimen/small_text_size" />
+
+            <Button
+                android:id="@+id/dinner_cancel_button"
+                android:layout_width="90sp"
+                android:layout_height="45sp"
+                android:layout_below="@+id/dinner_Time"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/x_large_spacing"
+                android:text="@string/cancel"
+                android:visibility="gone"
+                android:textSize="@dimen/small_text_size" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/large_spacing"
+        android:layout_marginBottom="@dimen/small_spacing"
+        android:background="@color/green_dark"
+        app:cardBackgroundColor="@color/green_dark">
+
+        <RelativeLayout
+            android:id="@+id/snack_relative"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/snack_image"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/large_spacing"
+                android:src="@drawable/ic_menu_snack_64"
+                android:contentDescription="snack image" />
+
+            <TextView
+                android:id="@+id/snack_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/medium_spacing"
+                android:layout_marginTop="@dimen/medium_spacing"
+                android:layout_toEndOf="@+id/snack_image"
+                android:textSize="@dimen/medium_text_size"
+                android:text="@string/snack" />
+
+            <TextView
+                android:id="@+id/snack_Time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/medium_spacing"
+                android:layout_marginEnd="@dimen/xx_large_spacing"
+                android:textSize="@dimen/medium_text_size"
+                android:text="@string/time" />
+
+            <Button
+                android:id="@+id/snack_set_button"
+                android:layout_width="90sp"
+                android:layout_height="45sp"
+                android:layout_below="@+id/snack_Time"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/x_large_spacing"
+                android:text="@string/set"
+                android:textSize="@dimen/small_text_size" />
+
+            <Button
+                android:id="@+id/snack_cancel_button"
+                android:layout_width="90sp"
+                android:layout_height="45sp"
+                android:layout_below="@+id/snack_Time"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/x_large_spacing"
+                android:text="@string/cancel"
+                android:visibility="gone"
+                android:textSize="@dimen/small_text_size" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</LinearLayout>
