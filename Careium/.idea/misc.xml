@@ -26,12 +26,14 @@
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/activity_splash.xml" value="0.22" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/activity_starting.xml" value="0.17074275362318841" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/auth_toolbar.xml" value="0.22" />
+        <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/custom_food_card.xml" value="0.2" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/error_custom_view.xml" value="0.19739583333333333" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/fragment_calender.xml" value="0.19739583333333333" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/fragment_forget_password.xml" value="0.25" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/fragment_home.xml" value="0.21" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/fragment_login.xml" value="0.22" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/fragment_profile.xml" value="0.2" />
+        <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/fragment_recommendation.xml" value="0.2" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/fragment_register.xml" value="0.22" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/fragment_reports.xml" value="0.22" />
         <entry key="..\:/Android projects/projects/Careium-AI/Careium/app/src/main/res/layout/fragment_user_goal.xml" value="0.22" />
@@ -113,7 +115,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

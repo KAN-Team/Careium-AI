@@ -108,8 +108,6 @@
 
     <!-- Locals -->
     <string name="local_eg">EG</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="dish_image">Dish Image</string>
 
     <!-- Notes -->
@@ -132,5 +130,9 @@
     <string name="lunch">Lunch</string>
     <string name="dinner">Dinner</string>
     <string name="snack">Snack</string>
+
+    <string name="food_name">Food Name:</string>
+    <string name="food_calories">Food Calories:</string>
+    <string name="food_recommendations">Food Recommendations:</string>
 
 </resources>

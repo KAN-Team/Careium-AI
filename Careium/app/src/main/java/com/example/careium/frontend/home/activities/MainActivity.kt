@@ -20,6 +20,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.careium.R
 import com.example.careium.core.database.authentication.InternetConnection
@@ -32,6 +33,7 @@ import com.example.careium.core.models.DishNutritionRegression
 import com.example.careium.databinding.ActivityMainBinding
 import com.example.careium.databinding.LayoutFloatingMenuItemBinding
 import com.example.careium.frontend.authentication.activities.SplashActivity
+import com.example.careium.frontend.authentication.fragments.UserInfoFragment
 import com.example.careium.frontend.factory.*
 import com.example.careium.frontend.home.fragments.*
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton
@@ -336,7 +338,10 @@ class MainActivity : AppCompatActivity() {
                 FABItem.DINNER ->
                     Toast.makeText(this, "Dinner Button Clicked !!", Toast.LENGTH_SHORT).show()
                 FABItem.WATER ->
-                    Toast.makeText(this, "Water Button Clicked !!", Toast.LENGTH_SHORT).show()
+                    this.supportFragmentManager.beginTransaction()
+                        .replace(R.id.layout_main_frame, RecommendationFragment.newInstance())
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                        .commit()
             }
         }
         return itemBinding.root
