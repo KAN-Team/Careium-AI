@@ -138,6 +138,12 @@ class MainActivity : AppCompatActivity() {
                     binding.bottomNavigation.show(-1, false)
                     true
                 }
+                R.id.menu_item_reminder -> {
+                    loadFragment(ReminderFragment.newInstance())
+                    binding.drawerLayout.closeDrawers()
+                    binding.bottomNavigation.show(-1, false)
+                    true
+                }
                 R.id.menu_item_logout -> {
                     logout()
                     true
