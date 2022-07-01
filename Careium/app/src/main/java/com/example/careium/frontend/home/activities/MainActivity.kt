@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
         bottomNavigation.setOnShowListener {
             val fragment: Fragment? = when (it.id) {
                 1 -> HomeFragment.newInstance()
-                2 -> RecipesFragment.newInstance()
+                2 -> RecipeFragment.newInstance()
                 3 -> ReportsFragment.newInstance()
                 4 -> ProfileFragment.newInstance()
                 else -> null

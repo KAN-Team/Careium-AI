@@ -17,7 +17,7 @@ public class RecipeFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static RecipeFragment newInstance(String param1, String param2) {
+    public static RecipeFragment newInstance() {
         RecipeFragment fragment = new RecipeFragment();
         return fragment;
     }
