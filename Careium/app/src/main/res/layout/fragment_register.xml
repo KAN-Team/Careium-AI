@@ -141,11 +141,11 @@
 
         <include
             android:id="@+id/data_transition"
-            layout="@layout/transition_custom_buttons" />
+            layout="@layout/layout_transition_custom_buttons" />
 
         <include
             android:id="@+id/data_error_view"
-            layout="@layout/error_custom_view" />
+            layout="@layout/layout_error_custom_view" />
 
     </RelativeLayout>
 

@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
-import android.widget.TextView
 import com.example.careium.R
 
 internal class GridViewAdapter(
@@ -38,16 +37,16 @@ internal class GridViewAdapter(
         convertView: View?,
         parent: ViewGroup
     ): View {
-        var convertView = convertView
+        var ctView = convertView
         if (layoutInflater == null) {
             layoutInflater =
                 context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         }
-        if (convertView == null) {
-            convertView = layoutInflater!!.inflate(R.layout.dish_image_item, null)
+        if (ctView == null) {
+            ctView = layoutInflater!!.inflate(R.layout.layout_dish_image_item, null)
         }
-        imageView = convertView!!.findViewById(R.id.imageView)
+        imageView = ctView!!.findViewById(R.id.imageView)
         imageView.setImageBitmap(numberImage[position])
-        return convertView
+        return ctView
     }
 }

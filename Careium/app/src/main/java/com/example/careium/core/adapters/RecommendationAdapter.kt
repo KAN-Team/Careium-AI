@@ -16,7 +16,7 @@ class RecommendationAdapter(private val FoodArrayList: ArrayList<FoodCalories>
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(context).inflate(
-                R.layout.custom_food_card, parent
+                R.layout.layout_custom_food_card, parent
                 , false))
     }
 

@@ -10,7 +10,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="@dimen/medium_spacing"
-        android:layout_marginBottom="@dimen/medium_plus_spacing">
+        android:layout_marginBottom="@dimen/medium_plus_spacing"
+        tools:ignore="UselessParent">
 
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/back_icon"

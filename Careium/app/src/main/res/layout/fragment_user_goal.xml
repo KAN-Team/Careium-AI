@@ -157,7 +157,7 @@
 
         <include
             android:id="@+id/goal_error_view"
-            layout="@layout/error_custom_view" />
+            layout="@layout/layout_error_custom_view" />
 
     </RelativeLayout>
 

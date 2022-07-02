@@ -117,7 +117,7 @@
 
     <include
         android:id="@+id/login_error_view"
-        layout="@layout/error_custom_view"
+        layout="@layout/layout_error_custom_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginHorizontal="@dimen/large_spacing"

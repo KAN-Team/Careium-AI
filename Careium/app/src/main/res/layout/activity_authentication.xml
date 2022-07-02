@@ -9,7 +9,7 @@
 
     <include
         android:id="@+id/auth_toolbar"
-        layout="@layout/auth_toolbar" />
+        layout="@layout/layout_auth_toolbar" />
 
     <FrameLayout
         android:id="@+id/auth_frame"
