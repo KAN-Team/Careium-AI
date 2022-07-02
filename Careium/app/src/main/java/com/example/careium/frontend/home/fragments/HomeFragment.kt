@@ -4,12 +4,21 @@ import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.careium.R
+import com.example.careium.core.adapters.RecommendationAdapter
+import com.example.careium.core.database.authentication.InternetConnection
+import com.example.careium.core.database.realtime.UserData
+import com.example.careium.core.models.FoodCalories
+import com.example.careium.core.models.User
 import com.example.careium.databinding.FragmentHomeBinding
 import com.example.careium.frontend.factory.ClassifierViewModel
+import com.example.careium.frontend.factory.Gender
 import com.example.careium.frontend.factory.NutritionViewModel
 import com.example.careium.frontend.home.activities.classifierViewModel
+import com.example.careium.frontend.factory.UserDataViewModel
 import com.example.careium.frontend.home.activities.nutritionViewModel
 import java.text.SimpleDateFormat
 import java.util.*
@@ -17,6 +26,7 @@ import java.util.*
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private lateinit var binding: FragmentHomeBinding
+    private lateinit var userDataViewModel: UserDataViewModel
 
     // Date View Day
     private var daysFrom: Int = 0
@@ -26,7 +36,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private var caloriesTarget: Int = 3000 // TODO: fetch dynamically the user needs
     private var caloriesVal: Int = 0
     private var carbsTarget: Float = 100f // TODO: fetch dynamically the user needs
-    private var carbsVal: Float = 0f      
+    private var carbsVal: Float = 0f
     private var fatsTarget: Float = 100f // TODO: fetch dynamically the user needs
     private var fatsVal: Float = 0f
     private var proteinsTrgt: Float = 100f // TODO: fetch dynamically the user needs
@@ -44,6 +54,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         // Observe The Nutrition Values and Class Name
         observeNutrition()
         observeClassification()
+        getUserDailyCalories()
 
         // setting target values for each component
         hookTargets()
@@ -56,6 +67,33 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         // initializing components values
         hookComponentsSection()
+    }
+
+    private fun getUserDailyCalories() {
+        userDataViewModel = ViewModelProviders.of(this).get(UserDataViewModel::class.java)
+        observeUserDataCallBackChange()
+
+        if (InternetConnection.isConnected(this.requireContext())) {
+            val userData = UserData()
+            userData.getUserData(userDataViewModel)
+        }
+    }
+
+    private fun observeUserDataCallBackChange() {
+        userDataViewModel.mutableUserData.observe(viewLifecycleOwner) { user ->
+            if (user != null) {
+                progressVal = calBMR(user)
+                updateProgress()
+            }
+        }
+    }
+
+    private fun calBMR(user: User): Int {
+        var bmr = (10 * user.weight) + (6.25 * user.height) - (5 * user.age)
+        if (user.gender == Gender.Male) bmr += 5
+        else bmr -= 161
+
+        return bmr.toInt()
     }
 
     private fun hookTargets() {
@@ -110,19 +148,22 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private fun hookProgressSection() {
         updateProgress()
 
-        binding.progressHomeCircular.setOnClickListener {
-            if (progressVal > 100) {
-                progressVal -= 100
-                caloriesVal += 100
-                caloriesTarget -= 100
-                updateProgress()
-            } else {
-                progressVal = 0
-                //caloriesVal = 0
-                caloriesTarget = 3000
-                updateProgress()
+        /*
+          binding.progressHomeCircular.setOnClickListener {
+                if (progressVal > 100) {
+                    progressVal -= 100
+                    caloriesVal += 100
+                    caloriesTarget -= 100
+                    updateProgress()
+                } else {
+                    progressVal = 0
+                    //caloriesVal = 0
+                    caloriesTarget = 3000
+                    updateProgress()
+                }
             }
-        }
+        */
+
     }
 
     private fun updateProgress() {
@@ -162,11 +203,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private fun observeNutrition() {
         nutritionViewModel = ViewModelProviders.of(this).get(NutritionViewModel::class.java)
         nutritionViewModel.mutableNutrition.observe(viewLifecycleOwner) { nutritionList ->
-            progressVal = nutritionList[0].toInt()
             caloriesVal = nutritionList[0].toInt()
-            carbsVal = nutritionList[3]
             fatsVal = nutritionList[2]
+            carbsVal = nutritionList[3]
             proteinsVal = nutritionList[4]
+
+            if (progressVal - caloriesVal > 0) {
+                progressVal -= caloriesVal
+            } else progressVal = 0
+
             updateProgress()
         }
     }

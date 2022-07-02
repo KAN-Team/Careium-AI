@@ -16,12 +16,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.ViewModelProviders
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.careium.R
 import com.example.careium.core.database.authentication.InternetConnection
@@ -29,6 +31,7 @@ import com.example.careium.core.database.authentication.Logout
 import com.example.careium.core.database.authentication.SharedPreferences
 import com.example.careium.core.database.realtime.DishImage
 import com.example.careium.core.database.realtime.FoodData
+import com.example.careium.core.database.realtime.UserData
 import com.example.careium.core.models.DishClassification
 import com.example.careium.core.models.DishNutritionRegression
 import com.example.careium.databinding.ActivityMainBinding
@@ -48,6 +51,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var swipeListener: SwipeListener
     private lateinit var actionMenu: FloatingActionMenu
     private lateinit var dishImage: Bitmap
+    private lateinit var userDataViewModel: UserDataViewModel
     private val permission = Permissions(this, this)
 
     companion object {
@@ -59,6 +63,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        userDataViewModel = ViewModelProviders.of(this).get(UserDataViewModel::class.java)
+        observeUserDataCallBackChange()
+
+        if(InternetConnection.isConnected(this)) {
+            val userData = UserData()
+            userData.getUserData(userDataViewModel)
+        }
+        else
+            Toast.makeText(this, getString(R.string.no_internet_connection), Toast.LENGTH_LONG).show()
+
 
         // Hide system bars
         hideNavigationAndStatusBars()
@@ -79,6 +94,12 @@ class MainActivity : AppCompatActivity() {
         binding.layoutToolbar.imageMenu.setOnClickListener {
             binding.drawerLayout.openDrawer(GravityCompat.START)
         }
+
+        // Notification Icon click action
+        binding.layoutToolbar.imageNotifications.setOnClickListener {
+            loadFragment(ReminderFragment.newInstance())
+        }
+
     }
 
     private fun initializeBottomNavigation() {
@@ -230,14 +251,13 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_IMAGE_CAPTURE && data != null) {
             dishImage = data.extras?.get("data") as Bitmap
-            val dish_image_uri = data.data
-            if (dish_image_uri != null) {
-                DishImage.uploadImage(dishImage, dish_image_uri)
+            val dishImageUri = data.data
+            if (dishImageUri != null) {
+                DishImage.uploadImage(dishImage, dishImageUri)
             }
         }
 
         try {
-
             val nutritionList = makeRegressionPredictions(dishImage)
             val className = makeClassificationPrediction(dishImage)
 
@@ -248,7 +268,6 @@ class MainActivity : AppCompatActivity() {
 
             // store the food data in the firebase
             saveFoodDataInDatabase(className, nutritionList)
-
         } catch (e: Exception) {
             Log.d("DLModels", "Exception Occurred in DL Models")
         }
@@ -366,6 +385,15 @@ class MainActivity : AppCompatActivity() {
     private fun deleteEmailFromSharedPreference() {
         val preference = SharedPreferences(this)
         preference.delete()
+    }
+
+    private fun observeUserDataCallBackChange() {
+        userDataViewModel.mutableUserData.observe(this) { user ->
+            if (user != null) {
+                binding.navigationView.getHeaderView(0).
+                findViewById<TextView>(R.id.text_user_name).text = user.name
+            }
+        }
     }
 
     private fun logout() {
