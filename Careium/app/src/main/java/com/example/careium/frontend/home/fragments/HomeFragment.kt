@@ -1,5 +1,6 @@
 package com.example.careium.frontend.home.fragments
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -48,6 +49,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHomeBinding.bind(view)
+
         // Observe The Nutrition Values and Class Name
         observeNutrition()
         observeClassification()
@@ -79,7 +81,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private fun observeUserDataCallBackChange() {
         userDataViewModel.mutableUserData.observe(viewLifecycleOwner) { user ->
             if (user != null) {
-                progressVal = calBMR(user)
+                caloriesTarget = calBMR(user)
+                progressVal = caloriesTarget
+                binding.progressHomeCircular.max = caloriesTarget
                 updateProgress()
             }
         }
@@ -144,7 +148,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun hookProgressSection() {
         updateProgress()
-
         /*
           binding.progressHomeCircular.setOnClickListener {
                 if (progressVal > 100) {
@@ -160,7 +163,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 }
             }
         */
-
     }
 
     private fun updateProgress() {
@@ -182,19 +184,24 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         updateComponentsSection()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun updateComponentsSection() {
         // CALORIES
         binding.layoutCalsItem.textCmpntValue.text = "$caloriesVal"
         binding.layoutCalsItem.progressCmpnt.progress = caloriesVal
+        binding.layoutCalsItem.textCmpntTarget.text = "/$caloriesTarget cal"
         // CARBS
         binding.layoutCarbsItem.textCmpntValue.text = "$carbsVal"
         binding.layoutCarbsItem.progressCmpnt.progress = carbsVal.toInt()
+        binding.layoutCarbsItem.textCmpntTarget.text = "/$carbsTarget g"
         // FATS
         binding.layoutFatsItem.textCmpntValue.text = "$fatsVal"
         binding.layoutFatsItem.progressCmpnt.progress = fatsVal.toInt()
+        binding.layoutFatsItem.textCmpntTarget.text = "/$fatsTarget cal"
         // PROTEINS
         binding.layoutProteinsItem.textCmpntValue.text = "$proteinsVal"
         binding.layoutProteinsItem.progressCmpnt.progress = proteinsVal.toInt()
+        binding.layoutProteinsItem.textCmpntTarget.text = "/$proteinsTrgt cal"
     }
 
     private fun observeNutrition() {

@@ -109,7 +109,8 @@ class MainActivity : AppCompatActivity() {
         bottomNavigation.add(MeowBottomNavigation.Model(1, R.drawable.ic_round_home_24))
         bottomNavigation.add(MeowBottomNavigation.Model(2, R.drawable.ic_round_recipes_24))
         bottomNavigation.add(MeowBottomNavigation.Model(3, R.drawable.ic_round_diet_calendar_24))
-        bottomNavigation.add(MeowBottomNavigation.Model(4, R.drawable.ic_profile))
+        bottomNavigation.add(MeowBottomNavigation.Model(4, R.drawable.ic_round_recommend_24))
+        bottomNavigation.add(MeowBottomNavigation.Model(5, R.drawable.ic_profile))
 
         // Bottom navigation show listener
         bottomNavigation.setOnShowListener {
@@ -117,7 +118,8 @@ class MainActivity : AppCompatActivity() {
                 1 -> HomeFragment.newInstance()
                 2 -> RecipesFragment.newInstance()
                 3 -> ReportsFragment.newInstance()
-                4 -> ProfileFragment.newInstance()
+                4 -> RecommendationFragment.newInstance()
+                5 -> ProfileFragment.newInstance()
                 else -> null
             }
 
@@ -193,8 +195,7 @@ class MainActivity : AppCompatActivity() {
     private fun loadFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.layout_main_frame, fragment)
-            // TODO: Uncomment below line after finishing the design for all fragments
-            //.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             .commit()
     }
 
@@ -213,7 +214,6 @@ class MainActivity : AppCompatActivity() {
                 hideSystemBars()
         }
     }
-
 
     private fun hideSystemBars() {
         window.decorView.apply {
@@ -381,10 +381,7 @@ class MainActivity : AppCompatActivity() {
                 FABItem.DINNER ->
                     Toast.makeText(this, "Dinner Button Clicked !!", Toast.LENGTH_SHORT).show()
                 FABItem.WATER ->
-                    this.supportFragmentManager.beginTransaction()
-                        .replace(R.id.layout_main_frame, RecommendationFragment.newInstance())
-                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                        .commit()
+                    Toast.makeText(this, "Water Button Clicked !!", Toast.LENGTH_SHORT).show()
             }
         }
         return itemBinding.root
