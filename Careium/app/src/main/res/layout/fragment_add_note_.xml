@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="@color/green_dark"
     android:padding="20dp"
-    tools:context=".frontend.home.fragments.AddNote_Fragment">
+    tools:context=".frontend.home.fragments.AddNoteFragment">
 
     <TextView
         android:layout_width="match_parent"

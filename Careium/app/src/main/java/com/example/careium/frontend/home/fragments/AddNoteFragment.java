@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,20 +19,18 @@ import com.example.careium.databinding.FragmentAddNoteBinding;
 
 import java.util.ArrayList;
 
-public class AddNote_Fragment extends Fragment {
+public class AddNoteFragment extends Fragment {
 
     static ArrayList<NoteInformation> noteList = new ArrayList<>();
-    FragmentAddNoteBinding binding ;
+    FragmentAddNoteBinding binding;
 
-
-    public AddNote_Fragment() {
+    public AddNoteFragment() {
         // Required empty public constructor
     }
 
-    public static AddNote_Fragment newInstance() {
-        return new AddNote_Fragment();
+    public static AddNoteFragment newInstance() {
+        return new AddNoteFragment();
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,13 +52,18 @@ public class AddNote_Fragment extends Fragment {
             String Description = DescriptionInput.getText().toString();
             long CreatedTime = System.currentTimeMillis();
 
-            NoteInformation note = new NoteInformation(Title , Description ,CreatedTime);
+            NoteInformation note = new NoteInformation(Title, Description, CreatedTime);
             noteList.add(note);
 
             note.setTitle(Title);
             note.setDescription(Description);
             note.setCreatedTime(CreatedTime);
-            Toast.makeText(getContext(),"Note Saved",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Note Saved", Toast.LENGTH_SHORT).show();
+
+            requireActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.layout_main_frame, DiaryFragment.newInstance())
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                    .commit();
         });
     }
 }

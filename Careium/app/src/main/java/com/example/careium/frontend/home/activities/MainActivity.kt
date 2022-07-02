@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
@@ -33,14 +34,13 @@ import com.example.careium.core.models.DishNutritionRegression
 import com.example.careium.databinding.ActivityMainBinding
 import com.example.careium.databinding.LayoutFloatingMenuItemBinding
 import com.example.careium.frontend.authentication.activities.SplashActivity
-import com.example.careium.frontend.authentication.fragments.UserInfoFragment
 import com.example.careium.frontend.factory.*
 import com.example.careium.frontend.home.fragments.*
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu
 
 lateinit var nutritionViewModel: NutritionViewModel
-lateinit var dishNameViewModel: DishNameViewModel
+lateinit var classifierViewModel: ClassifierViewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -93,7 +93,7 @@ class MainActivity : AppCompatActivity() {
         bottomNavigation.setOnShowListener {
             val fragment: Fragment? = when (it.id) {
                 1 -> HomeFragment.newInstance()
-                2 -> RecipeFragment.newInstance()
+                2 -> RecipesFragment.newInstance()
                 3 -> ReportsFragment.newInstance()
                 4 -> ProfileFragment.newInstance()
                 else -> null
@@ -108,7 +108,7 @@ class MainActivity : AppCompatActivity() {
         // Initialize home fragment as the default
         bottomNavigation.show(1, false)
         // Set notification count
-        bottomNavigation.setCount(2, "5")
+        bottomNavigation.setCount(2, "8")
 
         // Bottom navigation click actions
         bottomNavigation.setOnClickMenuListener {
@@ -126,6 +126,12 @@ class MainActivity : AppCompatActivity() {
                     loadFragment(HomeFragment.newInstance())
                     binding.drawerLayout.closeDrawers()
                     binding.bottomNavigation.show(1, false)
+                    true
+                }
+                R.id.menu_item_recipes -> {
+                    loadFragment(RecipesFragment.newInstance())
+                    binding.drawerLayout.closeDrawers()
+                    binding.bottomNavigation.show(-1, false)
                     true
                 }
                 R.id.menu_item_diary -> {
@@ -213,7 +219,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun capturePlate() {
-        permission.checkPermissions(android.Manifest.permission.READ_EXTERNAL_STORAGE,2)
+        permission.checkPermissions(android.Manifest.permission.READ_EXTERNAL_STORAGE, 2)
         val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
     }
@@ -223,24 +229,21 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_IMAGE_CAPTURE && data != null) {
             dishImage = data.extras?.get("data") as Bitmap
-             val dish_image_uri = data.data
-                if (dish_image_uri != null) {
-                    DishImage.uploadImage(dishImage, dish_image_uri)
-                }
+            val dish_image_uri = data.data
+            if (dish_image_uri != null) {
+                DishImage.uploadImage(dishImage, dish_image_uri)
+            }
         }
 
         try {
-            val nutrition = DishNutritionRegression(this)
-            val tensorBuffer1 = nutrition.loadImageBuffer(dishImage, 224, 224)
-            val nutritionList = nutrition.predictNutritionModel(tensorBuffer1)
 
-            val classifier = DishClassification(this)
-            val tensorBuffer2 = classifier.loadImageBuffer(dishImage, 250, 250)
-            val className = classifier.classifyDish(tensorBuffer2)
+            val nutritionList = makeRegressionPredictions(dishImage)
+            val className = makeClassificationPrediction(dishImage)
 
             // Update MutableLiveData to display the output
             nutritionViewModel.mutableNutrition.value = nutritionList
-            dishNameViewModel.mutableDishName.value = className
+            classifierViewModel.mutableDishName.value = className
+            classifierViewModel.mutableDishImage.value = BitmapDrawable(resources, dishImage)
 
             // store the food data in the firebase
             saveFoodDataInDatabase(className, nutritionList)
@@ -249,6 +252,18 @@ class MainActivity : AppCompatActivity() {
             Log.d("DLModels", "Exception Occurred in DL Models")
         }
 
+    }
+
+    private fun makeRegressionPredictions(dishImage: Bitmap): ArrayList<Float> {
+        val nutrition = DishNutritionRegression(this)
+        val tensorBuffer = nutrition.loadImageBuffer(dishImage, 224, 224)
+        return (nutrition.predictNutritionModel(tensorBuffer))
+    }
+
+    private fun makeClassificationPrediction(dishImage: Bitmap): String {
+        val classifier = DishClassification(this)
+        val tensorBuffer2 = classifier.loadImageBuffer(dishImage, 250, 250)
+        return classifier.classifyDish(tensorBuffer2)
     }
 
     private fun saveFoodDataInDatabase(foodName: String, nutritionList: ArrayList<Float>) {
@@ -353,17 +368,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun logout() {
-        if(InternetConnection.isConnected(this)) {
+        if (InternetConnection.isConnected(this)) {
             deleteEmailFromSharedPreference()
             signOut()
             startActivity(Intent(this, SplashActivity::class.java))
             finish()
-        }
-        else
-            Toast.makeText(this, getString(R.string.no_internet_connection), Toast.LENGTH_SHORT).show()
+        } else
+            Toast.makeText(this, getString(R.string.no_internet_connection), Toast.LENGTH_SHORT)
+                .show()
     }
 
-    private fun signOut(){
+    private fun signOut() {
         val logout = Logout()
         logout.signOut()
     }

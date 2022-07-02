@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/small_spacing"
+    tools:background="?attr/colorPrimaryVariant">
+
+    <ImageView
+        android:id="@+id/recipe_image"
+        android:layout_width="@dimen/recipe_image_dims"
+        android:layout_height="@dimen/recipe_image_dims"
+        android:contentDescription="@string/recipes"
+        android:scaleType="centerCrop"
+        tools:src="@mipmap/ic_launcher"/>
+
+    <TextView
+        android:id="@+id/recipe_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_spacing"
+        android:textSize="@dimen/medium_text_size"
+        tools:text="Cheese Cake"/>
+
+</LinearLayout>

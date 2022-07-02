@@ -27,7 +27,7 @@ public class DiaryAdapter extends  RecyclerView.Adapter<DiaryAdapter.MyViewHolde
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.note_items, parent, false));
+        return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.layout_note_items, parent, false));
     }
 
     @Override
@@ -52,9 +52,9 @@ public class DiaryAdapter extends  RecyclerView.Adapter<DiaryAdapter.MyViewHolde
         TextView CreatedTimeOut;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            TitleOut = itemView.findViewById(R.id.TitleOutput);
-            DescriptionOut = itemView.findViewById(R.id.DescriptionOutput);
-            CreatedTimeOut = itemView.findViewById(R.id.TimeOutput);
+            TitleOut = itemView.findViewById(R.id.text_note_title_output);
+            DescriptionOut = itemView.findViewById(R.id.text_note_description_output);
+            CreatedTimeOut = itemView.findViewById(R.id.text_note_time_output);
         }
     }
 }
