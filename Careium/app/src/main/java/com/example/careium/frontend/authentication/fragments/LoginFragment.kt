@@ -12,7 +12,7 @@ import com.example.careium.core.database.authentication.AuthViewModel
 import com.example.careium.core.database.authentication.InternetConnection
 import com.example.careium.core.database.authentication.Login
 import com.example.careium.core.database.authentication.SharedPreferences
-import com.example.careium.databinding.ErrorCustomViewBinding
+import com.example.careium.databinding.LayoutErrorCustomViewBinding
 import com.example.careium.databinding.FragmentLoginBinding
 import com.example.careium.frontend.authentication.activities.SplashActivity
 import com.example.careium.frontend.authentication.activities.titleViewModel
@@ -67,8 +67,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         password: String
     ): Boolean {
         if(email.isEmpty() || password.isEmpty())
-            return false;
-        return true;
+            return false
+        return true
     }
 
     private fun hasAccount(){
@@ -98,7 +98,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun alert(title: String, message: String) {
-        val view: ErrorCustomViewBinding = binding.loginErrorView
+        val view: LayoutErrorCustomViewBinding = binding.loginErrorView
         ErrorAlertDialog.alert(view, title, message)
     }
 

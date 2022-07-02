@@ -1,11 +1,11 @@
 package com.example.careium.frontend.factory
 
 import android.view.View
-import com.example.careium.databinding.ErrorCustomViewBinding
+import com.example.careium.databinding.LayoutErrorCustomViewBinding
 
 class ErrorAlertDialog {
     companion object {
-        fun alert(view: ErrorCustomViewBinding, title: String, message: String) {
+        fun alert(view: LayoutErrorCustomViewBinding, title: String, message: String) {
             view.layoutOverlay.visibility = View.VISIBLE
             view.errorContainer.visibility = View.VISIBLE
             view.errorInfoTitle.text = title

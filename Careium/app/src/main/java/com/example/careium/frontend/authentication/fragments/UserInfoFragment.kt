@@ -5,7 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.example.careium.R
-import com.example.careium.databinding.ErrorCustomViewBinding
+import com.example.careium.databinding.LayoutErrorCustomViewBinding
 import com.example.careium.databinding.FragmentUserInfoBinding
 import com.example.careium.frontend.authentication.activities.user
 import com.example.careium.frontend.factory.ErrorAlertDialog
@@ -60,7 +60,7 @@ class UserInfoFragment : Fragment(R.layout.fragment_user_info) {
 
 
     private fun alert(title: String, message: String) {
-        val view: ErrorCustomViewBinding = binding.infoErrorView
+        val view: LayoutErrorCustomViewBinding = binding.infoErrorView
         ErrorAlertDialog.alert(view, title, message)
     }
 
@@ -86,6 +86,7 @@ class UserInfoFragment : Fragment(R.layout.fragment_user_info) {
             when (user.gender) {
                 Gender.Male -> binding.infoMale.isChecked = true
                 Gender.Female -> binding.infoFemale.isChecked = true
+                else -> {}
             }
         }
     }

@@ -10,7 +10,7 @@ import com.example.careium.R
 import com.example.careium.core.database.authentication.AuthViewModel
 import com.example.careium.core.database.authentication.InternetConnection
 import com.example.careium.core.database.authentication.ResetPassword
-import com.example.careium.databinding.ErrorCustomViewBinding
+import com.example.careium.databinding.LayoutErrorCustomViewBinding
 import com.example.careium.databinding.FragmentResetPasswordBinding
 import com.example.careium.frontend.factory.ErrorAlertDialog
 
@@ -74,7 +74,7 @@ class ResetPasswordFragment : Fragment(R.layout.fragment_reset_password) {
     }
 
     private fun alert(title: String, message: String) {
-        val view: ErrorCustomViewBinding = binding.resetErrorView
+        val view: LayoutErrorCustomViewBinding = binding.resetErrorView
         ErrorAlertDialog.alert(view, title, message)
     }
 

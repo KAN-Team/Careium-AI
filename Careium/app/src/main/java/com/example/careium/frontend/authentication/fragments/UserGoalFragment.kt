@@ -13,7 +13,7 @@ import com.example.careium.core.database.authentication.InternetConnection
 import com.example.careium.core.database.authentication.Register
 import com.example.careium.core.database.authentication.SharedPreferences
 import com.example.careium.core.database.realtime.UserData
-import com.example.careium.databinding.ErrorCustomViewBinding
+import com.example.careium.databinding.LayoutErrorCustomViewBinding
 import com.example.careium.databinding.FragmentUserGoalBinding
 import com.example.careium.frontend.authentication.activities.SplashActivity
 import com.example.careium.frontend.authentication.activities.user
@@ -106,7 +106,7 @@ class UserGoalFragment : Fragment(R.layout.fragment_user_goal) {
     }
 
     private fun alert(title: String, message: String) {
-        val view: ErrorCustomViewBinding = binding.goalErrorView
+        val view: LayoutErrorCustomViewBinding = binding.goalErrorView
         ErrorAlertDialog.alert(view, title, message)
     }
 
@@ -134,6 +134,7 @@ class UserGoalFragment : Fragment(R.layout.fragment_user_goal) {
                 FutureGoal.GainWeight -> binding.goalGainWeight.isChecked = true
                 FutureGoal.FitnessTracker -> binding.goalFitnessTracker.isChecked = true
                 FutureGoal.PatientTreatment -> binding.goalPatientTreatment.isChecked = true
+                else -> {}
             }
         }
     }

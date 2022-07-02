@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.example.careium.R
 import com.example.careium.core.models.User
-import com.example.careium.databinding.ErrorCustomViewBinding
+import com.example.careium.databinding.LayoutErrorCustomViewBinding
 import com.example.careium.databinding.FragmentRegisterBinding
 import com.example.careium.frontend.authentication.activities.user
 import com.example.careium.frontend.authentication.activities.titleViewModel
@@ -63,12 +63,12 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         conf_pass: String
     ): Boolean {
         if (name.isEmpty() || email.isEmpty() || password.isEmpty() || conf_pass.isEmpty())
-            return false;
-        return true;
+            return false
+        return true
     }
 
     private fun alert(title: String, message: String) {
-        val view: ErrorCustomViewBinding = binding.dataErrorView
+        val view: LayoutErrorCustomViewBinding = binding.dataErrorView
         ErrorAlertDialog.alert(view, title, message)
     }
 
