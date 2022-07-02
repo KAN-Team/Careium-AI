@@ -11,7 +11,7 @@
     android:layout_height="wrap_content"
     android:id="@+id/TitleOutput"
     android:textSize="@dimen/large_text_size"
-    android:textColor="@color/black"
+    android:textColor="@color/white"
     tools:text="Title"
     />
     <TextView
