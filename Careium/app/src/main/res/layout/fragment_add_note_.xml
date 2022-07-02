@@ -4,63 +4,67 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/green_dark"
     android:padding="20dp"
+    tools:background="@color/green_dark"
     tools:context=".frontend.home.fragments.AddNoteFragment">
 
     <TextView
+        android:id="@+id/TitleNotes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/TitleNotes"
-        android:text="@string/add_new_note"
-        android:textColor="@color/orange_700"
-        android:textAlignment="center"
-        android:textSize="@dimen/large_text_size"
-        android:textStyle="bold"
         android:layout_margin="20dp"
-        />
+        android:text="@string/add_new_note"
+        android:textAlignment="center"
+        android:textColor="@color/orange_700"
+        android:textSize="@dimen/large_text_size"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@drawable/theme_rounded_white_background"
         android:layout_margin="10dp"
-        >
+        android:background="@drawable/theme_rounded_white_background"
+        android:orientation="vertical">
 
         <EditText
             android:id="@+id/TitleText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="@dimen/small_spacing"
             android:background="@color/white"
             android:hint="@string/title_text"
+            android:inputType="text"
             android:minHeight="48dp"
-            android:padding="10dp"
-            android:autofillHints=""
-            android:inputType="text" />
+            android:padding="@dimen/small_spacing"
+            android:textColor="@color/black"
+            android:textColorHint="@color/warm_grey" />
+
         <EditText
+            android:id="@+id/DescriptionText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/DescriptionText"
-            android:hint="@string/description_text"
-            android:padding="10dp"
             android:layout_margin="10dp"
-            android:background="@color/white"
-            android:lines="10"
-            android:gravity="top"
             android:autofillHints=""
-            android:inputType="textMultiLine" />
+            android:background="@color/white"
+            android:gravity="top"
+            android:hint="@string/description_text"
+            android:inputType="textMultiLine"
+            android:lines="10"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/warm_grey" />
     </LinearLayout>
+
     <Button
+        android:id="@+id/SaveNote_Btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/SaveNote_Btn"
+        android:layout_gravity="center"
         android:text="@string/save_note"
         android:textAlignment="center"
-        android:textStyle="bold"
+        android:textColor="@color/orange_700"
         android:textSize="@dimen/medium_text_size"
-        android:layout_gravity="center"
-        android:textColor="@color/orange_700" />
+        android:textStyle="bold" />
 
 
 </LinearLayout>

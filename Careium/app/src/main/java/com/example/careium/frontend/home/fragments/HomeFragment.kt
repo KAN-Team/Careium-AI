@@ -23,14 +23,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     // Main Components
     private var progressVal: Int = 0
-    private var caloriesTarget: Int = 3000
+    private var caloriesTarget: Int = 3000 // TODO: fetch dynamically the user needs
     private var caloriesVal: Int = 0
-    private var carbsTarget: Float = 100f
-    private var carbsVal: Float = 0f      // Suppose to be Zero but it's kept for visualization
-    private var fatsTarget: Float = 100f
-    private var fatsVal: Float = 0f        // Suppose to be Zero but it's kept for visualization
-    private var proteinsTrgt: Float = 100f
-    private var proteinsVal: Float = 0f    // Suppose to be Zero but it's kept for visualization
+    private var carbsTarget: Float = 100f // TODO: fetch dynamically the user needs
+    private var carbsVal: Float = 0f      
+    private var fatsTarget: Float = 100f // TODO: fetch dynamically the user needs
+    private var fatsVal: Float = 0f
+    private var proteinsTrgt: Float = 100f // TODO: fetch dynamically the user needs
+    private var proteinsVal: Float = 0f
 
     companion object {
         @JvmStatic

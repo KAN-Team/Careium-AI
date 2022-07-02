@@ -107,6 +107,7 @@ class MainActivity : AppCompatActivity() {
 
         // Initialize home fragment as the default
         bottomNavigation.show(1, false)
+
         // Set notification count
         bottomNavigation.setCount(2, "8")
 
