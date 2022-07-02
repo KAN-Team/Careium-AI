@@ -61,7 +61,6 @@ public class AddNote_Fragment extends Fragment {
             note.setDescription(Description);
             note.setCreatedTime(CreatedTime);
             Toast.makeText(getContext(),"Note Saved",Toast.LENGTH_SHORT).show();
-
             requireActivity().getSupportFragmentManager().beginTransaction()
                     .replace(R.id.layout_main_frame,DiaryFragment.newInstance())
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)

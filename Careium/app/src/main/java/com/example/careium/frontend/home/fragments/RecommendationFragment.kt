@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.careium.R
 import com.example.careium.core.adapters.RecommendationAdapter
+import com.example.careium.core.database.authentication.InternetConnection
 import com.example.careium.core.database.realtime.UserData
 import com.example.careium.core.models.FoodCalories
 import com.example.careium.core.models.User
@@ -33,14 +35,18 @@ class RecommendationFragment : Fragment(R.layout.fragment_recommendation) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentRecommendationBinding.bind(view)
+        binding.waitContainer.visibility = View.VISIBLE
 
         foodArrayList = ArrayList()
         userDataViewModel = ViewModelProviders.of(this).get(UserDataViewModel::class.java)
         observeUserDataCallBackChange()
-        val userData = UserData()
-        userData.getUserData(userDataViewModel)
-        binding.recommendationProgress.visibility = View.VISIBLE
 
+        if(InternetConnection.isConnected(this.requireContext())) {
+            val userData = UserData()
+            userData.getUserData(userDataViewModel)
+        }
+        else
+            Toast.makeText(activity, getString(R.string.no_internet_connection), Toast.LENGTH_SHORT).show()
     }
 
 
@@ -64,7 +70,7 @@ class RecommendationFragment : Fragment(R.layout.fragment_recommendation) {
                 binding.recommendRecyclerView.layoutManager = LinearLayoutManager(this.context)
                 foodAdapter = RecommendationAdapter(foodArrayList, this.requireContext())
                 binding.recommendRecyclerView.adapter = foodAdapter
-                binding.recommendationProgress.visibility = View.GONE
+                binding.waitContainer.visibility = View.GONE
 
             }
         }

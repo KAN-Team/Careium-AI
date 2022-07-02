@@ -116,6 +116,11 @@
     <string name="description_text">Description</string>
     <string name="save_note">Save Note</string>
     <string name="title_Diary">Diary</string>
+    <!-- Recipes -->
+    <string name="Burger">Burger</string>
+    <string name="Pan_Cake">Pan Cake</string>
+    <string name="Chocolate_cake">Chocolate Cake</string>
+    <string name="whiteSaucePasta">white sauce pasta</string>
 
     <!--Reminder fragment -->
     <string name="set">Set</string>
@@ -129,7 +134,5 @@
     <string name="food_name">Food Name:</string>
     <string name="food_calories">Food Calories:</string>
     <string name="food_recommendations">Food Recommendations:</string>
-
-
 
 </resources>
