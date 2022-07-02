@@ -4,14 +4,10 @@ import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.careium.R
-import com.example.careium.core.adapters.RecommendationAdapter
 import com.example.careium.core.database.authentication.InternetConnection
 import com.example.careium.core.database.realtime.UserData
-import com.example.careium.core.models.FoodCalories
 import com.example.careium.core.models.User
 import com.example.careium.databinding.FragmentHomeBinding
 import com.example.careium.frontend.factory.ClassifierViewModel
@@ -22,6 +18,7 @@ import com.example.careium.frontend.factory.UserDataViewModel
 import com.example.careium.frontend.home.activities.nutritionViewModel
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 

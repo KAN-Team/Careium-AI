@@ -38,8 +38,11 @@ class ResetPasswordFragment : Fragment(R.layout.fragment_reset_password) {
         binding.sendBtn.setOnClickListener {
             email = binding.resetPasswordEmail.text?.trim().toString()
 
-            when{
-                email.isEmpty() -> alert(getString(R.string.error_title), getString(R.string.error_message))
+            when {
+                email.isEmpty() -> alert(
+                    getString(R.string.error_title),
+                    getString(R.string.error_message)
+                )
                 else -> {
                     sendResendEmail()
                 }
@@ -53,23 +56,27 @@ class ResetPasswordFragment : Fragment(R.layout.fragment_reset_password) {
 
     }
 
-    private fun sendResendEmail(){
-        if(InternetConnection.isConnected(this.requireContext())) {
+    private fun sendResendEmail() {
+        if (InternetConnection.isConnected(this.requireContext())) {
             val reset = ResetPassword(email)
             reset.resetPassword(authViewModel)
-        }
-        else
-            Toast.makeText(activity, getString(R.string.no_internet_connection), Toast.LENGTH_SHORT).show()
+        } else
+            Toast.makeText(activity, getString(R.string.no_internet_connection), Toast.LENGTH_SHORT)
+                .show()
     }
 
-    private fun observeResetResultChange(){
-        authViewModel.mutableIsAuthComplete.observe(viewLifecycleOwner){ isSent ->
-            if(isSent) {
-                Toast.makeText(activity, getString(R.string.confirmation_reset_msg), Toast.LENGTH_SHORT).show()
+    private fun observeResetResultChange() {
+        authViewModel.mutableIsAuthComplete.observe(viewLifecycleOwner) { isSent ->
+            if (isSent) {
+                Toast.makeText(
+                    activity,
+                    getString(R.string.confirmation_reset_msg),
+                    Toast.LENGTH_SHORT
+                ).show()
                 returnToLogin()
-            }
-            else
-                Toast.makeText(activity, getString(R.string.failed_reset_msg), Toast.LENGTH_SHORT).show()
+            } else
+                Toast.makeText(activity, getString(R.string.failed_reset_msg), Toast.LENGTH_SHORT)
+                    .show()
         }
     }
 
@@ -78,7 +85,7 @@ class ResetPasswordFragment : Fragment(R.layout.fragment_reset_password) {
         ErrorAlertDialog.alert(view, title, message)
     }
 
-    private fun returnToLogin(){
+    private fun returnToLogin() {
         activity?.supportFragmentManager?.beginTransaction()
             ?.replace(R.id.auth_frame, LoginFragment.newInstance())
             ?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)

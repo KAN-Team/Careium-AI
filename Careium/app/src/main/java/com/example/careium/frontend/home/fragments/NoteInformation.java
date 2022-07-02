@@ -1,7 +1,7 @@
 package com.example.careium.frontend.home.fragments;
 
 public class NoteInformation {
-    String title , description;
+    String title, description;
     long createdTime;
 
     public NoteInformation(String title, String description, long createdTime) {

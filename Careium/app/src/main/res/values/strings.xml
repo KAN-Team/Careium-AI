@@ -90,7 +90,6 @@
     <string name="edit_profile">Edit Profile</string>
     <string name="date">%1$s</string>
 
-
     <!-- Reports Fragment -->
     <string name="total_nutrition_title">Total Nutrition per gram during this week</string>
     <string name="report_title">Week Report info</string>
@@ -130,5 +129,9 @@
     <string name="food_name">Food Name:</string>
     <string name="food_calories">Food Calories:</string>
     <string name="food_recommendations">Food Recommendations:</string>
+    <string name="breakfast_image">breakfast image</string>
+    <string name="lunch_image">lunch image</string>
+    <string name="dinner_image">dinner image</string>
+    <string name="snack_image">snack image</string>
 
 </resources>

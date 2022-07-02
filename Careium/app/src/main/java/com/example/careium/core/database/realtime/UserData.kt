@@ -12,7 +12,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import java.lang.Exception
 
-class UserData() : Thread() {
+class UserData : Thread() {
     private lateinit var user: User
     private var authInstance: FirebaseAuth = FirebaseAuth.getInstance()
 
@@ -36,7 +36,7 @@ class UserData() : Thread() {
 
     }
 
-    fun saveUserData(user:User) {
+    fun saveUserData(user: User) {
         this.user = user
         this.start()
     }
@@ -81,12 +81,12 @@ class UserData() : Thread() {
         if (snapshot.key.toString() == "gender") {
             if (snapshot.value.toString() == "Male") user.gender = Gender.Male
             else user.gender = Gender.Female
-        }
-        else if (snapshot.key.toString() == "future_goal") {
+        } else if (snapshot.key.toString() == "future_goal") {
             when {
                 snapshot.value.toString() == "LoseWeight" -> user.futureGoal = FutureGoal.LoseWeight
                 snapshot.value.toString() == "GainWeight" -> user.futureGoal = FutureGoal.GainWeight
-                snapshot.value.toString() == "FitnessTracker" -> user.futureGoal = FutureGoal.FitnessTracker
+                snapshot.value.toString() == "FitnessTracker" -> user.futureGoal =
+                    FutureGoal.FitnessTracker
                 else -> user.futureGoal = FutureGoal.PatientTreatment
             }
         }

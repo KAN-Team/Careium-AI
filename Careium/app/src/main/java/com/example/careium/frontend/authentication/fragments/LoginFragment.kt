@@ -45,7 +45,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             email = binding.loginEmail.text?.trim().toString()
             password = binding.loginPassword.text.toString()
 
-            if(isValidLoginInput(email, password)) {
+            if (isValidLoginInput(email, password)) {
                 hasAccount()
             } else {
                 alert(getString(R.string.error_title), getString(R.string.error_message))
@@ -66,29 +66,29 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         email: String,
         password: String
     ): Boolean {
-        if(email.isEmpty() || password.isEmpty())
+        if (email.isEmpty() || password.isEmpty())
             return false
         return true
     }
 
-    private fun hasAccount(){
-        if(InternetConnection.isConnected(this.requireContext())) {
+    private fun hasAccount() {
+        if (InternetConnection.isConnected(this.requireContext())) {
             val login = Login(email, password)
             login.isUserLoggedIn(authViewModel)
-        }
-        else
-            Toast.makeText(activity, getString(R.string.no_internet_connection), Toast.LENGTH_SHORT).show()
+        } else
+            Toast.makeText(activity, getString(R.string.no_internet_connection), Toast.LENGTH_SHORT)
+                .show()
     }
 
-    private fun observeAuthCallBackChange(){
-        authViewModel.mutableIsAuthComplete.observe(viewLifecycleOwner){ isLogged ->
-            if(isLogged) {
+    private fun observeAuthCallBackChange() {
+        authViewModel.mutableIsAuthComplete.observe(viewLifecycleOwner) { isLogged ->
+            if (isLogged) {
                 showProgress()
                 commitEmailOnSharedPreference()
                 openMainActivity()
-            }
-            else
-                Toast.makeText(activity, getString(R.string.failed_to_login), Toast.LENGTH_SHORT).show()
+            } else
+                Toast.makeText(activity, getString(R.string.failed_to_login), Toast.LENGTH_SHORT)
+                    .show()
         }
     }
 
@@ -102,14 +102,15 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         ErrorAlertDialog.alert(view, title, message)
     }
 
-    private fun showProgress(){
+    private fun showProgress() {
         binding.loginProgress.visibility = View.VISIBLE
     }
 
     private fun openMainActivity() {
-        Toast.makeText(activity, getString(R.string.confirmation_logged_msg), Toast.LENGTH_SHORT).show()
+        Toast.makeText(activity, getString(R.string.confirmation_logged_msg), Toast.LENGTH_SHORT)
+            .show()
         startActivity(Intent(activity, MainActivity::class.java))
-        SplashActivity._this.finish()
+        SplashActivity.this_activity.finish()
         activity?.finish()
     }
 }

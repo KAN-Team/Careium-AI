@@ -41,27 +41,27 @@ class RecommendationFragment : Fragment(R.layout.fragment_recommendation) {
         userDataViewModel = ViewModelProviders.of(this).get(UserDataViewModel::class.java)
         observeUserDataCallBackChange()
 
-        if(InternetConnection.isConnected(this.requireContext())) {
+        if (InternetConnection.isConnected(this.requireContext())) {
             val userData = UserData()
             userData.getUserData(userDataViewModel)
-        }
-        else
-            Toast.makeText(activity, getString(R.string.no_internet_connection), Toast.LENGTH_SHORT).show()
+        } else
+            Toast.makeText(activity, getString(R.string.no_internet_connection), Toast.LENGTH_SHORT)
+                .show()
     }
 
 
     private fun observeUserDataCallBackChange() {
         userDataViewModel.mutableUserData.observe(viewLifecycleOwner) { user ->
             if (user != null) {
-                val BMR = calBMR(user)
+                val bmr = calBMR(user)
 
 
                 val foodCaloriesArray = readFoodCaloriesFile()
                 for (obj in foodCaloriesArray) {
-                    if ((obj.getFoodCalories() < (BMR)
-                                && obj.getFoodCalories() >= (BMR) - 200)
-                        || (obj.getFoodCalories() > (BMR)
-                                && obj.getFoodCalories() <= (BMR) + 200)
+                    if ((obj.getFoodCalories() < (bmr)
+                                && obj.getFoodCalories() >= (bmr) - 200)
+                        || (obj.getFoodCalories() > (bmr)
+                                && obj.getFoodCalories() <= (bmr) + 200)
                     ) {
                         foodArrayList.add(FoodCalories(obj.getFoodName(), obj.getFoodCalories()))
                     }
@@ -77,12 +77,12 @@ class RecommendationFragment : Fragment(R.layout.fragment_recommendation) {
     }
 
     private fun calBMR(user: User): Int {
-        var BMR = (10 * user.weight) + (6.25 * user.height) - (5 * user.age)
-        if (user.gender == Gender.Male) BMR += 5
-        else BMR -= 161
-        BMR /= 3   // divided by 3, because we have 3 meals per day
+        var bmr = (10 * user.weight) + (6.25 * user.height) - (5 * user.age)
+        if (user.gender == Gender.Male) bmr += 5
+        else bmr -= 161
+        bmr /= 3   // divided by 3, because we have 3 meals per day
 
-        return BMR.toInt()
+        return bmr.toInt()
     }
 
     private fun readFoodCaloriesFile(): ArrayList<FoodCalories> {

@@ -19,7 +19,7 @@
                 <gradient
                     android:endColor="#f12711"
                     android:startColor="#f5af19"
-                    android:type="sweep"/>
+                    android:type="sweep" />
             </shape>
         </rotate>
     </item>

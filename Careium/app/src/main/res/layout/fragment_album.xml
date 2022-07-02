@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -32,7 +32,7 @@
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardview"
+        android:id="@+id/card_view_date_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/small_spacing"
@@ -79,12 +79,12 @@
     </androidx.cardview.widget.CardView>
 
     <GridView
-        android:layout_below="@+id/cardview"
         android:id="@+id/gridview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:numColumns="3"
-        android:layout_marginEnd="@dimen/tiny_spacing"/>
+        android:layout_below="@+id/card_view_date_bar"
+        android:layout_marginEnd="@dimen/tiny_spacing"
+        android:numColumns="3" />
 
 
 </RelativeLayout>

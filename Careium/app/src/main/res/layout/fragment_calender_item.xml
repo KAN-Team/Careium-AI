@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".frontend.home.fragments.Calender_item">
-
 
     <androidx.cardview.widget.CardView
         android:id="@+id/rowCalender_Card"
@@ -79,7 +78,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:contentDescription="@string/app_name"
-                    app:srcCompat="@drawable/meallogo" />
+                    app:srcCompat="@drawable/meal_logo" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -99,7 +98,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:contentDescription="@string/age"
-                    app:srcCompat="@drawable/activitylogo" />
+                    app:srcCompat="@drawable/activity_logo" />
             </androidx.cardview.widget.CardView>
         </LinearLayout>
 

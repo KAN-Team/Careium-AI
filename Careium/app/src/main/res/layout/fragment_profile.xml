@@ -4,8 +4,8 @@
     android:id="@+id/main_relative_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:background="@color/green_dark"
     android:orientation="vertical"
+    tools:background="@color/green_dark"
     tools:context=".frontend.home.fragments.ProfileFragment">
 
     <RelativeLayout

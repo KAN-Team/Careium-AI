@@ -43,8 +43,8 @@ class DishNutritionRegression() : DeepLearning() {
         return this.nutritionList
     }
 
-    private fun unNormalizeNutrition(){
-        this.nutritionList[0] = abs(this.nutritionList[0] * 9485.8154296875f )
+    private fun unNormalizeNutrition() {
+        this.nutritionList[0] = abs(this.nutritionList[0] * 9485.8154296875f)
         this.nutritionList[1] = abs(this.nutritionList[1] * 7975f)
         this.nutritionList[2] = abs(this.nutritionList[2] * 875.541015625f)
         this.nutritionList[3] = abs(this.nutritionList[3] * 844.568603515625f)

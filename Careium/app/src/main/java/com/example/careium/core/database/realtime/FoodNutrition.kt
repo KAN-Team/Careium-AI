@@ -33,13 +33,15 @@ class FoodNutrition {
                 override fun onCancelled(databaseError: DatabaseError) {}
             }
             node.addListenerForSingleValueEvent(valueEventListener)
-        }
-        catch (e:Exception){
+        } catch (e: Exception) {
             Log.d("database", "There are exception in food dates DB!!!")
         }
     }
 
-    fun getTotalWeekNutrition(validDates: ArrayList<String>, foodNutritionViewModel: FoodTotalNutritionViewModel) {
+    fun getTotalWeekNutrition(
+        validDates: ArrayList<String>,
+        foodNutritionViewModel: FoodTotalNutritionViewModel
+    ) {
         try {
             val totalNutrition: ArrayList<Float> =
                 floatArrayOf(0f, 0f, 0f, 0f, 0f).toCollection(ArrayList())
@@ -79,10 +81,9 @@ class FoodNutrition {
                 node.addListenerForSingleValueEvent(valueEventListener)
 
             }
-            if(validDates.count() == 0)
+            if (validDates.isEmpty())
                 foodNutritionViewModel.mutableFoodTotalNutrition.value = totalNutrition
-        }
-        catch (e:Exception){
+        } catch (e: Exception) {
             Log.d("database", "There are exception in food nutrition DB")
         }
 

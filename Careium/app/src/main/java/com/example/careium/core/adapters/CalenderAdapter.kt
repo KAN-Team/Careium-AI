@@ -14,7 +14,7 @@ class CalenderAdapter(
     private val list: ArrayList<Int> = ArrayList()
 ) : RecyclerView.Adapter<ViewHolders>() {
     class ViewHolders(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var daynum: TextView = itemView.findViewById(R.id.day_num)
+        var dayNum: TextView = itemView.findViewById(R.id.day_num)
        // var day: TextView = itemView.findViewById(R.id.day)
 
     }
@@ -26,7 +26,7 @@ class CalenderAdapter(
 
     override fun onBindViewHolder(holder: ViewHolders, position: Int) {
         val calender = list[position]
-        holder.daynum.text = calender.toString()
+        holder.dayNum.text = calender.toString()
         //holder.day.text = calender.day
     }
 

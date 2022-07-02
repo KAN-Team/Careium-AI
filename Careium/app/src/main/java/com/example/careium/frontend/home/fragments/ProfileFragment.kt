@@ -8,14 +8,12 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import com.example.careium.R
 import com.example.careium.core.database.authentication.InternetConnection
-import com.example.careium.core.database.realtime.DishImage
 import com.example.careium.core.database.realtime.UserData
 import com.example.careium.core.models.User
 import com.example.careium.databinding.FragmentProfileBinding
 import com.example.careium.frontend.factory.UserDataViewModel
 
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
-
     private lateinit var binding: FragmentProfileBinding
     private lateinit var userDataViewModel: UserDataViewModel
 
@@ -54,10 +52,9 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                 }
             }
         } else {
-            Toast.makeText(activity, getString(R.string.no_internet_connection), Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, getString(R.string.no_internet_connection), Toast.LENGTH_SHORT)
+                .show()
         }
-
-
 
 
     }

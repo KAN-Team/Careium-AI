@@ -11,7 +11,7 @@ class Register(private var email: String, private var password: String) : Auth()
             }
     }
 
-    fun createNewAccount(authViewModel: AuthViewModel){
+    fun createNewAccount(authViewModel: AuthViewModel) {
         this.authViewModel = authViewModel
         this.start()
     }

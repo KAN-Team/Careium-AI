@@ -17,6 +17,7 @@ import com.example.careium.R;
 import com.example.careium.core.adapters.DiaryAdapter;
 import com.example.careium.databinding.FragmentDiaryBinding;
 
+
 public class DiaryFragment extends Fragment {
     public DiaryFragment() {
         // Required empty public constructor
@@ -37,12 +38,12 @@ public class DiaryFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         com.example.careium.databinding.FragmentDiaryBinding binding = FragmentDiaryBinding.bind(view);
 
-    binding.AddNoteBtn.setOnClickListener(v -> requireActivity().getSupportFragmentManager().beginTransaction()
-    .replace(R.id.layout_main_frame, AddNoteFragment.newInstance())
-    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-    .commit());
+        binding.AddNoteBtn.setOnClickListener(v -> requireActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.layout_main_frame, AddNoteFragment.newInstance())
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                .commit());
 
-        RecyclerView recyclerView = view.findViewById(R.id.recycleviewNotes);
+        RecyclerView recyclerView = view.findViewById(R.id.recycler_view_notes);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
         DiaryAdapter dairyAdapter = new DiaryAdapter(this.getContext(), AddNoteFragment.noteList);
         recyclerView.setAdapter(dairyAdapter);

@@ -6,9 +6,9 @@
     tools:context=".frontend.home.fragments.RecipesFragment">
 
     <GridView
+        android:id="@+id/recipes_gridview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recipes_gridview"
-        android:numColumns="2"/>
+        android:numColumns="2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

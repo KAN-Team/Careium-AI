@@ -22,7 +22,7 @@ import com.example.careium.frontend.factory.FutureGoal
 import com.example.careium.frontend.home.activities.MainActivity
 
 class UserGoalFragment : Fragment(R.layout.fragment_user_goal) {
-    private lateinit var binding:FragmentUserGoalBinding
+    private lateinit var binding: FragmentUserGoalBinding
     private lateinit var authViewModel: AuthViewModel
 
     companion object {
@@ -53,8 +53,14 @@ class UserGoalFragment : Fragment(R.layout.fragment_user_goal) {
             }
 
             when {
-                desiredWeight.isEmpty() -> alert(getString(R.string.error_title), getString(R.string.error_weight_message))
-                futureGoal == null -> alert(getString(R.string.error_title), getString(R.string.error_future_goal_message))
+                desiredWeight.isEmpty() -> alert(
+                    getString(R.string.error_title),
+                    getString(R.string.error_weight_message)
+                )
+                futureGoal == null -> alert(
+                    getString(R.string.error_title),
+                    getString(R.string.error_future_goal_message)
+                )
                 else -> {
                     saveUserData(desiredWeight.toFloat(), futureGoal)
                     createNewAccount()
@@ -73,25 +79,28 @@ class UserGoalFragment : Fragment(R.layout.fragment_user_goal) {
 
     }
 
-    private fun createNewAccount(){
-        if(InternetConnection.isConnected(this.requireContext())) {
+    private fun createNewAccount() {
+        if (InternetConnection.isConnected(this.requireContext())) {
             val register = Register(user.email, user.password)
             register.createNewAccount(authViewModel)
-        }
-        else
-            Toast.makeText(activity, getString(R.string.no_internet_connection), Toast.LENGTH_SHORT).show()
+        } else
+            Toast.makeText(activity, getString(R.string.no_internet_connection), Toast.LENGTH_SHORT)
+                .show()
     }
 
-    private fun observeAuthCallBackChange(){
-        authViewModel.mutableIsAuthComplete.observe(viewLifecycleOwner){ isLogged ->
-            if(isLogged) {
+    private fun observeAuthCallBackChange() {
+        authViewModel.mutableIsAuthComplete.observe(viewLifecycleOwner) { isLogged ->
+            if (isLogged) {
                 showProgress()
                 saveDataOnDatabase()
                 commitEmailOnSharedPreference()
                 openMainActivity()
-            }
-            else
-                Toast.makeText(activity, getString(R.string.already_has_account), Toast.LENGTH_SHORT).show()
+            } else
+                Toast.makeText(
+                    activity,
+                    getString(R.string.already_has_account),
+                    Toast.LENGTH_SHORT
+                ).show()
         }
     }
 
@@ -110,24 +119,25 @@ class UserGoalFragment : Fragment(R.layout.fragment_user_goal) {
         ErrorAlertDialog.alert(view, title, message)
     }
 
-    private fun showProgress(){
+    private fun showProgress() {
         binding.goalProgress.visibility = View.VISIBLE
     }
 
     private fun openMainActivity() {
-        Toast.makeText(activity, getString(R.string.confirmation_register_msg), Toast.LENGTH_SHORT).show()
+        Toast.makeText(activity, getString(R.string.confirmation_register_msg), Toast.LENGTH_SHORT)
+            .show()
         startActivity(Intent(activity, MainActivity::class.java))
-        SplashActivity._this.finish()
+        SplashActivity.this_activity.finish()
         activity?.finish()
     }
 
-    private fun saveUserData(desiredWeight:Float,futureGoal: FutureGoal){
+    private fun saveUserData(desiredWeight: Float, futureGoal: FutureGoal) {
         user.desiredWeight = desiredWeight
         user.futureGoal = futureGoal
     }
 
     private fun updateUserDataUI() {
-        if (user.desiredWeight!=0f && user.futureGoal != null){
+        if (user.desiredWeight != 0f && user.futureGoal != null) {
             binding.goalDesiredWeight.setText(user.desiredWeight.toString())
             when (user.futureGoal) {
                 FutureGoal.LoseWeight -> binding.goalLoseWeight.isChecked = true

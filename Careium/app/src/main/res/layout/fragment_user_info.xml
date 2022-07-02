@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".frontend.authentication.fragments.UserInfoFragment">
 
-
     <RelativeLayout
         android:id="@+id/fragment_view"
         android:layout_width="match_parent"

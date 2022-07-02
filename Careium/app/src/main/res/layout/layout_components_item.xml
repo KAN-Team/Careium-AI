@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:paddingBottom="@dimen/medium_spacing"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?selectableItemBackground"
+    android:paddingBottom="@dimen/medium_spacing"
     tools:background="?attr/colorPrimaryVariant">
 
     <TextView
@@ -45,8 +45,8 @@
         android:padding="@dimen/tiny_spacing"
         android:scaleX="1.2"
         android:scaleY="1.6"
-        android:textSize="12sp"
         android:textColor="?attr/colorSecondary"
+        android:textSize="12sp"
         android:textStyle="bold"
         tools:text="/ 3000 g" />
 

@@ -23,7 +23,7 @@
             android:layout_marginTop="@dimen/small_spacing"
             android:text="@string/food_name"
             android:textColor="@color/orange_light"
-            android:textSize="@dimen/small_plus_text_size"/>
+            android:textSize="@dimen/small_plus_text_size" />
 
         <TextView
             android:id="@+id/food_name"

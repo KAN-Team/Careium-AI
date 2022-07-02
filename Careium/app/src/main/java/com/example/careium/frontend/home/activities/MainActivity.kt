@@ -45,6 +45,7 @@ import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu
 lateinit var nutritionViewModel: NutritionViewModel
 lateinit var classifierViewModel: ClassifierViewModel
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -67,12 +68,12 @@ class MainActivity : AppCompatActivity() {
         userDataViewModel = ViewModelProviders.of(this).get(UserDataViewModel::class.java)
         observeUserDataCallBackChange()
 
-        if(InternetConnection.isConnected(this)) {
+        if (InternetConnection.isConnected(this)) {
             val userData = UserData()
             userData.getUserData(userDataViewModel)
-        }
-        else
-            Toast.makeText(this, getString(R.string.no_internet_connection), Toast.LENGTH_LONG).show()
+        } else
+            Toast.makeText(this, getString(R.string.no_internet_connection), Toast.LENGTH_LONG)
+                .show()
 
 
         // Hide system bars
@@ -213,6 +214,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
     private fun hideSystemBars() {
         window.decorView.apply {
             systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
@@ -221,6 +223,12 @@ class MainActivity : AppCompatActivity() {
                     View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
                     // View.SYSTEM_UI_FLAG_FULLSCREEN or // for Status bar
                     View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.setDecorFitsSystemWindows(false)
+        } else {
+            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         }
     }
 
@@ -247,8 +255,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
+    @SuppressLint("MissingSuperCall")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_IMAGE_CAPTURE && data != null) {
             dishImage = data.extras?.get("data") as Bitmap
             val dishImageUri = data.data
@@ -297,7 +305,7 @@ class MainActivity : AppCompatActivity() {
         val primaryBtnIcon = ImageView(this)
         primaryBtnIcon.setImageDrawable(getDrawable(R.drawable.ic_round_add_24))
         val actionButton = FloatingActionButton.Builder(this).setContentView(primaryBtnIcon).build()
-        val typedValue: TypedValue = TypedValue()
+        val typedValue = TypedValue()
         theme.resolveAttribute(R.attr.colorSecondary, typedValue, true)
         val colorSecondary: Int = typedValue.data
         actionButton.background.setTint(colorSecondary)
@@ -390,8 +398,8 @@ class MainActivity : AppCompatActivity() {
     private fun observeUserDataCallBackChange() {
         userDataViewModel.mutableUserData.observe(this) { user ->
             if (user != null) {
-                binding.navigationView.getHeaderView(0).
-                findViewById<TextView>(R.id.text_user_name).text = user.name
+                binding.navigationView.getHeaderView(0)
+                    .findViewById<TextView>(R.id.text_user_name).text = user.name
             }
         }
     }

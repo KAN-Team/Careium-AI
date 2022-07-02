@@ -19,7 +19,6 @@ import java.time.LocalDateTime
 import kotlin.collections.ArrayList
 
 
-
 class DishImage {
     companion object {
 
@@ -44,18 +43,18 @@ class DishImage {
         fun fetchImages(
             context: Context,
             gridView: GridView,
-            waitcontainer: RelativeLayout,
+            waitContainer: RelativeLayout,
             day: String
         ) {
 
-            val userDishesImgages = ArrayList<Bitmap>()
+            val userDishesImages = ArrayList<Bitmap>()
             val mega = (1024 * 1024 * 5).toLong()
 
             FirebaseStorage.getInstance().reference.child("foodimages/${auth.currentUser!!.uid}/$day")
                 .listAll()
                 .addOnSuccessListener { (items) ->
-                    if(items.isEmpty()){
-                        waitcontainer.visibility = View.GONE
+                    if (items.isEmpty()) {
+                        waitContainer.visibility = View.GONE
                         Toast.makeText(
                             context,
                             "you don't have images at that day",
@@ -63,25 +62,25 @@ class DishImage {
                         ).show()
                     }
                     items.forEach { item ->
-                                FirebaseStorage.getInstance().reference
-                                    .child("foodimages/${auth.currentUser!!.uid}/$day/${item.name}")
-                                    .getBytes(mega).addOnSuccessListener { bytes ->
-                                        val bmp =
-                                            BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
-                                        userDishesImgages.add(bmp)
-                                        if (userDishesImgages.size == 1) {
-                                            waitcontainer.visibility = View.GONE
-                                        }
-                                        val mainAdapter =
-                                            GridViewAdapter(context, userDishesImgages)
-                                        gridView.adapter = mainAdapter
+                        FirebaseStorage.getInstance().reference
+                            .child("foodimages/${auth.currentUser!!.uid}/$day/${item.name}")
+                            .getBytes(mega).addOnSuccessListener { bytes ->
+                                val bmp =
+                                    BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
+                                userDishesImages.add(bmp)
+                                if (userDishesImages.size == 1) {
+                                    waitContainer.visibility = View.GONE
+                                }
+                                val mainAdapter =
+                                    GridViewAdapter(context, userDishesImages)
+                                gridView.adapter = mainAdapter
 
-                                    }.addOnCanceledListener {
-                                        Toast.makeText(
-                                            context,
-                                            "Sorry ,failed to load images",
-                                            Toast.LENGTH_SHORT
-                                        ).show()
+                            }.addOnCanceledListener {
+                                Toast.makeText(
+                                    context,
+                                    "Sorry ,failed to load images",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
                     }
                 }
@@ -90,7 +89,8 @@ class DishImage {
                         context,
                         "Sorry ,failed to load images",
                         Toast.LENGTH_LONG
-                    ).show() }
+                    ).show()
+                }
 
         }
 

@@ -34,18 +34,20 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
             val name = binding.dataName.text.toString()
             val email = binding.dataEmail.text?.trim().toString()
             val password = binding.dataPassword.text.toString()
-            val conf_pass = binding.dataConPassword.text.toString()
+            val confPass = binding.dataConPassword.text.toString()
 
-
-            if (!isValidRegisterInput(name, email, password, conf_pass))
+            if (!isValidRegisterInput(name, email, password, confPass))
                 alert(getString(R.string.error_title), getString(R.string.error_message))
             else {
-                if (password != conf_pass)
-                    alert(getString(R.string.error_title), getString(R.string.error_confirm_message))
-                 else{
+                if (password != confPass)
+                    alert(
+                        getString(R.string.error_title),
+                        getString(R.string.error_confirm_message)
+                    )
+                else {
                     saveUserData(name, email, password)
                     openInfoScreen()
-                 }
+                }
             }
         }
 
@@ -79,14 +81,14 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
             ?.commit()
     }
 
-    private fun saveUserData(name:String, email:String, password:String){
+    private fun saveUserData(name: String, email: String, password: String) {
         user.name = name
         user.email = email
         user.password = password
     }
 
     private fun updateUserDataUI() {
-        if (user.name.isNotEmpty() && user.email.isNotEmpty() && user.password.isNotEmpty()){
+        if (user.name.isNotEmpty() && user.email.isNotEmpty() && user.password.isNotEmpty()) {
             binding.dataName.setText(user.name)
             binding.dataEmail.setText(user.email)
             binding.dataPassword.setText(user.password)

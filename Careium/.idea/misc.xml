@@ -55,21 +55,55 @@
         <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable-v24/transparent_back_oval.xml" value="0.2203125" />
         <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable-v24/transparent_background.xml" value="0.2203125" />
         <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable/dw_determinate_circular_progress.xml" value="0.2203125" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable/error_container.xml" value="0.1265" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable/ic_baseline_exit_to_app_24.xml" value="0.1265" />
         <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable/ic_menu_breakfast_64.xml" value="0.2203125" />
         <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable/ic_outline_notifications_24.xml" value="0.2203125" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable/ic_profile.xml" value="0.1265" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable/ic_round_add_24.xml" value="0.1265" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable/ic_round_back_24.xml" value="0.1265" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable/ic_round_diary_24.xml" value="0.1265" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable/ic_round_help_24.xml" value="0.1265" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable/ic_round_home_24.xml" value="0.1265" />
         <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable/ic_round_language_24.xml" value="0.2203125" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable/ic_round_menu_24.xml" value="0.1265" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable/ic_round_photo_album_24.xml" value="0.1265" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable/ic_round_recipes_24.xml" value="0.1265" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable/ic_round_reminder_24.xml" value="0.1265" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable/ic_round_settings_24.xml" value="0.1265" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable/ic_round_sync_24.xml" value="0.1265" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable/items_container.xml" value="0.1265" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/drawable/theme_rounded_white_background.xml" value="0.1265" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/activity_authentication.xml" value="0.20416666666666666" />
         <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/activity_splash.xml" value="0.20416666666666666" />
         <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/auth_toolbar.xml" value="0.20416666666666666" />
         <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/dish_image_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/fragment_add_note_.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/fragment_album.xml" value="0.20416666666666666" />
         <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/fragment_calender.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/fragment_calender_item.xml" value="0.3008720930232558" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/fragment_diary.xml" value="0.19166666666666668" />
         <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/fragment_login.xml" value="0.20416666666666666" />
         <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/fragment_profile.xml" value="0.20416666666666666" />
         <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/fragment_recipes.xml" value="0.25" />
         <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/fragment_recommendation.xml" value="0.19166666666666668" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/fragment_register.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/fragment_reminder.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/fragment_reports.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/fragment_reset_password.xml" value="0.22722283205268934" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/fragment_user_goal.xml" value="0.19166666666666668" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/fragment_user_info.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/layout_auth_toolbar.xml" value="0.20416666666666666" />
         <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/layout_components_item.xml" value="0.33" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/layout_custom_food_card.xml" value="0.20416666666666666" />
         <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/layout_dish_image_item.xml" value="0.1" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/layout_error_custom_view.xml" value="0.20416666666666666" />
         <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/layout_floating_menu_item.xml" value="0.5" />
         <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/layout_navigation_header.xml" value="0.33" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/layout_note_items.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/layout_recipe_item.xml" value="0.19166666666666668" />
         <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/layout_toolbar.xml" value="0.25" />
         <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/layout/layout_transition_custom_buttons.xml" value="0.22" />
         <entry key="..\:/Projects/[GitHub]/KAN-Org/GP/Careium-AI/Careium/app/src/main/res/menu/navigation_menu.xml" value="0.20416666666666666" />

@@ -8,7 +8,6 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.opengl.Visibility
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -23,10 +22,9 @@ import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import java.util.*
 
+
 //TODO: Save Data after application closed
-
 class ReminderFragment : Fragment(R.layout.fragment_reminder) {
-
     private lateinit var binding: FragmentReminderBinding
     private lateinit var picker: MaterialTimePicker
     private var calender: Calendar = Calendar.getInstance()
@@ -115,7 +113,7 @@ class ReminderFragment : Fragment(R.layout.fragment_reminder) {
                 PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
             )
 
-        text.text = "00:00"
+        text.text = getString(R.string.time)
         alarmManager.cancel(pendingIntent)
     }
 
@@ -129,11 +127,11 @@ class ReminderFragment : Fragment(R.layout.fragment_reminder) {
     ) {
         val intent = Intent(context, ReminderNotification::class.java)
         intent.putExtra(
-            titleextra,
+            titleExtra,
             "Careium Notification Manager"
         )
         intent.putExtra(
-            messageextra,
+            messageExtra,
             message
         )
         pendingIntent = PendingIntent.getBroadcast(

@@ -8,7 +8,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-class FoodData(private val foodName: String, private val nutritionList: ArrayList<Float>) : Thread() {
+class FoodData(private val foodName: String, private val nutritionList: ArrayList<Float>) :
+    Thread() {
     private var authInstance: FirebaseAuth = FirebaseAuth.getInstance()
 
     override fun run() {

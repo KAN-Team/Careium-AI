@@ -104,7 +104,8 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
         binding.layoutCalsItem.textCmpntTarget.text = getString(R.string.cal_val, caloriesTarget)
         binding.layoutCarbsItem.textCmpntTarget.text = getString(R.string.gram_val, carbsTarget)
         binding.layoutFatsItem.textCmpntTarget.text = getString(R.string.gram_val, fatsTarget)
-        binding.layoutProteinsItem.textCmpntTarget.text = getString(R.string.gram_val, proteinsTarget)
+        binding.layoutProteinsItem.textCmpntTarget.text =
+            getString(R.string.gram_val, proteinsTarget)
 
         // Setting COMPONENTS progress bar colors
         binding.layoutCalsItem.progressCmpnt.setIndicatorColor(Color.parseColor("#F29C2B"))     // gold
@@ -172,14 +173,15 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
             foodDate.getFoodDateNodes(foodDatesViewModel)
         } else {
             hasReport = false
-            Toast.makeText(activity, getString(R.string.no_internet_connection), Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, getString(R.string.no_internet_connection), Toast.LENGTH_SHORT)
+                .show()
             createReport(floatArrayOf().toCollection(ArrayList()))
         }
     }
 
     private fun observeFoodDatesCallBackChange() {
         foodDatesViewModel.mutableFoodDates.observe(viewLifecycleOwner) { foodDates ->
-            if (foodDates.count() != 0)
+            if (foodDates.isNotEmpty())
                 hasReport = true
             else {
                 hasReport = false
@@ -207,12 +209,16 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
         }
 
         numberOfExistenceMeals = existenceFoodDates.count()
-        if (existenceFoodDates.count() != 0)
+        if (existenceFoodDates.isNotEmpty())
             hasReport = true
         else {
             if (hasReport) {
                 hasReport = false
-                Toast.makeText(activity, getString(R.string.no_meals_in_database_week), Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    activity,
+                    getString(R.string.no_meals_in_database_week),
+                    Toast.LENGTH_LONG
+                ).show()
             }
         }
         getTotalWeekNutritionFromDB(existenceFoodDates)
@@ -253,39 +259,46 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
             if (user != null) {
                 binding.waitContainer.visibility = View.GONE
                 // calculate basal metabolic rate (BMR)
-                var BMR = (10 * user.weight) + (6.25 * user.height) - (5 * user.age)
-                if (user.gender == Gender.Male) BMR += 5
-                else BMR -= 161
+                var bmr = (10 * user.weight) + (6.25 * user.height) - (5 * user.age)
+                if (user.gender == Gender.Male) bmr += 5
+                else bmr -= 161
 
-                binding.layoutCalsItem.progressCmpnt.max = (BMR * 7).toInt()
-                binding.layoutCalsItem.textCmpntTarget.text = getString(R.string.cal_val, (BMR * 7).toInt())
+                binding.layoutCalsItem.progressCmpnt.max = (bmr * 7).toInt()
+                binding.layoutCalsItem.textCmpntTarget.text =
+                    getString(R.string.cal_val, (bmr * 7).toInt())
 
-                BMR *= numberOfExistenceMeals // to calc the required calories in all days in week
+                bmr *= numberOfExistenceMeals // to calc the required calories in all days in week
 
                 // set report messages
-                if (caloriesVal < BMR) { // lose weight
+                if (caloriesVal < bmr) { // lose weight
                     if (user.futureGoal == FutureGoal.GainWeight) {
                         binding.reportMessage.text = getString(R.string.report_negative_lose_weight)
-                        binding.reportNextDaysMessage.text = getString((R.string.report_careful_message))
+                        binding.reportNextDaysMessage.text =
+                            getString((R.string.report_careful_message))
                     } else {
                         binding.reportMessage.text = getString(R.string.report_positive_lose_weight)
-                        binding.reportNextDaysMessage.text = getString((R.string.report_keep_message))
+                        binding.reportNextDaysMessage.text =
+                            getString((R.string.report_keep_message))
                     }
                     binding.reportWeightTitle.text = getString(R.string.report_lose_weight_title)
 
                 } else { // Gain weight
                     if (user.futureGoal == FutureGoal.GainWeight) {
                         binding.reportMessage.text = getString(R.string.report_positive_lose_weight)
-                        binding.reportNextDaysMessage.text = getString((R.string.report_keep_message))
+                        binding.reportNextDaysMessage.text =
+                            getString((R.string.report_keep_message))
                     } else {
-                        binding.reportMessage.text = getString(R.string.report_negative_gained_weight)
-                        binding.reportNextDaysMessage.text = getString((R.string.report_careful_message))
+                        binding.reportMessage.text =
+                            getString(R.string.report_negative_gained_weight)
+                        binding.reportNextDaysMessage.text =
+                            getString((R.string.report_careful_message))
                     }
                     binding.reportWeightTitle.text = getString(R.string.report_gain_weight_title)
                 }
 
-                val remainingCalories = abs(caloriesVal - BMR)
-                val rounded = String.format("%.1f", remainingCalories / 2500)// 2500 calories for every KG
+                val remainingCalories = abs(caloriesVal - bmr)
+                val rounded =
+                    String.format("%.1f", remainingCalories / 2500)// 2500 calories for every KG
                 binding.reportWeight.text = "$rounded KG"
             }
 

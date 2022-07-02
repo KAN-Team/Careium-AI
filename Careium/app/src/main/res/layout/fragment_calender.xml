@@ -35,7 +35,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleviewCalender"
+        android:id="@+id/recycler_view_calender"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="40dp" />

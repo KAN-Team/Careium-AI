@@ -8,13 +8,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
-class Permissions(private var context: Context, private var activity: Activity) : AppCompatActivity() {
-    private val READ_EXTERNAL_STORAGE = 2
+class Permissions(private var context: Context, private var activity: Activity) :
+    AppCompatActivity() {
 
-    fun checkPermissions(Permission: String, requestcode: Int) :Boolean{
-        return if (ContextCompat.checkSelfPermission(this.context, Permission
-            ) == PackageManager.PERMISSION_DENIED) {
-            ActivityCompat.requestPermissions(activity, arrayOf(Permission), requestcode)
+    companion object {
+        const val READ_EXTERNAL_STORAGE = 2
+    }
+
+    fun checkPermissions(Permission: String, requestCode: Int): Boolean {
+        return if (ContextCompat.checkSelfPermission(
+                this.context, Permission
+            ) == PackageManager.PERMISSION_DENIED
+        ) {
+            ActivityCompat.requestPermissions(activity, arrayOf(Permission), requestCode)
             false
         } else
             true

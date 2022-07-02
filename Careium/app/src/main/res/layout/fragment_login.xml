@@ -108,8 +108,8 @@
             android:id="@+id/login_progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_below="@id/forget_password"
+            android:layout_centerHorizontal="true"
             android:layout_margin="@dimen/medium_spacing"
             android:visibility="gone" />
 

@@ -8,7 +8,11 @@ import java.nio.ByteOrder
 
 open class DeepLearning {
 
-    fun loadImageBuffer(dish_image: Bitmap, dishImageWidth: Int, dishImageHeight: Int): TensorBuffer {
+    fun loadImageBuffer(
+        dish_image: Bitmap,
+        dishImageWidth: Int,
+        dishImageHeight: Int
+    ): TensorBuffer {
         val inputFeature =
             TensorBuffer.createFixedSize(
                 intArrayOf(1, dishImageWidth, dishImageHeight, 3), DataType.FLOAT32
@@ -22,7 +26,7 @@ open class DeepLearning {
         val intValues = IntArray(dishImageWidth * dishImageHeight)
         dish_image.getPixels(
             intValues, 0, dish_image.width,
-            0, 0, dish_image.width , dish_image.height
+            0, 0, dish_image.width, dish_image.height
         )
 
 

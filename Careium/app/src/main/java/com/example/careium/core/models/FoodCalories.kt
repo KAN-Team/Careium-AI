@@ -1,12 +1,12 @@
 package com.example.careium.core.models
 
-data class FoodCalories(private var foodName:String, private var foodCalories:Int) {
+data class FoodCalories(private var foodName: String, private var foodCalories: Int) {
 
-    fun getFoodName():String{
+    fun getFoodName(): String {
         return this.foodName
     }
 
-    fun getFoodCalories():Int{
+    fun getFoodCalories(): Int {
         return this.foodCalories
     }
 }

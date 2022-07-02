@@ -42,7 +42,7 @@ class UserInfoFragment : Fragment(R.layout.fragment_user_info) {
                 alert(getString(R.string.error_title), getString(R.string.error_message))
             else if (gender == null)
                 alert(getString(R.string.error_title), getString(R.string.error_gender_message))
-             else {
+            else {
                 saveUserData(height.toFloat(), weight.toFloat(), age.toInt(), gender)
                 openGoalScreen()
             }
@@ -71,7 +71,7 @@ class UserInfoFragment : Fragment(R.layout.fragment_user_info) {
             ?.commit()
     }
 
-    private fun saveUserData(height:Float, weight:Float, age:Int, gender:Gender){
+    private fun saveUserData(height: Float, weight: Float, age: Int, gender: Gender) {
         user.height = height
         user.weight = weight
         user.age = age
@@ -79,7 +79,7 @@ class UserInfoFragment : Fragment(R.layout.fragment_user_info) {
     }
 
     private fun updateUserDataUI() {
-        if (user.height!=0f && user.weight!=0f && user.age !=0 && user.gender != null){
+        if (user.height != 0f && user.weight != 0f && user.age != 0 && user.gender != null) {
             binding.infoHeight.setText(user.height.toString())
             binding.infoWeight.setText(user.weight.toString())
             binding.infoAge.setText(user.age.toString())

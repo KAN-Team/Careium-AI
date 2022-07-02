@@ -5,7 +5,7 @@ import com.google.firebase.auth.FirebaseAuth
 class Logout {
     private val instance: FirebaseAuth = FirebaseAuth.getInstance()
 
-    fun signOut(){
+    fun signOut() {
         this.instance.signOut()
     }
 

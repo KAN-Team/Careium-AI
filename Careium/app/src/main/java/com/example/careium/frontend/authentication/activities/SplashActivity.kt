@@ -5,6 +5,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.daimajia.androidanimations.library.Techniques
@@ -19,14 +20,14 @@ class SplashActivity : AppCompatActivity() {
 
     companion object {
         @SuppressLint("StaticFieldLeak")
-        lateinit var _this: Activity
+        lateinit var this_activity: Activity
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        _this = this
+        this_activity = this
 
         buildAnimation()
         handleClickButtons()
@@ -35,7 +36,7 @@ class SplashActivity : AppCompatActivity() {
         if (hasAccount()) {
             binding.loginBtn.visibility = View.GONE
             binding.registerBtn.visibility = View.GONE
-            Handler().postDelayed({
+            Handler(Looper.getMainLooper()).postDelayed({
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             }, 2000)
@@ -43,7 +44,7 @@ class SplashActivity : AppCompatActivity() {
 
     }
 
-    private fun hasAccount():Boolean{
+    private fun hasAccount(): Boolean {
         val preference = SharedPreferences(this)
         return preference.isSPHasValue()
     }

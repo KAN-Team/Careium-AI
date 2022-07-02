@@ -1,26 +1,27 @@
 package com.example.careium.frontend.home.fragments
+
 import android.os.Build
 import androidx.annotation.RequiresApi
 import java.time.YearMonth
 import java.util.*
 
-class CalenderInformation
-{
-    var daynum: Int
-    var year: Int
+
+class CalenderInformation {
+    var dayNum: Int
     var month: Int
-    var day: String
-    var c = Calendar.getInstance()
-    var current = c.time
-    var StartDay = 10
-    var StartMonth = 3
-    var StartYear = 2022
-    var numOfFeilds = 0
+    var startDay = 10
+    var startMonth = 3
+    private var year: Int
+    private var day: String
+    private var c: Calendar = Calendar.getInstance()
+    private var current: Date = c.time
+    private var startYear = 2022
+    private var numOfFields = 0
 
     init {
-        daynum = current.date
-        year = current.year + 1900
-        month = current.month + 1
+        dayNum = c.get(Calendar.DAY_OF_MONTH)
+        year = c.get(Calendar.YEAR) + 1900
+        month = c.get(Calendar.MONTH) + 1
         day = current.toString().split(" ".toRegex()).toTypedArray()[0]
     }
 
@@ -30,14 +31,14 @@ class CalenderInformation
         return yearMonthObject.lengthOfMonth()
     }
 
-    @JvmName("getNumOfFeilds1")
+    @JvmName("getNumOfFields1")
     @RequiresApi(Build.VERSION_CODES.O)
-     fun getNumOfFeilds(): Int {
-        numOfFeilds = daynum
-        for (i in month - 1 downTo StartMonth + 1) {
-            numOfFeilds += getNumberOfDaysInMonth(year, i)
+    fun getNumOfFields(): Int {
+        numOfFields = dayNum
+        for (i in month - 1 downTo startMonth + 1) {
+            numOfFields += getNumberOfDaysInMonth(year, i)
         }
-        numOfFeilds += getNumberOfDaysInMonth(year, StartMonth) - StartDay + 1
-        return numOfFeilds
+        numOfFields += getNumberOfDaysInMonth(year, startMonth) - startDay + 1
+        return numOfFields
     }
 }

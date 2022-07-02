@@ -18,7 +18,7 @@ class SharedPreferences(context: Context) {
     }
 
     @SuppressLint("CommitPrefEdits")
-    fun delete(){
+    fun delete() {
         val editor = this.preference.edit()
         editor.clear()
         editor.apply()
