@@ -23,15 +23,14 @@ class AlbumFragment : Fragment(R.layout.fragment_album) {
     private var month: Int = 0
     private var daysFrom: Int = 0
     @SuppressLint("SimpleDateFormat")
-    private val dayformat = SimpleDateFormat("dd")
+    private val dayFormat = SimpleDateFormat("dd")
     @SuppressLint("SimpleDateFormat")
-    private val monthformate = SimpleDateFormat("M")
+    private val monthFormat = SimpleDateFormat("M")
 
     companion object {
         @JvmStatic
         fun newInstance() =
-            AlbumFragment().apply {
-            }
+            AlbumFragment().apply {}
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -41,7 +40,7 @@ class AlbumFragment : Fragment(R.layout.fragment_album) {
         gridView = binding.gridview
         binding.waitContainer.visibility = View.VISIBLE
         today = LocalDateTime.now().dayOfMonth
-        month =  LocalDateTime.now().monthValue
+        month = LocalDateTime.now().monthValue
         hookDateSection()
         connectToDataBase()
     }
@@ -50,8 +49,8 @@ class AlbumFragment : Fragment(R.layout.fragment_album) {
         val cal: Calendar = Calendar.getInstance()
         cal.add(Calendar.DATE, -from)
         val sdf = SimpleDateFormat("EEEE MMM dd, yyyy", Locale.UK) // e.g. (Friday Mar 04, 2022)
-        today = dayformat.format(cal.time).toInt()
-        month = monthformate.format(cal.time).toInt()
+        today = dayFormat.format(cal.time).toInt()
+        month = monthFormat.format(cal.time).toInt()
         return sdf.format(cal.time)
     }
 
