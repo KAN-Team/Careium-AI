@@ -38,13 +38,13 @@ public class DiaryFragment extends Fragment {
         com.example.careium.databinding.FragmentDiaryBinding binding = FragmentDiaryBinding.bind(view);
 
     binding.AddNoteBtn.setOnClickListener(v -> requireActivity().getSupportFragmentManager().beginTransaction()
-    .replace(R.id.layout_main_frame,AddNote_Fragment.newInstance())
+    .replace(R.id.layout_main_frame, AddNoteFragment.newInstance())
     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
     .commit());
 
         RecyclerView recyclerView = view.findViewById(R.id.recycleviewNotes);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        DiaryAdapter dairyAdapter = new DiaryAdapter(this.getContext(), AddNote_Fragment.noteList);
+        DiaryAdapter dairyAdapter = new DiaryAdapter(this.getContext(), AddNoteFragment.noteList);
         recyclerView.setAdapter(dairyAdapter);
     }
 }

@@ -42,15 +42,15 @@ public class RecipesAdapter extends BaseAdapter {
     @SuppressLint("InflateParams")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-       if(inflater==null)
-           inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-       if(convertView == null)
-           convertView = inflater.inflate(R.layout.recipe_item,null);
+        if(inflater==null)
+            inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        if(convertView == null)
+            convertView = inflater.inflate(R.layout.layout_recipe_item,null);
 
-       ImageView imageView = convertView.findViewById(R.id.recipe_image);
-       TextView textView = convertView.findViewById(R.id.recipe_text);
-       imageView.setImageResource(images[position]);
-       textView.setText(imagesText[position]);
+        ImageView imageView = convertView.findViewById(R.id.recipe_image);
+        TextView textView = convertView.findViewById(R.id.recipe_text);
+        imageView.setImageResource(images[position]);
+        textView.setText(imagesText[position]);
 
         return convertView;
     }

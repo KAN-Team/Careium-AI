@@ -14,11 +14,11 @@ import com.example.careium.core.database.realtime.UserData
 import com.example.careium.core.models.FoodCalories
 import com.example.careium.core.models.User
 import com.example.careium.databinding.FragmentHomeBinding
-import com.example.careium.frontend.factory.DishNameViewModel
+import com.example.careium.frontend.factory.ClassifierViewModel
 import com.example.careium.frontend.factory.Gender
 import com.example.careium.frontend.factory.NutritionViewModel
+import com.example.careium.frontend.home.activities.classifierViewModel
 import com.example.careium.frontend.factory.UserDataViewModel
-import com.example.careium.frontend.home.activities.dishNameViewModel
 import com.example.careium.frontend.home.activities.nutritionViewModel
 import java.text.SimpleDateFormat
 import java.util.*
@@ -33,13 +33,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     // Main Components
     private var progressVal: Int = 0
-    private var caloriesTarget: Int = 3000
+    private var caloriesTarget: Int = 3000 // TODO: fetch dynamically the user needs
     private var caloriesVal: Int = 0
-    private var carbsTarget: Float = 100f
+    private var carbsTarget: Float = 100f // TODO: fetch dynamically the user needs
     private var carbsVal: Float = 0f
-    private var fatsTarget: Float = 100f
+    private var fatsTarget: Float = 100f // TODO: fetch dynamically the user needs
     private var fatsVal: Float = 0f
-    private var proteinsTrgt: Float = 100f
+    private var proteinsTrgt: Float = 100f // TODO: fetch dynamically the user needs
     private var proteinsVal: Float = 0f
 
     companion object {
@@ -89,11 +89,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun calBMR(user: User): Int {
-        var BMR = (10 * user.weight) + (6.25 * user.height) - (5 * user.age)
-        if (user.gender == Gender.Male) BMR += 5
-        else BMR -= 161
+        var bmr = (10 * user.weight) + (6.25 * user.height) - (5 * user.age)
+        if (user.gender == Gender.Male) bmr += 5
+        else bmr -= 161
 
-        return BMR.toInt()
+        return bmr.toInt()
     }
 
     private fun hookTargets() {
@@ -118,7 +118,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun hookDateSection() {
-        //binding.textCalendarDate.text = getDate(0) // display the date of the current day
+        binding.textCalendarDate.text = getDate(0) // display the date of the current day
 
         binding.imageButtonPrevDate.setOnClickListener {
             daysFrom++
@@ -204,8 +204,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         nutritionViewModel = ViewModelProviders.of(this).get(NutritionViewModel::class.java)
         nutritionViewModel.mutableNutrition.observe(viewLifecycleOwner) { nutritionList ->
             caloriesVal = nutritionList[0].toInt()
-            carbsVal = nutritionList[3]
             fatsVal = nutritionList[2]
+            carbsVal = nutritionList[3]
             proteinsVal = nutritionList[4]
 
             if (progressVal - caloriesVal > 0) {
@@ -217,11 +217,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun observeClassification() {
-        dishNameViewModel = ViewModelProviders.of(this).get(DishNameViewModel::class.java)
-        dishNameViewModel.mutableDishName.observe(viewLifecycleOwner) { className ->
-            binding.textCalendarDate.text = className
-            // will be changed later to class name text view not textCalendarDate
+        classifierViewModel = ViewModelProviders.of(this).get(ClassifierViewModel::class.java)
 
+        classifierViewModel.mutableDishName.observe(viewLifecycleOwner) { predictedClass ->
+            binding.textLastCaptured.text = predictedClass
+        }
+
+        classifierViewModel.mutableDishImage.observe(viewLifecycleOwner) { dishImage ->
+            binding.imageLastCaptured.setImageDrawable(dishImage)
+            binding.cardLastCaptured.visibility = View.VISIBLE
         }
     }
 

@@ -44,7 +44,9 @@
 
     <!-- Images and Icons -->
     <dimen name="profile_image_dims">80dp</dimen>
+    <dimen name="recipe_image_dims">150dp</dimen>
     <dimen name="icons_dims">24dp</dimen> <!-- for each icon in the app --> <!-- was 32dp -->
+    <dimen name="icons_dims_s3">38dp</dimen>
 
     <!-- Progress -->
     <dimen name="progress_circular_dimen">300dp</dimen>

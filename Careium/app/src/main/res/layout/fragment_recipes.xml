@@ -3,14 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".frontend.home.fragments.RecipeFragment">
+    tools:context=".frontend.home.fragments.RecipesFragment">
 
-<GridView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/recipes_gridview"
-    android:numColumns="2"/>
-
-
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recipes_gridview"
+        android:numColumns="2"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

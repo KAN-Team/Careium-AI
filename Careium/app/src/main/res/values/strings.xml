@@ -69,6 +69,7 @@
     <string name="proteins">Proteins</string>
     <string name="cal_val">/%1$d cal</string>
     <string name="gram_val">/%1$.2f g</string>
+    <string name="last_tracked_image">Last Tracked Image</string>
 
     <!--  Profile Fragment  -->
     <string name="name">Name</string>
@@ -116,11 +117,6 @@
     <string name="description_text">Description</string>
     <string name="save_note">Save Note</string>
     <string name="title_Diary">Diary</string>
-    <!-- Recipes -->
-    <string name="Burger">Burger</string>
-    <string name="Pan_Cake">Pan Cake</string>
-    <string name="Chocolate_cake">Chocolate Cake</string>
-    <string name="whiteSaucePasta">white sauce pasta</string>
 
     <!--Reminder fragment -->
     <string name="set">Set</string>
