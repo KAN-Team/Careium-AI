@@ -127,7 +127,7 @@ class UserGoalFragment : Fragment(R.layout.fragment_user_goal) {
         Toast.makeText(activity, getString(R.string.confirmation_register_msg), Toast.LENGTH_SHORT)
             .show()
         startActivity(Intent(activity, MainActivity::class.java))
-        SplashActivity.this_activity.finish()
+        SplashActivity.instance.finish()
         activity?.finish()
     }
 
