@@ -2,18 +2,13 @@ package com.example.careium.frontend.authentication.activities
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
 import com.example.careium.backend.authentication.AuthenticationInterface
-import com.example.careium.core.database.authentication.SharedPreferences
 import com.example.careium.databinding.ActivitySplashBinding
-import com.example.careium.frontend.home.activities.MainActivity
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity(), AuthenticationInterface {

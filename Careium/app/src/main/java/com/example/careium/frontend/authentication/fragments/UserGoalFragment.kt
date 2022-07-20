@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProviders
 import com.example.careium.R
+import com.example.careium.core.authentication.Authenticator
 import com.example.careium.core.database.authentication.AuthViewModel
 import com.example.careium.core.database.authentication.InternetConnection
 import com.example.careium.core.database.authentication.Register
@@ -16,7 +17,6 @@ import com.example.careium.core.database.realtime.UserData
 import com.example.careium.databinding.LayoutErrorCustomViewBinding
 import com.example.careium.databinding.FragmentUserGoalBinding
 import com.example.careium.frontend.authentication.activities.SplashActivity
-import com.example.careium.frontend.authentication.activities.user
 import com.example.careium.frontend.factory.ErrorAlertDialog
 import com.example.careium.frontend.factory.FutureGoal
 import com.example.careium.frontend.home.activities.MainActivity
@@ -24,11 +24,11 @@ import com.example.careium.frontend.home.activities.MainActivity
 class UserGoalFragment : Fragment(R.layout.fragment_user_goal) {
     private lateinit var binding: FragmentUserGoalBinding
     private lateinit var authViewModel: AuthViewModel
+    private val user = Authenticator.user
 
     companion object {
         fun newInstance() = UserGoalFragment().apply {}
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -39,7 +39,6 @@ class UserGoalFragment : Fragment(R.layout.fragment_user_goal) {
         updateUserDataUI()
         handleClickButtons()
     }
-
 
     private fun handleClickButtons() {
         binding.finalRegister.setOnClickListener {

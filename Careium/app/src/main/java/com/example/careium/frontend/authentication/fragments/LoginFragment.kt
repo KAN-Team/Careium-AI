@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProviders
 import com.example.careium.R
+import com.example.careium.core.authentication.Authenticator
 import com.example.careium.core.database.authentication.AuthViewModel
 import com.example.careium.core.database.authentication.InternetConnection
 import com.example.careium.core.database.authentication.Login
@@ -15,7 +16,6 @@ import com.example.careium.core.database.authentication.SharedPreferences
 import com.example.careium.databinding.LayoutErrorCustomViewBinding
 import com.example.careium.databinding.FragmentLoginBinding
 import com.example.careium.frontend.authentication.activities.SplashActivity
-import com.example.careium.frontend.authentication.activities.titleViewModel
 import com.example.careium.frontend.factory.ErrorAlertDialog
 import com.example.careium.frontend.home.activities.MainActivity
 
@@ -32,7 +32,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentLoginBinding.bind(view)
-        titleViewModel.mutableAuthTitleLD.value = getString(R.string.login)
+        Authenticator.titleViewModel.mutableAuthTitleLD.value = getString(R.string.login)
         authViewModel = ViewModelProviders.of(this).get(AuthViewModel::class.java)
         observeAuthCallBackChange()
 

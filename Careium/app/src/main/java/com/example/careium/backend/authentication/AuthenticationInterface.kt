@@ -1,6 +1,8 @@
 package com.example.careium.backend.authentication
 
+import com.example.careium.core.authentication.Authenticator
 import com.example.careium.core.authentication.InitialActivity
+import com.example.careium.frontend.authentication.activities.AuthenticationActivity
 import com.example.careium.frontend.authentication.activities.SplashActivity
 
 /**
@@ -12,8 +14,7 @@ import com.example.careium.frontend.authentication.activities.SplashActivity
  */
 interface AuthenticationInterface {
 
-    val initialActivity: InitialActivity
-        get() = InitialActivity()
+    private val initialActivity: InitialActivity get() = InitialActivity()
 
     /**
      * Fires the LoginAction Method in the Core Package.
@@ -36,7 +37,7 @@ interface AuthenticationInterface {
     }
 
     /**
-     * Fires the CheckAuthentication Method in the Core Package.
+     * Fires the **CheckAuthentication** Method in the Core Package.
      *
      * @author Kareem Sherif
      * @see InitialActivity.authLoginAction
@@ -48,11 +49,34 @@ interface AuthenticationInterface {
     }
 
     /**
-     * Fires the Buttons Visibility Action Method in the Frontend Package.
+     * Fires the **authenticate** Method in the Core Package.
      *
      * @author Kareem Sherif
-     * @see InitialActivity.authLoginAction
+     * @see Authenticator.authenticate
      */
-    fun buttonsVisibilityGone()
+    fun authOptions() {
+        val authenticator = Authenticator()
+        authenticator.authenticate()
+    }
+
+    /**
+     * Fires the **buttonsVisibilityGone** (Buttons Visibility Action)
+     * Method in the Frontend Package.
+     *
+     * @author Kareem Sherif
+     * @see SplashActivity.buttonsVisibilityGone
+     */
+    fun buttonsVisibilityGone() {}
+
+    /**
+     * Fires the **setAuthToolbarTitle** (AuthToolbar text change Action)
+     * Method in the Frontend Package.
+     *
+     * @author Kareem Sherif
+     * @see AuthenticationActivity.setAuthToolbarTitle
+     */
+    fun updateAuthToolbarTitle(title: String) {
+        AuthenticationActivity.setAuthToolbarTitle(title)
+    }
 
 }
