@@ -5,14 +5,15 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.example.careium.R
+import com.example.careium.core.authentication.Authenticator
 import com.example.careium.databinding.LayoutErrorCustomViewBinding
 import com.example.careium.databinding.FragmentUserInfoBinding
-import com.example.careium.frontend.authentication.activities.user
 import com.example.careium.frontend.factory.ErrorAlertDialog
 import com.example.careium.frontend.factory.Gender
 
 class UserInfoFragment : Fragment(R.layout.fragment_user_info) {
     private lateinit var binding: FragmentUserInfoBinding
+    private val user = Authenticator.user
 
     companion object {
         fun newInstance() = UserInfoFragment().apply {}

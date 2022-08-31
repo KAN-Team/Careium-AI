@@ -5,6 +5,8 @@
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="welcome_msg">Welcome to</string>
+    <string name="something_wrong">Something went wrong!!</string>
+    <string name="auth_option">AuthOption</string>
     <string name="fill_data">Fill your Data</string>
     <string name="password">Password</string>
     <string name="login_now">Login Now</string>

@@ -5,15 +5,15 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.example.careium.R
+import com.example.careium.core.authentication.Authenticator
 import com.example.careium.core.models.User
 import com.example.careium.databinding.LayoutErrorCustomViewBinding
 import com.example.careium.databinding.FragmentRegisterBinding
-import com.example.careium.frontend.authentication.activities.user
-import com.example.careium.frontend.authentication.activities.titleViewModel
 import com.example.careium.frontend.factory.ErrorAlertDialog
 
 class RegisterFragment : Fragment(R.layout.fragment_register) {
     private lateinit var binding: FragmentRegisterBinding
+    private val user = Authenticator.user
 
     companion object {
         fun newInstance() = RegisterFragment().apply {}
@@ -22,8 +22,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentRegisterBinding.bind(view)
-        titleViewModel.mutableAuthTitleLD.value = getString(R.string.register)
-
+        Authenticator.titleViewModel.mutableAuthTitleLD.value = getString(R.string.register)
         updateUserDataUI()
         handleClickButtons()
     }
