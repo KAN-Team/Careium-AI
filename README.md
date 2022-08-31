@@ -49,6 +49,34 @@ for each mealtime.
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
+<!-- TABLE OF CONTENTS -->
+<h2 id="table-of-contents"> :book: Table of Contents</h2>
+
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#-background"> ➤ Background</a></li>
+    <li><a href="#-architecture"> ➤ Architecture</a></li>
+    <li><a href="#-development"> ➤ Development</a></li>
+    <li><a href="#-design"> ➤ Design</a></li>
+    <li><a href="#-testing"> ➤ Testing</a></li>
+    <li>
+      <a href="#-user-manual"> ➤ User Manual</a>
+      <ul>
+        <li><a href="#installation-guide">Installation Guide</a></li>
+        <li><a href="#getting-started">Getting Started</a></li>
+      </ul>
+    </li>
+    <!--<li><a href="#experiments">Experiments</a></li>-->
+    <li><a href="#-conclusion"> ➤ Conclusion</a></li>
+    <li><a href="#-contributors"> ➤ Contributors</a></li>
+    <li><a href="#-references"> ➤ References</a></li>
+    <li><a href="#%EF%B8%8F-copyrights"> ➤ Copyrights</a></li>
+  </ol>
+</details>
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
 ## 📋 Background
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
@@ -57,8 +85,8 @@ for each mealtime.
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-## 💻 Development <!-- Code Snipets & Database & Models -->
-
+## 💻 Development 
+<!-- Code Snipets & Database & Models -->
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ## 📱 Design
@@ -69,8 +97,8 @@ for each mealtime.
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-## 📖 User Manual <!-- Installation Guide & Getting Started -->
-
+## 📖 User Manual 
+<!-- Installation Guide & Getting Started -->
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ### 💡 Conclusion
@@ -96,10 +124,10 @@ Credits and Thanks go to these wonderful people ([emoji key](https://allcontribu
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-<h3> :books: References</h2>
+### 📚 References
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ### ©️ Copyrights
-- KAN Org.
-- FCIS, University of Ain Shams, Egypt
+- [KAN Org.](https://github.com/KAN-Team/)
+- [FCIS, University of Ain Shams](https://cis.asu.edu.eg/ar/), Egypt
