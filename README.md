@@ -2,36 +2,82 @@
 <img src="https://user-images.githubusercontent.com/48657780/175860913-cad6770a-6378-46f0-836a-e2c11dcd0430.png"/>
 </p>
 
-# Careium
-An android application to help you have a healthy life. Track your food, ingredients, and nutrients.
+# Careium-AI
+
+&nbsp; &nbsp; &nbsp; &nbsp; At this extreme moment, we began working from home, away from campus,
+and keeping social distance from as many people as possible. As we stay home and
+stick with the foods that have been in our fridge, we are temporarily living a
+sedentary lifestyle with increased odds of physical inactivity, excessive eating and
+sitting, stress, anxiety, and depression. Many of us will gain some weight during
+the pandemic and may keep the extra weight permanently, which may carry
+considerable health risks for type 2 diabetes, hypertension, heart attack, stroke, and
+other health problems. This is where the importance of **Careium Artificial
+Intelligence (AI) Food Tracker** comes in.
+
+&nbsp; &nbsp; &nbsp; &nbsp; Accordingly, the **Careium-AI Food Tracker** (Android) application helps
+diabetes, liver patients, and those who want to track their health throughout the day
+through daily meals by calculating the calories and minerals per each meal by
+taking a picture of the meal, and the application detects the food type and analyzes
+its calories and minerals. Also, the application follows up gaining or losing weight,
+or even avoiding some food due to allergies. That is achieved using Deep Learning
+and Image Processing.
+
+&nbsp; &nbsp; &nbsp; &nbsp; **Careium-AI Food Tracker** shows astonishing results compared to what
+was expected for a simple use case example. Capturing the food plate, long dish,
+deep dish or even scattered amount of food, Careium can still segment the food
+region, process it and predicts the main five **nutrition components** *<ins>(Calories,
+Mass, Fat, Carbs, Proteins)</ins>*. Calories are measured in `cal`, all others are measured
+in `grams`. It can be used in **classifying** a mixed dish of food into multiple food
+categories, generating food eaten **reports** periodically, **recommending** a proper
+meal from a set of different available meals in a given dataset and giving **alarms**
+for each mealtime.
 
 <img src="https://user-images.githubusercontent.com/48657780/175862136-a5da5362-0531-4785-9cbf-14fc4f18bbe9.png" align="right" width="25%" height="60%"></img>
 
-### Features
+## 🥣 Features
 
 <div style="display:flex;">
- 
-- meals alarm
-- register and login
-- capture food photo
-- view and edit profile
-- daily and weekly reports
-- know the food ingredients 
-- know the nutrients (calories, fat, carb, protein). 
+
+- Providing Weekly Reports
+- Meals' Time Alarm
+- Capturing an image of the eaten food plate
+- Recognizing the food ingredients
+- Predicting the food nutrients (calories, fats, carbs, proteins)
+- Other User Profile Manipulations e.g. (profile viewing/editing, login/register authentication, etc...)
 
 </div>
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-<h3> :book: Inception-v3</h2>
+## 📋 Background
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-<h3> :clipboard: Execution Instruction</h2>
+## 📐 Architecture
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-### Contributors ✨
+## 💻 Development <!-- Code Snipets & Database & Models -->
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+## 📱 Design
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+## 🔌 Testing
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+## 📖 User Manual <!-- Installation Guide & Getting Started -->
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+### 💡 Conclusion
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+### ✨ Contributors 
 
 Credits and Thanks go to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -53,3 +99,7 @@ Credits and Thanks go to these wonderful people ([emoji key](https://allcontribu
 <h3> :books: References</h2>
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+### ©️ Copyrights
+- KAN Org.
+- FCIS, University of Ain Shams, Egypt
