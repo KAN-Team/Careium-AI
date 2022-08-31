@@ -50,7 +50,7 @@ for each mealtime.
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <!-- TABLE OF CONTENTS -->
-<h2 id="table-of-contents"> :book: Table of Contents</h2>
+## 🗂️ Table of Contents
 
 <details open="open">
   <summary>Table of Contents</summary>
