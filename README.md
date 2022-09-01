@@ -55,7 +55,14 @@ for each mealtime.
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#-background"> ➤ Background</a></li>
+    <li>
+      <a href="#-background"> ➤ Background</a>
+      <ul>
+        <li><a href="#paper-1-food-detection-and-recognition-using-cnn--1">Paper 1: Food Detection and Recognition using CNN</a></li>
+        <li><a href="#paper-2-food-recognition---new-dataset-experiments-and-results--2">Paper 2: Food Recognition - New Dataset, Experiments and Results</a></li>
+        <li><a href="#paper-3-deep-learning-based-food-calorie-estimation-method-in-dietary-assessment--3">Paper 3: DL-Based Food Calorie Estimation</a></li>
+      </ul>
+    </li>
     <li><a href="#-architecture"> ➤ Architecture</a></li>
     <li><a href="#-development"> ➤ Development</a></li>
     <li><a href="#-design"> ➤ Design</a></li>
@@ -67,7 +74,6 @@ for each mealtime.
         <li><a href="#getting-started">Getting Started</a></li>
       </ul>
     </li>
-    <!--<li><a href="#experiments">Experiments</a></li>-->
     <li><a href="#-conclusion"> ➤ Conclusion</a></li>
     <li><a href="#-contributors"> ➤ Contributors</a></li>
     <li><a href="#-references"> ➤ References</a></li>
@@ -80,11 +86,12 @@ for each mealtime.
 <!-- SCIENTIFIC BACKGROUND -->
 ## 📋 Background
 
-#### Paper 1: Food Detection and Recognition Using CNN <a href="#--1--food-detection-and-recognition-using-convolution-neural-network-author-hokuto-kagaya-nov-22-2014-last-accessed-on-11-2021"> [1]</a>
-&nbsp; &nbsp; &nbsp; &nbsp; The researchers praised the effectiveness of CNNs for food image recognition and detection. </br>
-&nbsp; &nbsp; &nbsp; &nbsp; They found out that CNN performed much better than traditional methods using handcrafted features. </br>
-&nbsp; &nbsp; &nbsp; &nbsp; Through observation of trained convolution kernels, they confirmed that color features are essential to food image recognition. </br>
-&nbsp; &nbsp; &nbsp; &nbsp; The researchers applied CNN to food detection, finding that CNN significantly outperformed a baseline method. 
+<!-- BACKGROUND: PAPER 1-->
+#### Paper 1: Food Detection and Recognition Using CNN <a href="#--1--food-detection-and-recognition-using-cnn-author-hokuto-kagaya-nov-22-2014-last-accessed-on-11-2021"> [1]</a>
+&nbsp; &nbsp; &nbsp; &nbsp; The researchers praised the effectiveness of CNNs for food image recognition and detection.
+They found out that CNN performed much better than traditional methods using handcrafted features.
+Through observation of trained convolution kernels, they confirmed that color features are essential to food image recognition.
+The researchers applied CNN to food detection, finding that CNN significantly outperformed a baseline method. 
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/48348589/187911138-86e5f727-ec84-4ea9-8fcd-85f4411724e0.png"/>
@@ -92,17 +99,54 @@ for each mealtime.
   <i>Paper CNN Accuracy</i>
 </p>
 
+<!-- BACKGROUND: PAPER 2-->
+
 #### Paper 2: Food Recognition - New Dataset, Experiments and Results <a href="#--2--food-recognition-using-innet-model-author-chakkrit-termritthikun-aug-01-2017-last-accessed-on-11-2021"> [2]</a>
-&nbsp; &nbsp; &nbsp; &nbsp; In the paper, researchers designed a suitable automatic tray analysis pipeline </br>
-&nbsp; &nbsp; &nbsp; &nbsp; that takes a tray image as input, finds the regions of interest and predicts for each region the corresponding food class. </br>
-&nbsp; &nbsp; &nbsp; &nbsp; The researchers evaluated three different classification strategies using several visual descriptors. </br>
-&nbsp; &nbsp; &nbsp; &nbsp; The best performance has been obtained by using ConvolutionalNeural-Networks-based features. </br>
+&nbsp; &nbsp; &nbsp; &nbsp; In the paper, researchers designed a suitable automatic tray analysis pipeline
+that takes a tray image as input, finds the regions of interest and predicts for each region the corresponding food class.
+The researchers evaluated three different classification strategies using several visual descriptors.
+The best performance has been obtained by using ConvolutionalNeural-Networks-based features.
   
 <p align="center">
   <img src="https://user-images.githubusercontent.com/48348589/187913657-796354eb-93bb-4b76-a722-b3eb9426aec4.png"/>
   <br/> 
   <i>Paper Food Recognition Results</i>
 </p>
+
+<!-- BACKGROUND: PAPER 3-->
+#### Paper 3: Deep Learning-Based Food Calorie Estimation Method in Dietary Assessment <a href="#--3--food-calories-estimation-using-machine-learning-author-vishakha-a-metre-apr-09-2021-last-accessed-on-12-2021"> [3]</a>
+&nbsp; &nbsp; &nbsp; &nbsp; Their method includes 5 steps: image acquisition, object detection, 
+image segmentation volume estimation, and calorie estimation. To estimate calories, it requires the user to take 
+a top view and a side view of the food before eating with a smartphone. 
+Each image used to estimate must include a calibration object; in their experiments. 
+The researchers use the One Yuan coin as a reference. To get better results, they choose to use 
+Faster Region-based Convolutional Neural Networks (Faster R-CNN) to detect objects and GrabCut as 
+segmentation algorithms. To estimate the volume of each food they used the next equations.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/48348589/187931429-a95b6be8-3964-4374-96a5-b9a73794abc2.png"/>
+  <br/> 
+  <i>Paper Food Volume Equations</i>
+</p>
+
+<!-- BACKGROUND: SURVEY-->
+#### Survey of the Work
+&nbsp; &nbsp; &nbsp; &nbsp; We posted an online Google Form Survey on different social media
+apps to provide us with important statistical analysis and most importantly,
+how the idea we are on motivated the common people.
+
+<table>
+  <tr>
+    <td align="center"><img src="https://user-images.githubusercontent.com/48348589/187936295-e874d3f0-ade7-4c1e-8b08-0116d5154a67.png" width="400px;" </td>
+    <td align="center"><img src="https://user-images.githubusercontent.com/48348589/187936323-b59ed851-cd58-4401-8040-6a784fd6ece7.png" width="400px;" </td>
+    <td align="center"><img src="https://user-images.githubusercontent.com/48348589/187936340-a8c40425-d26a-47b3-a992-ca0ba90e1c8c.png" width="400px;" </td>
+  </tr>
+  <tr>
+    <td align="center"><img src="https://user-images.githubusercontent.com/48348589/187936351-1d2cb8a9-365b-4454-ad91-4a82a1c2a4b2.png" width="400px;" </td>
+    <td align="center"><img src="https://user-images.githubusercontent.com/48348589/187936365-41bd26da-2535-43f1-9f0c-9618ea7460f6.png" width="400px;" </td>
+    <td align="center"><img src="https://user-images.githubusercontent.com/48348589/187936375-f61ff62c-382c-49be-9913-59f6795bca4b.png" width="400px;" </td>
+  </tr>
+</table>
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
@@ -152,8 +196,9 @@ Credits and Thanks go to these wonderful people ([emoji key](https://allcontribu
 <!-- REFERENCES -->
 ### 📚 References
 
-##### &nbsp; &nbsp; [1] <a href="https://dl.acm.org/doi/abs/10.1145/2647868.2654970"> Food Detection and Recognition using Convolution Neural Network, Author: Hokuto Kagaya, Nov 22, 2014</a> <i>(Last Accessed on 11-2021)</i>
+##### &nbsp; &nbsp; [1] <a href="https://dl.acm.org/doi/abs/10.1145/2647868.2654970"> Food Detection and Recognition using CNN, Author: Hokuto Kagaya, Nov 22, 2014</a> <i>(Last Accessed on 11-2021)</i>
 ##### &nbsp; &nbsp; [2] <a href="https://paperswithcode.com/paper/nu-innet-thai-food-image-recognition-using"> Food Recognition using InNet Model, author: Chakkrit Termritthikun, Aug 01, 2017</a> <i>(Last Accessed on 11-2021)</i>
+##### &nbsp; &nbsp; [3] <a href="https://ieeexplore.ieee.org/document/9397023"> Food Calories Estimation Using Machine Learning, author: Vishakha A. Metre Apr 09, 2021</a> <i>(Last Accessed on 12-2021)</i>
 
 <!-- ANOTHER WAY FOR REFERENCES SECTION -->
 <!--
