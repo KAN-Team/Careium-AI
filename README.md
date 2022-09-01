@@ -77,7 +77,32 @@ for each mealtime.
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
+<!-- SCIENTIFIC BACKGROUND -->
 ## 📋 Background
+
+#### Paper 1: Food Detection and Recognition Using CNN <a href="#--1--food-detection-and-recognition-using-convolution-neural-network-author-hokuto-kagaya-nov-22-2014-last-accessed-on-11-2021"> [1]</a>
+&nbsp; &nbsp; &nbsp; &nbsp; The researchers praised the effectiveness of CNNs for food image recognition and detection. </br>
+&nbsp; &nbsp; &nbsp; &nbsp; They found out that CNN performed much better than traditional methods using handcrafted features. </br>
+&nbsp; &nbsp; &nbsp; &nbsp; Through observation of trained convolution kernels, they confirmed that color features are essential to food image recognition. </br>
+&nbsp; &nbsp; &nbsp; &nbsp; The researchers applied CNN to food detection, finding that CNN significantly outperformed a baseline method. 
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/48348589/187911138-86e5f727-ec84-4ea9-8fcd-85f4411724e0.png"/>
+  <br/> 
+  <i>Paper CNN Accuracy</i>
+</p>
+
+#### Paper 2: Food Recognition - New Dataset, Experiments and Results <a href="#--2--food-recognition-using-innet-model-author-chakkrit-termritthikun-aug-01-2017-last-accessed-on-11-2021"> [2]</a>
+&nbsp; &nbsp; &nbsp; &nbsp; In the paper, researchers designed a suitable automatic tray analysis pipeline </br>
+&nbsp; &nbsp; &nbsp; &nbsp; that takes a tray image as input, finds the regions of interest and predicts for each region the corresponding food class. </br>
+&nbsp; &nbsp; &nbsp; &nbsp; The researchers evaluated three different classification strategies using several visual descriptors. </br>
+&nbsp; &nbsp; &nbsp; &nbsp; The best performance has been obtained by using ConvolutionalNeural-Networks-based features. </br>
+  
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/48348589/187913657-796354eb-93bb-4b76-a722-b3eb9426aec4.png"/>
+  <br/> 
+  <i>Paper Food Recognition Results</i>
+</p>
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
@@ -124,7 +149,23 @@ Credits and Thanks go to these wonderful people ([emoji key](https://allcontribu
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
+<!-- REFERENCES -->
 ### 📚 References
+
+##### &nbsp; &nbsp; [1] <a href="https://dl.acm.org/doi/abs/10.1145/2647868.2654970"> Food Detection and Recognition using Convolution Neural Network, Author: Hokuto Kagaya, Nov 22, 2014</a> <i>(Last Accessed on 11-2021)</i>
+##### &nbsp; &nbsp; [2] <a href="https://paperswithcode.com/paper/nu-innet-thai-food-image-recognition-using"> Food Recognition using InNet Model, author: Chakkrit Termritthikun, Aug 01, 2017</a> <i>(Last Accessed on 11-2021)</i>
+
+<!-- ANOTHER WAY FOR REFERENCES SECTION -->
+<!--
+<ol>
+    <li>
+      <a href="https://dl.acm.org/doi/abs/10.1145/2647868.2654970"> Food Detection and Recognition using Convolution Neural Network, Author: Hokuto Kagaya, Nov 22, 2014</a> <i>(Last Accessed on 11-2021)</i>
+    </li>
+    <li>
+      <a href="https://dl.acm.org/doi/abs/10.1145/2647868.2654970"> Food Detection and Recognition using Convolution Neural Network, Author: Hokuto Kagaya, Nov 22, 2014</a> <i>(Last Accessed on 11-2021)</i>
+    </li>
+</ol>
+-->
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
