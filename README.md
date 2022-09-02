@@ -1,5 +1,8 @@
 <p align="center">
-<img src="https://user-images.githubusercontent.com/48657780/175860913-cad6770a-6378-46f0-836a-e2c11dcd0430.png"/>
+<!-- https://user-images.githubusercontent.com/48657780/175860913-cad6770a-6378-46f0-836a-e2c11dcd0430.png --> 
+<!-- The Alternative Preview made by K.Sherif -->
+<!-- The Original Preview made by Abanoub -->
+<img src="https://user-images.githubusercontent.com/48348589/188187299-9308dda6-d65f-40bf-84f1-e510d1c8fc77.jpg"/>
 </p>
 
 # Careium-AI
@@ -186,6 +189,7 @@ online community of 200 million members. 250+ healthy recipes.
   <i>Careium-AI System Architecture</i>
 </p>
 
+<!-- ARCHITECTURE: PHASES DESCRIPTION -->
 ### Phases Description
 
 `Food Detection Model` | `Food Recognition Model` | `Nutrition Extractor Model`
@@ -194,6 +198,7 @@ Takes an image as an input and by using Deep Neural Networks, Image Label is res
 **`Recommendation Model`** | **`Daily Meals Reminder`** | **`Report Generation`**
 Depends mostly on the user profile (e.g. calories) Based on his behavior a set of proper foods/meals are recommended. | Periodically reminds the healthy-life seeker with each meal time. | Generates reports according to the statistics and BMR based on user activities.
 
+<!-- ARCHITECTURE: USE CASE SCENARIO -->
 ### Use Case Scenario
 
 <p align="center">
