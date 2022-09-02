@@ -61,9 +61,9 @@ for each mealtime.
     <li>
       <a href="#-background"> ➤ Background</a>
       <ul>
-        <li><a href="#paper-1-food-detection-and-recognition-using-cnn--1">Paper 1: Food Detection and Recognition using CNN</a></li>
-        <li><a href="#paper-2-food-recognition---new-dataset-experiments-and-results--2">Paper 2: Food Recognition - New Dataset, Experiments and Results</a></li>
-        <li><a href="#paper-3-deep-learning-based-food-calorie-estimation-method-in-dietary-assessment--3">Paper 3: DL-Based Food Calorie Estimation</a></li>
+        <li><a href="#paper-1">Paper 1: Food Detection and Recognition using CNN</a></li>
+        <li><a href="#paper-2">Paper 2: Food Recognition - New Dataset, Experiments and Results</a></li>
+        <li><a href="#paper-3">Paper 3: DL-Based Food Calorie Estimation</a></li>
         <li><a href="#survey-of-the-work">Survey of the Work</a></li>
         <li><a href="#description-of-existing-similar-systems">Description of Existing Similar Systems</a></li>
       </ul>
@@ -98,7 +98,7 @@ for each mealtime.
 ## 📋 Background
 
 <!-- BACKGROUND: PAPER 1-->
-#### Paper 1: Food Detection and Recognition Using CNN <a href="#--1--food-detection-and-recognition-using-cnn-author-hokuto-kagaya-nov-22-2014-last-accessed-on-11-2021"> [1]</a>
+#### <a name="paper-1"></a> Paper 1: Food Detection and Recognition Using CNN <a href="#ref-1"> [1] </a>
 &nbsp; &nbsp; &nbsp; &nbsp; The researchers praised the effectiveness of CNNs for food image recognition and detection.
 They found out that CNN performed much better than traditional methods using handcrafted features.
 Through observation of trained convolution kernels, they confirmed that color features are essential to food image recognition.
@@ -111,8 +111,7 @@ The researchers applied CNN to food detection, finding that CNN significantly ou
 </p>
 
 <!-- BACKGROUND: PAPER 2-->
-
-#### Paper 2: Food Recognition - New Dataset, Experiments and Results <a href="#--2--food-recognition-using-innet-model-author-chakkrit-termritthikun-aug-01-2017-last-accessed-on-11-2021"> [2]</a>
+#### <a name="paper-2"></a> Paper 2: Food Recognition - New Dataset, Experiments and Results <a href="#ref-2"> [2] </a>
 &nbsp; &nbsp; &nbsp; &nbsp; In the paper, researchers designed a suitable automatic tray analysis pipeline
 that takes a tray image as input, finds the regions of interest and predicts for each region the corresponding food class.
 The researchers evaluated three different classification strategies using several visual descriptors.
@@ -125,7 +124,7 @@ The best performance has been obtained by using ConvolutionalNeural-Networks-bas
 </p>
 
 <!-- BACKGROUND: PAPER 3-->
-#### Paper 3: Deep Learning-Based Food Calorie Estimation Method in Dietary Assessment <a href="#--3--food-calories-estimation-using-machine-learning-author-vishakha-a-metre-apr-09-2021-last-accessed-on-12-2021"> [3]</a>
+#### <a name="paper-3"></a> Paper 3: Deep Learning-Based Food Calorie Estimation Method in Dietary Assessment <a href="#ref-3"> [3] </a>
 &nbsp; &nbsp; &nbsp; &nbsp; Their method includes 5 steps: image acquisition, object detection, 
 image segmentation volume estimation, and calorie estimation. To estimate calories, it requires the user to take 
 a top view and a side view of the food before eating with a smartphone. 
@@ -161,14 +160,14 @@ how the idea we are on, motivated the common people.
 
 <!-- BACKGROUND: CAREIUM COMPARISON WITH THE EXISTING APPLICATIONS-->
 #### Description of Existing Similar Systems
-- HealthifyMe <a href="#--4-healthifyme-related-existing-application--last-accessed-on-03-2022">[4]</a> </br>
+- HealthifyMe <a href="#ref-4"> [4] </a> </br>
 &nbsp; &nbsp; &nbsp; &nbsp; A mobile application that provides smart meal plans, Customized
 workout plans with certified fitness coaches, and Tracks daily calorie
 intake, weight goals, and workouts. Sleep monitoring, meal journal & step
 counter. Health advice recipes, and a daily dose of motivation for fitness
 goals through fresh content on the app's feed.
 
-- MyFitnessPal <a href="#--5-myfitnesspal-related-existing-application--last-accessed-on-05-2022">[5]</a> </br>
+- MyFitnessPal <a href="#ref-5"> [5] </a> </br>
 &nbsp; &nbsp; &nbsp; &nbsp; A mobile application that gives accurate nutrition facts for over 
 14 million foods. Easily log everything eaten to the food diary. Engaged
 online community of 200 million members. 250+ healthy recipes. 
@@ -251,20 +250,20 @@ Credits and Thanks go to these wonderful people ([emoji key](https://allcontribu
 <!-- REFERENCES -->
 ### 📚 References
 
-##### &nbsp; &nbsp; [1] <a href="https://dl.acm.org/doi/abs/10.1145/2647868.2654970"> Food Detection and Recognition using CNN, Author: Hokuto Kagaya, Nov 22, 2014</a> <i>(Last Accessed on 11-2021)</i>
-##### &nbsp; &nbsp; [2] <a href="https://paperswithcode.com/paper/nu-innet-thai-food-image-recognition-using"> Food Recognition using InNet Model, author: Chakkrit Termritthikun, Aug 01, 2017</a> <i>(Last Accessed on 11-2021)</i>
-##### &nbsp; &nbsp; [3] <a href="https://ieeexplore.ieee.org/document/9397023"> Food Calories Estimation Using Machine Learning, author: Vishakha A. Metre Apr 09, 2021</a> <i>(Last Accessed on 12-2021)</i>
-##### &nbsp; &nbsp; [4] <a href="https://play.google.com/store/apps/details?id=com.healthifyme.basic&hl=en&gl=US">HealthifyMe: related existing application </a> <i>(Last Accessed on 03-2022)</i>
-##### &nbsp; &nbsp; [5] <a href="https://www.myfitnesspal.com/">Myfitnesspal: related existing application </a> <i>(Last Accessed on 05-2022)</i>
+##### &nbsp; &nbsp; [1] <a name="ref-1" href="https://dl.acm.org/doi/abs/10.1145/2647868.2654970">Food Detection and Recognition using CNN, Author: Hokuto Kagaya, Nov 22, 2014</a> <i>(Last Accessed on 11-2021)</i>
+##### &nbsp; &nbsp; [2] <a name="ref-2" href="https://paperswithcode.com/paper/nu-innet-thai-food-image-recognition-using"> Food Recognition using InNet Model, author: Chakkrit Termritthikun, Aug 01, 2017</a> <i>(Last Accessed on 11-2021)</i>
+##### &nbsp; &nbsp; [3] <a name="ref-3" href="https://ieeexplore.ieee.org/document/9397023"> Food Calories Estimation Using Machine Learning, author: Vishakha A. Metre Apr 09, 2021</a> <i>(Last Accessed on 12-2021)</i>
+##### &nbsp; &nbsp; [4] <a name="ref-4" href="https://play.google.com/store/apps/details?id=com.healthifyme.basic&hl=en&gl=US">HealthifyMe: related existing application </a> <i>(Last Accessed on 03-2022)</i>
+##### &nbsp; &nbsp; [5] <a name="ref-5" href="https://www.myfitnesspal.com/">Myfitnesspal: related existing application </a> <i>(Last Accessed on 05-2022)</i>
 
 <!-- ANOTHER WAY FOR REFERENCES SECTION -->
 <!--
 <ol>
     <li>
-      <a href="https://dl.acm.org/doi/abs/10.1145/2647868.2654970"> Food Detection and Recognition using Convolution Neural Network, Author: Hokuto Kagaya, Nov 22, 2014</a> <i>(Last Accessed on 11-2021)</i>
+      <a name="ref-1" href="https://dl.acm.org/doi/abs/10.1145/2647868.2654970"> Food Detection and Recognition using Convolution Neural Network, Author: Hokuto Kagaya, Nov 22, 2014</a> <i>(Last Accessed on 11-2021)</i>
     </li>
     <li>
-      <a href="https://dl.acm.org/doi/abs/10.1145/2647868.2654970"> Food Detection and Recognition using Convolution Neural Network, Author: Hokuto Kagaya, Nov 22, 2014</a> <i>(Last Accessed on 11-2021)</i>
+      <a name="ref-2" href="https://dl.acm.org/doi/abs/10.1145/2647868.2654970"> Food Detection and Recognition using Convolution Neural Network, Author: Hokuto Kagaya, Nov 22, 2014</a> <i>(Last Accessed on 11-2021)</i>
     </li>
 </ol>
 -->
