@@ -65,7 +65,13 @@ for each mealtime.
         <li><a href="#description-of-existing-similar-systems">Description of Existing Similar Systems</a></li>
       </ul>
     </li>
-    <li><a href="#-architecture"> ➤ Architecture</a></li>
+    <li>
+      <a href="#-architecture"> ➤ Architecture</a>
+      <ul>
+        <li><a href="#phases-description">Phases Description</a></li>
+        <li><a href="#use-case-scenario">Use Case Scenario</a></li>
+      </ul>
+    </li>
     <li><a href="#-development"> ➤ Development</a></li>
     <li><a href="#-design"> ➤ Design</a></li>
     <li><a href="#-testing"> ➤ Testing</a></li>
@@ -135,7 +141,7 @@ segmentation algorithms. To estimate the volume of each food they used the next 
 #### Survey of the Work
 &nbsp; &nbsp; &nbsp; &nbsp; We posted an online Google Form Survey on different social media
 apps to provide us with important statistical analysis and most importantly,
-how the idea we are on motivated the common people.
+how the idea we are on, motivated the common people.
 
 <table>
   <tr>
@@ -174,6 +180,27 @@ online community of 200 million members. 250+ healthy recipes.
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ## 📐 Architecture
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/48348589/188155044-6c3dbad7-d879-4765-86c3-099b4c96d1f0.jpg"/>
+  <br/> 
+  <i>Careium-AI System Architecture</i>
+</p>
+
+### Phases Description
+
+`Food Detection Model` | `Food Recognition Model` | `Nutrition Extractor Model`
+:------: | :------: | :------:
+Takes an image as an input and by using Deep Neural Networks, Image Label is resulted whether the image contains food or not. ***(future work)*** | Takes the detected Food Image, pre-process the image and returns the food label based on the most probability gained. | Depends mostly on the user profile (calories & nutrition needs). Based on his behavior a set of proper foods/meals are recommended.
+**`Recommendation Model`** | **`Daily Meals Reminder`** | **`Report Generation`**
+Depends mostly on the user profile (e.g. calories) Based on his behavior a set of proper foods/meals are recommended. | Periodically reminds the healthy-life seeker with each meal time. | Generates reports according to the statistics and BMR based on user activities.
+
+### Use Case Scenario
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/48348589/188158672-352a1f8b-1469-4d81-87f9-060f9055da1b.png"/>
+  <br/> 
+  <i>Careium-AI Use Case Scenario</i>
+</p>
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
