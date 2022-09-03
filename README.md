@@ -75,7 +75,14 @@ for each mealtime.
         <li><a href="#use-case-scenario">Use Case Scenario</a></li>
       </ul>
     </li>
-    <li><a href="#-development"> ➤ Development</a></li>
+    <li>
+      <a href="#-development"> ➤ Development</a>
+      <ul>
+        <li><a href="#dev-guidelines">General Guidelines & Preprocessing Techniques</a></li>
+        <li><a href="dev-r1-trials">R1 Trials & Outcomes</a></li>
+        <li><a href="dev-c1-trials">C1 Trials</a></li>
+      </ul>
+    </li>
     <li><a href="#-design"> ➤ Design</a></li>
     <li><a href="#-testing"> ➤ Testing</a></li>
     <li>
@@ -209,7 +216,47 @@ Depends mostly on the user profile (e.g. calories) Based on his behavior a set o
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ## 💻 Development 
-<!-- Code Snipets & Database & Models -->
+
+<!-- DEVELOPMENT: GENERAL GUIDELINES -->
+#### <a name="dev-guidelines"></a> General Guidelines & Preprocessing Techniques
+- Uses Nutrition 5k Dataset for Regression
+- Uses Food 101 Dataset for Classification
+- Train-Valid-Test split
+  * Train Size => 2771
+  * Valid Size => 380
+  * Test Size => 360
+- Target Size (24x24) and Batch Size (16)
+- Training/Evaluation Metric
+- Inputs/Outputs Normalization
+
+<!-- DEVELOPMENT: R1 TRIALS -->
+#### <a name="dev-r1-trials"></a> R1 Trials & Outcomes
+|   Model  | Test Loss | Cal Loss | Mass Loss | Fat Loss | Carb Loss | Prot Loss |
+|:--------:|:---------:|:--------:|:---------:|:--------:|:---------:|:---------:|
+|**1. ML Model**|**`0.8764`**|0.172|0.181|0.173|0.182|0.163|
+|**2. Sequential DL Model**|**`0.7613`**|0.143|0.151|0.151|0.163|0.153|
+|**3. Pre-trained MobileNet**|**`0.4768`**|0.112|0.094|0.092|0.087|0.091|
+|**4. Pre-trained Inception-v3**|**`0.2957`**|0.076|0.064|0.061|0.052|0.042|
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/48348589/188277950-c7731c31-18d7-440e-93df-bf1228b759f2.jpg"/>
+  <br/> 
+  <i>Careium-AI R1 Architectures</i>
+</p>
+
+<!-- DEVELOPMENT: C1 TRIALS -->
+#### <a name="dev-c1-trials"></a> C1 Trials & Outcomes
+|            | Base Model Accuracy | Optimized Model Accuracy |
+|:----------:|:-------------------:|:------------------------:|
+|**Training**|        61.23%       |       **`81.34%`**       |
+|**Testing** |       [51%-68%]     |       **`78.50%`**       |
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/48348589/188278329-08c4ddd9-0e96-4ce0-8feb-57d3c39627b8.png"/>
+  <br/> 
+  <i>Careium-AI C1 Performance</i>
+</p>
+
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ## 📱 Design
@@ -230,7 +277,7 @@ Depends mostly on the user profile (e.g. calories) Based on his behavior a set o
 
 ### ✨ Contributors 
 
-Credits and Thanks go to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Credits and thanks go to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
