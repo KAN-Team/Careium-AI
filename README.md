@@ -79,8 +79,8 @@ for each mealtime.
       <a href="#-development"> ➤ Development</a>
       <ul>
         <li><a href="#dev-guidelines">General Guidelines & Preprocessing Techniques</a></li>
-        <li><a href="dev-r1-trials">R1 Trials & Outcomes</a></li>
-        <li><a href="dev-c1-trials">C1 Trials</a></li>
+        <li><a href="#r1-trials--outcomes">R1 Trials & Outcomes</a></li>
+        <li><a href="#c1-trials--outcomes">C1 Trials & Outcomes</a></li>
       </ul>
     </li>
     <li><a href="#-design"> ➤ Design</a></li>
@@ -230,7 +230,7 @@ Depends mostly on the user profile (e.g. calories) Based on his behavior a set o
 - Inputs/Outputs Normalization
 
 <!-- DEVELOPMENT: R1 TRIALS -->
-#### <a name="dev-r1-trials"></a> R1 Trials & Outcomes
+#### R1 Trials & Outcomes
 |   Model  | Test Loss | Cal Loss | Mass Loss | Fat Loss | Carb Loss | Prot Loss |
 |:--------:|:---------:|:--------:|:---------:|:--------:|:---------:|:---------:|
 |**1. ML Model**|**`0.8764`**|0.172|0.181|0.173|0.182|0.163|
@@ -245,7 +245,7 @@ Depends mostly on the user profile (e.g. calories) Based on his behavior a set o
 </p>
 
 <!-- DEVELOPMENT: C1 TRIALS -->
-#### <a name="dev-c1-trials"></a> C1 Trials & Outcomes
+#### C1 Trials & Outcomes
 |            | Base Model Accuracy | Optimized Model Accuracy |
 |:----------:|:-------------------:|:------------------------:|
 |**Training**|        61.23%       |       **`81.34%`**       |
