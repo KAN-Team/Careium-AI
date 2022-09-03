@@ -4,7 +4,7 @@ We would love for you to contribute to Careium-AI and help make it even better t
 As a contributor, here are the guidelines we would like you to follow:
 
  - [Code of Conduct](#coc)
- - [Question or Problem?](#question)
+ - [Questions or Problems](#question)
  - [Issues and Bugs](#issue)
  - [Feature Requests](#feature)
  - [Submission Guidelines](#submit)
@@ -202,8 +202,6 @@ To ensure consistency throughout the source code, keep these rules in mind as yo
 * All features or bug fixes **must be tested** by one or more specs (unit-tests).
 * All public API methods **must be documented**.
 * We follow [Google's JavaScript Style Guide][js-style-guide], but wrap all code at **100 characters**.
-
-   An automated formatter is available, see [DEVELOPER.md](docs/DEVELOPER.md#clang-format).
 
 
 ## <a name="commit"></a> Commit Message Format
