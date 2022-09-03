@@ -281,6 +281,63 @@ Depends mostly on the user profile (e.g. calories) Based on his behavior a set o
 
 ## 📖 User Manual 
 <!-- Installation Guide & Getting Started -->
+
+>  <B>1- Installation Guide</B> --> `FOR OPEN SOURCE DEVELOPERS` <BR>
+- Read the application documentation to know more about the project senario [[DOC]](https://github.com/KAN-Team/Careium-AI/tree/main/zDocumentation)
+- Check the used Deep Learning models [[models]](https://github.com/KAN-Team/Careium-AI/tree/main/Models)
+- App APK to check the output [[APK]](https://drive.google.com/drive/folders/1nRSwTNkt4A0v-eDkRlX9mrywlo5ADhrR)
+- Intall Android Studio with Bumblebee version or higher
+- Sync the drawable file with `minSDK 28`, `compileSdk 31` or higher and the below additional dependencies
+```
+  // Drawer Layout
+  implementation 'androidx.drawerlayout:drawerlayout:1.1.1'
+
+  // Rounded Image View
+  implementation 'com.makeramen:roundedimageview:2.3.0'
+
+  // Bottom Navigation Bar
+  implementation 'com.etebarian:meow-bottom-navigation-java:1.2.0'
+
+  // Circular Floating Action Menu
+  implementation 'com.oguzdev:CircularFloatingActionMenu:1.0.2'
+  implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+  //tensorflow
+  implementation('org.tensorflow:tensorflow-lite:2.4.0') { changing = true }
+  implementation('org.tensorflow:tensorflow-lite-support:0.1.0') { changing = true }
+  implementation 'org.tensorflow:tensorflow-lite-metadata:0.1.0'
+  implementation 'com.google.firebase:firebase-storage-ktx:20.0.1'
+  implementation 'androidx.gridlayout:gridlayout:1.0.0'
+
+  //view model
+  def lifecycle_version = "2.1.0"
+  //noinspection GradleDependency
+  implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+
+  //YOYO animation
+  implementation 'com.daimajia.androidanimations:library:2.4@aar'
+
+  // Firebase
+  implementation 'com.google.firebase:firebase-auth-ktx:21.0.6'
+  implementation 'com.google.firebase:firebase-database:20.0.5'
+
+  // Testing
+  testImplementation 'junit:junit:4.13.2'
+  androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+  androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+  testImplementation "com.google.truth:truth:1.1.3"
+  androidTestImplementation "com.google.truth:truth:1.1.3"
+  androidTestImplementation 'androidx.test:runner:1.4.0'
+  androidTestImplementation 'androidx.test:rules:1.4.0'
+  androidTestImplementation 'androidx.test:core:1.4.0'
+  androidTestImplementation 'androidx.test.ext:junit-ktx:1.1.3'
+``` 
+
+<BR>
+
+
+
+
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ### 💡 Conclusion
