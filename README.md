@@ -5,6 +5,18 @@
 <img src="https://user-images.githubusercontent.com/48348589/188187299-9308dda6-d65f-40bf-84f1-e510d1c8fc77.jpg"/>
 </p>
 
+<div align="center">
+ 
+[![GitHub contributors](https://img.shields.io/github/contributors/KAN-Team/Careium-AI)](https://github.com/KAN-Team/Careium-AI/contributors)
+[![GitHub issues](https://img.shields.io/github/issues/KAN-Team/Careium-AI)](https://github.com/KAN-Team/Careium-AI/issues)
+[![GitHub forks](https://img.shields.io/github/forks/KAN-Team/Careium-AI)](https://github.com/KAN-Team/Careium-AI/network)
+[![GitHub stars](https://img.shields.io/github/stars/KAN-Team/Careium-AI)](https://github.com/KAN-Team/Careium-AI/stargazers)
+[![GitHub license](https://img.shields.io/github/license/KAN-Team/Careium-AI)](https://github.com/KAN-Team/Careium-AI/blob/master/LICENSE)
+[![Last Commit](https://img.shields.io/github/last-commit/KAN-Team/Careium-AI)](https://github.com/KAN-Team/Careium-AI/commits)
+
+</div>
+
+
 # Careium-AI
 
 &nbsp; &nbsp; &nbsp; &nbsp; At this extreme moment, we began working from home, away from campus,
