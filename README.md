@@ -250,7 +250,7 @@ According to Google research datasets <a href="#ref-7">[7]</a>:
 
 <!-- DATASETS: FOOD101-->
 #### Food101 <a href="#ref-8">[8]</a>
-According to the Food101 paper <a href="#ref-9">[9]</a>
+According to the Food101 paper <a href="#ref-9">[9]</a>,
 **Food101** is a dataset of 101,000 real-world images in total:
   - 750 training images
   - 250 testing images
@@ -262,8 +262,8 @@ According to the Food101 paper <a href="#ref-9">[9]</a>
 
 <!-- DEVELOPMENT: GENERAL GUIDELINES -->
 #### <a name="dev-guidelines"></a> General Guidelines & Preprocessing Techniques
-- Uses **Nutrition5k** Dataset for Regression
-- Uses **Food101** Dataset for Classification
+- Uses [**Nutrition5k**](#nutrition5k-6) Dataset for Regression
+- Uses [**Food101**](#food101-8) Dataset for Classification
 - Train-Valid-Test split
   * Train Size => 2771
   * Valid Size => 380
@@ -307,16 +307,15 @@ According to the Food101 paper <a href="#ref-9">[9]</a>
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ## 📖 User Manual 
-<!-- Installation Guide & Getting Started -->
 
->  <a name="installation-guide"></a> <B>1- Installation Guide</B> --> `FOR OPEN SOURCE DEVELOPERS` <BR>
-- Read the application documentation to know more about the project senario [[DOC]](https://github.com/KAN-Team/Careium-AI/tree/main/zDocumentation)
-- Check the used Deep Learning models [[models]](https://github.com/KAN-Team/Careium-AI/tree/main/Models)
-- App APK to check the output [[APK]](https://drive.google.com/drive/folders/1nRSwTNkt4A0v-eDkRlX9mrywlo5ADhrR)
-- Ask any contributor to give you an access on the database server.
-- Install Android Studio with Bumblebee version or higher
-- Sync the build.gradle-app file with `minSDK 28`, `compileSdk 31` or higher and the below additional dependencies
-```
+<!-- USER MANUAL: INSTALLATION -->
+### <a name="installation-guide"></a> Installation Guide --> `FOR OPEN SOURCE DEVELOPERS`
+- Please refer to the [project's documentation](https://github.com/KAN-Team/Careium-AI/tree/main/zDocumentation) to know more about the project scenario 
+- Also, refer to the [CONTRIBUTING.md](https://github.com/KAN-Team/Careium-AI/blob/main/CONTRIBUTING.md) for the purpose of a bug fix or proposing a feature.
+- Navigate to the [main/Models](https://github.com/KAN-Team/Careium-AI/tree/main/Models) directory to give a look at the used AI models
+- Install [Android Studio](https://developer.android.com/studio) with the **Bumblebee version or higher**
+- Sync the [build.gradle-app](https://github.com/KAN-Team/Careium-AI/blob/main/Careium/app/build.gradle) file with `minSDK 28`, `compileSdk 31` or higher making sure of the existence of the additional dependencies below
+  ```
   // Drawer Layout
   implementation 'androidx.drawerlayout:drawerlayout:1.1.1'
 
@@ -359,66 +358,67 @@ According to the Food101 paper <a href="#ref-9">[9]</a>
   androidTestImplementation 'androidx.test:rules:1.4.0'
   androidTestImplementation 'androidx.test:core:1.4.0'
   androidTestImplementation 'androidx.test.ext:junit-ktx:1.1.3'
-``` 
-<HR> <BR>
+  ``` 
+> For the need of accessing the database server, please, contact one of the [main admins](https://github.com/KAN-Team/Careium-AI/blob/main/CONTRIBUTING.md#question) at once.
 
-> <a name="getting-started"></a> <B>2- Getting Started</B> --> `FOR USERS GUIDE` <BR>
+<!-- USER MANUAL: STARTING -->
+### <a name="getting-started"></a> Getting Started --> `FOR END-USERS GUIDANCE`
 
-1- Download the application APK from [[APK]](https://drive.google.com/drive/folders/1nRSwTNkt4A0v-eDkRlX9mrywlo5ADhrR) <BR>
-2- Follow up the below steps to able to use the application well <BR>
+- Download the [app-realease.apk](https://drive.google.com/drive/folders/1nRSwTNkt4A0v-eDkRlX9mrywlo5ADhrR)
+- Follow the tips below for more guidance on how to use **Careium-AI**
+  
+  - <B>TIP #1:</B> Make sure that you are connected to the internet
 
-- <B>STEP #1:</B> Make sure to check that you are connected to the internet.
+  - <B>TIP #2:</B> On the first screen that appears, you can select if you want to login or register
+  
+    ![1_](https://user-images.githubusercontent.com/52586356/188292627-6d7a0ac3-83e5-46ed-82d2-e17806633bf2.png)
 
-- <B>STEP #2:</B> The splash screen is the first screen that appears and here you can select if you want to login or register
+  - <B>TIP #3:</B> If you click on **Register**, you will need to go through three separate screens to enter your data
+    - First Screen: <ins>Name</ins>, <ins>Email</ins>, <ins>Password</ins> and <ins>Confirm Password</ins>
+    - Second Screen: <ins>Height</ins>, <ins>Weight</ins>, <ins>Age</ins> and <ins>Gender</ins>
+    - Third Screen: <ins>adjust your goals</ins>
+    
+    ![2_](https://user-images.githubusercontent.com/52586356/188292630-877b3ff0-3238-4fe4-bd2a-666246a6f561.png)
 
-![1_](https://user-images.githubusercontent.com/52586356/188292627-6d7a0ac3-83e5-46ed-82d2-e17806633bf2.png)
+  - <B>TIP #3 (CONT):</B> If you click on **Login**, a screen will appear to enter the previously registered email and password
+  
+    ![3_](https://user-images.githubusercontent.com/52586356/188292634-ec07c4f0-62f7-4fc4-9fda-1ca3b53c47ec.png)
 
-- <B>STEP #3:</B> If you click on Register, you will need to enter your data into three separate screens. Screens are: <BR>
-o First Screen: Name, Email, Password, and Confirm Password. <BR>
-o Second Screen: Height, Weight, Age, Gender. <BR>
-o Third Screen: adjust your goals. <BR>
+  - <B>TIP #4:</B> Home screen navigations
+    - **Total calories remaining** according to the user's needs (previously determined from his personal desire)
+    - **Left/Bottom navigation bar** that enables the user to explore the application features
+    - **Floating action button** that enables the user to record an action e.g. (food tracker camera, ...)
+    
+    ![4_](https://user-images.githubusercontent.com/52586356/188292637-ef6b4d05-1dee-4779-b46a-18abb5b0dbc0.png)
 
-![2_](https://user-images.githubusercontent.com/52586356/188292630-877b3ff0-3238-4fe4-bd2a-666246a6f561.png)
+  - <B>TIP #5:</B> Users can make private notes that help them to enhance their diet
+  
+    ![5_](https://user-images.githubusercontent.com/52586356/188292640-d3f7f281-ae08-4ce1-8bcc-1170ec022498.png)
 
-- <B>STEP #3 (CONT):</B> If you click on Login, this screen will appear to you. So you can just enter your email and password. <BR>
+  - <a name="tip-6"></a><B>TIP #6:</B> Users can make custom alarms to remind them with each meal time
+  
+    ![6_](https://user-images.githubusercontent.com/52586356/188292646-63845ce4-d362-47f5-9036-4d6d36bd1c41.png)
 
-![3_](https://user-images.githubusercontent.com/52586356/188292634-ec07c4f0-62f7-4fc4-9fda-1ca3b53c47ec.png)
+  - <B>TIP #7:</B> **Careium-AI** provides the user with weekly reports that have detailed information since the last report
+  
+    ![7_](https://user-images.githubusercontent.com/52586356/188292648-33709587-feeb-4c44-b549-609c81698014.png)
 
-- <B>STEP #4:</B> Home Screen Options that contains of:<BR>
-o Total Calories that the user needs it in this day according to his healthy data. <BR>
-o Navigation that enable the user to navigate to application features. <BR>
-o Bottom Button that enable the user to choose the food action such as food tracker camera. <BR>
+  - <B>TIP #8:</B> The user can track his meal using the app camera to get information
+    - The meal name
+    - Total meal calories
+    - Total meal proteins
+    - Total meal fats
+    - Total meal carbs
+    
+    ![8_](https://user-images.githubusercontent.com/52586356/188292652-a3992f42-f5bc-4ed7-aebd-fc3f2b580c4f.png)
 
-![4_](https://user-images.githubusercontent.com/52586356/188292637-ef6b4d05-1dee-4779-b46a-18abb5b0dbc0.png)
+  - <B>TIP #9:</B> Careium-AI sotres each meal image in the meal studio
+  
+    ![9_](https://user-images.githubusercontent.com/52586356/188292654-5bb409bb-39c2-46b6-91c6-af1e836bf9f9.png)
 
-- <B>STEP #5:</B> User Can make his private notes that help him to enhance his diet:<BR>
-
-![5_](https://user-images.githubusercontent.com/52586356/188292640-d3f7f281-ae08-4ce1-8bcc-1170ec022498.png)
-
-- <B>STEP #6:</B> User Can make an alarm to remind him with each meal time:<BR>
-
-![6_](https://user-images.githubusercontent.com/52586356/188292646-63845ce4-d362-47f5-9036-4d6d36bd1c41.png)
-
-- <B>STEP #7:</B> The application provide the user with weekly reports that have detailed information about his health:<BR>
-
-![7_](https://user-images.githubusercontent.com/52586356/188292648-33709587-feeb-4c44-b549-609c81698014.png)
-
-- <B>STEP #8:</B> The user can track his meal using the app camera to get information:<BR>
-o The meal Name. <BR>
-o Totla meal Calories. <BR>
-o Totla meal Proteins. <BR>
-o Totla meal Fats. <BR>
-o Totla meal Carbs. <BR>
-
-![8_](https://user-images.githubusercontent.com/52586356/188292652-a3992f42-f5bc-4ed7-aebd-fc3f2b580c4f.png)
-
-- <B>STEP #9:</B> The application sotres each meal image in the meal studio:<BR>
-
-![9_](https://user-images.githubusercontent.com/52586356/188292654-5bb409bb-39c2-46b6-91c6-af1e836bf9f9.png)
-
-- <B>STEP #10:</B> The breakfast notification message received on time selected before:<BR>
-
-![10_](https://user-images.githubusercontent.com/52586356/188292659-78141836-fc50-4065-b7a3-91eb52ea1e3a.png)
+  - <B>TIP #10:</B> The meal notification message received on time selected before [(from tip #6)](#tip-6)
+  
+    ![10_](https://user-images.githubusercontent.com/52586356/188292659-78141836-fc50-4065-b7a3-91eb52ea1e3a.png)
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
@@ -457,7 +457,8 @@ Credits and thanks go to these wonderful people ([emoji key](https://allcontribu
 ##### &nbsp; &nbsp; [7] <a name="ref-7" href="https://github.com/google-research-datasets/">Google researsh datasets</a> <i>(Last Accessed on 04-2022)</i>
 ##### &nbsp; &nbsp; [8] <a name="ref-8" href="https://www.kaggle.com/dansbecker/food-101">Food 101 | Kaggle.</a> <i>(Last Accessed on 04-2022)</i>
 ##### &nbsp; &nbsp; [9] <a name="ref-9" href="https://data.vision.ee.ethz.ch/cvl/datasets_extra/food-101/static/bossard_eccv14_food-101.pdf">Food-101 { Mining Discriminative Components with Random...</a> <i>(Last Accessed on 04-2022)</i>
-     
+##### &nbsp; &nbsp; [10] <a name="ref-10" href="https://drive.google.com/drive/folders/1nRSwTNkt4A0v-eDkRlX9mrywlo5ADhrR?usp=sharing">Careium APK (app release)</a> <i>(Last Accessed on 07-2022)</i>
+
 <!-- ANOTHER WAY FOR REFERENCES SECTION -->
 <!--
 <ol>
