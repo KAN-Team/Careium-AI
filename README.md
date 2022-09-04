@@ -287,8 +287,8 @@ Depends mostly on the user profile (e.g. calories) Based on his behavior a set o
 - Check the used Deep Learning models [[models]](https://github.com/KAN-Team/Careium-AI/tree/main/Models)
 - App APK to check the output [[APK]](https://drive.google.com/drive/folders/1nRSwTNkt4A0v-eDkRlX9mrywlo5ADhrR)
 - Ask any contributor to give you an access on the database server.
-- Intall Android Studio with Bumblebee version or higher
-- Sync the drawable file with `minSDK 28`, `compileSdk 31` or higher and the below additional dependencies
+- Install Android Studio with Bumblebee version or higher
+- Sync the build.gradle-app file with `minSDK 28`, `compileSdk 31` or higher and the below additional dependencies
 ```
   // Drawer Layout
   implementation 'androidx.drawerlayout:drawerlayout:1.1.1'
