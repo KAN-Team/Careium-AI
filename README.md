@@ -7,6 +7,7 @@
 
 <div align="center">
  
+ <!-- REPO FAST LINKS -->
 [![GitHub contributors](https://img.shields.io/github/contributors/KAN-Team/Careium-AI)](https://github.com/KAN-Team/Careium-AI/contributors)
 [![GitHub issues](https://img.shields.io/github/issues/KAN-Team/Careium-AI)](https://github.com/KAN-Team/Careium-AI/issues)
 [![GitHub forks](https://img.shields.io/github/forks/KAN-Team/Careium-AI)](https://github.com/KAN-Team/Careium-AI/network)
@@ -53,12 +54,12 @@ for each mealtime.
 
 <div style="display:flex;">
 
-- Providing Weekly Reports
-- Meals' Time Alarm
+- Providing weekly reports
+- Meals' time alarm
 - Capturing an image of the eaten food plate
 - Recognizing the food ingredients
 - Predicting the food nutrients (calories, fats, carbs, proteins)
-- Other User Profile Manipulations e.g. (profile viewing/editing, login/register authentication, etc...)
+- Other user profile manipulations e.g. (profile viewing/editing, login/register authentication, etc...)
 
 </div>
 
@@ -88,6 +89,13 @@ for each mealtime.
       </ul>
     </li>
     <li>
+      <a href="#-datasets"> ➤ Datasets</a>
+      <ul>
+        <li><a href="#nutrition5k-6">Nutrition 5k</a></li>
+        <li><a href="#food101-8">Food 101</a></li>
+      </ul>
+    </li>
+    <li>
       <a href="#-development"> ➤ Development</a>
       <ul>
         <li><a href="#dev-guidelines">General Guidelines & Preprocessing Techniques</a></li>
@@ -95,7 +103,6 @@ for each mealtime.
         <li><a href="#c1-trials--outcomes">C1 Trials & Outcomes</a></li>
       </ul>
     </li>
-    <li><a href="#-design"> ➤ Design</a></li>
     <li><a href="#-testing"> ➤ Testing</a></li>
     <li>
       <a href="#-user-manual"> ➤ User Manual</a>
@@ -227,12 +234,36 @@ Depends mostly on the user profile (e.g. calories) Based on his behavior a set o
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
+## 💽 Datasets
+
+<!-- DATASETS: NUTRITION5K-->
+#### Nutrition5K <a href="#ref-6">[6]</a>
+According to Google research datasets <a href="#ref-7">[7]</a>:
+ - **Nutrition5k** is a dataset of visual and nutritional data for ~5k realistic plates of food.
+ - **Nutrition5k** Scans data for 5,006 plates of food, each containing:
+   - 4 rotating side-angle videos
+   - Overhead RGB-D images (when available)
+   - Fine-grained list of ingredients
+   - Per-ingredient mass
+   - Total dish mass and calories
+   - Fat, protein, and carbohydrate macronutrient masses
+
+<!-- DATASETS: FOOD101-->
+#### Food101 <a href="#ref-8">[8]</a>
+According to the Food101 paper <a href="#ref-9">[9]</a>
+**Food101** is a dataset of 101,000 real-world images in total:
+  - 750 training images
+  - 250 testing images
+  - the training images were not cleaned, and thus still contain some amount of noise
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
 ## 💻 Development 
 
 <!-- DEVELOPMENT: GENERAL GUIDELINES -->
 #### <a name="dev-guidelines"></a> General Guidelines & Preprocessing Techniques
-- Uses Nutrition 5k Dataset for Regression
-- Uses Food 101 Dataset for Classification
+- Uses **Nutrition5k** Dataset for Regression
+- Uses **Food101** Dataset for Classification
 - Train-Valid-Test split
   * Train Size => 2771
   * Valid Size => 380
@@ -268,10 +299,6 @@ Depends mostly on the user profile (e.g. calories) Based on his behavior a set o
   <br/> 
   <i>Careium-AI C1 Performance</i>
 </p>
-
-![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
-
-## 📱 Design
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
@@ -426,7 +453,11 @@ Credits and thanks go to these wonderful people ([emoji key](https://allcontribu
 ##### &nbsp; &nbsp; [3] <a name="ref-3" href="https://ieeexplore.ieee.org/document/9397023"> Food Calories Estimation Using Machine Learning, author: Vishakha A. Metre Apr 09, 2021</a> <i>(Last Accessed on 12-2021)</i>
 ##### &nbsp; &nbsp; [4] <a name="ref-4" href="https://play.google.com/store/apps/details?id=com.healthifyme.basic&hl=en&gl=US">HealthifyMe: related existing application </a> <i>(Last Accessed on 03-2022)</i>
 ##### &nbsp; &nbsp; [5] <a name="ref-5" href="https://www.myfitnesspal.com/">Myfitnesspal: related existing application </a> <i>(Last Accessed on 05-2022)</i>
-
+##### &nbsp; &nbsp; [6] <a name="ref-6" href="https://github.com/google-research-datasets/Nutrition5k">github.com/google-research-datasets/Nutrition5k</a> <i>(Last Accessed on 04-2022)</i>
+##### &nbsp; &nbsp; [7] <a name="ref-7" href="https://github.com/google-research-datasets/">Google researsh datasets</a> <i>(Last Accessed on 04-2022)</i>
+##### &nbsp; &nbsp; [8] <a name="ref-8" href="https://www.kaggle.com/dansbecker/food-101">Food 101 | Kaggle.</a> <i>(Last Accessed on 04-2022)</i>
+##### &nbsp; &nbsp; [9] <a name="ref-9" href="https://data.vision.ee.ethz.ch/cvl/datasets_extra/food-101/static/bossard_eccv14_food-101.pdf">Food-101 { Mining Discriminative Components with Random...</a> <i>(Last Accessed on 04-2022)</i>
+     
 <!-- ANOTHER WAY FOR REFERENCES SECTION -->
 <!--
 <ol>
