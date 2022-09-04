@@ -100,7 +100,7 @@ for each mealtime.
     <li>
       <a href="#-user-manual"> ➤ User Manual</a>
       <ul>
-        <li><a href="#installation-guide">Installation Guide</a></li>
+        <li><a href="#installation-guide"> Installation Guide</a></li>
         <li><a href="#getting-started">Getting Started</a></li>
       </ul>
     </li>
@@ -282,10 +282,11 @@ Depends mostly on the user profile (e.g. calories) Based on his behavior a set o
 ## 📖 User Manual 
 <!-- Installation Guide & Getting Started -->
 
->  <B>1- Installation Guide</B> --> `FOR OPEN SOURCE DEVELOPERS` <BR>
+>  <a name="installation-guide"></a> <B>1- Installation Guide</B> --> `FOR OPEN SOURCE DEVELOPERS` <BR>
 - Read the application documentation to know more about the project senario [[DOC]](https://github.com/KAN-Team/Careium-AI/tree/main/zDocumentation)
 - Check the used Deep Learning models [[models]](https://github.com/KAN-Team/Careium-AI/tree/main/Models)
 - App APK to check the output [[APK]](https://drive.google.com/drive/folders/1nRSwTNkt4A0v-eDkRlX9mrywlo5ADhrR)
+- Ask any contributor to give you an access on the database server.
 - Intall Android Studio with Bumblebee version or higher
 - Sync the drawable file with `minSDK 28`, `compileSdk 31` or higher and the below additional dependencies
 ```
@@ -332,10 +333,65 @@ Depends mostly on the user profile (e.g. calories) Based on his behavior a set o
   androidTestImplementation 'androidx.test:core:1.4.0'
   androidTestImplementation 'androidx.test.ext:junit-ktx:1.1.3'
 ``` 
+<HR> <BR>
 
-<BR>
+> <a name="getting-started"></a> <B>2- Getting Started</B> --> `FOR USERS GUIDE` <BR>
 
+1- Download the application APK from [[APK]](https://drive.google.com/drive/folders/1nRSwTNkt4A0v-eDkRlX9mrywlo5ADhrR) <BR>
+2- Follow up the below steps to able to use the application well <BR>
 
+- <B>STEP #1:</B> Make sure to check that you are connected to the internet.
+
+- <B>STEP #2:</B> The splash screen is the first screen that appears and here you can select if you want to login or register
+
+![1](https://user-images.githubusercontent.com/52586356/188290288-d31c733e-b18c-4ddd-9697-87675245ee4f.png)
+
+- <B>STEP #3:</B> If you click on Register, you will need to enter your data into three separate screens. Screens are: <BR>
+o First Screen: Name, Email, Password, and Confirm Password. <BR>
+o Second Screen: Height, Weight, Age, Gender. <BR>
+o Third Screen: adjust your goals. <BR>
+
+![2](https://user-images.githubusercontent.com/52586356/188290542-223343fb-6ce0-4c18-b0dd-8b4013b9b345.png)
+
+- <B>STEP #3 (CONT):</B> If you click on Login, this screen will appear to you. So you can just enter your email and password. <BR>
+
+![3](https://user-images.githubusercontent.com/52586356/188290729-2bf88d39-7b22-4139-b3ca-29dec86bb352.png)
+
+- <B>STEP #4:</B> Home Screen Options that contains of:<BR>
+o Total Calories that the user needs it in this day according to his healthy data. <BR>
+o Navigation that enable the user to navigate to application features. <BR>
+o Bottom Button that enable the user to choose the food action such as food tracker camera. <BR>
+
+![4](https://user-images.githubusercontent.com/52586356/188290799-b31abfe9-55a1-428e-9d12-a4782bac2102.png)
+
+- <B>STEP #5:</B> User Can make his private notes that help him to enhance his diet:<BR>
+
+![5](https://user-images.githubusercontent.com/52586356/188290963-070788aa-c83f-4608-8d16-bd8caa2a93e3.png)
+
+- <B>STEP #6:</B> User Can make an alarm to remind him with each meal time:<BR>
+
+![6](https://user-images.githubusercontent.com/52586356/188291054-1d1d25b4-8e8d-43ec-b5b6-418350e07e56.png)
+
+- <B>STEP #7:</B> The application provide the user with weekly reports that have detailed information about his health:<BR>
+
+![7](https://user-images.githubusercontent.com/52586356/188291238-102a658b-4531-4f61-89bf-e8df08aa76be.png)
+
+- <B>STEP #8:</B> The user can track his meal using the app camera to get information:<BR>
+o The meal Name. <BR>
+o Totla meal Calories. <BR>
+o Totla meal Proteins. <BR>
+o Totla meal Fats. <BR>
+o Totla meal Carbs. <BR>
+
+![8](https://user-images.githubusercontent.com/52586356/188291386-2f19fc12-1362-44e1-992a-20230ce54f84.png)
+
+- <B>STEP #9:</B> The application sotres each meal image in the meal studio:<BR>
+
+![9](https://user-images.githubusercontent.com/52586356/188291514-bd85219e-33c1-4795-b62d-6e101a647093.png)
+
+- <B>STEP #10:</B> The breakfast notification message received on time selected before:<BR>
+
+![10](https://user-images.githubusercontent.com/52586356/188291551-8b7f4483-dfe1-4efa-8973-82027ac742b2.png)
 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
