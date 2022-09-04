@@ -344,37 +344,37 @@ Depends mostly on the user profile (e.g. calories) Based on his behavior a set o
 
 - <B>STEP #2:</B> The splash screen is the first screen that appears and here you can select if you want to login or register
 
-![1](https://user-images.githubusercontent.com/52586356/188290288-d31c733e-b18c-4ddd-9697-87675245ee4f.png)
+![1_](https://user-images.githubusercontent.com/52586356/188292627-6d7a0ac3-83e5-46ed-82d2-e17806633bf2.png)
 
 - <B>STEP #3:</B> If you click on Register, you will need to enter your data into three separate screens. Screens are: <BR>
 o First Screen: Name, Email, Password, and Confirm Password. <BR>
 o Second Screen: Height, Weight, Age, Gender. <BR>
 o Third Screen: adjust your goals. <BR>
 
-![2](https://user-images.githubusercontent.com/52586356/188290542-223343fb-6ce0-4c18-b0dd-8b4013b9b345.png)
+![2_](https://user-images.githubusercontent.com/52586356/188292630-877b3ff0-3238-4fe4-bd2a-666246a6f561.png)
 
 - <B>STEP #3 (CONT):</B> If you click on Login, this screen will appear to you. So you can just enter your email and password. <BR>
 
-![3](https://user-images.githubusercontent.com/52586356/188290729-2bf88d39-7b22-4139-b3ca-29dec86bb352.png)
+![3_](https://user-images.githubusercontent.com/52586356/188292634-ec07c4f0-62f7-4fc4-9fda-1ca3b53c47ec.png)
 
 - <B>STEP #4:</B> Home Screen Options that contains of:<BR>
 o Total Calories that the user needs it in this day according to his healthy data. <BR>
 o Navigation that enable the user to navigate to application features. <BR>
 o Bottom Button that enable the user to choose the food action such as food tracker camera. <BR>
 
-![4](https://user-images.githubusercontent.com/52586356/188290799-b31abfe9-55a1-428e-9d12-a4782bac2102.png)
+![4_](https://user-images.githubusercontent.com/52586356/188292637-ef6b4d05-1dee-4779-b46a-18abb5b0dbc0.png)
 
 - <B>STEP #5:</B> User Can make his private notes that help him to enhance his diet:<BR>
 
-![5](https://user-images.githubusercontent.com/52586356/188290963-070788aa-c83f-4608-8d16-bd8caa2a93e3.png)
+![5_](https://user-images.githubusercontent.com/52586356/188292640-d3f7f281-ae08-4ce1-8bcc-1170ec022498.png)
 
 - <B>STEP #6:</B> User Can make an alarm to remind him with each meal time:<BR>
 
-![6](https://user-images.githubusercontent.com/52586356/188291054-1d1d25b4-8e8d-43ec-b5b6-418350e07e56.png)
+![6_](https://user-images.githubusercontent.com/52586356/188292646-63845ce4-d362-47f5-9036-4d6d36bd1c41.png)
 
 - <B>STEP #7:</B> The application provide the user with weekly reports that have detailed information about his health:<BR>
 
-![7](https://user-images.githubusercontent.com/52586356/188291238-102a658b-4531-4f61-89bf-e8df08aa76be.png)
+![7_](https://user-images.githubusercontent.com/52586356/188292648-33709587-feeb-4c44-b549-609c81698014.png)
 
 - <B>STEP #8:</B> The user can track his meal using the app camera to get information:<BR>
 o The meal Name. <BR>
@@ -383,16 +383,15 @@ o Totla meal Proteins. <BR>
 o Totla meal Fats. <BR>
 o Totla meal Carbs. <BR>
 
-![8](https://user-images.githubusercontent.com/52586356/188291386-2f19fc12-1362-44e1-992a-20230ce54f84.png)
+![8_](https://user-images.githubusercontent.com/52586356/188292652-a3992f42-f5bc-4ed7-aebd-fc3f2b580c4f.png)
 
 - <B>STEP #9:</B> The application sotres each meal image in the meal studio:<BR>
 
-![9](https://user-images.githubusercontent.com/52586356/188291514-bd85219e-33c1-4795-b62d-6e101a647093.png)
+![9_](https://user-images.githubusercontent.com/52586356/188292654-5bb409bb-39c2-46b6-91c6-af1e836bf9f9.png)
 
 - <B>STEP #10:</B> The breakfast notification message received on time selected before:<BR>
 
-![10](https://user-images.githubusercontent.com/52586356/188291551-8b7f4483-dfe1-4efa-8973-82027ac742b2.png)
-
+![10_](https://user-images.githubusercontent.com/52586356/188292659-78141836-fc50-4065-b7a3-91eb52ea1e3a.png)
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
