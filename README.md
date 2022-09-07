@@ -425,17 +425,16 @@ According to the Food101 paper <a href="#ref-9">[9]</a>,
 ### 💡 Conclusion
 <a href="#-conclusion"></a>
 
-&nbsp; &nbsp; &nbsp; &nbsp; Careium AI Food Tracker shows astonishing results compared to what was expected for a simple use case example. Capturing the food plate, long dish, deep dish or even scattered amount of food, Careium can still segment the food region, process it and predicts the main five nutrition components (Calories, Mass, Fat, Carbs, Proteins). Calories are measured in cal, all others are measured in grams. It can be used in classifying a mixed dish of food into multiple food categories, generating food eaten reports periodically, recommending a proper meal from a set of different available meals in a given dataset and giving alarms for each mealtime.
+&nbsp; &nbsp; &nbsp; &nbsp; Careium AI Food Tracker shows astonishing results compared to what was expected for a simple use case example. Capturing the food plate, long dish, deep dish or even scattered amount of food, Careium can still segment the food region, process it and predicts the main five nutrition components (Calories, Mass, Fat, Carbs, Proteins). Calories are measured in cal, all others are measured in grams. It can be used in classifying a mixed dish of food into multiple food categories, generating food-eaten reports periodically, recommending a proper meal from a set of different available meals in a given dataset and giving alarms for each mealtime.
 
-#### The below points sum up the features that the project serve:
-- Having an android mobile application that helps the users to manage/track their healthy life.
-- The user can analyze the meal ingredients to know the nutrition components (Calories, Fats, Proteins, Carbs, etc…).
-- The user can write his private daily diet notes and store the meals photo capturing by Careium Camera.
-- The application generates weekly reports about the user activities and his target matches with his goal.
-- Managing and reminding for each meal time.
-- The application recommends to the user food meals based on his Calories needs.
-
-> #### Finally <BR> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Our hope is that the release of this project will inspire further innovation in the automatic nutritional understanding space and provide a benchmark for the evaluation of future techniques. Download it and enjoy with our release ☺️.
+&nbsp; &nbsp; &nbsp; &nbsp; We provide evidence of the challenging nature of visual annotation in our human portion size
+estimation studies, demonstrating the limitations of typical data annotation
+approaches in this space. We validate the effectiveness of our approach to data
+collection and the resulting **Nutrition5k** <a href="#ref-6">[6]</a> dataset by training a neural network that
+can outperform professional nutritionists at caloric and macronutrient estimation in
+the generic food setting. We further introduce multiple baseline approaches of
+incorporating depth data to significantly improve upon our direct nutritional
+prediction from 2D images alone.
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
@@ -455,6 +454,9 @@ Credits and thanks go to these wonderful people ([emoji key](https://allcontribu
     <td align="center"><a href="https://github.com/nada263"><img src="https://user-images.githubusercontent.com/48348589/187675250-ff957956-6bda-42e8-85f9-89bf7c7f8d6a.jpg" width="100px;" alt="Nada Mohamed's Image"/><br/><sub><b>Nada M. Abdelhamed</b></sub></a><br/> <a href="" title="Design">🎨 <a href="" title="Documentation">📖 </td>
   </tr>
 </table>
+
+#### A word from our leaders 
+> Our hope is that the release of this project will inspire further innovation in the automatic nutritional understanding space and provide a benchmark for the evaluation of future techniques. Download it and enjoy with our release ☺️.
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
