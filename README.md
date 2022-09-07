@@ -423,6 +423,19 @@ According to the Food101 paper <a href="#ref-9">[9]</a>,
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ### 💡 Conclusion
+<a href="#-conclusion"></a>
+
+&nbsp; &nbsp; &nbsp; &nbsp; Careium AI Food Tracker shows astonishing results compared to what was expected for a simple use case example. Capturing the food plate, long dish, deep dish or even scattered amount of food, Careium can still segment the food region, process it and predicts the main five nutrition components (Calories, Mass, Fat, Carbs, Proteins). Calories are measured in cal, all others are measured in grams. It can be used in classifying a mixed dish of food into multiple food categories, generating food eaten reports periodically, recommending a proper meal from a set of different available meals in a given dataset and giving alarms for each mealtime.
+
+#### The below points sum up the features that the project serve:
+- Having an android mobile application that helps the users to manage/track their healthy life.
+- The user can analyze the meal ingredients to know the nutrition components (Calories, Fats, Proteins, Carbs, etc…).
+- The user can write his private daily diet notes and store the meals photo capturing by Careium Camera.
+- The application generates weekly reports about the user activities and his target matches with his goal.
+- Managing and reminding for each meal time.
+- The application recommends to the user food meals based on his Calories needs.
+
+> #### Finally <BR> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Our hope is that the release of this project will inspire further innovation in the automatic nutritional understanding space and provide a benchmark for the evaluation of future techniques. Download it and enjoy with our release ☺️.
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
@@ -436,9 +449,9 @@ Credits and thanks go to these wonderful people ([emoji key](https://allcontribu
 <table>
   <tr>
     <td align="center"><a href="https://github.com/kareem100"><img src="https://user-images.githubusercontent.com/48348589/187675187-d7b4dfb2-9c21-44a0-94a7-354917eb01ed.png" width="100px;" alt="Kareem Sherif's Image"/><br/><sub><b>Kareem S. Fathy</b></sub></a><br/><a href="https://github.com/KAN-Team/Careium-AI/tree/main/Models" title="Data">🔣</a> <a href="https://github.com/KAN-Team/Careium-AI/commits?author=kareem100" title="Code">💻</a> <a href="https://github.com/KAN-Team/Careium-AI/issues?q=is%3Aissue+author%3AKareem100" title="Bug Reports">🐛</a> <a href="https://github.com/KAN-Team/Careium-AI/issues/assigned/Kareem100" title="Ally">♿️</a> </td>
-    <td align="center"><a href="https://github.com/kareem983"><img src="https://user-images.githubusercontent.com/48348589/187675210-25025334-b0bf-4b55-a7ab-ecab0c7881bd.jpg" width="100px;" alt="Kareem Saeed's Image"/><br/><sub><b>Kareem S. Ragab</b></sub></a><br/><a href="https://github.com/KAN-Team/Careium-AI/commits?author=kareem983" title="Code">💻</a> <a href="https://github.com/KAN-Team/Careium-AI/issues?q=is%3Aissue+author%3Akareem983" title="Bug Reports">🐛</a> <a href="https://github.com/KAN-Team/Careium-AI/issues/assigned/kareem983" title="Ally">♿️</a> </td>
-    <td align="center"><a href="https://github.com/kareem983"><img src="https://user-images.githubusercontent.com/48348589/187675220-52182d10-901d-4706-ab79-19aec08bcf7c.jpg" width="100px;" alt="Abanoub Asaad's Image"/><br/><sub><b>Abanoub A. Azaab</b></sub></a><br/><a href="https://stackoverflow.com/users/15864740/abanoub-asaad" title="Blogposts">📝</a> <a href="https://askubuntu.com/users/1247223/abanoub-asaad" title="Questions">💬</a>
-    <td align="center"><a href="https://github.com/kareem983"><img src="https://user-images.githubusercontent.com/48348589/187675235-a022e96b-48af-4130-8916-d6e4457cb417.jpg" width="100px;" alt="Nada ElSayed's Image"/><br/><sub><b>Nada S. Anies</b></sub></a><br/><a href="https://github.com/KAN-Team/Careium-AI/commits?author=nada-elsayed-anies" title="Code">💻</a> <a href="href="https://github.com/KAN-Team/Careium-AI/issues?q=is%3Aissue+author%3Anada-elsayed-anies" title="Bug reports">🐛</a> <a href="" title="Design">🎨 </td>
+    <td align="center"><a href="https://github.com/kareem983"><img src="https://user-images.githubusercontent.com/48348589/187675210-25025334-b0bf-4b55-a7ab-ecab0c7881bd.jpg" width="100px;" alt="Kareem Saeed's Image"/><br/><sub><b>Kareem S. Ragab</b></sub></a><br/><a href="https://github.com/KAN-Team/Careium-AI/commits?author=kareem983" title="Code">💻</a> <a href="https://github.com/KAN-Team/Careium-AI/issues?q=is%3Aissue+author%3Akareem983" title="Bug Reports">🐛</a> <a href="https://github.com/KAN-Team/Careium-AI/issues?q=is%3Aissue+assignee%3Akareem983+is%3Aclosed" title="Issues">♿️</a> </td>
+    <td align="center"><a href="https://github.com/Abanoub-Asaad"><img src="https://user-images.githubusercontent.com/48348589/187675220-52182d10-901d-4706-ab79-19aec08bcf7c.jpg" width="100px;" alt="Abanoub Asaad's Image"/><br/><sub><b>Abanoub A. Azaab</b></sub></a><br/><a href="https://stackoverflow.com/users/15864740/abanoub-asaad" title="Blogposts">📝</a> <a href="https://askubuntu.com/users/1247223/abanoub-asaad" title="Questions">💬</a>
+    <td align="center"><a href="https://github.com/nada-elsayed-anies"><img src="https://user-images.githubusercontent.com/48348589/187675235-a022e96b-48af-4130-8916-d6e4457cb417.jpg" width="100px;" alt="Nada ElSayed's Image"/><br/><sub><b>Nada S. Anies</b></sub></a><br/><a href="https://github.com/KAN-Team/Careium-AI/commits?author=nada-elsayed-anies" title="Code">💻</a> <a href="href="https://github.com/KAN-Team/Careium-AI/issues?q=is%3Aissue+author%3Anada-elsayed-anies" title="Bug reports">🐛</a> <a href="" title="Design">🎨 </td>
     <td align="center"><a href="https://github.com/nada263"><img src="https://user-images.githubusercontent.com/48348589/187675250-ff957956-6bda-42e8-85f9-89bf7c7f8d6a.jpg" width="100px;" alt="Nada Mohamed's Image"/><br/><sub><b>Nada M. Abdelhamed</b></sub></a><br/> <a href="" title="Design">🎨 <a href="" title="Documentation">📖 </td>
   </tr>
 </table>
