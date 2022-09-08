@@ -103,7 +103,13 @@ for each mealtime.
         <li><a href="#c1-trials--outcomes">C1 Trials & Outcomes</a></li>
       </ul>
     </li>
-    <li><a href="#-testing"> ➤ Testing</a></li>
+    <li>
+     <a href="#-testing"> ➤ Testing</a>
+     <ul>
+        <li><a href="#unit-testing">Unit Testing</a></li>
+        <li><a href="#ui-testing">UI Testing</a></li>
+      </ul>
+    </li>
     <li>
       <a href="#-user-manual"> ➤ User Manual</a>
       <ul>
@@ -303,6 +309,18 @@ According to the Food101 paper <a href="#ref-9">[9]</a>,
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ## 🔌 Testing
+
+#### Unit Testing
+we tested the core application pillars by adding unit tests to robust functions in the application.
+- A snapshot of a unit test to validate the **login input** <BR>
+ ![](https://user-images.githubusercontent.com/48348589/189199093-e728b92d-a4c2-4011-887d-cd5ca9b6c6ca.png)
+
+- A snapshot of another unit test to validate the **register input**
+ ![](https://user-images.githubusercontent.com/48348589/189199181-f0f64027-275d-4747-aac2-b2e3bb6ae593.png)
+
+#### UI Testing
+we tested the frontend UI by adding UI tests to test the visibility of the screens, text, buttons, and much more. 
+![](https://user-images.githubusercontent.com/48348589/189199439-904bfe72-72b7-48fa-9d5f-676e849e3485.png)
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
